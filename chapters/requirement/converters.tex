@@ -1,0 +1,26 @@
+\newcommand{\reqconverters}{The delay unit must delay the input signal, in time defined by external unit.}
+
+\reqPrefix{Converter}
+\section{Converters}
+Based on \autoref{sec:pickups}, the requirements for the \gls{adc} and the \gls{dac} are as follows:
+
+\begin{requirement}\label{req:ADC_resolution}
+    \requirement{The \gls{adc} much have a resolution of at least 10 bits.}
+    \argument{This requirement is made according to \autoref{eq:dB_max_min_guitar_out}.}
+\end{requirement}
+
+
+\begin{requirement}\label{req:ADC_Fs}
+    \requirement{The sampling frequency of the \gls{adc} must be at least \SI{8.8}{\kilo \hertz}. }
+    \argument{This requirement is made according to \autoref{tab:frequency_area}.}
+\end{requirement}
+
+\begin{requirement}\label{req:DAC_resolution}
+    \requirement{The \gls{dac} much have a resolution of at least 10 bits.}
+    \argument{This requirement is made according to \autoref{eq:dB_max_min_guitar_out}.}
+\end{requirement}
+
+\begin{requirement}\label{req:DAC_Fs}
+    \requirement{The sampling frequency of the \gls{dac} must be at least \SI{8.8}{\kilo \hertz}. }
+    \argument{This requirement is made according to \autoref{tab:frequency_area}.}
+\end{requirement}

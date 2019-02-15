@@ -1,0 +1,36 @@
+
+\reqPrefix{Pre-Amplifier}
+\section{\gls{preamp}}
+
+Based on the \autoref{ch:analysing}, the following requirements are made for \gls{preamp}:
+
+\begin{requirement}\label{req:preamp1}
+    \requirement{The \gls{preamp} must not change the signal amplitude more than $\pm$\SI{1}{\decibel} between 20 Hz and 20 kHz.}
+    \argument{The hearing range for the human being is between 20 Hz and 20 kHz, thus no radical changes between those values means that the user will not feel any difference.}
+\end{requirement}
+
+\begin{requirement}\label{req:preamp2}
+    \requirement{The input impedance of the \gls{preamp} must be ten times higher than the maximum tested output impedance of the guitar.}
+    \argument{To reduce the signal loss between the guitar and the \gls{preamp}.}
+\end{requirement}
+
+\begin{requirement}\label{req:preamp3}
+    \requirement{The output impedance of the \gls{preamp} must be ten times lower than the maximum input impedance of the of the \gls{dsp}.}
+    \argument{To reduce the signal loss between the \gls{dsp} and the \gls{preamp}.}
+\end{requirement}
+
+\begin{requirement}\label{req:preamp4}
+    \requirement{The supply for the \gls{preamp} must have a maximum supply voltage of \SI{9}{\volt}.}
+    \argument{It is based on the fifth basic requirement \ref{req:power2} above which states that the used power supply is \SI{9}{\volt}.}
+\end{requirement}
+
+\begin{requirement}\label{req:preamp5}
+    \requirement{The connection between the \gls{preamp} and guitar needs to be made with a 6.35 millimeter jack connector(the 6.35 millimeter size is on the guitar side).}
+    \argument{This requirement is based on the guitar characteristics.}
+\end{requirement}
+
+\begin{requirement}\label{req:preamp6}
+    \requirement{The \gls{preamp} must be able to fit inside the jack connector house.}
+    \argument{To reduce the influence of the cables capacitance.}
+\end{requirement}
+

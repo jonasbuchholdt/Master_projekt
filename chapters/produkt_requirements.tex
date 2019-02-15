@@ -1,0 +1,40 @@
+This chapter lists the requirements for the effects, which will be designed. From \autoref{ch:analysing} it is seen that some of the effects can be designed together, because the effects use the same parts but multiple times or with a small modification. The following description tells shortly about the difference in the effect blocks and which effects that can be designed together.
+
+\paragraph*{Basic filtering}
+The only effect in \autoref{ch:analysing}, where a basic filter is used, which is a filter without frequency scaling, is in the Equalizer.
+
+\paragraph{Frequency scaling filter}
+The only effect in \autoref{ch:analysing}, where a frequency scaling filter is used is in the Wah-Wah effect.
+
+\paragraph{Delay}
+All the delay based effects have at least one delay block and have both short and long delays. The analysed delay-based effects in \autoref{ch:analysing} are:
+\begin{itemize}
+	\item Delay
+	\item \gls{reverb}
+	\item Flanger
+	\item Chorus
+\end{itemize} 
+
+The block diagram in each effect, shows that pair wise effects have a common structure. The chorus is the flanger with the same effect added more than once. The same is the case for the \gls{reverb} and the delay. Then the only two effects which needs to be designed is the chorus and the \gls{reverb}, because the flanger and the delay can be made by removing parts in the chorus and the \gls{reverb} respectively.
+
+\paragraph{Non-linear processing}
+From the effects described in \autoref{ch:analysing}, it is found that the two effects that use non-linear processing are:
+\begin{itemize}
+	\item Distortion
+	\item Overdrive
+\end{itemize} 
+
+\subsection{Choice of Effects to be Designed}
+Five out of the eight effects that where analysed in \autoref{ch:analysing}, will be selected to be designed. The five effects are:
+\begin{itemize}
+	\item \gls{reverb}
+	\item Delay
+	\item Chorus
+	\item Flanger
+	\item Equalizer
+	%\item Wah-Wah
+\end{itemize}
+
+Requirements will be made for the overall system and for each effect individually 
+ 
+ 

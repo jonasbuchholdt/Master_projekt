@@ -1,0 +1,15 @@
+%\newcommand{\reqInversebandpassfilter}{The delay unit must delay the input signal, in time defined by external unit.}
+
+\reqPrefix{Flanger}
+\section{Flanger}
+Based on the \autoref{sec:chorus}, the following requirements are made for the flanger effect:
+
+\begin{requirement}\label{req:flanger1}
+    \requirement{The \gls{lfo} in the chorus effect must make a sine wave from \SI{0.1}{\hertz} to \SI{10}{\hertz}  }
+    \argument{Functional requirement. }
+\end{requirement}
+
+\begin{requirement}\label{req:flanger2}
+    \requirement{The user must be able to change the gain in the flanger effect.}
+    \argument{Design choice to make the effect flexible for the user.}
+\end{requirement}

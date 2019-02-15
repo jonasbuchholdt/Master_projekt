@@ -1,0 +1,32 @@
+\newcommand{\reqbasis}{The delay unit must delay the input signal, in time defined by external unit.}
+
+\reqPrefix{BC}
+\section{Basic Requirements (\reqPrefixName)} \label{sec:basic_req}
+Based on \autoref{ch:analysing}, the basic requirements are as follows:
+
+\begin{requirement}\label{req:dsp}
+    \requirement{All effects must be implemented digitally.}
+    \argument{This requirement is made according to the problem analysis conclusion \autoref{ch:analysing_cl}.}
+\end{requirement}
+
+
+\begin{requirement}\label{req:speed}
+    \requirement{All calculations made in one effect must be made faster than the sample frequency. }
+    \argument{The processing component must be fast enough to calculate at least one effect between two samples.}
+\end{requirement}
+
+\begin{requirement}\label{req:SNR}
+    \requirement{The \gls{snr} in the final system must be larger than the \gls{snr} in the guitar (\SI{70.06}{\decibel}).}
+    \argument{The final system must not decrease the sound quality noise wise.}
+\end{requirement}
+
+\begin{requirement}\label{req:power}
+    \requirement{The maximum output of any of the effects must not be larger than what the \gls{dac} can represent.}
+    \argument{Functional requirement.}
+\end{requirement}
+
+\begin{requirement}\label{req:power2}
+    \requirement{The product shall be powered by a \SI{9}{\volt} power supply.}
+    \argument{Design choice.}
+\end{requirement}
+

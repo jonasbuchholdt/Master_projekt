@@ -1,0 +1,15 @@
+%\newcommand{\reqbandpass}{The delay unit must delay the input signal, in time defined by external unit.}
+
+\reqPrefix{EQ}
+\section{Equalizer (\reqPrefixName)}
+Based on \autoref{sec:equalizing}, the following requirements are made for the equalizer:
+
+\begin{requirement}\label{req:equalizer}
+    \requirement{The gain of each individual band in the equalizer must be changeable by the user.}
+    \argument{In order to give the user the possibility of equalizing the sound as wanted.}
+\end{requirement}
+
+\begin{requirement}\label{req:equalizer2}
+    \requirement{Each band in the equalizer must, when fully amplified or fully attenuated, drop \SI{6}{\decibel} at the neighbouring bands center frequencies.}
+    \argument{In order to make each band independent so the user can change one frequency area, without affecting the others.}
+\end{requirement}

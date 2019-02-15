@@ -1,0 +1,16 @@
+%\newcommand{\reqlfo}{The delay unit must delay the input signal, in time defined by external unit.}
+
+\reqPrefix{Chorus}
+\section{Chorus}
+Based on \autoref{sec:chorus}, the following requirements are made for the chorus effect:
+
+\begin{requirement}\label{req:chorus1}
+    \requirement{The \gls{lfo} in the chorus effect must make a sine wave from \SI{0.1}{\hertz} to \SI{10}{\hertz}  }
+    \argument{Functional requirement. }
+\end{requirement}
+
+\begin{requirement}\label{req:chorus2}
+    \requirement{The user must be able to choose the number of delay lines and gain in the chorus effect.}
+    \argument{Design choice to make the effect flexible for the user.}
+\end{requirement}
+

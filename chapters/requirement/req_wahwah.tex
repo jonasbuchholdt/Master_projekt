@@ -1,0 +1,18 @@
+%\newcommand{\reqgain}{The delay unit must delay the input signal, in time defined by external unit.}
+
+\reqPrefix{Wah-Wah}
+\section{Wah-Wah}
+Based on \autoref{ch:analysing}, the following requirements are made for the Wah-Wah effect:
+
+\begin{requirement}\label{req:WahWah}
+    \requirement{The center frequency of the filter in the Wah-Wah must be changeable in the frequency area from \SI{80}{\hertz} to \SI{4400}{\hertz}.}
+    \argument{The effects modulation area must cover the guitar frequency area, found in \autoref{app:frequency_area}.}
+\end{requirement}
+
+\begin{requirement}\label{req:WahWah2}
+    \requirement{The center frequency of the filter in the Wah-Wah effect must be changeable by either an \gls{lfo} or an input from the user.}
+    \argument{Functional requirement.}
+\end{requirement}
+
+
+

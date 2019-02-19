@@ -310,14 +310,14 @@ hi-fi-forstærker%
 
 
 
-\def\startexplain{\setcounter{firstexplain}{1}{\noindent}{\par\noindent}\begin{tabular}{@{}p{.06\columnwidth}p{.04\columnwidth}@{}p{.72\columnwidth}@{\hskip.04\columnwidth}p{.02\columnwidth}@{}}}%
+\def\startexplain{\setcounter{firstexplain}{1}{\noindent}{\par\noindent}\renewcommand{\arraystretch}{1}\begin{tabular}{@{}p{.06\columnwidth}p{.04\columnwidth}@{}p{.72\columnwidth}@{\hskip.04\columnwidth}p{.02\columnwidth}@{}}}%
 
 \def\stopexplain{\end{tabular}\\[10pt]}%
 
 \newcommand{\explain}[3]{\ifthenelse{\thefirstexplain=1}{Where:\\
-	&#1&#2&[\si{#3}]\\\setcounter{firstexplain}{0}
+	&$#1$&#2&[\si{#3}]\\\setcounter{firstexplain}{0}
 	}{%	
-	&#1&#2&[\si{#3}]\\%
+	&$#1$&#2&[\si{#3}]\\%
 	}%
 }%
 
@@ -485,7 +485,7 @@ ymax=18,
 }%
 
 \newcommand{\dB}[1]{%
-	\SI{#1}{\decibel}
+	\SI{#1}{\decibel} \gls{spl}
 }%
 
 \newcommand{\db}[0]{%

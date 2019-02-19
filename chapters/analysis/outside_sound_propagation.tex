@@ -1,8 +1,8 @@
-\section{Homogeneous atmospheric conditions}
-The aim of this section is to analyses the sound wave propagation in a homogeneous atmospheric conditions. It is well known that the propagation is highly depending on the atmospheric conditions, and the effect is not linear in frequency for some type of atmospheric condition. The wave propagation is depending on atmospheric pressure, wind, temperature and humanity, where the two latter also is frequency dependent. The attenuation difference in frequency can be above \dB{80} \citep{corteel2017large}. The resulting attenuation is expressed as an frequency depending absorption coefficient in \db pre \si{meter}. The following sections will make a short introduction to the homogeneous atmospheric conditions effect on sound propagation. All section will be based on far field condition, which indicate that the spreading loss is \dB{6} per doubling of distance and a plan wave, while the atmospheric conditions is excluded \citep{bauman2001wavefront}, 
+\section{Homogeneous atmospheric conditions}\label{sec:ana:hom_ats_con}
+The aim of this section is to analyse the sound wave propagation in homogeneous atmospheric conditions. It is well known that the sound wave propagation is highly depending on the atmospheric conditions. The propagation depends on the atmospheric pressure, wind, temperature and humanity, where the two latter moreover is frequency dependent. The attenuation difference in frequency for temperature and humanity can be above \dB{80} \citep{corteel2017large}. The following sections introduce a brief discussion of homogeneous atmospheric conditions effect on sound propagation.
 
 \subsection{Geometric spreading loss}
-When a line source generate a sound wave, the wave field exhibits two difference spatially directive regions, near field and far field. In near field the wave propagate as an cylindrical wave where in the far field the wave propagate as a spherical wave. When the wave propagate as a cylindrical wave, the wave propagate only horizontally and therefore the attenuation is \dB{3} per doubling of distance. For a spherical wave propagation, the wave propagate in all direction and therefore the attenuation is \dB{6} per doubling of distance. The near field and far field attenuation is based on non absorption homogeneous atmospheric conditions. The border between the near field and far field is dependent on the hight of the array and the frequency. The distance can bi calculated with Fresnel \autoref{eq:ana:near_field} where where the wavelength $\lambda$ is approximated to $\frac{1}{3f}$ \citep{bauman2001wavefront}
+When a line source generates a sound wave, the wave field exhibits two fundamental difference spatially directive regions, near-field and far-field. In near-field, the wave propagates as a cylindrical wave wherein the far-field the wave propagates as a spherical wave. When the wave propagates as a cylindrical wave, the wave propagates only in the horizontal plane and therefore the attenuation is \dB{3} per doubling of distance. For a spherical wave propagation, the wave propagates in all direction, therefore the attenuation is \dB{6} per doubling of distance. The near field and far-field attenuation are based on non-absorption homogeneous atmospheric conditions. The border between the near-field and far-field depends on the hight of the array and the frequency. The distance can be calculated with Fresnel formula \autoref{eq:ana:near_field}, where the wavelength $\lambda$ is approximated to $\frac{1}{3f}$ \citep{bauman2001wavefront}
 
 \begin{equation}\label{eq:ana:near_field}
 d_{B} = \frac{3}{2}f \cdot H^{2}\sqrt{1-\frac{1}{(3f \cdot H)}}
@@ -14,21 +14,20 @@ d_{B} = \frac{3}{2}f \cdot H^{2}\sqrt{1-\frac{1}{(3f \cdot H)}}
 \explain{H}{is the hight of the array}{\meter}
 \stopexplain
 
-In equation \autoref{eq:ana:near_field} it can be seen that the less than \Hz{80} radiate directly intro spherical wave on the exit of the speaker. The following \autoref{fig:ana:near_far_field} shows an 2D description of the near field, far field. 
+In equation \autoref{eq:ana:near_field} it can be calculated that less than \Hz{80} radiate directly intro spherical wave on the exit of the speaker. The following \autoref{fig:ana:near_far_field} shows a horizontal cut of the near-field, far-field from a line source array. 
 
 \fig{near_far_field}{The figure shows horizontal cut of a \gls{spl} radiation pattern of a line source array \citep{bauman2001wavefront}.}{fig:ana:near_far_field}{0.8}
 
 
 \subsection{Humanity and temperature impact}\label{sec:ana:hu_temp}
-The temperature and humanity has two impact on wave propagation, speed of sound and a lowpass effect. The following description starts with the latter. 
+The temperature and humanity have two impacts on wave propagation, speed of sound and a lowpass effect. The following description starts with the latter. 
 
-
-\paragraph{Lowpass effect} The effect of humanity and temperature is a lowpass filter, where it mostly not affect the low frequency. In other words, attenuation in the high frequency range per doubling of distance in far field will depends not only on the spreading loss, but also on temperature and humanity. Therefore, for long distance, the atmospheric conditions has a high effect on the frequency spectrum delivered to the audience. The humanity and temperature attenuation is already well studied and standard  \citep{iso_9613-1} gives an overview of calculating the frequency attenuation with respect to the distance, temperature and humanity. The article \citep{corteel2017large} gives some examples of attenuation at a distance of \SI{100}{\meter}. The article \citep{corteel2017large} shows, if the humanity increases proportional to the temperature, the lowpass effect is small. If the change in temperature and humanity is opposite of each other, for example the high temperature but dry, the attenuation in the high frequency is significant. The following \autoref{fig:ana:temp_eg} shows the worst case senaio from \citep{corteel2017large}.
+\paragraph{Lowpass effect} The effect of humanity and temperature act as a lowpass filter, where the low frequency remains without any additional attenuation. In other words, attenuation in the high frequency range per doubling of distance depends not only on the spreading loss but also on temperature and humanity. Therefore, for long distance, the atmospheric conditions have a high influence on the frequency spectrum delivered to the audience. Humanity and temperature attenuation are already well studied and standardised. Standard \citep{iso_9613-1} gives an overview of calculating the frequency attenuation with respect to the distance, temperature and humanity. The article \citep{corteel2017large} gives some examples of attenuation at a distance of \SI{100}{\meter}. The article shows, if humanity increases proportional to the temperature, the lowpass effect is small. If the change in temperature and humanity is the opposite of each other, for example, the high temperature but dry, the attenuation in high frequency is significant. The following \autoref{fig:ana:temp_eg} shows the worst-case scenario from \citep{corteel2017large}.
 
 \fig{temp_worst_case}{The graph shows the attenuation in \db with respect to frequency, humanity and temperature \citep{corteel2017large}.}{fig:ana:temp_eg}{0.7}
  
 
-\paragraph{Speed of sound} The second impact is the speed of sound. At temperature range from \SI{0}{\celsius} to \SI{40}{\celsius} the speed of sound with respect to humanity change is spars and mostly only depend on temperature change. The speed of sound is raises approximate by \SI{0.6}{\meter\per\second} for every degree Celsius. The speed start at \SI{331}{\meter\per\second} at \SI{0}{\celsius} and \SI{0}{\percent} humanity. The following TABEL show the speed of sound with respect to humanity and temperature. 
+\paragraph{Speed of sound} The second consequence is the speed of sound. At temperature range from \SI{0}{\celsius} to \SI{40}{\celsius} the speed of sound with respect to humanity change is sparse and mostly only depend on temperature change. The speed of sound is increased approximately by \SI{0.6}{\meter\per\second} for every increasing degree Celsius. The wave propagation speed start at \SI{331}{\meter\per\second} at \SI{0}{\celsius} and \SI{0}{\percent} humanity. The following TABLE shows the speed of sound with respect to humanity and temperature. 
 
 
 \subsection{Wind impact}
@@ -36,17 +35,15 @@ The temperature and humanity has two impact on wave propagation, speed of sound 
 The wind impact is complex and is not homogeneous with respect to sound source. The impact is depending on the angle of the wind direction with respect to the direction of sound propagation. 
 
 
-\paragraph{Parallel to sound propagation} When the wind gradient is going the same or opposite direction as the sound propagation, the relation between the speed of sound and the speed of wind is a linear system. Therefore the speed of wind shall just be added to the speed of sound. In all other cases the impact is complex since the wind deflect the sound waves.
+\paragraph{Parallel to sound propagation} When the wind flows in the same direction as the sound wave propagation, the wind flow in \si{\meter\per\second} is an addition to the speed of sound. When the wind flows in the opposite direction it is a negative addition.  In other cases, the influence is complex since the wind deflect the sound waves.
 
-
-\paragraph{oblique- and crosswind} The effect of oblique- and crosswind on acoustical wave propagation is rare studied and the effect seems to be unclear. Few author have addressed the problem in a simulation of traffic noise and by practical experience \citep{effect_of_wind}, \citep{crosswind_effect_2016}, \citep{BALLOU2008xi}. The claim the the crosswind effect refract the wave in the wind direction. Furthermore they claim that the effect is not linear in frequency. The author of \citep{BALLOU2008xi} indicate that the frequency dependency might be due to the directionality of the high frequency drivers. 
-
+\paragraph{oblique- and crosswind} The effect of oblique- and crosswind on sound wave propagation is rarely studied, and the effect seems to be unclear. Few author have addressed the problem in a simulation of traffic noise and by practical experience \citep{effect_of_wind}, \citep{crosswind_effect_2016}, \citep{BALLOU2008xi}. They claim that the crosswind effect refracts the wave in the wind direction. Furthermore, they claim that the effect is not linear in frequency. The author of \citep{BALLOU2008xi} indicates that the frequency dependency might be due to the directionality of the high frequency drivers. 
 
 
 %refraction that's a direct result of Snell's law
 
 \subsection{Pressure impact}
-The effect of atmospheric pressure change is low compare to wind, humanity and temperature impact. The average attenuation from \Hz{4000} to \Hz{16000} with fixed temperature was \dB{2} while going from \SI{54.02}{\kilo\pascal} to \SI{101.33}{\kilo\pascal}. The atmospheric pressure then only have a negligibility impact is on sound and is generally not frequency dependent. 
+The influence of atmospheric pressure change is low compared to the effect of wind, humanity and temperature. The average attenuation from \Hz{4000} to \Hz{16000} with fixed temperature was \dB{2} while going from \SI{54.02}{\kilo\pascal} to \SI{101.33}{\kilo\pascal}. The atmospheric pressure then only have a negligibility influence on sound propagation and is generally not frequency dependent. 
  
  
 \subsection{Ground absorption} 
@@ -71,39 +68,39 @@ c = u \cdot cos(\theta) + c_0 \sqrt{1+t/t_0}
 
  
 \section{Inhomogeneous atmospheric conditions} 
-The aim of this section is to analyses the sound wave propagation in a inhomogeneous atmospheric conditions. In an inhomogeneous atmosphere the pressure and speed are a function of position. By this fact, the modelling of sound wave is very complex and depend on verius variable such as temperature and wind speed. The analysis will be limited to constant direction or a moment. Therefore wind turbulence is a subject for it self and will not be covered in this section. The following sections will make a short introduction to the effect at inhomogeneous atmospheric conditions. As in the privuslu section, it will be based on far field condition and a plan wave.
+The aim of this section is to analyse the sound wave propagation in inhomogeneous atmospheric conditions. In an inhomogeneous atmosphere, the pressure and speed is a function of position. By this fact, the modelling of a sound wave is very complex and depend on various variables such as temperature and wind speed. The following sections give a short introduction to the effect of inhomogeneous atmospheric conditions. 
  
  
 \subsection{Atmospheric refraction}
-When the speed of wind, the temperature and humanity is assumed to be homogeneous in the sound field, the sound is travelling in a strage path. Often this is not the case, the wind speed increases logarithmically with the hight from the ground to the geostrophic wind \citep{asmos_acous_2016} and the temperature and humanity is inhomogeneous. The geostrophic wind in founded from approximately \SI{1}{\kilo\meter} above the ground \citep{geostrophic_wind}.  In such situation the change of sound wave propagation is directly caused by the atmosphere temperature or wind gradient. This often result in a curved path of the sound wave and is defined as atmospheric refraction. For small distances, the atmospheric refraction have a spars effect on the sound traveling path, because the speed of sound is much higher than the change by the wind and temperature. Generally distance up to \SI{100}{\meter} is often assumed to have no significant refraction effect \citep{effect_of_wind}. For distances larger than \SI{100}{\meter} the refraction is assumed to have a significant impact specially when the source and resiver is close to the ground.  
+When the speed of the wind, the temperature and humanity is assumed to be homogeneous in the sound field, the sound is travelling in a straight path. Often this is not the case, the wind speed increases logarithmically with the hight from the ground to the geostrophic wind \citep{asmos_acous_2016} and the temperature and humanity are inhomogeneous. The geostrophic wind in founded from approximately \SI{1}{\kilo\meter} above the ground \citep{geostrophic_wind}.  In such a situation the change of sound wave propagation is directly caused by the atmospheric temperature or wind. This often results in a curved path of the sound wave and is defined as atmospheric refraction. For small distances, the atmospheric refraction has a spars effect on the sound travelling path, because the speed of sound is much faster than the speed of the wind and the temperature. Generally distance up to \SI{100}{\meter} is often assumed to have no significant refraction effect \citep{effect_of_wind}. For distances larger than \SI{100}{\meter} the refraction is assumed to have a significant influence, especially when the sound source and the receiver are close to the ground.  
 
 
-\paragraph{Temperature} The refraction occure because the temperature and humanity will changes with respect to time along the day.  The sun heats the ground, and when the sun set and the concert area is full of audience. The eath and audience radiate varm air, which make the air at a low hight warm, but the temperature at a higher hight cooler. As explained in \autoref{sec:ana:hu_temp} the speed of sound depend on the temperature and therefore the speed of sound will in this situation decay with respect to hight and result in a upwards refraction. The following \autoref{fig:ana:temp_ref} illustrate the phenomena when the temperature decay with hight.
+\paragraph{Temperature} The refraction occur because of the temperature change with respect to hight along the day. The sun heats the ground, the and the concert area is full of audience. Therefore, the eath and audience radiate warm air, which makes the temperature at a low hight warmer than the temperature at higher hight. As explained in \autoref{sec:ana:hu_temp}, the speed of sound depends on the temperature and therefore, the speed of sound in this situation decay with respect to hight and result in an upwards refraction. The following \autoref{fig:ana:temp_ref} illustrate the phenomena where the temperature decay with respect to the hight.
 
 \xfig{analysis/refraction_temp.pdf_t}{Wave refraction in inhomogeneous temperature}{fig:ana:temp_ref}{1}
 
 The sound refraction will be identically all around the source for a omnidirectional source with respect to temperature.
 
 
-\paragraph{Wind} With respect to wind speed, a concert area is often a protected area with for example barrier, stage and building and so thourgth. This blogage slows down the wind speed close to the ground, and from the nature it self the wind speed is often raise with respect to the hight. When the stage is playing in along with the wind the atmospheric refraction is down wards, where agenst the wind the atmospheric refraction will be downwards. The following \autoref{fig:ana:wind_ref} shows the phenomena both against and with the wind.
+\paragraph{Wind} With respect to the wind speed, a concert area is often a protected area with for example barrier, stage and building. This blockage slows down the wind speed close to the ground. Moreover, from nature itself, the wind speed is often logarithmically increased with respect to the hight. When the wave is propagation in the same direction as the wind, the atmospheric refraction refracts the sound wave downwards. When the wave propagates against the wind, the atmospheric refraction refracts the sound wave upwards. The following \autoref{fig:ana:wind_ref} shows the phenomena when the wave propagates against the wind.
 
 \xfig{analysis/refraction.pdf_t}{Wave refraction in inhomogeneous wind}{fig:ana:wind_ref}{1}
 
-Due to the refraction, the sound might propagate faster at the ground under the descriped condition. The consequence is a change for direction of the sound path bending upwards. This change of direction create whats called a shadow zone \citep{asmos_acous_2016}. This is a zone where the sound pressure from the source is zero as shown in \autoref{fig:ana:shadow_zone}
+Due to the wind refraction effect, the sound propagates faster at the ground under the described condition. The consequence is a change of wave direction. This upwards refraction creates a shadow zone in the audience area \citep{asmos_acous_2016}. In this shadow zone, the \gls{spl} is very low and the audience intelligibility is dramatically decreased. The following \autoref{fig:ana:shadow_zone} shows the phenomena.
 
 
 \xfig{analysis/shadow_zone.pdf_t}{The figure illustrate the shadow zone ocourse from a upwards refraction. A line source speaker array contains of many couplet point sources. Every lowest sound path dashed line indicate the lower directional angle of one poins source in the line source array.}{fig:ana:shadow_zone}{0.73}
 
-The refraction with respect to wind will depend on the wind direction. In \autoref{fig:ana:shadow_zone} the wind gradient is pointing in the opposite direction of the shadow zone . On the left side of the source the refraction will be downwards.
+As shown in \autoref{fig:ana:shadow_zone} the refraction is upwards when the wind flows in the opposite direction as the wave propagation. Behind the line array source, the refraction is downwards and is therefore different than for temperature refraction.
 
-\paragraph{Oblique- and crosswind} The effect of oblique- and crosswind on acoustical wave propagation in inhomogeneous atmospheric conditions is not studied with the knowledge of the author. 
+\paragraph{Oblique- and crosswind} The effect of oblique- and crosswind on acoustical wave propagation in inhomogeneous atmospheric conditions are rarly studied.  The author was not able to find any relevant paper on the subject.
 
 \paragraph{Turbulent}
 
  \section{Atmospheric condition at a concert}
-A concert sound system is often calibrated in the midtle of the day when the stage is finished. The concert often starts in the evening and goes along to the late evening. at night the refraction goes the downwards direction 
+A concert sound system is often calibrated in the middle of the day when the stage is finished. The concert often starts in the evening and goes along to the late evening...
 
-The concert area is dense packed with audience. The concert area might therefore be warmer nears the ground and cooles down with respect to the hight. This atmospheric condition refract the sound up in the air and not to the audience. 
+%The concert area is densely packed with audience. The concert area might, therefore, be warmer near the ground and cooled down with respect to the hight. This atmospheric condition refracts the sound up in the air and not to the audience. 
 
 
 

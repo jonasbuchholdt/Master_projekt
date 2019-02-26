@@ -24,7 +24,7 @@ The temperature and humanity have two impacts on wave propagation, speed of soun
 
 \paragraph{Lowpass effect} The effect of humanity and temperature act as a lowpass filter, where the low frequency remains without any additional attenuation. In other words, attenuation in the high frequency range per doubling of distance depends not only on the spreading loss but also on temperature and humanity. Therefore, for long distance, the atmospheric conditions have a high influence on the frequency spectrum delivered to the audience. Humanity and temperature attenuation are already well studied and standardised. Standard \citep{iso_9613-1} gives an overview of calculating the frequency attenuation with respect to the distance, temperature and humanity. The article \citep{corteel2017large} gives some examples of attenuation at a distance of \SI{100}{\meter}. The article shows, if humanity increases proportional to the temperature, the lowpass effect is small. If the change in temperature and humanity is the opposite of each other, for example, the high temperature but dry, the attenuation in high frequency is significant. The following \autoref{fig:ana:temp_eg} shows the worst-case scenario from \citep{corteel2017large}.
 
-\fig{temp_worst_case}{The graph shows the attenuation in \db with respect to frequency, humanity and temperature \citep{corteel2017large}.}{fig:ana:temp_eg}{0.7}
+\fig{temp_worst_case}{The graph shows the attenuation in \db with respect to frequency, humanity and temperature \citep{corteel2017large}.}{fig:ana:temp_eg}{0.9}
  
 
 \paragraph{Speed of sound} The second consequence is the speed of sound. At temperature range from \SI{0}{\celsius} to \SI{40}{\celsius} the speed of sound with respect to humanity change is sparse and mostly depend on temperature change. At \SI{0}{\percent} humanity the speed of sound only depend on the temperature. At humanity higher that \SI{0}{\percent} the speed increases depend on temperature. The speed increase with respect the to humanity depend on temperature. The higher the temperature is the higher the increase of the humanity is. At \SI{0}{\celsius} the speed increases with approximately \SI{0.8}{\meter\per\second} where for \SI{30}{\celsius} speed increases with approximately \SI{2.7}{\meter\per\second} \citep{humanity_effect_on_speed}. For temperature differences, the speed of sound increases approximately by \SI{0.6}{\meter\per\second} for every increasing degree Celsius. The wave propagation speed start at \SI{331.5}{\meter\per\second} at \SI{0}{\celsius} and \SI{0}{\percent} humanity. The following \autoref{fig:ana:hu_speed} shows the speed of sound with respect to humanity and temperature. 
@@ -90,10 +90,18 @@ To calculate the resulting wave vector, the following \autoref{fig:ana:cal_wav_d
 \explain{a}{is the wave vector without wind}{\meter}
 \explain{\textcolor{red}{p}}{is the orthogonal projection of the wind vector intro $a$ }{\meter}
 \explain{e}{is the projection \textcolor{red}{$p$} added with the wind vector $d$ }{\meter}
+\explain{\phi}{is the angle between $a$ and $w$ }{\degree}
 \stopexplain
 
 
-The procedure of calculating the resulting wave vector $w$, is to project the wind vector $d$ intro the direction of the wave vector $a$ without wind. With the projector \textcolor{red}{$p$} the orthogonal $e$ in \autoref{fig:ana:cal_wav_dir} can be calculated with simple addition. The length of $a$ is unknown but can be calculated within the unit circle, since the length of the resulting wave vector always is \SI{1}{\meter}. By taking $argsin$ to the length of $e$, the length of $a$ is calculated. The resulting wave direction is then an addition between $a$ and $e$. A simulation of the speaker coverage area is shown in \autoref{plot:ana:spe_cov_area}
+The procedure of calculating the resulting wave vector $w$, is to project the wind vector $d$ intro the direction of the wave vector $a$ without wind. With the projector \textcolor{red}{$p$} the orthogonal $e$ in \autoref{fig:ana:cal_wav_dir} can be calculated with simple addition. The length of $a$ is unknown but can be calculated within the unit circle, since the length of the resulting wave vector always is \SI{1}{\meter}. By taking $argsin$ to the length of $e$, the length of $a$ is calculated. The resulting wave direction is then an addition between $a$ and $e$. 
+
+The used calculation script is as \autoref{code:ana:spe_cov}.
+
+\includeCode{crosswind_geo.m}{matlab}{26}{33}{The speaker coverage area simulation code}{code:ana:spe_cov}{./code/}
+
+
+A simulation of the speaker coverage area is shown in \autoref{plot:ana:spe_cov_area}
 
 \plot{plot/speaker_cov}{The graph shows the coverage area of two speaker with \SI{90}{\degree} angle and a crosswind from left with a speed of \SI{10}{\meter\per\second} and a wave propagation time of \SI{189.3}{\milli\second}}{plot:ana:spe_cov_area}
 
@@ -158,12 +166,6 @@ As shown in \autoref{fig:ana:shadow_zone} the refraction is upwards when the win
 \paragraph{Oblique- and crosswind} The effect of oblique- and crosswind on acoustical wave propagation in inhomogeneous atmospheric conditions are rarly studied.  The author was not able to find any relevant paper on the subject.
 
 \paragraph{Turbulent} Turbulence is a atmospheric condition where the wind does not flow continuesly from one direction, but fluctuates from all directions. Fluctuation often occur in scales of hour, minutes and second where the latter is defined as turbulence. The turbulence wind flow is a chaotic and stochastic process by the nature. It can occur because of change in landscape for example bulding stage and blockage, but can also be a process of flow speed increase in the wind, which make the wind to refract on itself. Turbulence occur often near the ground because the ground surface slow down the speed of wind by the resistance to the ground. This ground resistance also force the air to be turbulent.
-
-
- \section{Atmospheric condition at a concert}
-A concert sound system is often calibrated in the middle of the day when the stage is finished. The concert often starts in the evening and goes along to the late evening...
-
-%The concert area is densely packed with audience. The concert area might, therefore, be warmer near the ground and cooled down with respect to the hight. This atmospheric condition refracts the sound up in the air and not to the audience. 
 
 
 

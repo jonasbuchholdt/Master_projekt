@@ -42,7 +42,7 @@ The wind impact is complex and is not homogeneous with respect to sound source. 
 \xfig{analysis/speaker_angle.pdf_t}{The figure shows a geometrical interpolation of a wave moved by the wind}{fig:ana:spe_ang}{0.5}
 
 
-The calculation will calculate the refraction of the two outer wave angle in \autoref{fig:ana:spe_ang}. For simplicity the outer wave angle direction is defined as wave vector. It is assumed that the speed of sound is \SI{343}{\meter\per\second} with non atmospheric influence. A interpolation of the wave vector refraction with present of crosswind is that the time the wave uses for travelling \SI{1}{\meter} can be used to find the how much the wind have mowed the air particle in the wind direction. The following \autoref{eq:ana:wind_turn} calculated the cross movement of the air particle as the wave have travelled  \SI{1}{\meter}.
+The calculation will calculate the refraction of the two outer wave angle in \autoref{fig:ana:spe_ang}. For simplicity the outer wave angle direction is defined as wave vector. It is assumed that the speed of sound is \SI{343}{\meter\per\second} with \SI{20}{\celsius}, dry and no influence of wind. A interpolation of the wave vector refraction with present of crosswind is that the time the wave uses for travelling \SI{1}{\meter} can be used to find the how much the wind have mowed the air particle in the wind direction. The following \autoref{eq:ana:wind_turn} calculated the cross movement of the air particle as the wave have travelled  \SI{1}{\meter}.
 
 \begin{equation}\label{eq:ana:wind_turn}
 d = v \cdot \frac{1}{c}
@@ -60,50 +60,45 @@ The cross distance is defined as the wind vector. The wave speed depend on the a
 
 
 \begin{equation}\label{eq:ana:wind_angle}
-c = c+v \cdot sin(\theta)
+c = c_r+v \cdot sin(\theta)
 \end{equation}
 
 \startexplain
 \explain{\theta}{is the angle of the wave with respect to the wind}{\degree}
+\explain{c_r}{is the reference speed of sound with \SI{20}{\celsius}, dry and no influence of wind}{\meter\per\second}
 \stopexplain
 
 The wind gradient with present of wind after the wave have travelled \SI{1}{\meter} became as following {eq:ana:wind_turn}.
 
 \begin{equation}\label{eq:ana:wind_turn}
-d = v \cdot \frac{1}{c+v \cdot sin(\theta)}
+d = v \cdot \frac{1}{c_r+v \cdot sin(\theta)}
 \end{equation} 
-
-
-
-
-As the sound speed up, the side .  The upspeed can be calculated as \autoref{eq:ana:wind_angle}
-
 
 As the wave refract in the direction of the wind, the wave speed increases. Therefore the travelling time for \SI{1}{\meter} decay which do that the travelling distance of the wind vector decays. In the mean time the frontal direction will also decay.  A discrete geometrical interpolation of of the descried phenomena is shown in  \autoref{eq:ana:wind_turn}.
 
 
-\xfig{analysis/geo_of_crosswind.pdf_t}{The figure shows a geometrical interpolation of a wave moved by the wind}{fig:ana:geo_cross}{0.5}
+\xfig{analysis/geo_of_crosswind.pdf_t}{The figure shows a geometrical interpolation of a wave moved by the wind}{fig:ana:geo_cross}{0.62}
 
-As it can be seen in \autoref{fig:ana:geo_cross} the frontal travelling distance decay with the distance the wave have travelled. But as the wind refract the wave, the wave will speed speed up with respect to the angle of the wind.
 
-To calculate the resulting wave direction unit vector, the following graphical illustration of the wave is used
+To calculate the resulting wave vector, the following \autoref{fig:ana:cal_wav_dir} illustration of the wave refraction is used.
 
 
 \xfig{analysis/cal_of_crosswind.pdf_t}{The figure shows a geometrical calculation scheme of calculate the resulting wave direction at crosswind}{fig:ana:cal_wav_dir}{0.5}
 \startexplain
-\explain{d}{is the resulting wind gradient with a wave length of \SI{1}{\meter}}{\meter}
-\explain{w}{is the resulting unit wave outer limit coverage direction}{\meter}
-\explain{a}{is the outer limit coverage direction without wind}{\meter}
-\explain{p}{is the orthogonal projection of the wind gradient intro $a$ }{\meter}
-\explain{e}{is the projection $p$ added with the wind gradient $d$ }{\meter}
+\explain{d}{is the resulting wind vector with a wave length of \SI{1}{\meter}}{\meter}
+\explain{w}{is the resulting wave vector}{\meter}
+\explain{a}{is the wave vector without wind}{\meter}
+\explain{\textcolor{red}{p}}{is the orthogonal projection of the wind vector intro $a$ }{\meter}
+\explain{e}{is the projection \textcolor{red}{$p$} added with the wind vector $d$ }{\meter}
 \stopexplain
 
 
-The procedure of calculating the resulting wave direction is to project the wind gradient $d$ intro the direction of the wave without wind. With the projector the orthogonal e in \autoref{fig:ana:cal_wav_dir} can be calculated with simple addition. The length of a is unknown but can be calculated with whit the unit circle, since the langth of the resulting wave always is \SI{1}{\meter}. By taking argsin to the length of e a is calculated. The resulting wave direction is then an addition between a and e in \autoref{fig:ana:cal_wav_dir}. A simulation of the outer limit of the wave i as following
+The procedure of calculating the resulting wave vector $w$, is to project the wind vector $d$ intro the direction of the wave vector $a$ without wind. With the projector \textcolor{red}{$p$} the orthogonal $e$ in \autoref{fig:ana:cal_wav_dir} can be calculated with simple addition. The length of $a$ is unknown but can be calculated within the unit circle, since the length of the resulting wave vector always is \SI{1}{\meter}. By taking $argsin$ to the length of $e$, the length of $a$ is calculated. The resulting wave direction is then an addition between $a$ and $e$. A simulation of the speaker coverage area is shown in \autoref{plot:ana:spe_cov_area}
 
-\plot{plot/speaker_cov}{The graph shows the coverage area of two speaker with \SI{90}{\degree} angle}{plot:ana:spe_cov_area}{1}
+\plot{plot/speaker_cov}{The graph shows the coverage area of two speaker with \SI{90}{\degree} angle and a crosswind from left with a speed of \SI{10}{\meter\per\second} and a wave propagation time of \SI{189.3}{\milli\second}}{plot:ana:spe_cov_area}
 
 
+It can be seen in \autoref{plot:ana:spe_cov_area} that the coverage area distance is reduces to \SI{53}{\meter} when the speaker have an angle of \SI{90}{\degree} and the the wind speed is \SI{10}{\meter\per\second}. Another important aspect which is changed is the wave travelling distance from the speaker to the audience. Without wind the distance along the first ariavle wave is  \SI{53}{\meter}. When the wind is present, the sound ariving to the audiance at \SI{53}{\meter} is the wave vector, which have traveled longer that the wavev arriving to the audiance without wind. The wave traveling is increased by \SI{6}{\meter}. This increase in length introduce attenuation in the \gls{spl} arrival to the audience.
 
 %refraction that's a direct result of Snell's law
 
@@ -120,7 +115,7 @@ In a concert area, ground absorption is complex. The concert area doing the conc
  The following \autoref{eq:ana:wind} calculate the speed of sound based on homogeneous temperature and wind speed.
 
 \begin{equation}\label{eq:ana:wind}
-c = u \cdot sin(\theta) + c_0 \sqrt{1+t/t_0}
+c =  c_0 \sqrt{1+t/t_0} + u \cdot sin(\theta)
 \end{equation}  
 
 \startexplain

@@ -10,7 +10,7 @@ clear
 v = 10;
 wind = pi/2;
 c = 343;
-step = 90;
+step = 65;
 speaker_dis = 20;
 %dis = 0.029;
 
@@ -24,6 +24,7 @@ leng_l(1) = norm(direction(:,1),2)
 theta(1) = sign(direction(1,1))*acos((direction(:,1)'*[0 1]')/(norm(direction(:,1))*1)); %asin((dis)/(1));
 for i=1:step  
     d(:,i) = [v*(1/(c+v*sin(theta(i))))*sin(wind); v*(1/(c+v*sin(theta(i))))*cos(wind)]; 
+    t_l(:,i) = (1/(c+v*sin(theta(i))))*sin(wind);
     p(:,i) = (d(:,i)'*(-direction(:,i)))/norm(direction(:,i))^2*(-direction(:,i));
     e(:,i) = d(:,i)-p(:,i);
     ang = asin(norm(e(:,i)));
@@ -43,9 +44,10 @@ direction(:,1) = 1/norm(direction(:,1),2)*direction(:,1)
 leng_r(1) = norm(direction(:,1),2)
 
 theta(1) = sign(direction(1,1))*acos((direction(:,1)'*[0 1]')/(norm(direction(:,1))*1)); %asin((dis)/(1));
-for i=1:step
+for i=1:step+step
     
     d(:,i) = [v*(1/(c+v*sin(theta(i))))*sin(wind); v*(1/(c+v*sin(theta(i))))*cos(wind)]; 
+    t_r(:,i) = (1/(c+v*sin(theta(i))))*sin(wind);
     p(:,i) = (d(:,i)'*(-direction(:,i)))/norm(direction(:,i))^2*(-direction(:,i));
     e(:,i) = d(:,i)-p(:,i);
     ang = asin(norm(e(:,i)));
@@ -56,7 +58,8 @@ for i=1:step
     theta(i+1) = sign(direction(1,i+1))*acos((direction(:,i+1)'*front)/(norm(direction(:,i+1))*1));
     dis(:,i) = ((direction(:,i+1)'*front)/(norm(front)^2))*(front); 
     point_r(:,i+1) = point_r(:,i)+direction(:,i+1);
-    if point_r(1,i+1) >= abs(point_l(1,step+1))
+
+    if sum(t_r) >= sum(t_l)
         break
     end
 end
@@ -85,7 +88,7 @@ set(gca,'ytick',[-140:10:140])
 xlabel('Length [m]')
 ylabel('Width [m]')
 
-legend('Speaker coverage area','Location','northwest')
+legend('Speaker coverage area')
 
 
 

@@ -36,7 +36,73 @@ The wind impact is complex and is not homogeneous with respect to sound source. 
 
 \paragraph{Parallel to sound propagation} When the wind flows in the same direction as the sound wave propagation, the wind flow in \si{\meter\per\second} is an addition to the speed of sound. When the wind flows in the opposite direction it is a negative addition.  In other cases, the influence is complex since the wind deflect the sound waves.
 
-\paragraph{oblique- and crosswind} The effect of oblique- and crosswind on sound wave propagation is rarely studied, and the effect seems to be unclear. Few author have addressed the problem in a simulation of traffic noise and by practical experience \citep{effect_of_wind}, \citep{crosswind_effect_2016}, \citep{BALLOU2008xi}. They claim that the crosswind effect refracts the wave in the wind direction. Furthermore, they claim that the effect is not linear in frequency. The author of \citep{BALLOU2008xi} indicates that the frequency dependency might be due to the directionality of the high frequency drivers. 
+\paragraph{oblique- and crosswind} The effect of oblique- and crosswind on sound wave propagation is rarely studied, and the effect seems to be unclear. Few author have addressed the problem in a simulation of traffic noise and by practical experience \citep{effect_of_wind}, \citep{crosswind_effect_2016}, \citep{BALLOU2008xi}. They claim that the crosswind effect refracts the wave in the wind direction. Furthermore, they claim that the effect is not linear in frequency. The author of \citep{BALLOU2008xi} indicates that the frequency dependency might be due to the directionality of the high frequency drivers. Since the study of crosswind effects is rare, a geometric calculation of the effect is developed. The geometric calculation will only be done for crosswind which mean that the wind is orthogonal the the frontal direction of the speaker. It will be based on the directional speaker with \SI{90}{\degree} angle, so \SI{45}{\degree} angle from frontal direction as the \autoref{fig:ana:spe_ang} shows.
+
+
+\xfig{analysis/speaker_angle.pdf_t}{The figure shows a geometrical interpolation of a wave moved by the wind}{fig:ana:spe_ang}{0.5}
+
+
+The calculation will calculate the refraction of the two outer wave angle in \autoref{fig:ana:spe_ang}. For simplicity the outer wave angle direction is defined as wave vector. It is assumed that the speed of sound is \SI{343}{\meter\per\second} with non atmospheric influence. A interpolation of the wave vector refraction with present of crosswind is that the time the wave uses for travelling \SI{1}{\meter} can be used to find the how much the wind have mowed the air particle in the wind direction. The following \autoref{eq:ana:wind_turn} calculated the cross movement of the air particle as the wave have travelled  \SI{1}{\meter}.
+
+\begin{equation}\label{eq:ana:wind_turn}
+d = v \cdot \frac{1}{c}
+\end{equation} 
+
+\startexplain
+\explain{d}{is the cross distance the wave have moved in the wind direction after the wave have travelled \SI{1}{\meter}}{\meter}
+\explain{v}{is the speed of wind}{\meter\per\second}
+\explain{c}{is the speed of sound}{\meter\per\second}
+\explain{1}{is the travelling distance of the wave}{\meter}
+\stopexplain
+
+
+The cross distance is defined as the wind vector. The wave speed depend on the angle the the wind, therefore the wave speed will change with the refraction. The following \autoref{eq:ana:wind_angle} calculate the speed of sound with respect to the angle to the wind 
+
+
+\begin{equation}\label{eq:ana:wind_angle}
+c = c+v \cdot sin(\theta)
+\end{equation}
+
+\startexplain
+\explain{\theta}{is the angle of the wave with respect to the wind}{\degree}
+\stopexplain
+
+The wind gradient with present of wind after the wave have travelled \SI{1}{\meter} became as following {eq:ana:wind_turn}.
+
+\begin{equation}\label{eq:ana:wind_turn}
+d = v \cdot \frac{1}{c+v \cdot sin(\theta)}
+\end{equation} 
+
+
+
+
+As the sound speed up, the side .  The upspeed can be calculated as \autoref{eq:ana:wind_angle}
+
+
+As the wave refract in the direction of the wind, the wave speed increases. Therefore the travelling time for \SI{1}{\meter} decay which do that the travelling distance of the wind vector decays. In the mean time the frontal direction will also decay.  A discrete geometrical interpolation of of the descried phenomena is shown in  \autoref{eq:ana:wind_turn}.
+
+
+\xfig{analysis/geo_of_crosswind.pdf_t}{The figure shows a geometrical interpolation of a wave moved by the wind}{fig:ana:geo_cross}{0.5}
+
+As it can be seen in \autoref{fig:ana:geo_cross} the frontal travelling distance decay with the distance the wave have travelled. But as the wind refract the wave, the wave will speed speed up with respect to the angle of the wind.
+
+To calculate the resulting wave direction unit vector, the following graphical illustration of the wave is used
+
+
+\xfig{analysis/cal_of_crosswind.pdf_t}{The figure shows a geometrical calculation scheme of calculate the resulting wave direction at crosswind}{fig:ana:cal_wav_dir}{0.5}
+\startexplain
+\explain{d}{is the resulting wind gradient with a wave length of \SI{1}{\meter}}{\meter}
+\explain{w}{is the resulting unit wave outer limit coverage direction}{\meter}
+\explain{a}{is the outer limit coverage direction without wind}{\meter}
+\explain{p}{is the orthogonal projection of the wind gradient intro $a$ }{\meter}
+\explain{e}{is the projection $p$ added with the wind gradient $d$ }{\meter}
+\stopexplain
+
+
+The procedure of calculating the resulting wave direction is to project the wind gradient $d$ intro the direction of the wave without wind. With the projector the orthogonal e in \autoref{fig:ana:cal_wav_dir} can be calculated with simple addition. The length of a is unknown but can be calculated with whit the unit circle, since the langth of the resulting wave always is \SI{1}{\meter}. By taking argsin to the length of e a is calculated. The resulting wave direction is then an addition between a and e in \autoref{fig:ana:cal_wav_dir}. A simulation of the outer limit of the wave i as following
+
+\plot{plot/speaker_cov}{The graph shows the coverage area of two speaker with \SI{90}{\degree} angle}{plot:ana:spe_cov_area}{1}
+
 
 
 %refraction that's a direct result of Snell's law
@@ -54,7 +120,7 @@ In a concert area, ground absorption is complex. The concert area doing the conc
  The following \autoref{eq:ana:wind} calculate the speed of sound based on homogeneous temperature and wind speed.
 
 \begin{equation}\label{eq:ana:wind}
-c = u \cdot cos(\theta) + c_0 \sqrt{1+t/t_0}
+c = u \cdot sin(\theta) + c_0 \sqrt{1+t/t_0}
 \end{equation}  
 
 \startexplain

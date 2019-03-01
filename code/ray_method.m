@@ -17,6 +17,15 @@ leng_l(1) = norm(a_direction(:,1),2)
 
 theta(1) = sign(a_direction(1,1))*acos((a_direction(:,1)'*front)/(norm(a_direction(:,1))*1));
 for i=1:step*(1/res) 
+    
+    
+ S_x = cos(pi/2)/(c_r+norm(v)*cos(pi/2-0));
+ 
+ S_z = sin(pi/2)/(c_r+norm(v)*cos(pi/2-0))
+    
+    
+    
+    
 d(:,i) = [(v*res) * ((1*res)/(c_r+v*sin(theta(i)))) * sin(wind); v * ((1*res)/(c_r+v*sin(theta(i)))) * cos(wind)]; 
 p(:,i) = (d(:,i)' * (-a_direction(:,i)))/norm(a_direction(:,i))^2 * (-a_direction(:,i));
 e(:,i) = d(:,i) - p(:,i);
@@ -31,6 +40,19 @@ point_l(:,i+1) = point_l(:,i)+w(:,i);
 dis_l(:,i) = ((w(:,i)'*front)/(norm(front)^2))*(front); 
 t_l(:,i) = (1/(c_r+v*sin(theta(i))))*sin(wind);
 end
+
+
+
+
+
+
+
+
+
+
+
+
+
 %%
 point_r = [0; 0];
 %direction(:,1) = [0.9; 0.1]

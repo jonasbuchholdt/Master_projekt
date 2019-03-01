@@ -9,29 +9,28 @@
 \begin{axis}[%
 \plotsettings
 xmin=-30,
-xmax=70,
+xmax=80,
 xtick={-140, -130, -120, -110, -100,  -90,  -80,  -70,  -60,  -50,  -40,  -30,  -20,  -10,    0,   10,   20,   30,   40,   50,   60,   70,   80,   90,  100,  110,  120,  130,  140},
 xlabel style={font=\color{white!15!black}},
 xlabel={Length [m]},
-ymin=0,
+ymin=-10,
 ymax=60,
 ytick={-140, -130, -120, -110, -100,  -90,  -80,  -70,  -60,  -50,  -40,  -30,  -20,  -10,    0,   10,   20,   30,   40,   50,   60,   70,   80,   90,  100,  110,  120,  130,  140},
 ylabel style={font=\color{white!15!black}},
 ylabel={Width [m]},
-legend style={legend cell align=left, align=left, draw=white!15!black}
+legend style={at={(0.95,0.25)},legend cell align=left, align=left, draw=white!15!black}
 ]
-\addplot [color=red, draw=none, mark size=5.0pt, mark=x, mark options={solid, red}]
+
+
+
+
+\addplot [red,only marks,mark=x,mark size=5.0pt, mark options={solid, red}]
   table[row sep=crcr]{%
 -10	0\\
 };
-\addlegendentry{Left speaker}
 
-\addplot [color=red, draw=none, mark size=5.0pt, mark=x, mark options={solid, red}]
-  table[row sep=crcr]{%
-10	0\\
-};
-\addlegendentry{ Right speaker}
 
+\addlegendentry{Speaker position}
 
 \addplot[area legend, draw=black, fill=white!60!black, fill opacity=0.5]
 table[row sep=crcr] {%
@@ -202,6 +201,11 @@ x	y\\
 }--cycle;
 \addlegendentry{Speaker coverage area}
 
+
+\addplot [red,only marks,mark=x,mark size=5.0pt, mark options={solid, red}]
+  table[row sep=crcr]{%
+10	0\\
+};
 
 \addplot[area legend, draw=black, fill=white!60!black, fill opacity=0.5, forget plot]
 table[row sep=crcr] {%

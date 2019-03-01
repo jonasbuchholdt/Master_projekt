@@ -1,7 +1,7 @@
 
 
 clear 
-v = 10;
+v = 20;
 wind = pi/2;
 c_r = 343;
 step = 65;
@@ -11,7 +11,7 @@ front = [0; 1];
 ray = [0; 0];
 
 
-for  g=1:1:31
+for  g=1:1:121
 clear d;
 clear p;
 clear e;
@@ -24,7 +24,7 @@ clear t_r;
 clear dis_r
 clear leng_r
 
-[x, y] = pol2cart(deg2rad(-45+(g-1)*3), 1);
+[x, y] = pol2cart(deg2rad(-80+(g-1)*3), 1);
 a_direction(:,1) = [y; x];
 a_direction(:,1) = 1/norm(a_direction(:,1),2)*a_direction(:,1);
 leng_r(1) = norm(a_direction(:,1),2);
@@ -49,32 +49,43 @@ ray(:,i+1,g) = ray(:,i,g)+w(:,i);
 dis_r(:,i) = ((w(:,i)'*front)/(norm(front)^2))*(front); 
 t_r(:,i) = (1/(c_r+v*sin(theta(i))))*sin(wind);
 
-    %if sum(t_r) >= sum(t_l)
+    if   sum(t_r) >= 0.190
         %break
-    %end
+    end
 end
+
+time(g) = sum(t_r);
+
+distan(g) = sum(leng_r);
 
 end
 
 
 area = [ray(1,:,1); ray(2,:,1)]'
 for i=1:g
-   area = [area; ray(1,end,i) ray(2,end,i)] ;
+     for j=1:100
+         if ray(1,end-j+1,i) == 0;
+             k=1;
+         else
+            area = [area; ray(1,end-j+1,i) ray(2,end-j+1,i)];
+             break
+         end
+     end
 end
 area = [area; flip(ray(1,:,end))' flip(ray(2,:,end))']
 
 
-%%
 
-plot(0-speaker_dis/2, 0,'x','MarkerSize',10,'color',[1 0 0])
+
+plot(0, 0,'x','MarkerSize',10,'color',[1 0 0])
 hold on
-plot(0+speaker_dis/2, 0,'x','MarkerSize',10,'color',[1 0 0])
-
-f = fill(area(:,1)-speaker_dis/2, area(:,2), [0.6 0.6 0.6]);
+%plot(0+speaker_dis/2, 0,'x','MarkerSize',10,'color',[1 0 0])
+%hold on
+f = fill(area(:,1), area(:,2), [0.6 0.6 0.6]);
 set(f,'facealpha',.5)
 
-h = fill(area(:,1)+speaker_dis/2, area(:,2), [0.6 0.6 0.6]);
-set(h,'facealpha',.5)
+%h = fill(area(:,1)+speaker_dis/2, area(:,2), [0.6 0.6 0.6]);
+%set(h,'facealpha',.5)
 
 
 %grid minor
@@ -88,3 +99,4 @@ legend('Left speaker',' Right speaker','Speaker coverage area')
 
 grid on
 
+axis equal

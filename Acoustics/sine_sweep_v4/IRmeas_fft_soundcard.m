@@ -30,13 +30,13 @@ function [ir,irtime,y_rms]=IRmeas_fft_soundcard(ts,frequencyRange,gainlevel,offs
             % Perform capture
             
              audiowrite("sweep.wav",dataOut,fs)
-            L = 1024; %1024;
+            L = 2048; %1024;
             fileReader = dsp.AudioFileReader('sweep.wav','SamplesPerFrame',L);
             fs = fileReader.SampleRate;
            
             aPR = audioPlayerRecorder('SampleRate',fs,...               % Sampling Freq.
                           'RecorderChannelMapping',inputChannel,...  % Input channel(s)
-                          'PlayerChannelMapping',[2],... % Output channel(s)
+                          'PlayerChannelMapping',[1],... % Output channel(s)
                           'SupportVariableSize',true,...    % Enable variable buffer size 
                           'BufferSize',L);                  % Set buffer size
     

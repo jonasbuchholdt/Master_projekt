@@ -1,3 +1,0 @@
-# Ignore object files, and output mex file
-*.mex*
-*.o

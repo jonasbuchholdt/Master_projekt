@@ -19,7 +19,7 @@ grid on
 axis([20 20000 -1 1])
 xlabel('Frequency [Hz]')
 ylabel('[dB]')
-clear calibration
+%clear calibration
 
 %% Calibrate the microphone
 clear all

@@ -423,6 +423,8 @@ axis y line*=left,
 axis background/.style={fill=white},
 }
 
+
+
 \newcommand{\plotsettingshigh}[0]{
 width=120mm, 
 height=40mm, 
@@ -488,8 +490,16 @@ ymax=18,
 	\SI{#1}{\decibel} \gls{spl}
 }%
 
+\newcommand{\dBp}[1]{%
+	\SI{#1}{\decibel} \gls{spl}.
+}%
+
 \newcommand{\db}[0]{%
 	\si{\decibel}
+}%
+
+\newcommand{\octave}[1]{%
+	${\scriptsize \sfrac{1}{#1}}$ octave
 }%
 
 %\newcommand{\Hz}[1]{%
@@ -512,6 +522,16 @@ ymax=18,
     \SI{\pgfmathresult}{\kilo\hertz}%
   \else
     \SI{#1}{\hertz}
+\fi
+}
+
+\newcommand{\Hzp}[1]{%
+\def\variable{5}
+\ifnum#1>999   
+\pgfmathparse{#1/1000}
+    \SI{\pgfmathresult}{\kilo\hertz}%
+  \else
+    \SI{#1}{\hertz}.
 \fi
 }
 

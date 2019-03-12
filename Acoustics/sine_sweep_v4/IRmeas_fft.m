@@ -1,5 +1,6 @@
-function [ir,irtime]=IRmeas_fft(ts,frequencyRange,gainlevel,offset,inputChannel,fs)
+function [ir,irtime,res]=IRmeas_fft(ts,frequencyRange,gainlevel,offset,inputChannel,fs)
 
+                        res = 0;
             gainLin = db2mag(gainlevel);
             t = 0:1/fs:ts - (1/fs);
             x = chirp(t,frequencyRange(1),ts,frequencyRange(2),'logarithmic');
@@ -30,7 +31,7 @@ function [ir,irtime]=IRmeas_fft(ts,frequencyRange,gainlevel,offset,inputChannel,
 
             % Perform capture
             audiowrite("sweep.wav",dataOut,fs)
-            L = 1024;
+            L = 2048;
             fileReader = dsp.AudioFileReader('sweep.wav','SamplesPerFrame',L);
             fs = fileReader.SampleRate;
            
@@ -47,10 +48,12 @@ function [ir,irtime]=IRmeas_fft(ts,frequencyRange,gainlevel,offset,inputChannel,
                           [audioRecorded,nUnderruns,nOverruns] = aPR(audioToPlay);
                           out = [out; audioRecorded];
                           if nUnderruns > 0
-                              fprintf('Audio player queue was underrun by %d samples.\n',nUnderruns);
+                              fprintf('Audio player queue was underrun by %d samples.\n',nUnderruns);                                
+                                res = 1;
                           end
                           if nOverruns > 0
                               fprintf('Audio recorder queue was overrun by %d samples.\n',nOverruns);
+                                res = 1;
                           end
                       end
                       release(fileReader);
@@ -60,7 +63,7 @@ function [ir,irtime]=IRmeas_fft(ts,frequencyRange,gainlevel,offset,inputChannel,
             
          for k = 1:length(inputChannel)
             y = out(:,k);
-            y=y*(calibration.preamp_gain)/(calibration.mic_sensitivity);
+            y=y*(calibration.preamp_gain)/(calibration.mic_sensitivity(k));
             y=y(1:length(dataOut));
             
             dataOut_f =fft(dataOut);

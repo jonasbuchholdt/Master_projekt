@@ -7,7 +7,7 @@ save('calibration.mat','calibration');
 %% Check impulse response offset
 % rme= 3159 edirol=3295
 clear all
-offset = -3295;
+offset = -3159;
 save('offset.mat','offset');
 [fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('test');
 [t_axis,t_result] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);

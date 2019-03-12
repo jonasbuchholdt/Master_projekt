@@ -1,0 +1,54 @@
+\chapter{cross wind effect on line source array}\label{ch:ap:measurement_one}
+A measurement was made to measure the transfer function differences in two point in cross wind. The speaker have a horizontal dispersion pattern of \SI{100}{\degree}. 
+
+
+\section*{Materials and setup}
+To measure the transfer function in a cross wind situation, the following materials are used:
+
+\startequipment
+\equipment{PC}{Macbook}{W89242W966H}{-}
+\equipment{Audio interface}{RME Fireface UCX}{23811948}{108230}
+\equipment{Microphone}{GRAS 26CC}{78189}{75583}
+\equipment{Preamp}{GRAS 40 AZ}{100268}{75551}
+\equipment{Microphone}{GRAS 26CC}{78186}{75582}
+\equipment{Preamp}{GRAS 40 AZ}{100267}{75550}
+\equipment{dB technologies}{T4}{-}{-}
+\equipment{Wind measurement tools}{Drahtlose Wetterstation}{-}{2157-45}
+\equipment{flying tools}{-}{-}{-}
+\stopequipment
+
+\xfig{appendix/measurement_one.pdf_t}{The figure shows the microphone position versus the position of the line source}{fig:ap:position}{1}
+\fig{IMG_1091}{The picture shows the speaker setup}{fig:ap:speaker_setup}{1}
+\fig{IMG_1087}{The figure shows the wind direction}{fig:ap:wind_direction}{1}
+
+
+\section*{Test procedure}
+
+
+\begin{enumerate}
+\item the microphone i calibrated.
+\item The wind direction is measured.
+\item The materials are set up as in \autoref{fig:ap:position} where the speaker is placed in cross wind direction, such that the frontal wave direction is orthogonal the the wind. The microphone and speaker is connected to the audio interface.
+\item The speaker and microphone is placed \SI{1}{\meter} above the ground
+\item the wind direction goes from microphone 2 to microphone 1.
+\item 10 sine sweep is performed with a length of \SI{5}{\second} each. 
+\item The impulse response is calculated and filtered with a 4th order highpass filter at \Hz{300} to exclude wind noise.
+\item The correlation is calculated for each impulse response to the first impulse response for time alignment \citep{gunness2001loudspeaker} of both microphone channel.
+\item The mean impulse response is calculated for the 10 measurement of both microphone.
+\item The transfer function is calculated with a 40 sample moving mean filter.
+\item The measurement is repeated three times.
+\end{enumerate}
+
+
+\section*{Results}
+
+The wind speed was \SI{14}{\meter\per\second} for each measurement and the temperature was \SI{5}{\degree}. The humidity was not measured. 
+
+\plot{plot/measurement_one_one}{The graph shows the first transfer function measurement}{fig:ap:mea_one_one}
+\plot{plot/measurement_one_two}{The graph shows the second transfer function measurement}{fig:ap:mea_one_two}
+\plot{plot/measurement_one_three}{The graph shows the third transfer function measurement}{fig:ap:mea_one_thr}
+
+On \autoref{fig:ap:mea_one_one}, \autoref{fig:ap:mea_one_one} and \autoref{fig:ap:mea_one_one} it is seen that the general pressure is higher for microphone 1. It is also seen that ground reflection effect is much higher on microphone 1 than microphone 2. This support the theory about upwards refraction of sound wave on microphone 2 and downwards refraction on microphone 1 
+
+
+

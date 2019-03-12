@@ -38,7 +38,7 @@ function [ir,irtime]=IRmeas_fft_soundcard(ts,frequencyRange,gainlevel,offset,inp
            
             aPR = audioPlayerRecorder('SampleRate',fs,...               % Sampling Freq.
                           'RecorderChannelMapping',inputChannel,...  % Input channel(s)
-                          'PlayerChannelMapping',[2],... % Output channel(s)
+                          'PlayerChannelMapping',[1],... % Output channel(s)
                           'SupportVariableSize',true,...    % Enable variable buffer size 
                           'BufferSize',L);                  % Set buffer size
     

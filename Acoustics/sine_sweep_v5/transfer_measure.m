@@ -99,8 +99,7 @@ save('calibration.mat','calibration','-append');
 
 %% Make impulse response
 clear;
-ir_num = 3;
-for i=1:ir_num
+for i=1:10
     i
 [fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
 [ir_axis,ir(:,:,i),res] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
@@ -109,78 +108,75 @@ if res == 1
 end
 end
 %%
-ir_num = 10;
-
 load('highpass_to_ir.mat');
 [b,a]=sos2tf(SOS,G);
-for i=1:ir_num
+for i=1:10
 ir(:,1,i)=filter(b,a,ir(:,1,i));
 end
 
-for i=1:ir_num
+for i=1:10
 ir(:,2,i)=filter(b,a,ir(:,2,i));
 end
 
 [fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
 
-for i=1:ir_num
+for i=1:10
     r(:,i) = xcorr(ir(:,1,1),ir(:,1,i));
     [M,inde1(i)] = max(r(:,i));
 end
 
-for i=1:ir_num
+for i=1:10
     r(:,i) = xcorr(ir(:,2,1),ir(:,2,i));
     [M,inde2(i)] = max(r(:,i));
 end
 
-for i=1:ir_num
+for i=1:10
     shif1(i) = inde1(i) - inde1(1);
     shif2(i) = inde2(i) - inde2(1);
 end
 
-for i=1:ir_num
-    ir_shift(:,1,i) = circshift(ir(:,1,i),shif1(i)-1000);
-    ir_shift(:,2,i) = circshift(ir(:,2,i),shif2(i)-1000);
+for i=1:10
+    ir_shift(:,1,i) = circshift(ir(:,1,i),shif1(i));
+    ir_shift(:,2,i) = circshift(ir(:,2,i),shif2(i));
 end
 
-for i=1:ir_num
+for i=1:10
     r(:,i) = xcorr(ir_shift(:,1,1),ir_shift(:,1,i));
     [M,inde1_ch(i)] = max(r(:,i));
 end
 
-for i=1:ir_num
+for i=1:10
     r(:,i) = xcorr(ir_shift(:,2,1),ir_shift(:,2,i));
     [M,inde2_ch(i)] = max(r(:,i));
 end
 
-for i=1:ir_num
+for i=1:10
     shif1_ch(i) = inde1_ch(i) - inde1_ch(1);
     shif2_ch(i) = inde2_ch(i) - inde2_ch(1);
 end
 
 
 figure(1)
-for i=1:ir_num
-p1 = plot(squeeze(ir_shift(:,1,i)))
+for i=1:10
+p1 = plot(squeeze(ir_shift(:,2,i)))
 p1.Color(4) = 0.25;
 hold on
 end
 ir_a = mean(ir_shift(:,:,:),3);
-plot(ir_a(:,1))
+plot(ir_a(:,2))
 
 for k=1:length(inputChannel)
 ir_result=ir_a(1:end/2,k);      %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
 [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
 f_result = tf./calibration.preamp_transfer_function;
-tspl(k) = 20*log10(sum(abs(f_result/(20*10^-6))));
+
 f_axis = w;
 result=20*log10(abs(f_result/(20*10^-6)));
 %number = 1;
 result_mean(:,k) = movmean(result,40);
-result_mean_d(:,k) = downsample(result_mean(:,k),15);
+result_mean_d(:,k) = downsample(result_mean(:,k),10);
 end
-spl_diff = tspl(2) - tspl(1)
-f_axis = downsample(f_axis,15);
+f_axis = downsample(f_axis,10);
 %impulse(:,number) = ir_result;
 %figure(1)
 %plot(ir_axis(1:length(ir_result)),ir_result)
@@ -194,7 +190,7 @@ grid minor
 axis([300 20000 20 120])
 xlabel('Frequency [Hz]')
 ylabel('Level [dB]')
-legend('Microphone 1','Microphone 2')
+legend('mic1','mic2')
 
 %% Add more test points 
 % number = number+1; % run number

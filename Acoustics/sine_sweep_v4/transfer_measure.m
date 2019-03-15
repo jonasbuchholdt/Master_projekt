@@ -172,19 +172,31 @@ for k=1:length(inputChannel)
 ir_result=ir_a(1:end/2,k);      %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
 [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
 f_result = tf./calibration.preamp_transfer_function;
-tspl(k) = 20*log10(sum(abs(f_result/(20*10^-6))));
+
+f_result_two = [f_result; flip(conj(f_result))];
+impulse(:,k) = real(ifft(f_result_two));
+impulse(:,k) = abcfilt(impulse(:,k),'a'); % a weighting
+
+[f_result_t,w] = freqz(impulse(:,k),1,frequencyRange(2),fs);
+
+l_Aeq(k) = 10*log10(((1/sweepTime)*sum(abs(impulse(:,k).^2)))/(20*10^-6).^2)
+
 f_axis = w;
-result=20*log10(abs(f_result/(20*10^-6)));
+result=20*log10(abs(f_result_t/(20*10^-6)));
 %number = 1;
 result_mean(:,k) = movmean(result,40);
 result_mean_d(:,k) = downsample(result_mean(:,k),15);
 end
-spl_diff = tspl(2) - tspl(1)
+figure(2)
+plot(impulse(:,1))
+hold on
+plot(impulse(:,2))
+l_Aeq_diff = l_Aeq(1) - l_Aeq(2)
 f_axis = downsample(f_axis,15);
 %impulse(:,number) = ir_result;
 %figure(1)
 %plot(ir_axis(1:length(ir_result)),ir_result)
-figure(2)
+figure(3)
 %semilogx(f_axis(21:end),result(21:end))
 semilogx(f_axis(21:end),result_mean_d(21:end,1))
 hold on

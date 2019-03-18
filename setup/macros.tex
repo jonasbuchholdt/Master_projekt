@@ -487,12 +487,9 @@ ymax=18,
 }%
 
 \newcommand{\dB}[1]{%
-	\SI{#1}{\decibel} \gls{spl}
-}%
+	\SI{#1}{\decibel} \gls{spl}}%
 
-\newcommand{\dBp}[1]{%
-	\SI{#1}{\decibel} \gls{spl}.
-}%
+
 
 \newcommand{\db}[0]{%
 	\si{\decibel}
@@ -521,19 +518,9 @@ ymax=18,
 \pgfmathparse{#1/1000}
     \SI{\pgfmathresult}{\kilo\hertz}%
   \else
-    \SI{#1}{\hertz}
-\fi
-}
+    \SI{#1}{\hertz}\fi}
 
-\newcommand{\Hzp}[1]{%
-\def\variable{5}
-\ifnum#1>999   
-\pgfmathparse{#1/1000}
-    \SI{\pgfmathresult}{\kilo\hertz}%
-  \else
-    \SI{#1}{\hertz}.
-\fi
-}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tilføjer kommando \citeref

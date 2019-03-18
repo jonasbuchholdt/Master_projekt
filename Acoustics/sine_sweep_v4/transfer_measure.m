@@ -168,6 +168,9 @@ end
 ir_a = mean(ir_shift(:,:,:),3);
 plot(ir_a(:,1))
 
+
+load('intelligibility_filter.mat');
+[b,a]=sos2tf(SOS,G);
 for k=1:length(inputChannel)
 ir_result=ir_a(1:end/2,k);      %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
 [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
@@ -175,11 +178,15 @@ f_result = tf./calibration.preamp_transfer_function;
 
 f_result_two = [f_result; flip(conj(f_result))];
 impulse(:,k) = real(ifft(f_result_two));
-impulse(:,k) = abcfilt(impulse(:,k),'a'); % a weighting
+%impulse(:,k) = abcfilt(impulse(:,k),'a'); % a weighting
+
+
+impulse(:,k)=filter(b,a,impulse(:,k));
+
 
 [f_result_t,w] = freqz(impulse(:,k),1,frequencyRange(2),fs);
 
-l_Aeq(k) = 10*log10(((1/sweepTime)*sum(abs(impulse(:,k).^2)))/(20*10^-6).^2)
+l_Aeq(k) = 10*log10(((1/(sweepTime/2))*sum(abs(impulse(:,k).^2)))/(20*10^-6).^2)
 
 f_axis = w;
 result=20*log10(abs(f_result_t/(20*10^-6)));

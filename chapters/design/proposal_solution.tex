@@ -11,7 +11,7 @@ The gold is then to search A\si{\degree} and B\si{\degree} based on wind speed C
 A filter is needed since the effect is frequency dependent.
 
 
-\section{Description of the line source array}
+\section{Description of the used line source array}
 
  The speaker which will be used to design the solution is a L-Acoustics KUDO line source array where the main lobe coverage can be controlled mechanical. It is both possible to make the main lobe symmetric and asymmetric on this line source element. The following the \autoref{fig:td:kud_cov} shows both the wide and narrow symmetric main lobe option of the KUDO. The asymmetric coverage can be founded in \citep{KUDO_data}
 
@@ -26,7 +26,34 @@ The mechanical coverage solution in the KUDO as well as other line source array 
 
 \section{Designing the measurement}
 
-The aim of this section is to design a test on a non modified line source array to test the proposal solution from \autoref{sec:td:pro_sol_pro}. 
+The aim of this section is to design a test on a non modified line source array to test the proposal solution from \autoref{sec:td:pro_sol_pro}. To be able to test the proposal solution, a measurement system have to be designed. To be sure that the wind noise do not effect the measurement the part of the design takes care about finding the perferable microphone wind screen configuration, based on the aviable STOF in acoustics lab. The second part measure the frequency dependent attenuation of the chosen windscreen compare to the microphone response without windscreen. The comparisen is done to cont for the attenuation of the windscreen such that the measured data reflect the \gls{spl} at the point as good as possible. The third part takes care about designing the nesesarly data logging function. The last part designs the measuring signal playback and record method.
+
+
+\subsection{Design of wind screen}
+The aim of this section is to be able find a windscreen to the measuring microphone such that the wind noise is low compare to the measuring signal. There is to aspect in this windscreen configuration, firs the the wind noise cannot be filtered electronical between the microphone and the preamp.Therefore the strength of the wind noise shall be as low as the preamp do not overload. Secondly the measurement shall be measurement of the signal and not the wind noise, therefore the signal shall be sufficiant higher that the wind noise such that the measurement is trustable and represent the \gls{spl} procused of the speaker at the measuring point. 
+
+The idea of an additional wind screen is use the original windscreen to the microphone and then try to stop the wind in just at the microphone with a blocking surface. The surface shall therefore be able to lower the windspeed at the microphone and have as less reflection as possible. The original windscreen is cept on the microphone in the wind stop area to attenuate the wind noise that passes the blockaga and attenuate the turbulence prodused by the wind stopper. 
+
+There is to wind stopping concept that will be tested, a plan surface of rockwool as shown in \autoref{} and a foam wedge solution as shown in \autoref{}
+    
+
+There is made a preliminary test test to measure the effect in a fast measuring setup before a field measurement. The measurement was done in acoustics lab with two fan and a wind speed of \SI{2.5}{\meter\per\second}. The result is founded in \autoref{}
+
+\plot{plot/with_ball_wind_compare}{The graph shows one of the time measurement with configuration three}{fig:sec:pop:tim_wit_bal_roc_kil}
+
+
+As seen in the measurement, the original wind screen does have a huge wind noise attenuation but as shown in ... measurement, the wind noise can be further attenuated by the developed wind stopping concept. 
+
+
+
+
+\subsection{Attenuation of the windscreen} 
+
+\subsection{Data logging system} 
+
+To be able to use the information of the wind spees temparature and humidity, the data logging of the atmospherical condition have to be syncronius with the measurement. 
+
+
 
 
 The speaker is chosen to be adjusted to the narrow main lobe because it is assumed that the distance from the audience to the speaker is so large that the wide angle goes beyond the audience area.

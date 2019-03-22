@@ -1,0 +1,86 @@
+\chapter{Windscreen concept measurement}
+A measurement was made to measure the wind attenuation of difference windscreen configuration. All configuration include the GRAS AM0069 windscreen with an additionally wind stopper surface all around the microphone except of the frontal direction. The measurement is done as a preliminary test with low wind speed, to test the concept before a field test with wind speed as in the speaker measurement. The measurement is done to ensure that the measured wind does not overload the preamp of the microphone at the specified wind speed.  
+
+
+\section*{Materials and setup}
+To measure the wind attenuation of the windscreen configuration the following materials are used:
+
+\startequipment
+\equipment{PC}{Macbook}{W89242W966H}{-}
+\equipment{Audio interface}{RME Fireface UCX}{23811948}{108230}
+\equipment{Microphone}{GRAS 26CC}{78189}{75583}
+\equipment{Preamp}{GRAS 40 AZ}{100268}{75551}
+\equipment{Microphone}{GRAS 26CC}{78186}{75582}
+\equipment{Preamp}{GRAS 40 AZ}{100267}{75550}
+\equipment{Microphone}{GRAS 26CC}{78186}{75582}
+\equipment{Preamp}{GRAS 40 AZ}{100267}{75550}
+\stopequipment
+\startequipment
+\equipment{Fan}{IMPEGA}{-}{-}
+\equipment{Fan}{IMPEGA}{-}{-}
+\equipment{Windscreen}{GRAS AM0069}{-}{-}
+\equipment{Windscreen}{GRAS AM0069}{-}{-}
+\equipment{large foam wedge}{-}{-}{-}
+\equipment{Small foam wedge}{-}{-}{-}
+\equipment{Rockwool bat}{-}{-}{-}
+\stopequipment
+
+\dfig{IMG_1153}{The picture shows the measurement set up}{IMG_1150}{The picture shows the microphone covered with windscreen and the Small foam wedge wind stopper configuration. This configuration is defined as configuration one}{The figures shows the measurement set up and wind screen configuration one}{fig:ap:pre_att_setup}
+\dfig{IMG_1156}{The picture shows the microphone covered with windscreen and the large foam wedge wind stopper. This configuration is defined as configuration two.}{IMG_1155}{The picture shows the microphone covered with windscreen and the rockwool wind stopper. This configuration is defined as configuration three.}{The picture shows the windscreen configuration two and three}{fig:ap:pre_att_setup_two}
+
+\section*{Test procedure}
+
+
+\begin{enumerate}
+\item The materials are set up as in \autoref{fig:ap:pre_att_setup_1} where the two microphone connected to the audio interface.
+\item Both microphone is calibrated.
+\item Both fan is activated 
+\item A \SI{7}{\second} time signal is measured three times synchronise on both microphone.
+\item The frequency content is calculated by \texttt{fft} on all six measured time signal.
+\item The average of the frequency response for each microphone is calculated
+\item The difference between the microphone is calculated to find the attenuation of the windscreen configuration
+\item The procedure is done for all windscreen configuration and one where no additionally wind stopper is added around the microphone. This last configuration is defined as reference configuration.
+\item A no wind measurement is measured the same way just without the fan activated and only with GRAS AM0069 windscreen in the end.
+\item The wind speed is measured.
+\end{enumerate}
+
+\section*{Results}
+
+The following graphs shows the result of the measurement. The wind speed is measured to be \SI{2.5}{\meter\per\second}. 
+
+\plot{plot/with_ball_no_vind}{The graph shows attenuation of the wind shield without wind}{fig:ap:att_wit_bal_no_vin}
+
+The \autoref{fig:ap:att_wit_bal_no_vin} shows the frequency content in the measuring area without the fan activated for both microphone and the reference windscreen configuration.
+
+\plot{plot/with_ball_and_vind}{The graph shows attenuation of the wind shield without wind}{fig:ap:att_wit_bal_an_vin}
+
+The \autoref{fig:ap:att_wit_bal_an_vin} shows the frequency content in the measuring area with the fan activated for both microphone and the reference windscreen configuration. 
+
+
+\plot{plot/time_with_ball}{The graph shows attenuation of the wind shield without wind}{fig:ap:tim_wit_bal}
+\plot{plot/att_with_ball}{The graph shows attenuation of the wind shield without wind}{fig:ap:att_wit_bal}
+
+The \autoref{fig:ap:att_wit_bal} and \autoref{fig:ap:tim_wit_bal} shows the windscreen attenuation in frequency and time domain respectively for the reference configuration. It is seen that the highest attenuation is at \Hz{900} but the general attenuation is 
+
+
+
+\plot{plot/time_with_ball_small_kile}{The graph shows attenuation of the wind shield without wind}{fig:ap:tim_wit_bal_sma_kil}
+\plot{plot/att_with_ball_small_kile}{The graph shows attenuation of the wind shield without wind}{fig:ap:att_wit_bal_sma_kil}
+
+The \autoref{fig:ap:att_wit_bal_sma_kil} and \autoref{fig:ap:tim_wit_bal_sma_kil} shows the windscreen attenuation in frequency and time domain respectively for configuration one. 
+
+
+
+\plot{plot/time_with_ball_large_kile}{The graph shows attenuation of the wind shield without wind}{fig:ap:tim_wit_bal_lar_kil}
+\plot{plot/att_with_ball_large_kile}{The graph shows attenuation of the wind shield without wind}{fig:ap:att_wit_bal_lar_kil}
+
+
+The \autoref{fig:ap:att_wit_bal_lar_kil} and \autoref{fig:ap:tim_wit_bal_lar_kil} shows the windscreen attenuation in frequency and time domain respectively for configuration two.
+
+
+
+\plot{plot/time_with_ball_rock_kile}{The graph shows attenuation of the wind shield without wind}{fig:ap:tim_wit_bal_roc_kil}
+\plot{plot/att_with_ball_rock_kile}{The graph shows attenuation of the wind shield without wind}{fig:ap:att_wit_bal_roc_kil}
+
+The \autoref{fig:ap:att_wit_bal_roc_kil} and \autoref{fig:ap:tim_wit_bal_roc_kil} shows the windscreen attenuation in frequency and time domain respectively for configuration three.
+

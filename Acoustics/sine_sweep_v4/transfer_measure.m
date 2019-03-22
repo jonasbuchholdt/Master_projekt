@@ -178,11 +178,11 @@ f_result = tf./calibration.preamp_transfer_function;
 
 f_result_two = [f_result; flip(conj(f_result))];
 impulse(:,k) = real(ifft(f_result_two));
-%impulse(:,k) = abcfilt(impulse(:,k),'a'); % a weighting
-impulse(:,k)=filter(b,a,impulse(:,k)); % intilligibility weighting
+impulse(:,k) = abcfilt(impulse(:,k),'a'); % a weighting
+%impulse(:,k)=filter(b,a,impulse(:,k)); % intilligibility weighting
 
 [f_result_t,w] = freqz(impulse(:,k),1,frequencyRange(2),fs);
-l_Aeq(k) = 10*log10(((1/(sweepTime))*sum(abs(impulse(:,k).^2)))/(20*10^-6).^2)
+l_Aeq(k) = 10*log10(((1/(sweepTime))*sum((impulse(:,k).^2)))/(20*10^-6).^2)
 
 f_axis = w;
 result=20*log10(abs(f_result_t/(20*10^-6)));
@@ -201,9 +201,9 @@ f_axis = downsample(f_axis,15);
 %plot(ir_axis(1:length(ir_result)),ir_result)
 figure(3)
 %semilogx(f_axis(21:end),result(21:end))
-semilogx(f_axis(21:end),result_mean_d(21:end,1)-l_Aeq_diff)
+semilogx(f_axis(21:end),result_mean_d(21:end,1)-l_Aeq_diff/2)
 hold on
-semilogx(f_axis(21:end),result_mean_d(21:end,2)+l_Aeq_diff-2)
+semilogx(f_axis(21:end),result_mean_d(21:end,2)+l_Aeq_diff/2)
 semilogx([500, 500], [20, 120],'Color', [1 1 0.5])
 semilogx([8000, 8000], [20, 120],'Color', [1 1 0.5])
 grid on

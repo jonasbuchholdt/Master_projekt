@@ -243,7 +243,7 @@ db_uref = [downsample(db_ref(1:716),down1); downsample(db_ref(716+1:7153),down2)
 
 
 
-load('ingen_vind.mat')
+load('rock_kile_vs_ingen.mat')
 
 X = data(:,1)/0.131931494139380;
 Y = fft(X);
@@ -259,7 +259,7 @@ P1 = P2(1:L/2+1);
 P1(2:end-1) = 2*P1(2:end-1);
 tf1m = P1;
 
-load('ingen_vind_2.mat')
+load('rock_kile_vs_ingen_2.mat')
 
 X = data(:,1)/0.131931494139380;
 Y = fft(X);
@@ -275,7 +275,7 @@ P1 = P2(1:L/2+1);
 P1(2:end-1) = 2*P1(2:end-1);
 tf2m = P1;
 
-load('ingen_vind_3.mat')
+load('rock_kile_vs_ingen_3.mat')
 
 X = data(:,1)/0.131931494139380;
 Y = fft(X);
@@ -305,17 +305,17 @@ db_mm = [downsample(db_m(1:716),down1); downsample(db_m(716+1:7153),down2); down
 db_um = [downsample(db_u(1:716),down1); downsample(db_u(716+1:7153),down2); downsample(db_u(7153+1:71536),down3); downsample(db_u(71536+1:end),down4)];
 
 f =  [downsample(f(1:716),down1);  downsample(f(716+1:7153),down2); downsample(f(7153+1:71536),down3);  downsample(f(71536+1:end),down4)];
-semilogx(f,db_um)
+semilogx(f,db_uref)
 
 hold on
 semilogx(f,db_mm)
 %semilogx(w,)
 grid on
-axis([ 2 20000 -40 90])
+axis([ 2 20000 -40 70])
 xlabel('Frequency [Hz]')
 ylabel('SPL [dB]')
 yticks(-50:10:90);
-legend('Without windscreen','With windscreen, conf 1')
+legend('Without wind','With wind and windscreen, conf 3')
 
 
 %%

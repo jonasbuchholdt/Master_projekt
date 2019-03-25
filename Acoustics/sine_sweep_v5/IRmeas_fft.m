@@ -26,7 +26,8 @@ function [ir,irtime,res]=IRmeas_fft(ts,frequencyRange,gainlevel,offset,inputChan
             % We'll also add some to the start to account for latency
             startSilence = ceil(fs/10);
             endSilence = 2*fs;
-            dataOut = [zeros(startSilence,1); x'; zeros(endSilence,1);zeros(506,1)];
+            dataOut(:,1) = [zeros(startSilence,1); x'; zeros(endSilence,1);zeros(506,1)];
+            dataOut(:,2) = dataOut(:,1);
             
 
             % Perform capture
@@ -37,7 +38,7 @@ function [ir,irtime,res]=IRmeas_fft(ts,frequencyRange,gainlevel,offset,inputChan
            
             aPR = audioPlayerRecorder('SampleRate',fs,...               % Sampling Freq.
                           'RecorderChannelMapping',inputChannel,...  % Input channel(s)
-                          'PlayerChannelMapping',1,... % Output channel(s)
+                          'PlayerChannelMapping',[1 2],... % Output channel(s)
                           'SupportVariableSize',true,...    % Enable variable buffer size 
                           'BufferSize',L);                  % Set buffer size
     
@@ -61,18 +62,20 @@ function [ir,irtime,res]=IRmeas_fft(ts,frequencyRange,gainlevel,offset,inputChan
                       
             load('calibration.mat')
             
-         %for k = 1:length(inputChannel)
+            
+            
+            
+            % convelution of signal
             input   = out(:,1);
-            output  = out(:,2);
-            %input=input*(calibration.preamp_gain)/(calibration.mic_sensitivity(k));
-            output = output*calibration.mic_sensitivity
-            
-            output_f = fft(output);
-            input_f  = fft(input);
-            
-            ir = real(ifft(input_f./output_f));
+            ref  = out(:,2)/(rms(out(:,2))/calibration.mic_sensitivity(1));            
+            eps = 0.1; 
+            L = numel(ref);
+            W = hann(L); 
+            uz1f = fft(W.*input,L); 
+            uz2f = fft(W.*ref,L);
+            ir = real(ifft((uz1f.*conj(uz2f))./(uz2f.*conj(uz2f)+eps*mean(uz2f.*conj(uz2f)))));           
             irtime = [1:length(ir)]./fs;           
-         %end
+         
             
             
     end

@@ -1,6 +1,6 @@
 function [fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data(cmd)
 %%
-gain = -27;
+gain = -25;
 load('offset.mat');
 load('calibration.mat');
 load('highPass20.mat');

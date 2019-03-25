@@ -99,7 +99,8 @@ save('calibration.mat','calibration','-append');
 
 %% Make impulse response
 clear;
-for i=1:10
+tim = 1
+for i=1:tim
     i
 [fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
 [ir_axis,ir(:,:,i),res] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
@@ -107,90 +108,96 @@ if res == 1
     [ir_axis,ir(:,:,i),res] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
 end
 end
-%%
-load('highpass_to_ir.mat');
-[b,a]=sos2tf(SOS,G);
-for i=1:10
-ir(:,1,i)=filter(b,a,ir(:,1,i));
-end
-
-for i=1:10
-ir(:,2,i)=filter(b,a,ir(:,2,i));
-end
-
-[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
-
-for i=1:10
-    r(:,i) = xcorr(ir(:,1,1),ir(:,1,i));
-    [M,inde1(i)] = max(r(:,i));
-end
-
-for i=1:10
-    r(:,i) = xcorr(ir(:,2,1),ir(:,2,i));
-    [M,inde2(i)] = max(r(:,i));
-end
-
-for i=1:10
-    shif1(i) = inde1(i) - inde1(1);
-    shif2(i) = inde2(i) - inde2(1);
-end
-
-for i=1:10
-    ir_shift(:,1,i) = circshift(ir(:,1,i),shif1(i));
-    ir_shift(:,2,i) = circshift(ir(:,2,i),shif2(i));
-end
-
-for i=1:10
-    r(:,i) = xcorr(ir_shift(:,1,1),ir_shift(:,1,i));
-    [M,inde1_ch(i)] = max(r(:,i));
-end
-
-for i=1:10
-    r(:,i) = xcorr(ir_shift(:,2,1),ir_shift(:,2,i));
-    [M,inde2_ch(i)] = max(r(:,i));
-end
-
-for i=1:10
-    shif1_ch(i) = inde1_ch(i) - inde1_ch(1);
-    shif2_ch(i) = inde2_ch(i) - inde2_ch(1);
-end
 
 
-figure(1)
-for i=1:10
-p1 = plot(squeeze(ir_shift(:,2,i)))
-p1.Color(4) = 0.25;
-hold on
-end
-ir_a = mean(ir_shift(:,:,:),3);
-plot(ir_a(:,2))
+load('highPass20.mat');
+        [b,a]=sos2tf(SOS,G);
+        ir=filter(b,a,ir);
+        figure(1)
+plot(ir(:,1))
 
-for k=1:length(inputChannel)
-ir_result=ir_a(1:end/2,k);      %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
+
+ir_result=ir(1:end/2);      %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
+
+ 
+ %[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
+
+
 [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
-f_result = tf./calibration.preamp_transfer_function;
-
 f_axis = w;
-result=20*log10(abs(f_result/(20*10^-6)));
-%number = 1;
-result_mean(:,k) = movmean(result,40);
-result_mean_d(:,k) = downsample(result_mean(:,k),10);
-end
-f_axis = downsample(f_axis,10);
-%impulse(:,number) = ir_result;
-%figure(1)
-%plot(ir_axis(1:length(ir_result)),ir_result)
+result=20*log10(abs(tf/(20*10^-6)));
+
+
 figure(2)
-%semilogx(f_axis(21:end),result(21:end))
-semilogx(f_axis(21:end),result_mean_d(21:end,1))
+semilogx(f_axis,result)
 hold on
-semilogx(f_axis(21:end),result_mean_d(21:end,2))
 grid on
 grid minor
-axis([300 20000 20 120])
+axis([50 20000 55 85])
 xlabel('Frequency [Hz]')
 ylabel('Level [dB]')
-legend('mic1','mic2')
+legend('mic1')
+
+
+%%
+clear 
+[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
+
+down1 = 1;
+down2 = 2;
+down3 = 20;
+down4 = 50;
+
+load('mic_ref_without_ball.mat','ir_result');
+ref = ir_result;
+load('mic_ref_with_ball_large_rock_single','ir_result');
+mes = ir_result;
+
+clear ir_result;
+
+L = length(ref);
+
+Y = fft(ref);
+P2 = abs(Y/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+tf_ref = P1;
+
+Y = fft(mes);
+P2 = abs(Y/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+tf_mes = P1;
+
+[tf_ref,w] = freqz(ref,1,frequencyRange(2),fs);
+[tf_mes,w] = freqz(mes,1,frequencyRange(2),fs);
+
+
+%f_axis = w;%(fs*(0:(L/2))/L)';
+f_axis = [downsample(w(1:100),down1); downsample(w(100+1:1000),down2); downsample(w(1000+1:10000),down3); downsample(w(10000+1:end),down4)];
+
+
+
+db_ref=20*log10(abs(tf_ref/(20*10^-6)));
+db_mes=20*log10(abs(tf_mes/(20*10^-6)));
+
+
+
+db_ref = [downsample(db_ref(1:100),down1); downsample(db_ref(100+1:1000),down2); downsample(db_ref(1000+1:10000),down3); downsample(db_ref(10000+1:end),down4)];
+db_mes = [downsample(db_mes(1:100),down1); downsample(db_mes(100+1:1000),down2); downsample(db_mes(1000+1:10000),down3); downsample(db_mes(10000+1:end),down4)];
+
+%result = db_mes;%-db_ref;
+
+figure(2)
+semilogx(f_axis,db_ref)
+hold on
+semilogx(f_axis,db_mes)
+grid on
+grid minor
+axis([40 20000 50 90])
+xlabel('Frequency [Hz]')
+ylabel('SPL [dB]')
+legend('Without windscreen','Windscreen, conf 4')
 
 %% Add more test points 
 % number = number+1; % run number

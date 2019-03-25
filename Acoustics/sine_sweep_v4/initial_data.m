@@ -8,5 +8,5 @@ load('highPass20.mat');
 cmd = cmd %'test'
 inputChannel = [1 2];
 frequencyRange = [20 22000];
-sweepTime = 5;
-fs = 44100;
+sweepTime = 8;
+fs = 48000;

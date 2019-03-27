@@ -15,7 +15,7 @@ The above proposal solution deals with the crosswind problem, when the wind chan
 The optimal solution therefore might be a solution which controls the refraction in the frequency range from \Hz{1000} to \Hz{8000} with live horizontal and vertical adjustment of the speaker main lobe. The next section explains the speaker which will be used for the solution and how the main lobe is defined and adjusted.
 
 
-\section{Description of the used line source array and direction characteristics}
+\section{Description of the used line source array}\label{sec:prop:des_of_lin}
 
  The speaker which will be used to design the solution is a L-Acoustics KUDO line source array where the main lobe coverage can be controlled mechanical. It is both possible to make the main lobe symmetric and asymmetric on this line source element. The following the \autoref{fig:td:kud_cov} shows both the wide and narrow symmetric main lobe option of the KUDO. The asymmetric coverage can be founded in \citep{KUDO_data}
 
@@ -27,9 +27,13 @@ The mechanical coverage solution in the KUDO as well as other line source array 
 
 
 
+\section{Test of proposal solution}
+The aim of this section is to design a test setup for testing the proposal solution. The test setup will use the descried line source array in \autoref{sec:prop:des_of_lin} in the narrow beam angle without any modification.
+
+\xfig{design/angle_measurement.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea}{1} 
+
 
 \section{Designing the measurement}
-
 The aim of this section is to design a test on a non modified line source array to test the proposal solution from \autoref{sec:td:pro_sol_pro}. To be able to test the proposal solution, a measurement system have to be designed. To be sure that the wind noise do not effect the measurement the part of the design takes care about finding the perferable microphone wind screen configuration, based on the aviable STOF in acoustics lab. The second part measure the frequency dependent attenuation of the chosen windscreen compare to the microphone response without windscreen. The comparisen is done to cont for the attenuation of the windscreen such that the measured data reflect the \gls{spl} at the point as good as possible. The third part takes care about designing the nesesarly data logging function. The last part designs the measuring signal playback and record method.
 
 
@@ -60,16 +64,6 @@ As seen in the measurement, the original wind screen does have a huge wind noise
 \subsection{Attenuation of the windscreen} 
 The aim of this section is to analyse the inflyence of the selected windscreen. 
 
-
-
-%\plot{plot/mic_ref_with_ball_small}{The graph shows }{fig:sec:pop:mic_ref_wit_ball_sma}
-%\plot{plot/mic_ref_with_ball_large}{The graph shows }{fig:sec:pop:mic_ref_wit_ball_lar}
-%\plot{plot/mic_ref_with_ball_rock}{The graph shows }{fig:sec:pop:mic_ref_wit_ball_roc}
-%\plot{plot/mic_ref_with_ball_rock_single}{The graph shows }{fig:sec:pop:mic_ref_wit_ball_roc_sin}
-%\plot{plot/mic_ref_with_ball_large_rock_single}{The graph shows }{fig:sec:pop:mic_ref_wit_ball_lar_roc_sin}
-
-
-
 Free field 
 
 
@@ -77,8 +71,6 @@ Free field
 \subsection{Data logging system} 
 
 To be able to use the information of the wind spees temparature and humidity, the data logging of the atmospherical condition have to be syncronius with the measurement. 
-
-
 
 
 The speaker is chosen to be adjusted to the narrow main lobe because it is assumed that the distance from the audience to the speaker is so large that the wide angle goes beyond the audience area.
@@ -93,7 +85,6 @@ To measure the \gls{spl} coverage of the speaker a flat area with mown grass is 
 To keep the wind speed realistic for measurement and for concert, but still having wind pressent, the wind speed doing the measurement is limited in the range for average \SI{5}{\meter\per\second} to \SI{10}{\meter\per\second}. Less average wind speed than \SI{5}{\meter\per\second} is avoided to ensure measureble effect of the wind on sound propagation. The higher limit of the \SI{10}{\meter\per\second} is chosen to ensure that the speaker tower is safe at the hight at \SI{6}{\meter}. The limited size of the setup makes the setup wind (følsom) because it is not puttet up as a cube but only as a surface. 
 
 
-\xfig{design/angle_measurement.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea}{1} 
 
 
 where the refraction at \SI{110}{\meter} already starts at \Hz{400}. 

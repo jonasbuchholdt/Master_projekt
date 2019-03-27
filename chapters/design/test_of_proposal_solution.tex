@@ -1,0 +1,74 @@
+\section{Test of proposal solution}
+The aim of this section is to design a test setup for testing the proposal solution. The test setup will use the descried line source array in \autoref{sec:prop:des_of_lin} in the narrow beam angle without any modification.
+
+\xfig{design/angle_measurement.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea}{1} 
+
+
+\section{Designing the measurement}
+The aim of this section is to design a test on a non modified line source array to test the proposal solution from \autoref{sec:td:pro_sol_pro}. To be able to test the proposal solution, a measurement system have to be designed. To be sure that the wind noise do not effect the measurement the part of the design takes care about finding the perferable microphone wind screen configuration, based on the aviable STOF in acoustics lab. The second part measure the frequency dependent attenuation of the chosen windscreen compare to the microphone response without windscreen. The comparisen is done to cont for the attenuation of the windscreen such that the measured data reflect the \gls{spl} at the point as good as possible. The third part takes care about designing the nesesarly data logging function. The last part designs the measuring signal playback and record method.
+
+
+\subsection{Design of windscreen}
+The aim of this section is to be able find a windscreen to the measuring microphone such that the wind noise is low compare to the measuring signal. There is to aspect in this windscreen configuration, firs the the wind noise cannot be filtered electronical between the microphone and the preamp.Therefore the strength of the wind noise shall be as low as the preamp do not overload. Secondly the measurement shall be measurement of the signal and not the wind noise, therefore the signal shall be sufficiant higher that the wind noise such that the measurement is trustable and represent the \gls{spl} procused of the speaker at the measuring point. 
+
+The idea of an additional wind screen is use the original windscreen to the microphone and then try to stop the wind in just at the microphone with a blocking surface. The surface shall therefore be able to lower the windspeed at the microphone and have as less reflection as possible. The original windscreen is cept on the microphone in the wind stop area to attenuate the wind noise that passes the blockaga and attenuate the turbulence prodused by the wind stopper. 
+
+There is to wind stopping concept that will be tested, a plan surface of rockwool as shown in \autoref{} and a foam wedge solution as shown in \autoref{}
+    
+\xfig{design/measure_foam_concept.pdf_t}{The figure shows the foam wedge concept}{fig:td:mes_foa_con}{1} 
+ \xfig{design/measure_rock_consept.pdf_t}{The figure shows the rockwool concept}{fig:td:mes_roc_con}{1} 
+ \xfig{design/measure_rock_single_consept.pdf_t}{The figure shows the single rockwool concept}{fig:td:mes_roc_sin_con}{1}    
+    
+
+There is made a preliminary test test to measure the effect in a fast measuring setup before a field measurement. The measurement was done in acoustics lab with two fan and a wind speed of \SI{2.5}{\meter\per\second}. The result is founded in \autoref{}
+
+\plot{plot/with_ball_wind_compare_large}{The graph shows one of the time measurement with configuration three}{fig:sec:pop:wit_bal_wind_com_lag}
+
+
+\plot{plot/with_ball_wind_compare_rock}{The graph shows one of the time measurement with configuration three}{fig:sec:pop:wit_bal_wind_com_roc}
+
+As seen in the measurement, the original wind screen does have a huge wind noise attenuation but as shown in ... measurement, the wind noise can be further attenuated by the developed wind stopping concept. 
+
+
+
+
+\subsection{Attenuation of the windscreen} 
+The aim of this section is to analyse the inflyence of the selected windscreen. 
+
+Free field 
+
+
+
+\subsection{Data logging system} 
+
+To be able to use the information of the wind spees temparature and humidity, the data logging of the atmospherical condition have to be syncronius with the measurement. 
+
+
+The speaker is chosen to be adjusted to the narrow main lobe because it is assumed that the distance from the audience to the speaker is so large that the wide angle goes beyond the audience area.
+
+Because of limitation, the speaker is flown in a hight of \SI{6}{\meter}. 
+
+The humidity and temperature have to be measured.
+
+To measure the \gls{spl} coverage of the speaker a flat area with mown grass is chosen to be used. The optimal area area without any building or trees might not be posible, therefore blockage or sound reflaction surface other than the ground is only allowed to be present in the double of distance compare to the distance from the speaker to the microphone. Based on the refraction effect versus distance founded in \autoref{sec:ana:atm_ref}. The distance from the speaker to the microphone array is chosen to be \SI{50}{\meter}. The distance is based on the experience of the author described in \autoref{sec:ana:aut_exp_con} and the founded refraction effect in \autoref{sec:ana:atm_ref}. It was founded that the refraction effect should be minimal at a distance of \SI{50}{\meter} when the speed of wind is \SI{5}{\meter\per\second}. 
+
+
+To keep the wind speed realistic for measurement and for concert, but still having wind pressent, the wind speed doing the measurement is limited in the range for average \SI{5}{\meter\per\second} to \SI{10}{\meter\per\second}. Less average wind speed than \SI{5}{\meter\per\second} is avoided to ensure measureble effect of the wind on sound propagation. The higher limit of the \SI{10}{\meter\per\second} is chosen to ensure that the speaker tower is safe at the hight at \SI{6}{\meter}. The limited size of the setup makes the setup wind (følsom) because it is not puttet up as a cube but only as a surface. 
+
+
+
+
+where the refraction at \SI{110}{\meter} already starts at \Hz{400}. 
+
+
+The area is without  The resend to use this  
+
+\plot{plot/angle_test}{The graph shows the first transfer function measurement within the high frequency directional angle. The $L_{Aeq,5}$ \gls{spl} different between the microphones is \dB{6.77} (IR_3) The graph is normed to contain the same $L_{Aeq,5}$ \gls{spl} }{fig:ana:ang_tes}
+
+
+
+\section{Measuring program}
+
+
+\section{Result}
+

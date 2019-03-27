@@ -5,35 +5,6 @@ calibration.date=date;
 save('calibration.mat','calibration');
 
 
-%% Check impulse response offset
-% rme= 3159 edirol=3295 firefly=3360
-clear;
-offset = -3159;
-save('offset.mat','offset');
-[fs,~,frequencyRange,gain,inputChannel,offset,sweepTime,~,~,cmd] = initial_data('test');
-[t_axis,t_result] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
-plot(t_result)
-
-
-%% Calibrate the soundcard
-clear;
-[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('cali_soundcard');
-Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
-%% Show calibration of soundcard
-cmd = 'test';
-load('calibration.mat')
-[~,ir] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
-ir_result=filter(b,a,ir(1:length(ir)/2));
-[tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
-f_result = tf./calibration.preamp_transfer_function;
-result = 20*log10(abs(f_result));
-semilogx(w,result)
-hold on
-grid on
-axis([20 20000 -1 1])
-xlabel('Frequency [Hz]')
-ylabel('[dB]')
-
 
 %% Calibrate the microphone
 clear;
@@ -99,7 +70,7 @@ save('calibration.mat','calibration','-append');
 
 %% Make impulse response
 clear;
-tim = 1
+tim = 1;
 for i=1:tim
     i
 [fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
@@ -117,11 +88,7 @@ load('highPass20.mat');
 plot(ir(:,1))
 
 
-ir_result=ir(1:end/2);      %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
-
- 
- %[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
-
+ir_result=ir(1:end/2);     
 
 [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
 f_axis = w;
@@ -199,24 +166,51 @@ xlabel('Frequency [Hz]')
 ylabel('SPL [dB]')
 legend('Without windscreen','Windscreen, conf 4')
 
-%% Add more test points 
-% number = number+1; % run number
-% [~,ir] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
-% ir_result=filter(b,a,ir(1:length(ir)/2));
-% [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
-% f_result = tf./calibration.preamp_transfer_function;
-% f_axis = w;
-% result=20*log10(abs(f_result)/(20*10^-6));
-% result_mean(:,number) = movmean(result(21:end),100);
-% figure(2)
-% semilogx(f_axis(21:end),result_mean(:,number))
-% impulse(:,number) = ir_result;
+%% Add test points 
+clear
+number = 0;
+%%
+
+ number = number+1; % run number
+  
+[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
+[ir_axis,ir(:,:,number),res] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
+if res == 1
+    [ir_axis,ir(:,:,number),res] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
+end
+
 
 
 %% Mean the test and show result
-mean_of_all_run = mean(result_mean,2);
-figure(3)
-semilogx(f_axis(1:length(mean_of_all_run)),mean_of_all_run)
+
+for i=1:number+1
+r(:,i) = xcorr(ir(:,1),ir(:,i));
+[M,inde1(i)] = max(r(:,i));
+end
+
+shif = inde1' - inde1(1)+1;
+
+for i=1:number+1
+ir_shift(:,i) = circshift(ir(:,i),shif(i));
+end
+
+
+%%
+
+
+
+mean_of_all_run = mean(ir_shift,2);
+
+figure(1)
+plot(ir_shift)
+
+[tf_mes,w] = freqz(mean_of_all_run,1,frequencyRange(2),fs);
+db_mes=20*log10(abs(tf_mes/(20*10^-6)));
+
+
+
+figure(2)
+semilogx(w,db_mes)
 hold on
 grid on
 grid minor

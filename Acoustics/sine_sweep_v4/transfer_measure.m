@@ -133,10 +133,10 @@ for i=1:ir_num
     [M,inde2(i)] = max(r(:,i));
 end
 
-for i=1:ir_num
-    shif1(i) = inde1(i) - inde1(1);
-    shif2(i) = inde2(i) - inde2(1);
-end
+%for i=1:ir_num
+    shif1 = inde1' - inde1(1);
+    shif2' = inde2' - inde2(1);
+%end
 
 for i=1:ir_num
     ir_shift(:,1,i) = circshift(ir(:,1,i),shif1(i)-1000);

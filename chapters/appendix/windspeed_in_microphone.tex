@@ -1,0 +1,89 @@
+\chapter{Windscreen attenuation measurement}
+A measurement was made to measure the wind attenuation in the microphone position with the difference windscreen configuration.
+
+
+\section*{Materials and setup}
+To measure the wind attenuation of the windscreen configuration the following materials are used:
+
+\startequipment
+\equipment{PC}{Macbook}{W89242W966H}{-}
+\equipment{Windscreen}{GRAS AM0069}{-}{-}
+\equipment{Windscreen}{GRAS AM0069}{-}{-}
+\equipment{large foam wedge}{-}{-}{-}
+\equipment{Small foam wedge}{-}{-}{-}
+\equipment{Rockwool bat}{-}{-}{-}
+\equipment{Fast fan}{-}{-}{-}
+\equipment{Fan control}{tranformator}{-}{60398}
+\equipment{Windspeed tools}{FT technologies FT742-D-SM}{9002-922}{105634}
+\stopequipment
+
+
+\xfig{appendix/wind_speed_in_windscreen.pdf_t}{The figure shows the measurement setup for the wind speed measurement in the microphone position}{fig:ap:wind_meas_setup}{1}
+
+
+\section*{Test procedure}
+
+
+\begin{enumerate}
+\item The materials are set up as in \autoref{fig:ap:wind_meas_setup}.
+\item The fan is placed such that is produce directly crosswind.
+\item The fan is activated 
+\item The anemometer is activated to record.
+\item The anemometer is placed in the wind for approximately \SI{10}{\second}.
+\item Then the anemometer is moved intro the microphone position for approximately \SI{10}{\second}.
+\item Then the anemometer is moved back in the wind for approximately \SI{10}{\second}.
+\item Then the anemometer is moved intro the microphone position for approximately \SI{10}{\second} again. 
+\item The wind speed measurement is plotted in \matlab with a moving mean filter with 2 sample and as \si{\meter\per\second} versus \si{\second}.
+\item Next the wind direction measurement is plotted in \matlab with a moving mean filter with 2 sample and as \si{\degree} versus \si{\second}.
+\item The measurement is done for all windscreen configuration the same way.
+\end{enumerate}
+
+
+\xfig{appendix/anemometer_movement.pdf_t}{The figure shows the movement of the anemometer doing the measurement}{fig:ap:ane_mov}{1}
+
+
+
+The following \autoref{ap:wind:anemometer} shows the anemometer used for the measurement.
+
+\fig{IMG_1180}{The picture shows anemometer used for the measurement}{ap:wind:anemometer}{0.5}
+
+
+\section*{Results}
+
+The following graphs shows the result of the measurement.
+
+\autoref{ap:wind:small} shows the measurement setup of the foam wedge, where the \autoref{fig:ap:wind_small} shows the result.
+\fig{IMG_1188}{The picture shows the measurement setup with the small wedge, configuration one}{ap:wind:small}{0.5}
+\plot{plot/wind_small}{The graph shows the wind speed versus time for configuration one. The grape have a high speed period and a low speed period, in the high speed period, the anemometer is in the wind approximatly \SI{30}{\centi\meter} from the windscreen where in the low speed period, the anemometer is inside the windscreen.}{fig:ap:wind_small}
+\plot{plot/wind_small_direction}{The graph shows the synchronous direction of the wind with respect the the wind speed in \autoref{fig:ap:wind_small}}{fig:ap:wind_small_dir}
+It is seen in \autoref{fig:ap:wind_small} that the wind speed is lowered from approximately \SI{8}{\meter\per\second} to \SI{2}{\meter\per\second}. It is seen in \autoref{fig:ap:wind_small_dir} that the windscreen produces turbulence in the windscreen and the direction of the wind change approximately \SI{180}{\degree}.
+
+
+\fig{IMG_1185}{The picture shows the measurement setup for the large wedge, configuration two}{ap:wind:large}{0.5}
+\plot{plot/wind_large}{The graph shows the wind speed versus time for configuration two. The grape have a high speed period and a low speed period, in the high speed period, the anemometer is in the wind approximatly \SI{30}{\centi\meter} from the windscreen where in the low speed period, the anemometer is inside the windscreen.}{fig:ap:wind_large}
+\plot{plot/wind_large_direction}{The graph shows the synchronous direction of the wind with respect the the wind speed in \autoref{fig:ap:wind_large}}{fig:ap:wind_large_dir}
+It is seen in \autoref{fig:ap:wind_large} that the wind speed is lowered from approximately \SI{7.5}{\meter\per\second} to \SI{1}{\meter\per\second}. It is seen in \autoref{fig:ap:wind_large_dir} that the windscreen produces turbulence as high as with the small foam wedge in the windscreen and the direction of the wind change approximately \SI{70}{\degree}.
+
+
+
+\fig{IMG_1186}{The picture shows the measurement setup for the single rockwool bat, configuration four}{ap:wind:rock_sing_win}{0.5}
+\plot{plot/wind_rock_single}{The graph shows the wind speed versus time for configuration four. The grape have a high speed period and a low speed period, in the high speed period, the anemometer is in the wind approximatly \SI{30}{\centi\meter} from the windscreen where in the low speed period, the anemometer is inside the windscreen.}{fig:ap:wind_rock_single}
+\plot{plot/wind_rock_single_direction}{The graph shows the synchronous direction of the wind with respect the the wind speed in \autoref{fig:ap:wind_rock_single}}{fig:ap:wind_rock_single_dir}
+It is seen in \autoref{fig:ap:wind_rock_single} that the wind speed is lowered from approximately \SI{8}{\meter\per\second} to \SI{1}{\meter\per\second}. It is seen in \autoref{fig:ap:wind_rock_single_dir} that the windscreen produces higher turbulence compare to the foam wedge windscreen. The direction of the wind change is approximately \SI{100}{\degree}. 
+
+
+
+
+\fig{IMG_1189}{The picture shows the measurement with the large wedge and single rockwool bat, configuration two plus four}{ap:wind:large_rock_sing_win}{0.5}
+\plot{plot/wind_large_rock_single}{The graph shows the wind speed versus time for configuration five. The grape have a high speed period and a low speed period, in the high speed period, the anemometer is in the wind approximatly \SI{30}{\centi\meter} from the windscreen where in the low speed period, the anemometer is inside the windscreen.}{fig:ap:wind_large_rock_single}
+\plot{plot/wind_large_rock_single_direction}{The graph shows the synchronous direction of the wind with respect the the wind speed in \autoref{fig:ap:wind_large_rock_single}}{fig:ap:wind_large_rock_single_dir}
+It is seen in \autoref{fig:ap:wind_large_rock_single} that the wind speed is lowered from approximately \SI{8}{\meter\per\second} to \SI{0.8}{\meter\per\second}.  It is seen in \autoref{fig:ap:wind_large_rock_single_dir} that this windscreen produces the highest turbulence of all windscreen. The direction of the wind change approximately \SI{60}{\degree}.
+
+
+
+\section*{Summary}
+It is measured that all windscreen configuration lower the wind speed in the microphone position. The lowest attenuation of the wind is of the small foam wedge where the highest wind speed attenuation is attained by the combination of configuration two and four. Generally all windscreen yield turbulence wind direction, but the single rockwool bat configuration four seems to be the worst with respect to directional turbulence.
+
+
+
+

@@ -41,12 +41,20 @@ To measure the transfer function in a cross wind situation, the following materi
 \item The mean impulse response is calculated for the 10 measurement of both microphone.
 \item The transfer function is calculated with a 40 sample moving mean filter.
 \item The measurement is repeated three times.
+\item The measurement i repeated with an angle of \SI{74}{\degree} and a distance of \SI{25}{\meter} for both microphone.
 \end{enumerate}
 
+
+\section*{Measurement area}
+To be able to measure in a windy area, the football stadium at Fredrick Alfred Nobels Vej 7, 9220 Aalborg is used. The following \autoref{ap:wind:flow_mes_are} shows a picture of the area and the approximate position of the speaker and microphone.
+
+\fig{wind_meas_area}{The picture illustrate the area, where the wind flow is measured}{ap:wind:flow_mes_are}{0.7}
 
 \section*{Results}
 
 The wind speed was \SI{14}{\meter\per\second} for each measurement and the temperature was \SI{5}{\degree}. The humidity was not measured. 
+
+The following measurement shows the result for \SI{120}{\degree}
 
 \plot{plot/measurement_one_one}{The graph shows the first transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{5.49} (IR_6)}{fig:ap:mea_one_one}
 \plot{plot/measurement_one_two}{The graph shows the second transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{4.40} (IR_7)}{fig:ap:mea_one_two}
@@ -54,5 +62,12 @@ The wind speed was \SI{14}{\meter\per\second} for each measurement and the tempe
 
 On \autoref{fig:ap:mea_one_one}, \autoref{fig:ap:mea_one_two} and \autoref{fig:ap:mea_one_thr} it is seen that the general pressure is higher for microphone 1. It is also seen that ground reflection effect is much higher on microphone 1 than microphone 2. This support the theory about upwards refraction of sound wave on microphone 2 and downwards refraction on microphone 1 
 
+The following measurement shows the result for \SI{74}{\degree}
+
+\plot{plot/measurement_two_one}{The graph shows the first transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{4.41} (IR_3)}{fig:ap:mea_two_one}
+\plot{plot/measurement_two_two}{The graph shows the second transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{4.81} (IR_5)}{fig:ap:mea_two_two}
+
+On \autoref{fig:ap:mea_two_one} and \autoref{fig:ap:mea_two_two} it is seen that the general pressure is higher for microphone 1. It is also seen that ground reflection effect is much higher on microphone 1 than microphone 2. This support the theory about upwards refraction of sound wave on microphone 2 and downwards refraction on microphone 1 
 
 
+\section*{Summary}

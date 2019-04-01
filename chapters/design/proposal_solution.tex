@@ -17,19 +17,29 @@ The optimal solution therefore might be a solution which controls the refraction
 
 \section{Description of the used line source array}\label{sec:prop:des_of_lin}
 
- The speaker which will be used to design the solution is a L-Acoustics KUDO line source array where the main lobe coverage can be controlled mechanical. It is both possible to make the main lobe symmetric and asymmetric on this line source element. The following the \autoref{fig:td:kud_cov} shows both the wide and narrow symmetric main lobe option of the KUDO. The asymmetric coverage can be founded in \citep{KUDO_data}
+The aim of this section is to explain the functionality for the line source array which is used to test the proposal solution. The single element will be explained, the horizontal directionally corsage and the control will be explained and the vertical coverage control will be explained.
 
-\fig{kudo_coverage.pdf}{The graph shows the symmetric coverage area of the L-Acoustics KUDO line source array \citep{KUDO_data}.}{fig:td:kud_cov}{0.9}
+The line source ellement which is used to test the proposal design is a L-Acoustics KUDO line source array. This line source element is a legacy variable curvature line source Long throw element from the L-acoustics. The speaker is designed as the second option in the K series which today is redesigned and renamed to L-acoustics K2. The speaker can be flown as a vertical line with with a maximum of 21 elements. The limit is due to the safety limit on the flying tools. One single element have a frequency response from \Hz{50} to \SI{18}{\kilo\hertz} with a maximum deviation of $\pm$ \dB{3} and have a maximum \gls{spl} of \dB{140} at \SI{1}{\meter}. The following \autoref{fig:td:kud_freq_res} shows the average frequency response over \SI{40}{\degree} horizontal angle of a single line source array at \SI{1}{\watt}.
 
-The mechanical coverage solution in the KUDO as well as other line source array element is not made for wind problems but for neighbog desterbines and higher \gls{spl} in the main lobe of the high frequency. All solution used today is only posible to change by hand and is not electrical controlled. 
-
-\fig{kudo_directivity.pdf}{The figure shows how the directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_manual}.}{fig:td:kud_dir}{1}
+\fig{kudo_frequency_response.pdf}{The graph shows the average frequency response over \SI{40}{\degree} horizontal angle of a single line source array at \SI{1}{\watt} \citep{KUDO_data}.}{fig:td:kud_freq_res}{0.8}
 
 
+The maximum \gls{spl} is conservative and realistic, the actual maximum \gls{spl} is higher but not recommended. The line source array coverage can be controlled vertically by the flying tools, there the angle between the speaker can be adjusted from \SI{0}{\degree} to \SI{10}{\degree} with \SI{1}{\degree} step size. The horizontal coverage can be controlled individual on every element. The line source element allow both symmetric horizontal coverage and asymmetric coverage. The angle from the frontal direction to the outer main lobe \dB{-6} is ether \SI{25}{\degree} or \SI{55}{\degree}. By this two angle for both side, four coverage angle of the speaker is possible, \SI{110}{\degree}, \SI{50}{\degree} and \SI{80}{\degree} ether to the left or right. The following the \autoref{fig:td:kud_cov} shows both the wide and narrow symmetric main lobe option of the L-acoustics KUDO. The asymmetric coverage can be founded in \citep{KUDO_data}
+
+\fig{kudo_coverage.pdf}{The graph shows the symmetric coverage area of the L-Acoustics KUDO line source array \citep{KUDO_data}.}{fig:td:kud_cov}{0.8}
 
 
 
+The mechanical coverage solution in the KUDO as well as other line source array element is not made for wind problems but for neighbog desterbines and higher \gls{spl} in the main lobe of the high frequency. All solution used today is only posible to change by hand and is not electrical controlled. The method for chancing the horizontal directivity in the KUDO line source element is two plexiglass plate fixed to the front grill. the fixing mechanism can be adjusted sidewise by realising two splits on both plate. The plate can then be slided along the grill to change the mouth of the speaker output. The following \autoref{fig:td:kud_dir} illustrate the principle.
+
+\fig{kudo_directivity.pdf}{The figure shows how the directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_manual}.}{fig:td:kud_dir}{0.5}
+
+To control the vertical coverage of the line source array, the mechanical solution is the angle between the element. This means that the vertical coverage control cannot be controled on the individual line source element as the horizontal coverage. To control the vertical coverage the speaker is trapeze designed such that the mouth output stays together while the angle between the elements is adjusted in the back of the element for every line source element.
 
 
+\section{test setup}
+
+
+flying method 
 
 

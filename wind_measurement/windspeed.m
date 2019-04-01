@@ -4,7 +4,7 @@
 
 %still_m = movmean([still31; still32],20);
 
-wind = movmean(LOG00031,2);
+wind = movmean(LOG00034,2);
 x = [1:1:length(wind)]/10;
 
 plot(x,wind)
@@ -13,7 +13,7 @@ grid on
 xlabel('Time [s]')
 ylabel('wind speed [m/s]')
 
-axis([0 70 0 12])
+axis([0 55 0 12])
 yticks(0:1:15);
 
 
@@ -24,7 +24,7 @@ yticks(0:1:15);
 % 24 -330
 % 28 ...
 
-direction = movmean(LOG00030,1)-305;
+direction = movmean(LOG00034,1)-350;
 
 for i=1:length(direction)
     if direction(i) < 0
@@ -41,7 +41,7 @@ grid on
 xlabel('Time [s]')
 ylabel('direction [deg]')
 
-axis([0 62 0 360])
+axis([0 55 0 360])
 yticks(0:20:360);
 xticks(0:5:80);
 

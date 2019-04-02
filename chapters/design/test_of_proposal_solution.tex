@@ -1,12 +1,25 @@
 \section{Test of proposal solution}
-The aim of this section is to design a test setup for testing the proposal solution. The test setup will use the descried line source array in \autoref{sec:prop:des_of_lin} in the narrow beam angle without any modification.
-
-\xfig{design/angle_measurement.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea}{1} 
+The aim of this section is to design a test setup for testing the proposal solution. The test setup will use the descried line source array in \autoref{sec:prop:des_of_lin} in the narrow beam angle without any modification and with the two descried test setup in \autoref{sec:pro:test_setup}. This chapter designs the measuring method and the needed windscreen for windy measurement. Furthermore the measuring program is designed such that it is able to measure in condition where the speed of sound change.
 
 
 \section{Designing the measurement}
 The aim of this section is to design a test on a non modified line source array to test the proposal solution from \autoref{sec:td:pro_sol_pro}. To be able to test the proposal solution, a measurement system have to be designed. To be sure that the wind noise do not effect the measurement the part of the design takes care about finding the perferable microphone wind screen configuration, based on the aviable STOF in acoustics lab. The second part measure the frequency dependent attenuation of the chosen windscreen compare to the microphone response without windscreen. The comparisen is done to cont for the attenuation of the windscreen such that the measured data reflect the \gls{spl} at the point as good as possible. The third part takes care about designing the nesesarly data logging function. The last part designs the measuring signal playback and record method.
 
+\subsection{Microphone position}
+The aim of this section is to design the position of the measuring microphone. The position of the microphone depend on the wind condition, for the crosswind the microphone be placed in the sound field where for the parallel wind, the microphone shall be placed in the shadow zone. The description starts with the former.
+
+
+The microphone position highly depends on the coverage area of the line source element. Usualy the element which is flown highest cover the as far as possible where the line source element which is closest to the ground cover the frontal audience. As founded in \autoref{} the refraction is sparse in the first \SI{50}{\meter} with wind speed of \SI{5}{\meter\per\second} but as shown in \autoref{} the refraction occore at a distance of \SI{25}{\meter} with \SI{13}{\meter\per\second}. As it is required that the mean wind shall be less than \SI{10}{\meter\per\second} and above \SI{5}{\meter\per\second}, the interesting distance is above \SI{25}{\meter}. The measurement in \autoref{} showed that the refection highly occore at \SI{110}{\meter} at \SI{5}{\meter\per\second}. At the extreme case at very large live concert as Roskilde festival, the delay tower is placed no longer than \SI{75}{\meter} from the main stage \citep{}. Therefore because of the wind speed doing the measurement, the neglibel distance before refraction as the present wind speed and the maximum distance of the delay tower, the microphone position shall be within \SI{50}{\meter} to \SI{75}{\meter} from the line source array. As discosed in \autoref{} The hight of the line source array might influence in the shadow zone distance due to ground blocking of sound wave. Furthermore the hight and the number of line array element is limited compare to sound system at stage. Therefore the distance is chosen to be less than \SI{75}{\meter} and since the mean wind speed is above \SI{5}{\meter\per\second} but the source hight is also higher than the measured shadow zone in \autoref{} the microphone position shall be thuder away than \SI{50}{\meter}. 
+
+Another factor which play a sertain role for the microphone distance from the sound source is the hight of the microphone. The is pros and cons for placing the microphone both at the ground or above the ground. The pros of placing the microphone on the ground is that the ground reflection is eliminated but the cons is that the shadow zone might be closer to the line source array that above the ground, as it cab be seen in \autoref{}. Relating it to the concert situation, the ground reflection in the high frequency is assumed to be low where the ground reflection id the low frequency range is assumed to be higher. Moreover the hight of the audience ear is not at the ground but in a hight of approximatly \SI{1.70}{\meter} therefore the most realistic senario without audience in the high frequency is at the ear hight. Since the important frequency range is in the high ineligibility frequency range the low frequency reflection has only sparse effect on the measuring result. 
+
+
+\xfig{design/angle_measurement.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea}{1} 
+
+
+The microphone position of the vertical refraction measurement depends on the shadow zone position, it is wanted to measure in the shadow zone to explore if it is posible to move the shadow zone backwards by tilting the line array. Therefore the shadow zone have to be founded by measurement before the microphone position can be specified.
+
+\xfig{design/angle_measurement_vertical.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea_ver}{1} 
 
 \subsection{Design of windscreen}
 The aim of this section is to be able find a windscreen to the measuring microphone such that the wind noise is low compare to the measuring signal. There is to aspect in this windscreen configuration, firs the the wind noise cannot be filtered electronical between the microphone and the preamp.Therefore the strength of the wind noise shall be as low as the preamp do not overload. Secondly the measurement shall be measurement of the signal and not the wind noise, therefore the signal shall be sufficiant higher that the wind noise such that the measurement is trustable and represent the \gls{spl} procused of the speaker at the measuring point. 
@@ -16,9 +29,15 @@ The idea of an additional wind screen is use the original windscreen to the micr
 There is to wind stopping concept that will be tested, a plan surface of rockwool as shown in \autoref{} and a foam wedge solution as shown in \autoref{}
     
 \xfig{design/measure_foam_concept.pdf_t}{The figure shows the foam wedge concept}{fig:td:mes_foa_con}{1} 
- \xfig{design/measure_rock_consept.pdf_t}{The figure shows the rockwool concept}{fig:td:mes_roc_con}{1} 
- \xfig{design/measure_rock_single_consept.pdf_t}{The figure shows the single rockwool concept}{fig:td:mes_roc_sin_con}{1}    
-    
+\xfig{design/measure_rock_consept.pdf_t}{The figure shows the rockwool concept}{fig:td:mes_roc_con}{1} 
+\xfig{design/measure_rock_single_consept.pdf_t}{The figure shows the single rockwool concept}{fig:td:mes_roc_sin_con}{1}    
+\xfig{design/measure_rock_foam_concept.pdf_t}{The figure shows the single rockwool concept}{fig:td:mes_roc_foa_con}{1}  
+
+
+The optimized version
+
+\xfig{design/windscreen_optimised.pdf_t}{The figure shows the single rockwool concept}{fig:td:mes_win_opt_ver}{1}  
+
 
 There is made a preliminary test test to measure the effect in a fast measuring setup before a field measurement. The measurement was done in acoustics lab with two fan and a wind speed of \SI{2.5}{\meter\per\second}. The result is founded in \autoref{}
 

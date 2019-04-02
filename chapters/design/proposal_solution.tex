@@ -21,25 +21,44 @@ The aim of this section is to explain the functionality for the line source arra
 
 The line source ellement which is used to test the proposal design is a L-Acoustics KUDO line source array. This line source element is a legacy variable curvature line source Long throw element from the L-acoustics. The speaker is designed as the second option in the K series which today is redesigned and renamed to L-acoustics K2. The speaker can be flown as a vertical line with with a maximum of 21 elements. The limit is due to the safety limit on the flying tools. One single element have a frequency response from \Hz{50} to \SI{18}{\kilo\hertz} with a maximum deviation of $\pm$ \dB{3} and have a maximum \gls{spl} of \dB{140} at \SI{1}{\meter}. The following \autoref{fig:td:kud_freq_res} shows the average frequency response over \SI{40}{\degree} horizontal angle of a single line source array at \SI{1}{\watt}.
 
-\fig{kudo_frequency_response.pdf}{The graph shows the average frequency response over \SI{40}{\degree} horizontal angle of a single line source array at \SI{1}{\watt} \citep{KUDO_data}.}{fig:td:kud_freq_res}{0.8}
+\fig{kudo_frequency_response.pdf}{The graph shows the average frequency response over \SI{40}{\degree} horizontal angle of a single line source array at \SI{1}{\watt} \citep{KUDO_data}.}{fig:td:kud_freq_res}{1}
 
 
 The maximum \gls{spl} is conservative and realistic, the actual maximum \gls{spl} is higher but not recommended. The line source array coverage can be controlled vertically by the flying tools, there the angle between the speaker can be adjusted from \SI{0}{\degree} to \SI{10}{\degree} with \SI{1}{\degree} step size. The horizontal coverage can be controlled individual on every element. The line source element allow both symmetric horizontal coverage and asymmetric coverage. The angle from the frontal direction to the outer main lobe \dB{-6} is ether \SI{25}{\degree} or \SI{55}{\degree}. By this two angle for both side, four coverage angle of the speaker is possible, \SI{110}{\degree}, \SI{50}{\degree} and \SI{80}{\degree} ether to the left or right. The following the \autoref{fig:td:kud_cov} shows both the wide and narrow symmetric main lobe option of the L-acoustics KUDO. The asymmetric coverage can be founded in \citep{KUDO_data}
 
-\fig{kudo_coverage.pdf}{The graph shows the symmetric coverage area of the L-Acoustics KUDO line source array \citep{KUDO_data}.}{fig:td:kud_cov}{0.8}
+\fig{kudo_coverage.pdf}{The graph shows the symmetric coverage area of the L-Acoustics KUDO line source array \citep{KUDO_data}.}{fig:td:kud_cov}{1}
 
 
 
 The mechanical coverage solution in the KUDO as well as other line source array element is not made for wind problems but for neighbog desterbines and higher \gls{spl} in the main lobe of the high frequency. All solution used today is only posible to change by hand and is not electrical controlled. The method for chancing the horizontal directivity in the KUDO line source element is two plexiglass plate fixed to the front grill. the fixing mechanism can be adjusted sidewise by realising two splits on both plate. The plate can then be slided along the grill to change the mouth of the speaker output. The following \autoref{fig:td:kud_dir} illustrate the principle.
 
-\fig{kudo_directivity.pdf}{The figure shows how the directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_manual}.}{fig:td:kud_dir}{0.5}
+\fig{kudo_directivity.pdf}{The figure shows how the horizontal directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_manual}.}{fig:td:kud_dir}{0.5}
 
-To control the vertical coverage of the line source array, the mechanical solution is the angle between the element. This means that the vertical coverage control cannot be controled on the individual line source element as the horizontal coverage. To control the vertical coverage the speaker is trapeze designed such that the mouth output stays together while the angle between the elements is adjusted in the back of the element for every line source element.
+To control the vertical coverage of the line source array, the mechanical solution is the angle between the element. This means that the vertical coverage control cannot be controled on the individual line source element as the horizontal coverage. To control the vertical coverage the speaker is trapeze designed such that the mouth output stays together while the angle between the elements is adjusted in the back of the element for every line source element. The following \autoref{fig:td:kud_dir_ver} shows how the line source element is attached to each other and how they are angled in vertical coverage.
+
+\fig{vertical_coverage_adjust.pdf}{The figure shows how the vertical directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_rig}.}{fig:td:kud_dir_ver}{0.5}
+
+To adjust the vertical coverage the upper left rigging pin shall only be placed intro the speaker rig, when the angle shown on the metal pease shows the vanted vertical coverage between two line source element.  
+
+\section{Test setup}\label{sec:pro:test_setup}
+The aim of this section is to design the speaker setup such that the proposal solution can be tested on the limited amount of avealebel line source array. The author only own six L-acoustics KUDO line source element and four belonging low frequency driver. Therefore the test is split intro two test, one test for crosswind and one test for parallel wind. The resan that the test is splittet intro two parts is that the speaker setup is changed for parallel and crosswind wind. The section starts explaining the setup for the latter.
+
+For crosswind the idea is to fly two stacks for speaker beside of each other, one stack orthogonal to the wind and one stack rotated some amount of degree agents the wind. The transfer function for both stack is measured in the coverage area of the frontal pointing line source array. The rotated array is rotated with few degree for every measurement until the line source array are orthogonal to the frontal line source array. The following \autoref{fig:td:speaker_rot} illustrate the line source array setup as a top view. The microphone is situated as far as away as that the displacement between the line source array is assumed to be neglible.
+
+\xfig{design/speaker_rotation.pdf_t}{The figure shows the line source setup for the measurement. Every line source consist of three KUDO line source element attached with \SI{0}{\degree} vertical coverage angle}{fig:td:speaker_rot}{1} 
+
+The \autoref{fig:td:speaker_rot} illustrate that the wind makes upwards and downwards refraction and therefore the main lobe is curved. For parallel wind, the idea is to fly one large stack with six KUDO line source array with horizontal symmetric coverage. The array is tilted some degree until the optimal angle is founded. The optimal angel is the angle where the shadow zone is pushed as far away as possible with respect to the wind speed. The following \autoref{fig:td:vertical_coverage} illustrate the line source array from the side.
+
+   
+\xfig{design/vertical_coverage.pdf_t}{The figure shows the line source setup for the measurement. The line source array consist of six KUDO line source element attached with \SI{0}{\degree} vertical coverage angle}{fig:td:vertical_coverage}{1} 
+
+The \autoref{fig:td:vertical_coverage} illustrate that the wind makes upwards refraction and therefore the main lobe is curved upwards.
 
 
-\section{test setup}
+\section{Optimality criteria}
+The aim of this section is to describe the optimal \gls{spl} coverage. It is founded in \autoref{sec:prop:des_of_lin} that the angle of the line source element is described by the \dB{-6} limit of the main lobe. This means that the frontal direction of the line source array is \dB{6} higher that the outer lines coverage in the illustration in \autoref{fig:td:speaker_rot}. Furthermore the \gls{spl} coverage decay with distance and with respect to the frequency. This fact does the optimality creteriea difference for the parallel wind solution. Therefore the optimality creteria is difference for for the to solution. Tis section starts descriping the optimallity creteria for the crosswind and then for the parallel wind. One thing that they have common in the optimality criteria is that the refraction is frequency dependent and therefore the frequency that shall be optimised is the same. It is founded in ... that the most important frequency range for information dissemination is the frequency range from \Hz{500} to \Hz{8000}. Therefore the optimality criteria frequency range for both solution will be weighted as the ineligibility frequency range. 
 
 
-flying method 
+\paragraph{Crosswind} The optimality criteria for crosswind is that the \gls{spl} coverage differences within the main lobe coverage after frequency weighting is minimised and symmetric around the frontal direction. Furthermore the \gls{spl} differences between the frontal direction and the main lobe limit is of maximum of \dB{6}
 
-
+\paragraph{Parallel wind} The optimality criteria for the parallel wind is that the shadow zone is moved thuder back. Therefore the shadow zone is founded and microphone is placed in the shadow zone. The optimality criteria is then the angle where the \gls{spl} in the shadow zone is highest in the weighted frequency range. 

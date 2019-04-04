@@ -352,7 +352,8 @@ american ports]{circuitikz}
 \usepackage{csquotes}
 
 \usepackage{tabularx}
-\def\arraystretch{1.4}%
+\def\arraystretch{1.6}%
+\renewcommand{\arraystretch}{1.7}
 
 \usepackage{graphicx}
 \usepackage{pgfplots}
@@ -397,3 +398,6 @@ american ports]{circuitikz}
 \usetikzlibrary{external}
 \tikzexternalize[prefix=tikz/]
 
+\newcommand\Tstrut{\rule{0pt}{2.6ex}}       % "top" strut
+\newcommand\Bstrut{\rule[-0.9ex]{0pt}{0pt}} % "bottom" strut
+\newcommand{\TBstrut}{\Tstrut\Bstrut} % top&bottom struts

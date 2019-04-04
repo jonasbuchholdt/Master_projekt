@@ -342,7 +342,7 @@ hi-fi-forstærker%
 
 \newcommand{\equipment}[4]{\ifthenelse{\thefirstexplain=1}{
 Description & Model & Serial-no & AAU-no \\ \hline
-	#1 & #2 & #3 & #4 \\ \setcounter{firstexplain}{0}
+	#1 & #2 & #3 & #4 \Tstrut \\ \setcounter{firstexplain}{0}
 	}{%	
 	#1 & #2 & #3 & #4\\ %
 	}%
@@ -354,6 +354,30 @@ Description & Model & Serial-no & AAU-no \\ \hline
 % Bruges til forklaringer af ligninger.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tilføjer kommando spørge skema
+% Bruges til forklaringer af ligninger.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\def\startask{\setcounter{firstexplain}{1}{\noindent}{\par\noindent}\begin{tabular}{@{\vspace{0.1cm}}p{.03\columnwidth}p{.60\columnwidth}@{\hskip.04\columnwidth}p{.15\columnwidth}@{\hskip.04\columnwidth}p{.12\columnwidth}@{}}}%
+
+\def\stopask{\end{tabular}\\[10pt]}%
+
+\newcommand{\ask}[3]{\ifthenelse{\thefirstexplain=1}{
+&Question & Answer & Unit  \\ \cline{2-4} 
+	&\textit{#1}&#2&#3 \TBstrut \\\setcounter{firstexplain}{0}
+	}{%	
+	&\textit{#1}&#2&[#3] \TBstrut \\%
+	}%
+}%
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Tilføjer kommando spørge skema
+% Bruges til forklaringer af ligninger.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Tilføjer figur

@@ -56,7 +56,8 @@
     Med venlig hilsen\\
     \newline
     #1\\
-    Mail: #2 Tlf: #3\\
+    Mail: #2 \\
+    Tlf: #3\\
     }
     \par\vspace{\baselineskip}%
 }

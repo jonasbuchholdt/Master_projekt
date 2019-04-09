@@ -34,7 +34,6 @@ void loop() {
 Rotations = 0; // Set Rotations count to 0 ready for calculations 
 
 sei(); // Enables interrupts 
-  delay(1000);
     int chk = DHT.read22(DHT22_PIN); //Read data and store it to variables hum and temp    
     vaneValue = analogRead(analogPin2); 
   cli(); // Disable interrupts 

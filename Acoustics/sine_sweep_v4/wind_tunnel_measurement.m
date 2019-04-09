@@ -8,36 +8,41 @@ end
 
 port = seriallist;
 s = serial(port(5));
-s.baudrate = 115200;
+s=serial(port(5),'InputBufferSize',512,'Baudrate',115200); 
+%s.ReadAsyncMode = 'manual';
+%s.Terminator = 'LF';
 out = [];
-fopen(s)
-%fprintf(s,'*IDN?')
 
 mic = 0.03;
 
 
-%% measure
+% measure
 
             L = 2048;
             fileReader = dsp.AudioFileReader('sweep.wav','SamplesPerFrame',L);
             fs = fileReader.SampleRate;
-           
+
+            
             aPR = audioPlayerRecorder('SampleRate',fs,...               % Sampling Freq.
                           'RecorderChannelMapping',[1 2],...  % Input channel(s)
-                          'PlayerChannelMapping',1,... % Output channel(s)
+                          'PlayerChannelMapping',[1 2],... % Output channel(s)
                           'SupportVariableSize',true,...    % Enable variable buffer size 
                           'BufferSize',L);                  % Set buffer size
     
                       
-                      out = [];    
-                      
-                      dat = [];
+                      out = [];                         
+                      data = [];
+                      fopen(s)
+
                       while ~isDone(fileReader)
                           audioToPlay = fileReader();
+                          
                           [audioRecorded,nUnderruns,nOverruns] = aPR(audioToPlay);
                           out = [out; audioRecorded];
-                            t = strsplit(fscanf(s),'\t');
-                            dat = [dat; t];
+                          
+                          dat=strsplit(fscanf(s),'\t'); 
+                          data = [data; dat];
+                          
                           if nUnderruns > 0
                               fprintf('Audio player queue was underrun by %d samples.\n',nUnderruns);                                
                                 res = 1;
@@ -50,23 +55,38 @@ mic = 0.03;
                       release(fileReader);
                       release(aPR);
 
-                      
 
-weather = str2double(dat);
-wind_speed = kron(weather(:,1), ones(L,1));
-wind_direction = kron(weather(:,2), ones(L,1));
-temp = kron(weather(:,3), ones(L,1));
-humidity = kron(weather(:,4), ones(L,1));
+  fclose(s)  
 
                       
-%%
+interp = floor(length(out)/length(dat));
+weather = kron(str2double(data), ones(interp,1));
 
-wind_speed_m = movmean(wind_speed,4000);
-wind_direction_m = movmean(wind_direction,4000);
-temp_m = movmean(temp,4000);
-humidity_m = movmean(humidity,4000);
+
+while(1)
+    weather = [weather; weather(end,:)];
+    if length(weather)>=length(out)
+        break
+    end
+end
+
+wind_speed = (weather(:,1)*(2.25/1))*0.44704;
+wind_direction = weather(:,2)/1024*359;
+temp = weather(:,3);
+humidity = weather(:,4);
+
+                      
+
+
+wind_speed_m = movmean(wind_speed,6000);
+wind_direction_m = movmean(wind_direction,1);
+temp_m = movmean(temp,1);
+humidity_m = movmean(humidity,1);
 spl = fliplr(out);%10*log10(((((out/mic).^2)))/(20*10^-6).^2);
 x = [1:length(out)]./fs;
+
+meas_fs = length(weather)/x(end)
+%x_m = [1:length(weather)]./meas_fs;
 
 figure(1)
 plot(x,spl)
@@ -79,6 +99,7 @@ subplot(5,1,1);
 plot(x,spl)
 title('Audio')
 grid on
+axis([0 8 -5 5])
 
 subplot(5,1,2);
 plot(x,wind_speed_m)

@@ -14,6 +14,12 @@ volatile unsigned long Rotations; // cup rotation counter used in interrupt rout
 volatile unsigned long ContactBounceTime; // Timer to avoid contact bounce in interrupt routine 
 float WindSpeed; // speed miles per hour 
 volatile unsigned long Rotations_print;
+volatile unsigned long Rotations_b1;
+volatile unsigned long Rotations_b2;
+volatile unsigned long Rotations_b3;
+volatile unsigned long Rotations_b4;
+volatile unsigned long Rotations_b5;
+
 int analogPin1 = A2;
 int analogPin2 = A3;
 int vaneValue;
@@ -39,8 +45,8 @@ void t1(void)
       vaneValue = analogRead(analogPin2); 
       temp = DHT.temperature;
       hum = DHT.humidity;
-    
-      Serial.print(Rotations_print);
+      WindSpeed = Rotations_print*0.2012;
+      Serial.print(WindSpeed);
       Serial.print("\t");
       Serial.print(vaneValue); 
       Serial.print("\t");
@@ -55,8 +61,21 @@ void t2(void)
 {
    while (1) {   
       Rotations = 0;
-      k_sleep(20);           
-      Rotations_print = Rotations;
+      k_sleep(10);
+      Rotations_b1 =  Rotations;
+      Rotations_print =  Rotations_b1 + Rotations_b2 + Rotations_b3 + Rotations_b4 + Rotations_b5;
+      k_sleep(10); 
+      Rotations_b2 =  Rotations-Rotations_b1;
+      Rotations_print =  Rotations_b1 + Rotations_b2 + Rotations_b3 + Rotations_b4 + Rotations_b5;
+      k_sleep(10);
+      Rotations_b3 =  Rotations-Rotations_b2; 
+      Rotations_print =  Rotations_b1 + Rotations_b2 + Rotations_b3 + Rotations_b4 + Rotations_b5;
+      k_sleep(10); 
+      Rotations_b4 =  Rotations-Rotations_b3;
+      Rotations_print =  Rotations_b1 + Rotations_b2 + Rotations_b3 + Rotations_b4 + Rotations_b5;
+      k_sleep(10);            
+      Rotations_b5 =  Rotations-Rotations_b4;
+      Rotations_print =  Rotations_b1 + Rotations_b2 + Rotations_b3 + Rotations_b4 + Rotations_b5;      
    }
 }
 
@@ -86,7 +105,7 @@ void setup()
   //                        |-- staksize for array s1
   pt1=k_crt_task(t1,11,s1,200); 
   pt2=k_crt_task(t2,10,s2,200);
-  k_start(50); // start kernel with tick speed 50 milli seconds
+  k_start(100); // start kernel with tick speed 100 milli seconds
 }
 
 void loop(){ /* loop will never be called */ }

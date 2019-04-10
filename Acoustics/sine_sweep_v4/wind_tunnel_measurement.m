@@ -16,9 +16,16 @@ out = [];
 mic = 0.03;
 
 
-% measure
 
-            L = 2048;
+fopen(s)
+tic
+    while(toc<15)
+        buff=strsplit(fscanf(s),'\t'); 
+    end
+
+% measure
+fprintf('nu nu nu nu nu')
+            L = 4096;
             fileReader = dsp.AudioFileReader('sweep.wav','SamplesPerFrame',L);
             fs = fileReader.SampleRate;
 
@@ -32,8 +39,8 @@ mic = 0.03;
                       
                       out = [];                         
                       data = [];
-                      fopen(s)
-
+                      
+                     
                       while ~isDone(fileReader)
                           audioToPlay = fileReader();
                           
@@ -57,20 +64,30 @@ mic = 0.03;
 
 
   fclose(s)  
+  fclose(s)
+delete(s)
+clear s
 
+fprintf('stop stop stop stop')
                       
-interp = floor(length(out)/length(dat));
+interp = floor(length(out)/length(data));
+
 weather = kron(str2double(data), ones(interp,1));
 
 
 while(1)
-    weather = [weather; weather(end,:)];
-    if length(weather)>=length(out)
+    if length(weather)<length(out)
+        weather = [weather; weather(end,:)];
+    end
+    if length(weather)==length(out)
         break
+    end
+    if length(weather)>length(out)
+        weather = weather(:,1:end-1);
     end
 end
 
-wind_speed = (weather(:,1)*(2.25/1))*0.44704;
+wind_speed = (weather(:,1)*(2.25/5))*0.44704;
 wind_direction = weather(:,2)/1024*359;
 temp = weather(:,3);
 humidity = weather(:,4);
@@ -78,8 +95,8 @@ humidity = weather(:,4);
                       
 
 
-wind_speed_m = movmean(wind_speed,6000);
-wind_direction_m = movmean(wind_direction,1);
+wind_speed_m = movmean(wind_speed,interp*2);
+wind_direction_m = movmean(wind_direction,interp*2);
 temp_m = movmean(temp,1);
 humidity_m = movmean(humidity,1);
 spl = fliplr(out);%10*log10(((((out/mic).^2)))/(20*10^-6).^2);

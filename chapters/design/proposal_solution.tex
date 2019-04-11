@@ -1,10 +1,12 @@
 \section{proposal of solution to the cross wind problem}\label{sec:td:pro_sol_pro}
 
 This section aims to propose a solution to the problem founded in the crosswind measurement \autoref{sec:ana:atm_ref} and the problem statement in \autoref{ch:statement}. 
-The solution is a more homogeneous \gls{spl} coverage in the coverage area of the speaker without wind. In other words, the line source array has a frontal horizontal directional angle defined as the \dB{-6} limit of the main pressure lobe. The line source array main lobe is given in the horizontal degree as an addition of the main lobe from the frontal direction to the side and can both be symmetric and asymmetric, depending on the line source array element.
+The solution is a more homogeneous \gls{spl} coverage in the coverage area of the speaker without wind. In other words, the line source array has a frontal horizontal directional angle defined as the \dB{-6} limit of the main pressure lobe. The line source array main lobe is given in the horizontal degree as an addition of the main lobe from the frontal direction to the side and can both be symmetric and asymmetric, depending on the line source array element. The following \autoref{fig:td:mail_lobe} shows an illustration of the main lobe. 
+
+\xfig{design/main_lobe.pdf_t}{The figure shows the}{fig:td:mail_lobe}{1} 
 
 The proposed solution is to be able to steer the main lobe horizontal direction of the line source array adaptive by measuring tools and electronical actuators. 
-As being able to steer the main lobe horizontal direction of the line source array, the main lobe can be steered more up agents the direction of the coverage area where the wind attenuate the \gls{spl} by upwards refraction.  The crosswind problem is not as drastically close to the speaker, so the line source array which shall be able to be controlled is the line source array which covers the audience in back. The solution is therefore based on an adaptive main lobe, which is controlled such that the power of the main lobe is pointing against the audience with lowest \gls{spl}. The following \autoref{fig:td:geo_fin_sol} shows a graphical illustration of the proposed solution to archive a more homogeneous \gls{spl} coverage area in the frontal direction of the speaker with the wind.
+As being able to steer the main lobe horizontal direction of the line source array, the main lobe can be steered more in the direction of the coverage area where the wind attenuate the \gls{spl} by upwards refraction.  The crosswind problem is not as drastically close to the speaker, so the line source array which shall be able to be controlled is the line source array which covers the audience in back. The solution is therefore based on an adaptive main lobe, which is controlled such that the power of the main lobe is pointing against the audience with lowest \gls{spl}. The following \autoref{fig:td:geo_fin_sol} shows a graphical illustration of the proposed solution to archive a more homogeneous \gls{spl} coverage area in the frontal direction of the speaker with the wind.
 
 \xfig{design/geo_find_solution.pdf_t}{The figure shows the wanted direction of the sound coverage area after the effect of crosswind. C is the speed of wind in cross direction of the frontal direction of the speaker. A and B is the main lobe angle that needs to be founded. On the figure the angle are equal but that might not be true}{fig:td:geo_fin_sol}{1} 
 
@@ -65,7 +67,12 @@ This section aims to describe the optimal \gls{spl} coverage. It is founded in \
 
 \paragraph{Crosswind} The optimality criteria for crosswind is that the \gls{spl} coverage differences within the main lobe coverage after frequency weighting is minimised and symmetric around the frontal direction. Furthermore, the \gls{spl} differences between the frontal direction and the main lobe limit is of a maximum of \dB{6}
 
-\xfig{design/main_lobe.pdf_t}{The figure shows the}{fig:td:mail_lobe}{1} 
+\xfig{design/main_lobe_correction.pdf_t}{The figure shows the}{fig:td:mail_lobe_cor}{1}
+
+
+The center in the measurement was not measured doing the measurement so the stated value is a prediction based on \citep{review_of_sound} which indicate that the energy addition at short distances because of downwards refraction is small compare to the energy loss with upeards refraction. 
+
+The right \si{\decibel} in the expected result is a gues. This value depend on the sidewise attenuation outside the main lobe of the speaker which is unknown since the produce does not have any given measurement.
 
 
 

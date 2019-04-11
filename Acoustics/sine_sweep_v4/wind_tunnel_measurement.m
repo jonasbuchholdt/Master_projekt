@@ -19,7 +19,7 @@ mic = 0.03;
 
 fopen(s)
 tic
-    while(toc<15)
+    while(toc<10)
         buff=strsplit(fscanf(s),'\t'); 
     end
 
@@ -87,16 +87,20 @@ while(1)
     end
 end
 
-wind_speed = (weather(:,1)*(2.25/5))*0.44704;
-wind_direction = weather(:,2)/1024*359;
-temp = weather(:,3);
-humidity = weather(:,4);
+wind_speed1 = weather(:,1);
+wind_direction1 = weather(:,2)/1024*359;
+wind_speed2 = weather(:,3);
+wind_direction2 = weather(:,4)/1024*359;
+temp = weather(:,5);
+humidity = weather(:,6);
 
                       
 
 
-wind_speed_m = movmean(wind_speed,interp*2);
-wind_direction_m = movmean(wind_direction,interp*2);
+wind_speed_m1 = movmean(wind_speed1,interp*2);
+wind_direction_m1 = movmean(wind_direction1,interp*2);
+wind_speed_m2 = movmean(wind_speed2,interp*2);
+wind_direction_m2 = movmean(wind_direction2,interp*2);
 temp_m = movmean(temp,1);
 humidity_m = movmean(humidity,1);
 spl = fliplr(out);%10*log10(((((out/mic).^2)))/(20*10^-6).^2);
@@ -119,13 +123,17 @@ grid on
 axis([0 8 -5 5])
 
 subplot(5,1,2);
-plot(x,wind_speed_m)
+plot(x,wind_speed_m1)
+hold on
+plot(x,wind_speed_m2)
 title('Wind speed')
 grid on
 axis([0 8 0 15])
 
 subplot(5,1,3);
-plot(x,wind_direction_m)
+plot(x,wind_direction_m1)
+hold on
+plot(x,wind_direction_m2)
 title('Wind direction')
 grid on
 axis([0 8 0 360])

@@ -4,12 +4,12 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
-\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
-\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
-\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
-\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
-\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
-\definecolor{mycolor6}{rgb}{0.30100,0.74500,0.93300}%
+%\definecolor{mycolor1}{rgb}{0.00000,0.44700,0.74100}%
+%\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
+%\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
+%\definecolor{mycolor4}{rgb}{0.49400,0.18400,0.55600}%
+%\definecolor{mycolor5}{rgb}{0.46600,0.67400,0.18800}%
+%\definecolor{mycolor6}{rgb}{0.30100,0.74500,0.93300}%
 %
 \begin{tikzpicture}
 
@@ -18,13 +18,16 @@
 xmin=5,
 xmax=40,
 xlabel style={font=\color{white!15!black}},
-xlabel={$\text{Temperature [\si}{\text{\celsius}}\text{]}$},
+xlabel={Temperature [\si{\celsius}]},
 ymin=330,
 ymax=360,
 ylabel style={font=\color{white!15!black}},
-ylabel={$\text{speed of sound [\si}{\text{\meter\per\second}}\text{]}$},
+ylabel={Speed of sound [\si{\meter\per\second}]},
 legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align=left, draw=white!15!black}
 ]
+\addlegendimage{empty legend}
+\addlegendentry{\hspace{-.6cm}\textbf{Humidity}}
+
 \addplot [color=mycolor1]
   table[row sep=crcr]{%
 5	334.930225\\

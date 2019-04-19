@@ -106,6 +106,52 @@ ylabel('Level [dB]')
 legend('mic1')
 
 
+
+%% single number spl
+
+sweepTime = 5;
+%load('intelligibility_filter.mat');
+%[b,a]=sos2tf(SOS,G);
+ %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
+ 
+load('KUDO_direc_25_25.mat');
+
+ang_front = data3600.ir;
+
+ang_n_5 = data3550.ir;
+ang_n_10 = data3500.ir;
+ang_n_15 = data3450.ir;
+ang_n_20 = data3400.ir;
+ang_n_25 = data3350.ir;
+ang_n_30 = data3300.ir;
+ang_n_35 = data3250.ir;
+ang_n_40 = data3200.ir;
+ang_n_45 = data3150.ir;
+ang_n_50 = data3100.ir;
+
+ang_p_5 = data50.ir;
+ang_p_10 = data100.ir;
+ang_p_15 = data150.ir;
+ang_p_20 = data200.ir;
+ang_p_25 = data250.ir;
+ang_p_30 = data300.ir;
+ang_p_35 = data350.ir;
+ang_p_40 = data400.ir;
+ang_p_45 = data450.ir;
+ang_p_50 = data50.ir;
+
+impulse = ang_front;
+impulse = abcfilt(impulse,'a'); % a weighting
+%impulse(:,k)=filter(b,a,impulse(:,k)); % intilligibility weighting
+l_Aeq(1) = 10*log10(((1/(sweepTime))*sum((impulse.^2)))/(20*10^-6).^2);
+
+impulse = ang_n_45;
+impulse = abcfilt(impulse,'a'); % a weighting
+%impulse(:,k)=filter(b,a,impulse(:,k)); % intilligibility weighting
+l_Aeq(2) = 10*log10(((1/(sweepTime))*sum((impulse.^2)))/(20*10^-6).^2);
+
+l_Aeq(1)-l_Aeq(2)
+
 %%
 clear 
 [fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');

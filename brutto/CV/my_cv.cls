@@ -131,7 +131,7 @@
 \setlength{\columnThreeWidth}{\dimexpr(\textwidth-\columnOneWidth-\columnTwoWidth-2\columnTwoWidth)\relax}
 %
 \newenvironment{projectTable}{
-	\begin{tabular}{@{} p{\columnOneWidth} @{\hspace{\columnTwoWidth}-\hspace{\columnTwoWidth}} p{\columnThreeWidth}}
+	\begin{tabular}{@{\hspace{0.2cm}}p{\columnOneWidth} @{\hspace{\columnTwoWidth}-\hspace{\columnTwoWidth}} p{\columnThreeWidth}}
 }
 {
 	\end{tabular}
@@ -141,7 +141,7 @@
 %
 \newenvironment{focusTable}{
 	\focus
-	\begin{tabular}{@{} p{\columnOneWidth} @{\hspace{\columnTwoWidth}-\hspace{\columnTwoWidth}} p{\columnThreeWidth}}
+	\begin{tabular}{@{\hspace{0.2cm}}p{\columnOneWidth} @{\hspace{\columnTwoWidth}-\hspace{\columnTwoWidth}} p{\columnThreeWidth}}
 	}
 	{
 	\end{tabular}

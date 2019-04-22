@@ -50,17 +50,13 @@
 	\raggedright{\Large{\textbf{#1}}}
 }
 % Address function
-\newcommand{\contact}[3]{
-	\noindent
-    \textcolor{black}{
-    Med venlig hilsen\\
-    \newline
-    #1\\
-    Mail: #2 \\
-    Tlf: #3\\
+\newcommand{\contact}[5]{
+    \textcolor{gray}{
+    #1 {\large\textperiodcentered} #2 {\large\textperiodcentered} #3
+    {\Large\textperiodcentered} #4 \ {\Large} #5
     }
-    \par\vspace{\baselineskip}%
 }
+
 %
 % Page style for first page
 \newcommand{\firstpagestyle}[1]{

@@ -10,20 +10,26 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(7759,3282)(-2166,332)
-\put(451,1019){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
+\put(-269,2684){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Stage front}%
 }}}}
-\put(2611,1379){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Coverage area}%
+\put(2611,1379){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Coverage area}%
 }}}}
-\put(3196,884){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\SI{-6}{\decibel}}%
+\put(3196,884){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}-6dB}%
 }}}}
-\put(2611,389){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\SI{0}{\decibel}}%
+\put(-2114,3449){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source}%
 }}}}
-\put(-2114,3449){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source}%
+\put(901,2459){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Main lobe}%
 }}}}
-\put(-1034,2269){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\si{50}{\degree}}%
+\put(-1079,2324){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}50}%
 }}}}
-\put(901,2459){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Main lobe}%
+\put(-764,659){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}-6dB}%
 }}}}
-\put(-764,674){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\SI{-6}{\decibel}}%
+\put(1846,614){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}0dB}%
+}}}}
+\put(2431,389){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}-6dB}%
+}}}}
+\put(1216,884){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}-6dB}%
+}}}}
+\put( 46,1064){\makebox(0,0)[lb]{\smash{{\SetFigFont{10}{12.0}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Audience area}%
 }}}}
 \end{picture}%

@@ -1,4 +1,4 @@
-function [t_axis,t_result,res] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs)
+function [irtime,impulse_response,res] = Lacoustics(cmd,gain,inputChannel,frequencyRange,sweepTime,fs)
 
 
 switch cmd
@@ -40,15 +40,8 @@ switch cmd
         %calibration.mic_sensitivity = 0.0367; 
         save('calibration.mat','calibration','-append');        
 
-     
-     case 'test'                             
-        [impulse_response,irtime]=IRmeas_fft_womics(sweepTime,frequencyRange,gain,offset,inputChannel,fs);
-        t_axis = irtime;
-        t_result = impulse_response;
-
+    
        
     case 'transfer'                                                
-        [impulse_response,irtime,res]=IRmeas_fft(sweepTime,frequencyRange,gain,offset,inputChannel,fs);
-        t_axis = irtime;
-        t_result = impulse_response;
+        [impulse_response,irtime,res]=IRmeas_fft(sweepTime,frequencyRange,gain,inputChannel,fs);
 end

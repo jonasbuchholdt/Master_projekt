@@ -4,34 +4,54 @@ calibration = struct;
 calibration.date=date;            
 save('calibration.mat','calibration');
 
-
+data = struct;
+save('data.mat','data');
 
 %% Calibrate the microphone
 clear;
-[fs,~,frequencyRange,gain,inputChannel,offset,sweepTime,~,~,cmd] = initial_data('cali_mic');
-Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
+[fs,~,frequencyRange,gain,inputChannel,sweepTime,~,~,cmd] = initial_data('cali_mic');
+%Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
 
+L = 2048; %1024;
+            fileReader = dsp.AudioFileReader('sweep.wav','SamplesPerFrame',L);
+            fs = fileReader.SampleRate;
+           
+            aPR = audioPlayerRecorder('SampleRate',fs,...               % Sampling Freq.
+                          'RecorderChannelMapping',inputChannel,...  % Input channel(s)
+                          'PlayerChannelMapping',[1 2],... % Output channel(s)
+                          'SupportVariableSize',true,...    % Enable variable buffer size 
+                          'BufferSize',L);                  % Set buffer size
+    
+                      
+                      out = [];                      
+                      while ~isDone(fileReader)
+                          audioToPlay = fileReader();
+                          [audioRecorded,nUnderruns,nOverruns] = aPR(audioToPlay);
+                          out = [out; audioRecorded];
+                          if nUnderruns > 0
+                              fprintf('Audio player queue was underrun by %d samples.\n',nUnderruns);
+                          end
+                          if nOverruns > 0
+                              fprintf('Audio recorder queue was overrun by %d samples.\n',nOverruns);
+                          end
+                      end
+                      release(fileReader);
+                      release(aPR);
+                      y = out;
+                      
 
-%% Show calibration of microphone
-clear;
-[fs,calibration,~,~,~,~,~,~,~,~] = initial_data('cali_mic');
-p0 = 20*10^(-6);
-blength = 3;
-soundcard = audioDeviceReader('SampleRate',fs,'SamplesPerFrame',2048);          % setting up audio object
-buffer = zeros(blength * fs, 1);            % initializing audio buffer
-tic;
+            add = rms(y);          
+            load('calibration.mat')
+            calibration.mic_sensitivity(3) = add;
 
-while toc < 10
-    audioin = soundcard()/calibration.mic_sensitivity;                  % fetch samples from soundcard
-    buffer = [buffer(2049:end); audioin];   % update buffer
-end
-out = 20*log10(rms(buffer)/p0);
+        %calibration.mic_sensitivity = 0.0367; 
+        save('calibration.mat','calibration','-append');   
 
 
 %% calibrate One Third octave analysis 
 clear;
-[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
-[~,ir] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
+[fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
+[~,ir] = Lacoustics(cmd,gain,inputChannel,frequencyRange,sweepTime,fs);
 ir_result=filter(b,a,ir(1:length(ir)/2));
 p0 = 20*10^(-6);
 BW = '1/3 octave'; 
@@ -67,45 +87,118 @@ off = off-mic_cal;
 calibration.octave=off; 
 save('calibration.mat','calibration','-append');  
 
-
+%%
+filename='impulses.mat';
+reset_date = date;
+save(filename,'reset_date');
 %% Make impulse response
 clear;
-tim = 1;
-for i=1:tim
-    i
-[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
-[ir_axis,ir(:,:,i),res] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
+
+filename='impulses.mat';
+number = 9;
+angle = 0;
+storename=strcat('data',int2str(number),'ang_down',int2str(angle));
+
+
+[fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
+
+[ir,ir_axis,res,weather,weathertime]=IRmeas_fft(sweepTime,frequencyRange,gain,inputChannel,fs);
 if res == 1
-    [ir_axis,ir(:,:,i),res] = Lacoustics(cmd,gain,offset,inputChannel,frequencyRange,sweepTime,fs);
+    [ir,ir_axis,res,weather,weathertime]=IRmeas_fft(sweepTime,frequencyRange,gain,inputChannel,fs);
 end
-end
+
+
+wind_speed1 = weather(:,1);
+wind_direction1 = weather(:,2)/1024*359;
+wind_speed2 = weather(:,3);
+wind_direction2 = weather(:,4)/1024*359;
+temp = weather(:,5);
+humidity = weather(:,6);
 
 
 load('highPass20.mat');
         [b,a]=sos2tf(SOS,G);
         ir=filter(b,a,ir);
-        figure(1)
-plot(ir(:,1))
+        
+
+        
+ wind_speed_m1 = movmean(wind_speed1,1);
+wind_direction_m1 = movmean(wind_direction1,1);
+wind_speed_m2 = movmean(wind_speed2,1);
+wind_direction_m2 = movmean(wind_direction2,1);
+temp_m = movmean(temp,1);
+humidity_m = movmean(humidity,1);
 
 
-ir_result=ir(1:end/2);     
+
+ir_result=ir(:,2);   
 
 [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
 f_axis = w;
 result=20*log10(abs(tf/(20*10^-6)));
 
-
-figure(2)
-semilogx(f_axis,result)
-hold on
+figure(1)
+subplot(5,1,1);
+plot(w,result)
+title('Audio')
 grid on
-grid minor
-axis([50 20000 55 85])
-xlabel('Frequency [Hz]')
-ylabel('Level [dB]')
-legend('mic1')
+axis([50 20000 20 100])
 
+subplot(5,1,2);
+plot(weathertime,wind_speed_m1)
+hold on
+plot(weathertime,wind_speed_m2)
+title('Wind speed')
+grid on
+axis([0 5 0 15])
 
+subplot(5,1,3);
+plot(weathertime,wind_direction_m1)
+hold on
+plot(weathertime,wind_direction_m2)
+title('Wind direction')
+grid on
+axis([0 5 0 360])
+
+subplot(5,1,4);
+plot(weathertime,temp_m)
+title('Temperature')
+grid on
+axis([0 5 0 30])
+
+subplot(5,1,5);
+plot(weathertime,humidity_m)
+title('Humidity')
+grid on
+axis([0 5 0 100])       
+
+%%
+data.ir_downwards = ir(:,1);
+data.ir_center = ir(:,2);
+data.ir_upwards = ir(:,3);
+data.irtime = ir_axis;
+data.wind_speed1 = wind_speed1;
+data.wind_speed2 = wind_speed2;
+data.wind_direction1 = wind_direction1;
+data.wind_direction2 = wind_direction2;
+data.temp = temp;
+data.humidity = humidity;
+data.weathertime = weathertime;
+
+assignin('base',storename,data);
+%save(filename,storename,'-append');
+ 
+ ir_result=ir(:,2);   
+
+[tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
+f_axis = w;
+result=20*log10(abs(tf/(20*10^-6)));
+ figure(2)
+semilogx(w,result+10)
+hold on
+title('Audio')
+grid on
+axis([50 20000 20 100])
 
 %% single number spl
 
@@ -114,10 +207,10 @@ sweepTime = 5;
 %[b,a]=sos2tf(SOS,G);
  %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
  
-load('KUDO_direc_25_25.mat');
+load('KUDO_direc_25_55.mat');
 
-ang_front = data3600.ir;
-
+ang_n_0 = data3600.ir;
+ang_p_0 = data3600.ir;
 ang_n_5 = data3550.ir;
 ang_n_10 = data3500.ir;
 ang_n_15 = data3450.ir;
@@ -128,6 +221,8 @@ ang_n_35 = data3250.ir;
 ang_n_40 = data3200.ir;
 ang_n_45 = data3150.ir;
 ang_n_50 = data3100.ir;
+ang_n_55 = data3050.ir;
+ang_n_60 = data3000.ir;
 
 ang_p_5 = data50.ir;
 ang_p_10 = data100.ir;
@@ -138,19 +233,313 @@ ang_p_30 = data300.ir;
 ang_p_35 = data350.ir;
 ang_p_40 = data400.ir;
 ang_p_45 = data450.ir;
-ang_p_50 = data50.ir;
+ang_p_50 = data500.ir;
+ang_p_55 = data550.ir;
+ang_p_60 = data600.ir;
 
-impulse = ang_front;
-impulse = abcfilt(impulse,'a'); % a weighting
+%impulse = abcfilt(impulse,'a'); % a weighting
 %impulse(:,k)=filter(b,a,impulse(:,k)); % intilligibility weighting
-l_Aeq(1) = 10*log10(((1/(sweepTime))*sum((impulse.^2)))/(20*10^-6).^2);
 
-impulse = ang_n_45;
-impulse = abcfilt(impulse,'a'); % a weighting
-%impulse(:,k)=filter(b,a,impulse(:,k)); % intilligibility weighting
-l_Aeq(2) = 10*log10(((1/(sweepTime))*sum((impulse.^2)))/(20*10^-6).^2);
+angle = 0;
 
-l_Aeq(1)-l_Aeq(2)
+[tf,w] = freqz(ang_p_0,1,frequencyRange(2),fs);
+f_axis = w;
+result_c=20*log10(abs(tf/(20*10^-6)));
+l_eq(1) = 10*log10(((1/(sweepTime))*sum((ang_p_0.^2)))/(20*10^-6).^2);
+
+[tf,w] = freqz(eval(strcat('ang_p_',int2str(25-angle))),1,frequencyRange(2),fs);
+f_axis = w;
+result_u=20*log10(abs(tf/(20*10^-6)));
+l_eq(2) = 10*log10(((1/(sweepTime))*sum((ang_p_25.^2)))/(20*10^-6).^2);
+
+[tf,w] = freqz(eval(strcat('ang_n_',int2str(25+angle))),1,frequencyRange(2),fs); %45
+f_axis = w;
+result_d=20*log10(abs(tf/(20*10^-6)));
+l_eq(3) = 10*log10(((1/(sweepTime))*sum((ang_n_25.^2)))/(20*10^-6).^2);
+
+
+diff =  result_d - result_u;
+
+figure(3)
+%semilogx(f_axis,result_c)
+
+semilogx(f_axis,movmean(result_u,40))
+hold on
+semilogx(f_axis,movmean(result_d,40))
+semilogx(f_axis,diff)
+grid on
+grid minor
+axis([500 10000 65 100])
+xlabel('Frequency [Hz]')
+ylabel('Level [dB]')
+legend('upwards','downwards','diff')
+
+%%
+clear
+load('impulses.mat');
+[fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
+load('highpass_to_ir.mat');
+[b,a]=sos2tf(SOS,G);
+
+
+down1 = 1;
+down2 = 2;
+down3 = 20;
+down4 = 50;
+
+angle = 0;
+ir_no = 2; %0 10 - 5 1 - 10 5 - 15 6
+ir_no_st = 1;
+
+
+clear ir_downwards
+clear ir_upwards
+start=1;
+ir_num = 9;
+
+for i=start:1:ir_num
+number = i;
+ir_downwards_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_downwards'));
+ir_center_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_center'));
+ir_upwards_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_upwards'));
+
+wind_speed1(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_speed1'));
+wind_speed2(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_speed2'));
+wind_direction1(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_direction1'));
+wind_direction2(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_direction2'));
+temp(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.temp'));
+humidity(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.humidity'));
+end
+
+
+ir_downwards = ir_downwards_pre(:,ir_no_st:ir_no); % 1 2 3 4 5+ 6+ 7 8+ 9+ 10+
+    %ir_downwards = [ir_downwards_pre(:,5:5) ir_downwards_pre(:,6:6) ir_downwards_pre(:,8:8) ir_downwards_pre(:,10:10)];
+ir_center = ir_center_pre(:,2:2);
+    %ir_upwards = [ir_upwards_pre(:,5:5) ir_upwards_pre(:,6:6) ir_upwards_pre(:,8:8) ir_upwards_pre(:,10:10)]; %1 2 3 4 7 8 10
+ir_upwards = ir_upwards_pre(:,ir_no_st:ir_no); % 1 4 8 10
+
+
+
+windspeed = mean(mean([wind_speed1 wind_speed2]));
+windsdirection = mean(mean(wind_direction1));
+
+
+irtime = eval(strcat('data',int2str(number),'ang',int2str(angle),'.irtime'));
+weathertime = eval(strcat('data',int2str(number),'ang',int2str(angle),'.weathertime'));
+
+
+ir = ir_downwards(1:end/2,:);
+[m,ir_num] = size(ir);
+
+for i=start:1:ir_num
+%ir(:,i)=filter(b,a,ir(:,i));
+end
+
+for i=start:1:ir_num
+    r(:,i) = xcorr(ir(:,1),ir(:,i));
+    [M,inde1(i)] = max(r(:,i));
+end
+shif1 = inde1' - inde1(1);
+
+for i=start:1:ir_num
+    ir_shift(:,i) = circshift(ir(:,i),shif1(i));
+end
+
+for i=start:1:ir_num
+    r(:,i) = xcorr(ir_shift(:,1),ir_shift(:,i));
+    [M,inde1_ch(i)] = max(r(:,i));
+end
+shif1_ch = inde1_ch - inde1_ch(1);
+
+ir_downwards = mean(ir_shift,2);
+ir_downwards = ir_downwards(6000:10000);
+
+
+
+
+clear ir_shift
+clear ir
+clear r
+clear ir_shift
+clear inde1_ch
+clear M
+
+ir = ir_upwards(1:end/2,:);
+[m,ir_num] = size(ir);
+
+for i=start:1:ir_num
+%ir(:,i)=filter(b,a,ir(:,i));
+end
+
+for i=start:1:ir_num
+    r(:,i) = xcorr(ir(:,1),ir(:,i));
+    [M,inde1(i)] = max(r(:,i));
+end
+shif1 = inde1' - inde1(1);
+
+for i=start:1:ir_num
+    ir_shift(:,i) = circshift(ir(:,i),shif1(i));
+end
+
+for i=start:1:ir_num
+    r(:,i) = xcorr(ir_shift(:,1),ir_shift(:,i));
+    [M,inde1_ch(i)] = max(r(:,i));
+end
+shif1_ch = inde1_ch - inde1_ch(1);
+
+ir_upwards = mean(ir_shift,2);
+ir_upwards = ir_upwards(6000:10000);
+
+
+% center cal
+clear ir_shift
+clear ir
+clear r
+clear ir_shift
+clear inde1_ch
+clear M
+
+ir = ir_center(1:end/2,:);
+[m,ir_num] = size(ir);
+
+for i=start:1:ir_num
+%ir(:,i)=filter(b,a,ir(:,i));
+end
+
+for i=start:1:ir_num
+    r(:,i) = xcorr(ir(:,1),ir(:,i));
+    [M,inde1(i)] = max(r(:,i));
+end
+shif1 = inde1' - inde1(1);
+
+for i=start:1:ir_num
+    ir_shift(:,i) = circshift(ir(:,i),shif1(i));
+end
+
+for i=start:1:ir_num
+    r(:,i) = xcorr(ir_shift(:,1),ir_shift(:,i));
+    [M,inde1_ch(i)] = max(r(:,i));
+end
+shif1_ch = inde1_ch - inde1_ch(1);
+
+ir_center = mean(ir_shift,2);
+ir_center = ir_center(6000:10000);
+
+
+
+%ir_downwards = abcfilt(ir_downwards,'a'); % a weighting
+%ir_upwards = abcfilt(ir_upwards,'a'); % a weighting
+%ir_center = abcfilt(ir_center,'a'); % a weighting
+
+
+% figure(100)
+% 
+% subplot(4,1,1);
+% plot(weathertime,wind_speed1)
+% hold on
+% plot(weathertime,wind_speed2)
+% title('Wind speed')
+% grid on
+% axis([0 5 0 15])
+% 
+% subplot(4,1,2);
+% plot(weathertime,wind_direction1-5)
+% hold on
+% %plot(weathertime,wind_direction2)
+% title('Wind direction')
+% grid on
+% axis([0 5 0 360])
+% 
+% subplot(4,1,3);
+% plot(weathertime,temp)
+% title('Temperature')
+% grid on
+% axis([0 5 0 30])
+% 
+% subplot(4,1,4);
+% plot(weathertime,humidity)
+% title('Humidity')
+% grid on
+% axis([0 5 0 100])  
+
+
+
+ret = mean(mean(wind_direction1(:,ir_no_st:ir_no)));
+spe = mean(mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)]));
+
+[tf,w] = freqz(ir_center,1,frequencyRange(2),fs);
+f_axis = w;
+result_c=20*log10(abs(tf/(20*10^-6)))+10;
+l_eq(1) = 10*log10(((1/(sweepTime))*sum((ir_center.^2)))/(20*10^-6).^2)+10;
+
+[tf,w] = freqz(ir_upwards,1,frequencyRange(2),fs);
+f_axis = w;
+result_u=20*log10(abs(tf/(20*10^-6)))+10;
+l_eq(2) = 10*log10(((1/(sweepTime))*sum((ir_upwards.^2)))/(20*10^-6).^2)+10;
+
+[tf,w] = freqz(ir_downwards,1,frequencyRange(2),fs);
+f_axis = w;
+result_d=(20*log10(abs(tf/(20*10^-6)))+10);
+l_eq(3) = 10*log10(((1/(sweepTime))*sum((ir_downwards.^2)))/(20*10^-6).^2)+10
+
+
+Win = hann(7525-2580); 
+adj = zeros(22000,1);
+adju = [adj(1:2580); Win; adj(7525+1:end)]*0;
+
+upwards_refraction = movmean(result_u,10);
+downwards_refraction = movmean(result_d,10);
+center_refraction = movmean(result_c,10);
+
+f_axis = [downsample(f_axis(1:100),down1); downsample(f_axis(100+1:1000),down2); downsample(f_axis(1000+1:9978),down3); downsample(f_axis(9978+1:end),down4)];
+upwards_refraction = [downsample(upwards_refraction(1:100),down1); downsample(upwards_refraction(100+1:1000),down2); downsample(upwards_refraction(1000+1:9978),down3); downsample(upwards_refraction(9978+1:end),down4)];
+downwards_refraction = [downsample(downwards_refraction(1:100),down1); downsample(downwards_refraction(100+1:1000),down2); downsample(downwards_refraction(1000+1:9978),down3); downsample(downwards_refraction(9978+1:end),down4)];
+center_refraction = [downsample(center_refraction(1:100),down1); downsample(center_refraction(100+1:1000),down2); downsample(center_refraction(1000+1:9978),down3); downsample(center_refraction(9978+1:end),down4)];
+
+upwards_refraction = movmean(upwards_refraction,5);
+downwards_refraction = movmean(downwards_refraction,5);
+center_refraction = movmean(center_refraction,5);
+
+%figure(angle+1)
+figure(10)
+semilogx(f_axis,upwards_refraction)
+hold on
+grid on
+grid minor
+axis([50 20000 20 90])
+xlabel('Frequency [Hz]')
+ylabel('Level [dB]')
+%legend('upwards')
+
+
+figure(10)
+semilogx(f_axis,downwards_refraction)
+hold on
+%semilogx(f_axis,movmean(result_u,50)-adju,'b')
+%semilogx(f_axis,movmean(result_d,50),'r')
+%semilogx(f_axis,movmean(result_c,50))
+grid on
+grid minor
+axis([50 20000 20 90])
+xlabel('Frequency [Hz]')
+ylabel('Level [dB]')
+%legend('downwards')
+
+
+figure(10)
+semilogx(f_axis,center_refraction)
+hold on
+grid on
+grid minor
+axis([50 20000 20 90])
+xlabel('Frequency [Hz]')
+ylabel('Level [dB]')
+legend({'upwards','downwards','center'},'Location','southwest')
+
+txt = ['windspeed: ' num2str(spe) ', winddirection: ' num2str(ret)];
+text(100,40,txt)
+
+
 
 %%
 clear 

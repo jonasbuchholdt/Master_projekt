@@ -13,7 +13,7 @@ s=serial(port(5),'InputBufferSize',512,'Baudrate',115200);
 %s.Terminator = 'LF';
 out = [];
 
-mic = 0.03;
+
 
 
 
@@ -63,15 +63,14 @@ fprintf('nu nu nu nu nu')
                       release(aPR);
 
 
-  fclose(s)  
-  fclose(s)
+  
+fclose(s)
 delete(s)
 clear s
 
 fprintf('stop stop stop stop')
                       
 interp = floor(length(out)/length(data));
-
 weather = kron(str2double(data), ones(interp,1));
 
 

@@ -1,3 +1,26 @@
-\section{Technical solution}
+\section{Test of measuring design}
+The aim of this section is to test the design measurement in a windy day, to outsource problem and error in the measuring design. The test is done in full scale with all six line source array element and in the designed hight. The test was intended to both test the crosswind test design and the parallel wind design, but the weather condition only allowed for crosswind test. After the crosswind test design was tested the wind speed dropped to beneath \SI{1}{\meter\per\second}.
+In the crosswind test design three problem and one code error is observed. The code error is a data save bug, where only the direction of the wind at the speaker tower is saved. The wind direction at the microphone position is not saved doing the test measurement. The code bug is fixed for the final measurement. The following three \autoref{}, \autoref{} and \autoref{} explain the observed problem or design failure and propose a solution the the problem. The first problem which is discovered and a solution will be founded is high peaks and deeps in the measurement due to ground reflections. The second problem is non equal frequency response in the designed windscreen, and the third error is the angle of the line source array while measuring in the hight of the ear.  The following three explanation is based on the following \autoref{fig:td:mea_1_0_deg} which shows the frequency response on all three microphone at \SI{0}{\degree} rotation.
 
-The proposal solution is therefore a electronical controlled angle and width of the main based on the strangth of the wind and the coverage distance to the audience. 
+\plot{plot/measuring_1_0_deg}{The graph shows }{fig:td:mea_1_0_deg}
+
+
+\subsection{Ground reflections}
+The design of the windscreen is intended to block for the ground reflection of the sound, and lower the wind noise. The noise floor is founded to the lower than the \dB{50} in the frequency of interest and with a wind speed of \SI{2.2}{\meter\per\second}. The measurement is done with \dB{75} which is more than \dB{25} of headroom. The headroom was not measured with higher wind speed due to the weather condition at the measuring day. 
+
+The second effect of the wndscreen is to block for the ground reflection, such that the measuring position is able to be in the hight of the ear as explained in \autoref{}. This part of the windscreen seems to work but not in the high frequency. The center microphone does not have that high peaks and deeps, but the side microphone seems to suffer from ground reflection, which make the comparison difficult. To decide if the chosen position is the position which is used in the final test, the measurement is compared to measurement where the microphone windscreen is placed flat on the ground. The following \autoref{fig:td:mea_1_0_deg_down} shows a frequency response of the speaker where the windscreen is placed flat on the ground and one where the windscreen is lifted \SI{168}{\centi\meter} from the ground.  
+
+\plot{plot/measuring_1_0_deg_down}{The graph shows }{fig:td:mea_1_0_deg_down}
+
+The depth seen at \Hz{3700} in the downwards direction is due the the directuionality charactica of the speaker and can also be seen in \autoref{fig:ap:KUDO_25_55_des}. The same apples for \Hz{9200} and \SI{10}{\kilo\hertz}
+
+
+
+\subsection{frequency response}
+
+\plot{plot/measuring_1_0_deg_boost}{The graph shows }{fig:td:mea_1_0_deg_boost}
+
+
+
+
+

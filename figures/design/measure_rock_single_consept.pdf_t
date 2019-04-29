@@ -1,7 +1,7 @@
 \begin{picture}(0,0)%
 \includegraphics{measure_rock_single_consept.pdf}%
 \end{picture}%
-\setlength{\unitlength}{4144sp}%
+\setlength{\unitlength}{2901sp}%
 %
 \begingroup\makeatletter\ifx\SetFigFont\undefined%
 \gdef\SetFigFont#1#2#3#4#5{%
@@ -10,14 +10,14 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(4466,5787)(-3434,-2596)
-\put(-44,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Windscreen}%
+\put(-44,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Windscreen}%
 }}}}
-\put(-539,-2581){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Sound direction}%
+\put(-539,-2581){\makebox(0,0)[lb]{\smash{{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Sound direction}%
 }}}}
-\put(-3419,299){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Wind directions}%
+\put(-3419,299){\makebox(0,0)[lb]{\smash{{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Wind directions}%
 }}}}
-\put(-719,-736){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Microphone}%
+\put(-719,-736){\makebox(0,0)[lb]{\smash{{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Microphone}%
 }}}}
-\put(-2294,749){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Rockwool bat}%
+\put(-2294,749){\makebox(0,0)[lb]{\smash{{\SetFigFont{8}{9.6}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Rockwool bat}%
 }}}}
 \end{picture}%

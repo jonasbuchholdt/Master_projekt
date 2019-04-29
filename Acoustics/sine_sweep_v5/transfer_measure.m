@@ -287,28 +287,28 @@ down2 = 2;
 down3 = 20;
 down4 = 50;
 
-angle = 0;
-ir_no = 2; %0 10 - 5 1 - 10 5 - 15 6
+angle = 20;
+ir_no = 10; %0 10 - 5 1 - 10 5 - 15 6
 ir_no_st = 1;
 
 
 clear ir_downwards
 clear ir_upwards
 start=1;
-ir_num = 9;
+ir_num = 10;
 
 for i=start:1:ir_num
 number = i;
-ir_downwards_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_downwards'));
-ir_center_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_center'));
-ir_upwards_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_upwards'));
+ir_downwards_pre(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.ir_downwards'));
+ir_center_pre(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.ir_center'));
+ir_upwards_pre(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.ir_upwards'));
 
-wind_speed1(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_speed1'));
-wind_speed2(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_speed2'));
-wind_direction1(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_direction1'));
-wind_direction2(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_direction2'));
-temp(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.temp'));
-humidity(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.humidity'));
+wind_speed1(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.wind_speed1'));
+wind_speed2(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.wind_speed2'));
+wind_direction1(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.wind_direction1'));
+wind_direction2(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.wind_direction2'));
+temp(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.temp'));
+humidity(:,i) = eval(strcat('data',int2str(number),'ang',int2str(angle),'.humidity'));
 end
 
 
@@ -510,9 +510,12 @@ axis([50 20000 20 90])
 xlabel('Frequency [Hz]')
 ylabel('Level [dB]')
 %legend('upwards')
+legend({'upwards'},'Location','southwest')
 
+txt = ['windspeed: ' num2str(spe) ', winddirection: ' num2str(ret)];
+text(100,40,txt)
 
-figure(10)
+figure(11)
 semilogx(f_axis,downwards_refraction)
 hold on
 %semilogx(f_axis,movmean(result_u,50)-adju,'b')
@@ -524,9 +527,12 @@ axis([50 20000 20 90])
 xlabel('Frequency [Hz]')
 ylabel('Level [dB]')
 %legend('downwards')
+legend({'downwards'},'Location','southwest')
 
+txt = ['windspeed: ' num2str(spe) ', winddirection: ' num2str(ret)];
+text(100,40,txt)
 
-figure(10)
+figure(12)
 semilogx(f_axis,center_refraction)
 hold on
 grid on
@@ -534,7 +540,7 @@ grid minor
 axis([50 20000 20 90])
 xlabel('Frequency [Hz]')
 ylabel('Level [dB]')
-legend({'upwards','downwards','center'},'Location','southwest')
+legend({'center'},'Location','southwest')
 
 txt = ['windspeed: ' num2str(spe) ', winddirection: ' num2str(ret)];
 text(100,40,txt)

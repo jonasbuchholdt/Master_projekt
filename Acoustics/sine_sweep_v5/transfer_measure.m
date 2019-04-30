@@ -287,7 +287,7 @@ down2 = 2;
 down3 = 20;
 down4 = 50;
 
-angle = 0;
+angle = 20;
 ir_no = 10; %0 10 - 5 1 - 10 5 - 15 6
 ir_no_st = 1;
 
@@ -467,6 +467,12 @@ ir_center = ir_center(6000:10000);
 ret = mean(mean(wind_direction1(:,ir_no_st:ir_no)));
 spe = mean(mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)]));
 
+% weighting
+ir_downwards = abcfilt(ir_downwards,'a'); % a weighting
+ir_upwards = abcfilt(ir_upwards,'a'); % a weighting
+ir_center = abcfilt(ir_center,'a'); % a weighting
+
+%spl and frequency response
 [tf,w] = freqz(ir_center,1,frequencyRange(2),fs);
 f_axis = w;
 result_c=20*log10(abs(tf/(20*10^-6)))+10;
@@ -502,7 +508,7 @@ center_refraction = movmean(center_refraction,5);
 
 %figure(angle+1)
 figure(10)
-plot(f_axis,upwards_refraction)
+semilogx(f_axis,upwards_refraction)
 hold on
 grid on
 grid minor

@@ -1,13 +1,13 @@
 \section{Test of measuring design}
 The aim of this section is to test the design measurement in a windy day, to outsource problem and error in the measuring design. The test is done in full scale with all six line source array element and in the designed hight. The test was intended to both test the crosswind test design and the parallel wind design, but the weather condition only allowed for crosswind test. After the crosswind test design was tested the wind speed dropped to beneath \SI{1}{\meter\per\second}.
-In the crosswind test design three problem and one code error is observed. The code error is a data save bug, where only the direction of the wind at the speaker tower is saved. The wind direction at the microphone position is not saved doing the test measurement. The code bug is fixed for the final measurement. The following three \autoref{}, \autoref{} and \autoref{} explain the observed problem or design failure and propose a solution the the problem. The first problem which is discovered and a solution will be founded is high peaks and deeps in the measurement due to ground reflections. The second problem is non equal frequency response in the designed windscreen, and the third error is the angle of the line source array while measuring in the hight of the ear.  The following three explanation is based on the following \autoref{fig:td:mea_1_0_deg} which shows the frequency response on all three microphone at \SI{0}{\degree} rotation.
+In the crosswind test design three problem and one code error is observed. The code error is a data save bug, where only the direction of the wind at the speaker tower is saved. The wind direction at the microphone position is not saved doing the test measurement. The code bug is fixed for the final measurement. The following three \autoref{sec:des:ground_reflection}, \autoref{sec:des:freq_boost} and \autoref{sec:des:measuring_angle} explain the observed problem or design failure and propose a solution the the problem. The first problem which is discovered and a solution will be founded is high peaks and deeps in the measurement due to ground reflections. The second problem is non equal frequency response in the designed windscreen, and the third error is the angle of the line source array while measuring in the hight of the ear.  The following three explanation is based on the following \autoref{fig:td:mea_1_0_deg} which shows the frequency response on all three microphone at \SI{0}{\degree} rotation.
 
 \plot{plot/measuring_1_0_deg}{The graph shows the frequency response for all three microphone while the speaker is not rotated}{fig:td:mea_1_0_deg}
 
 
 
 
-\subsection{Ground reflections}
+\subsection{Ground reflections}\label{sec:des:ground_reflection}
 The design of the windscreen is intended to block for the ground reflection of the sound, and lower the wind noise. The noise floor is founded to the lower than the \dB{50} in the frequency of interest and with a wind speed of \SI{2.2}{\meter\per\second}. The measurement is done with \dB{75} which is more than \dB{25} of headroom. The headroom was not measured with higher wind speed due to the weather condition at the measuring day. 
 
 The second effect of the wndscreen is to block for the ground reflection, such that the measuring position is able to be in the hight of the ear as explained in \autoref{}. This part of the windscreen  works, but as the frequency grows the effect seems to worthen since peaks and depth is present in the measurement. The center microphone does not have that high peaks and deeps, but the side microphone seems to suffer from ground reflection, which make the comparison difficult. One thing that might cause the reflection is the position different from \SI{0}{\degree} horizontal of the windscreen in the air. If the plate is tilted forward there might be some reflection reaching the microphone. A calculation of the reflection might have helped to justify the ground reflection theory, but since the source is a line source array and not a point source the ground reflection is not as easy to calculate, since there might be thousands of sound path from the line source to the microphone. the following \autoref{fig:td:gro_ref_ilu} illustrate the path calculation difficulties. 
@@ -25,7 +25,7 @@ Comparing the measurement where the windscreen is lifted \SI{168}{\centi\meter} 
 
 Another common response on all microphone while the windscreen lays on the ground is a depth around \SI{10}{\kilo\hertz}. This might be due to the lift of the microphone while it is within the modified original windscreen or that the windscreen is tilted forward and does not lay flat on the ground. The following section research the frequency boost between \Hz{2000} and \SI{10}{\kilo\hertz} which is present because of the windscreen design. 
 
-\subsection{frequency response}\label{sec:des:freq_boost}
+\subsection{frequency boost}\label{sec:des:freq_boost}
 It is discovered doing the measurement that the frequency boost within \Hz{2000} and \SI{10}{\kilo\hertz} produced be the windscreen might be non equal between the microphone. A comparison measurement is done where the windscreen is removed from the center microphone sine the wind stopped in the end of the measurement. The following \autoref{fig:td:mea_1_0_deg_boost} shows the measurement for all three microphone with windscreen and one measurement where the windscreen is removed from the center microphone. The modified original windscreen covering the microphone is also removed.  
 
 \plot{plot/measuring_1_0_deg_boost}{The graph shows }{fig:td:mea_1_0_deg_boost}
@@ -39,29 +39,81 @@ As illustrated in \autoref{fig:td:win_poi_dir} on matter the tournament of the s
 The last differences was the placement of the foam on the plate. In the downwards direction the foam was placed more inwards in the plate while the other to foam on the windscreen was placed as shown in \autoref{fig:td:win_poi_dir}
 
 
-\subsection{Measuring angle}
+\subsection{Speaker angle}\label{sec:des:measuring_angle}
 The angle of the line source array was calculated based from the hight of the ground and not from the hight of the microphone hight.
 
 \xfig{design/mic_pos_cal_error.pdf_t}{The figure shows the microphone position doing the calculation of the line source array tilting and the measurement}{fig:td:mic_pos_cal_err}{1}  
 
 
-while using the tilt angle doing the measurement, which was \SI{5}{\degree}, the highest hight before the microphone exit above the nearfield of the speaker coverage main lobe is calculated to be \SI{26}{\centi\meter}. Therefore, since the microphone was placed \SI{1.68}{\meter} above the ground the microphone is fare above the nearfield main lobe.
+while using the tilt angle doing the measurement, which was \SI{5}{\degree}, the highest hight before the microphone exit above the nearfield of the speaker coverage main lobe is calculated to be \SI{62}{\centi\meter}. Therefore, since the microphone was placed \SI{1.68}{\meter} above the ground the microphone is fare above the nearfield main lobe.
 
-Comparing the \autoref{fig:td:mea_1_0_deg} and \autoref{fig:td:mea_1_0_deg_down} it is clearly seen that the microphone was outside the nearfield main lobe of the high frequency.
+Comparing the \autoref{fig:td:mea_1_0_deg} and \autoref{fig:td:mea_1_0_deg_down} it is clearly seen that the microphone was outside the nearfield main lobe of the high frequency. Above \Hz{2000} the \gls{spl} is more than \dB{10} lower in the ear measuring hight compare to the ground position with the same distances to the speaker. 
 
 \subsection{Measuring result}
 While all error and problem is discriped and disturb the measurement, the measurement indicate that raising the power in the main lobe also raising the power in the shadow zone. Comparing the microphone agents each other is difficult sine the differences in the boost between the microphone as discriped in \autoref{sec:des:freq_boost}. Therefore, to extract useful data, the frequency response on the same microphone is compared for \SI{0}{\degree} of turnment, \SI{10}{\degree} of turnment and \SI{20}{\degree} of turnment.   
 The first microphone which is compared is the microphone in the upwards direction. The following \autoref{fig:td:mea_1_0_20_deg_up} shows the frequency response for every turnment.
 \plot{plot/measuring_1_0_20_upwards}{The graph shows }{fig:td:mea_1_0_20_deg_up}
 
+As seen in \autoref{fig:td:mea_1_0_20_deg_up}, while the speaker is turned, the \gls{spl} seems to raise. The peaks and depth is not at the same frequency which make the visually justment difficult but it generally that turning the speaker raises the the \gls{spl} especially above \Hz{1000}. The following \autoref{ta:ana:spl_weight_upwards} shows the single number \gls{spl} both non weighted and A-weighted.
+
+
+\begin{table}[H]
+\centering
+\caption{The table shows the measured $L_{eq,5}$ and $L_{A_{eq,5}}$ \gls{spl} for the upwards microphone}
+\begin{tabular}{l|l|l|l}
+Speaker angle &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\degree}\\ \hline
+       $L_{eq,5}$   	&  \dB{59.65} 	&  \dB{60.47} & \dB{61.71} \Tstrut \\
+         $L_{A_{eq,5}}$  	&  \dB{56.91}  	&  \dB{58.20} & \dB{60.28} \\
+\end{tabular}
+\label{ta:ana:spl_weight_upwards}
+\end{table}
+
+
+%NON 0 deg = 59.6523, 10 deg = 60.4704, 20 deg = 61.7116
+%A 0 deg = 56.9073, 10 deg = 58.2032, 20 deg = 60.2822
+
 The graph in \autoref{fig:td:mea_1_0_20_deg_up}
 
+
 \plot{plot/measuring_1_0_20_downwards}{The graph shows }{fig:td:mea_1_20_0_deg_down}
+
+As seen in \autoref{fig:td:mea_1_20_0_deg_down}, while the speaker is turned, the \gls{spl} seems to fall unless the \SI{20}{\degree} above \Hz{2500}. The raise in power comes from the directionality charatstics of the line source array as seen in \autoref{fig:ap:KUDO_25_55_des}. The peaks and depth is ether not at the same frequency which make the visually justment difficult but it generally that turning the speaker lower the \gls{spl} from \SI{0}{\degree} to \SI{10}{\degree} above \Hz{650}. The following \autoref{ta:ana:spl_weight_downwards} shows the single number \gls{spl} both non weighted and A-weighted.
+
+
+\begin{table}[H]
+\centering
+\caption{The table shows the measured $L_{eq,5}$ and $L_{A_{eq,5}}$ \gls{spl} for the downwards microphone}
+\begin{tabular}{l|l|l|l}
+Speaker angle &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\degree}\\ \hline
+       $L_{eq,5}$   	&  \dB{59.87} 	&  \dB{58.47} & \dB{60.13} \Tstrut \\
+         $L_{A_{eq,5}}$  	&  \dB{57.25}  	&  \dB{54.60} & \dB{57.37} \\
+\end{tabular}
+\label{ta:ana:spl_weight_downwards}
+\end{table}
+
+%NON 0 deg = 59.8662, 10 deg = 58.4717, 20 deg = 60.1307
+%A 0 deg = 57.2538, 10 deg = 54.5998, 20 deg = 57.3711
+
 \plot{plot/measuring_1_0_20_center}{The graph shows }{fig:td:mea_1_0_20_deg_center}
 
+As seen in \autoref{fig:td:mea_1_20_0_deg_down}, while the speaker is turned, the \gls{spl}.
 
+\begin{table}[H]
+\centering
+\caption{The table shows the measured $L_{eq,5}$ and $L_{A_{eq,5}}$ \gls{spl} for the center microphone}
+\begin{tabular}{l|l|l|l}
+Speaker angle &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\degree}\\ \hline
+       $L_{eq,5}$   	&  \dB{62.73} 	&  \dB{61.80} & \dB{61.78} \Tstrut \\
+         $L_{A_{eq,5}}$  	&  \dB{61.65}  	&  \dB{60.08} & \dB{60.01} \\
+\end{tabular}
+\label{ta:ana:spl_weight_center}
+\end{table}
 
+%NON 0 deg = 62.7273, 10 deg = 61.8040, 20 deg = 61.7835
+%A  0 deg = 61.6521, 10 deg = 60.0828, 20 deg = 60.0100
 
+      
+            
 \section{Update to the final test}
 
 

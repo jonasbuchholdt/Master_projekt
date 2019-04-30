@@ -287,7 +287,7 @@ down2 = 2;
 down3 = 20;
 down4 = 50;
 
-angle = 20;
+angle = 0;
 ir_no = 10; %0 10 - 5 1 - 10 5 - 15 6
 ir_no_st = 1;
 
@@ -502,7 +502,7 @@ center_refraction = movmean(center_refraction,5);
 
 %figure(angle+1)
 figure(10)
-semilogx(f_axis,upwards_refraction)
+plot(f_axis,upwards_refraction)
 hold on
 grid on
 grid minor

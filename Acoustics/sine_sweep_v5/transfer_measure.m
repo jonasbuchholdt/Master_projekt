@@ -207,6 +207,8 @@ sweepTime = 5;
 %[b,a]=sos2tf(SOS,G);
  %filter(b,a,ir_a(1:3750+fs/100,k));%length(ir_a(:,k)/2),k));
  
+[fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
+
 load('KUDO_direc_25_55.mat');
 
 ang_n_0 = data3600.ir;
@@ -257,25 +259,24 @@ f_axis = w;
 result_d=20*log10(abs(tf/(20*10^-6)));
 l_eq(3) = 10*log10(((1/(sweepTime))*sum((ang_n_25.^2)))/(20*10^-6).^2);
 
-
-diff =  result_d - result_u;
+result_d_diff = result_c-result_d;
+result_u_diff = result_c-result_u;
 
 figure(3)
 %semilogx(f_axis,result_c)
 
-semilogx(f_axis,movmean(result_u,40))
+semilogx(f_axis,movmean(result_u_diff,40))
 hold on
-semilogx(f_axis,movmean(result_d,40))
-semilogx(f_axis,diff)
+semilogx(f_axis,movmean(result_d_diff,40))
 grid on
 grid minor
-axis([500 10000 65 100])
+axis([50 20000 -10 20])
 xlabel('Frequency [Hz]')
 ylabel('Level [dB]')
 legend('upwards','downwards','diff')
 
 %%
-clear
+clear 
 load('impulses.mat');
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
 load('highpass_to_ir.mat');
@@ -287,9 +288,9 @@ down2 = 2;
 down3 = 20;
 down4 = 50;
 
-angle = 20;
-ir_no = 10; %0 10 - 5 1 - 10 5 - 15 6
-ir_no_st = 1;
+angle = 30;
+ir_no = 7; %0 10 - 5 1 - 10 5 - 15 6
+ir_no_st = 7;
 
 
 clear ir_downwards
@@ -314,7 +315,7 @@ end
 
 ir_downwards = ir_downwards_pre(:,ir_no_st:ir_no); % 1 2 3 4 5+ 6+ 7 8+ 9+ 10+
     %ir_downwards = [ir_downwards_pre(:,5:5) ir_downwards_pre(:,6:6) ir_downwards_pre(:,8:8) ir_downwards_pre(:,10:10)];
-ir_center = ir_center_pre(:,2:2);
+ir_center = ir_center_pre(:,ir_no_st:ir_no);
     %ir_upwards = [ir_upwards_pre(:,5:5) ir_upwards_pre(:,6:6) ir_upwards_pre(:,8:8) ir_upwards_pre(:,10:10)]; %1 2 3 4 7 8 10
 ir_upwards = ir_upwards_pre(:,ir_no_st:ir_no); % 1 4 8 10
 
@@ -432,45 +433,14 @@ ir_center = ir_center(6000:10000);
 %ir_center = abcfilt(ir_center,'a'); % a weighting
 
 
-% figure(100)
-% 
-% subplot(4,1,1);
-% plot(weathertime,wind_speed1)
-% hold on
-% plot(weathertime,wind_speed2)
-% title('Wind speed')
-% grid on
-% axis([0 5 0 15])
-% 
-% subplot(4,1,2);
-% plot(weathertime,wind_direction1-5)
-% hold on
-% %plot(weathertime,wind_direction2)
-% title('Wind direction')
-% grid on
-% axis([0 5 0 360])
-% 
-% subplot(4,1,3);
-% plot(weathertime,temp)
-% title('Temperature')
-% grid on
-% axis([0 5 0 30])
-% 
-% subplot(4,1,4);
-% plot(weathertime,humidity)
-% title('Humidity')
-% grid on
-% axis([0 5 0 100])  
-
-
 
 ret = mean(mean(wind_direction1(:,ir_no_st:ir_no)));
 spe = mean(mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)]));
 
 % weighting
-ir_downwards = abcfilt(ir_downwards,'a'); % a weighting
-ir_upwards = abcfilt(ir_upwards,'a'); % a weighting
-ir_center = abcfilt(ir_center,'a'); % a weighting
+%ir_downwards = abcfilt(ir_downwards,'a'); % a weighting
+%ir_upwards = abcfilt(ir_upwards,'a'); % a weighting
+%ir_center = abcfilt(ir_center,'a'); % a weighting
 
 %spl and frequency response
 [tf,w] = freqz(ir_center,1,frequencyRange(2),fs);
@@ -489,6 +459,13 @@ result_d=(20*log10(abs(tf/(20*10^-6)))+10);
 l_eq(3) = 10*log10(((1/(sweepTime))*sum((ir_downwards.^2)))/(20*10^-6).^2)+10
 
 
+% add differences
+%result_c = result_c;
+%result_d = result_d + result_u_diff;
+%result_u = result_u + result_d_diff;
+
+
+%weather
 Win = hann(7525-2580); 
 adj = zeros(22000,1);
 adju = [adj(1:2580); Win; adj(7525+1:end)]*0;
@@ -506,22 +483,62 @@ upwards_refraction = movmean(upwards_refraction,5);
 downwards_refraction = movmean(downwards_refraction,5);
 center_refraction = movmean(center_refraction,5);
 
-%figure(angle+1)
+
+
+wx = [20:20500/55:20500];
+
 figure(10)
+subplot(5,1,1);
 semilogx(f_axis,upwards_refraction)
 hold on
 grid on
 grid minor
-axis([50 20000 20 90])
-xlabel('Frequency [Hz]')
+axis([20 20000 20 100])
 ylabel('Level [dB]')
-%legend('upwards')
-legend({'upwards'},'Location','southwest')
+%legend({'upwards'},'Location','southwest')
+
+
+subplot(5,1,2);
+semilogx(wx,wind_speed1(:,ir_no_st:ir_no))
+hold on
+semilogx(wx,wind_speed2(:,ir_no_st:ir_no))
+ylabel('Wind speed []')
+grid on
+grid minor
+axis([20 20000 0 10])
+ 
+subplot(5,1,3);
+semilogx(wx,wind_direction1(:,ir_no_st:ir_no)-5)
+hold on
+%plot(weathertime,wind_direction2)
+ylabel('Wind direction []')
+grid on
+grid minor
+axis([20 20000 0 360])
+
+subplot(5,1,4);
+semilogx(wx,temp(:,ir_no_st:ir_no))
+ylabel('Temperature []')
+grid on
+grid minor
+axis([20 20000 10 25])
+ 
+subplot(5,1,5);
+semilogx(wx,humidity(:,ir_no_st:ir_no))
+ylabel('Humidity [%]')
+grid on
+grid minor
+xlabel('Frequency [Hz]')
+axis([20 20000 0 100])  
+
+%%
+
+
 
 txt = ['windspeed: ' num2str(spe) ', winddirection: ' num2str(ret)];
 text(100,40,txt)
 
-figure(11)
+figure(10)
 semilogx(f_axis,downwards_refraction)
 hold on
 %semilogx(f_axis,movmean(result_u,50)-adju,'b')
@@ -533,7 +550,7 @@ axis([50 20000 20 90])
 xlabel('Frequency [Hz]')
 ylabel('Level [dB]')
 %legend('downwards')
-legend({'downwards'},'Location','southwest')
+legend({'upwards','downwards'},'Location','southwest')
 
 txt = ['windspeed: ' num2str(spe) ', winddirection: ' num2str(ret)];
 text(100,40,txt)

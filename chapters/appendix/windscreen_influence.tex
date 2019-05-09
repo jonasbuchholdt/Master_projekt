@@ -1,0 +1,102 @@
+\chapter{Windscreen influence of frequency response}\label{app:wind_inf_res}
+A measurement was made to measure the frequency influence of the designed windscreen. The configuration include the modified GRAS AM0069 windscreen. The measurement is done in the anechoic chamber. The measurement is done to analyse the effect of the windscreen in the frequency domain to found out if the observed frequency boost in \autoref{} is an aticact of the windscreen.
+
+
+
+
+
+\section*{Materials and setup}
+To measure the frequency response of the windscreen configuration the following materials are used:
+
+\startequipment
+\equipment{PC}{Macbook}{W89242W966H}{-}
+\equipment{Audio interface}{RME Fireface UCX}{23811948}{108230}
+\equipment{Microphone}{GRAS 26CC}{78189}{75583}
+\equipment{Preamp}{GRAS 40 AZ}{100268}{75551}
+\equipment{Windscreen}{GRAS AM0069}{-}{-}
+\equipment{large foam wedge}{-}{-}{-}
+\equipment{Speaker stand}{-}{-}{-}
+\equipment{Speaker}{Dynaudio}{03508438}{1441-0}
+\stopequipment
+
+\xfig{appendix/frequency_response_windscreen.pdf_t}{The figure shows the measurement setup in the anechoic chamber}{fig:ap:refq_meas_setup_inf}{1}
+
+The following \autoref{ap:freq:speaker_inf} shows the speaker.
+\fig{IMG_0142}{The picture shows the used speaker}{ap:freq:speaker_inf}{0.5}
+
+
+
+\fig{IMG_0141}{The picture shows the measurement microphone with the original modified windscreen}{ap:freq:ori_mod_win}{0.5}
+
+\section*{Test procedure}
+
+
+\begin{enumerate}
+\item The materials are set up as in \autoref{fig:ap:refq_meas_setup_inf} where the  microphone is connected to the audio interface.
+\item The microphone is calibrated
+\item The speaker is placed \SI{3}{\meter} from the microphone and pointing in the direction of the microphone.
+\item The transfer function is measured of the speaker without the designed windscreen and with the modified windscreen.
+\item	The windscreen configuration is placed such that the microphone have approximately the same position as without the designed windscreen, (while the windscreen is tilted the microphone is colser to the speaker).
+\item The transfer function is measured 
+\item The transfer function is calculated and plotted versus the transfer function without designed windscreen but with modified original windscreen \matlab.
+\item The position of the windscreen is changed both with tilting and rotation while the measuring is repeated.
+\item In the end the designed windscreen is measured without foam wedge.
+\end{enumerate}
+
+
+\section*{Measurement area}
+To be able to measure the windscreen frequency response, the anechoic chamber in Fredrick Bajers vej 7B4, 9220 Aalborg is used. The following \autoref{ap:wind:scr_fre_res_inf} shows a drawing of the area ans the position of the fan and windscreen.
+
+\fig{anec_meas_room}{The picture illustrate the area, where the wind flow is measured}{ap:wind:scr_fre_res_inf}{0.7}
+
+\section*{Results}
+
+The following graphs shows the result of the measurement. 
+
+
+The first measurement in \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0} shows the transfer function while the foam wedge is at its designed position and without tilting and rotation. Therefore the windscreen point with \SI{0}{\degree} to the speaker and the windscreen plate have vertical and horizontal of \SI{0}{\degree} 
+\plot{plot/windscreen_with_foam_tilt_0_rot_0}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen with no rotation and no tilting}{fig:ap:freq_resp_with_foa_til_0_rot_0}
+
+
+
+The next measurement in  \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0_moved_in} shows the transfer function while the foam wedge is moved \SI{20}{\centi\meter} back compare to its designed position and without tilting and rotation.
+\plot{plot/windscreen_with_foam_tilt_0_rot_0_moved_in}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen with no rotation and no tilting while the foam wedge is moved \SI{20}{\centi\meter} back}{fig:ap:freq_resp_with_foa_til_0_rot_0_moved_in}
+As see in \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0_moved_in} the frequency response does not change markelibly compare to \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0}. It is seen that the general level is \dB{0.5} lower as expected since the microphone is moved back.
+
+
+The next measurement in  \autoref{fig:ap:freq_resp_with_foa_til_0_rot_30_more_screen} shows the transfer function while the foam wedge is at its designed position and without tilting and with \SI{30}{\degree} right rotation. Therefore the white PVC plate covers more the opening to the microphone and the windscreen plate have vertical and horizontal of \SI{0}{\degree} 
+\plot{plot/windscreen_with_foam_tilt_0_rot_30_more_screen}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen with no no tilting and a right rotation of \SI{30}{\degree}}{fig:ap:freq_resp_with_foa_til_0_rot_30_more_screen}
+It is seen in \autoref{fig:ap:freq_resp_with_foa_til_0_rot_30_more_screen} that \SI{30}{\degree} right rotation gives a \gls{spl} depth between \Hz{1000} and \Hz{4000} otherwise the frequency response is similar to \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0}
+
+The next measurement in  \autoref{fig:ap:freq_resp_with_foa_til_0_rot_30_less_screen} shows the transfer function while the foam wedge is at its designed position and without tilting and with \SI{30}{\degree} left rotation. Therefore the foam wedge covers more the opening to the microphone and the windscreen plate have vertical and horizontal of \SI{0}{\degree} 
+\plot{plot/windscreen_with_foam_tilt_0_rot_30_less_screen}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen with no no tilting and a left rotation of \SI{30}{\degree}}{fig:ap:freq_resp_with_foa_til_0_rot_30_less_screen}
+It is seen in \autoref{fig:ap:freq_resp_with_foa_til_0_rot_30_less_screen} that \SI{30}{\degree} left rotation also gives a \gls{spl} depth between \Hz{1000} and \Hz{4000} but much less than  \autoref{fig:ap:freq_resp_with_foa_til_0_rot_30_more_screen}. Otherwise the frequency response is similar to \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0}
+
+
+The next measurement in \autoref{fig:ap:freq_resp_with_foa_til_9_rot_0} shows the transfer function while the foam wedge is at its designed position and with a tilting of \SI{9}{\degree} and without rotation. Therefore the windscreen point with \SI{0}{\degree} to the speaker and the windscreen plate have horizontal of \SI{0}{\degree} 
+\plot{plot/windscreen_with_foam_tilt_9_rot_0}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen with no rotation and a frontal tilting of \SI{9}{\degree}}{fig:ap:freq_resp_with_foa_til_9_rot_0}
+As see in \autoref{fig:ap:freq_resp_with_foa_til_9_rot_0} the frequency response does not change markelibly compare to \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0}. It is seen that the general level is \dB{2} higher as expected since the microphone is moved closer to the speaker as shown in \autoref{ap:freq:tilt_win}.
+\fig{IMG_0145}{The picture shows the measurement microphone with the tilted designed windscreen}{ap:freq:tilt_win}{0.5}
+Moreover there is a roll off in the frequency higher that \SI{10}{\kilo\hertz} which might result from a plate reflection of the sound since the microphone is lifted by the modified original windscreen. To research the roll off the tilting of the plate is raised to \SI{20}{\degree}. The result of tilting \SI{20}{\degree} is shown in \autoref{fig:ap:freq_resp_with_foa_til_20_rot_0} 
+\plot{plot/windscreen_with_foam_tilt_20_rot_0}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen with no rotation and a frontal tilting of \SI{9}{\degree}}{fig:ap:freq_resp_with_foa_til_20_rot_0}
+As seen in \autoref{fig:ap:freq_resp_with_foa_til_20_rot_0}, the roll off is due to a plate reflection. While tilting \SI{20}{\degree} the reflection frequency is lowered which means that the sound path differences of the reflected sound path grows. 
+
+A tilting of the windscreen while the foam wedge is moved \SI{20}{\centi\meter} is measured as the last measurement while the foam wedge is on the plate. The following \autoref{fig:ap:freq_resp_with_foa_til_8_rot_0_moved_in} shows the result with a tilt of \SI{8}{\degree} and no rotation.
+\plot{plot/windscreen_with_foam_tilt_8_rot_0_moved_in}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen moved \SI{20}{\centi\meter} back with no rotation and a frontal tilting of \SI{8}{\degree}}{fig:ap:freq_resp_with_foa_til_8_rot_0_moved_in}
+
+The last two measurement shows the frequency response while the foam wedge is removed. The first measurement in \autoref{fig:ap:freq_resp_without_foa_til_0_rot_0} shows the frequency response without tilting and rotation. The second measurement in \autoref{fig:ap:freq_resp_without_foa_til_0_rot_30} shows the frequency response without tilting and a rotation of \SI{30}{\degree} to the right.
+
+\plot{plot/windscreen_without_foam_tilt_0_rot_0}{The graph shows frequency response of the speaker measured without windscreen and without the designed windscreen without the foam wedge and  with no rotation and no tilting}{fig:ap:freq_resp_without_foa_til_0_rot_0}
+
+\plot{plot/windscreen_without_foam_tilt_0_rot_30_less_screen}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen without the foam wedge and with no tilting and a right turn of \SI{30}{\degree}}{fig:ap:freq_resp_without_foa_til_0_rot_30}
+
+It is seen in measurement \autoref{fig:ap:freq_resp_without_foa_til_0_rot_0} and \autoref{fig:ap:freq_resp_without_foa_til_0_rot_30} that removing the foam wedge gives depth in \Hz{310} and \Hz{690} and the frequency response shows generally more reflections that with foam wedge.
+
+\section*{Summary}
+
+The designed windscreen gives a small boost in frequency below \Hz{1000} and above \Hz{4000} but the boost is only approximately \dB{2}. Moreover tilting of the designed windscreen gives plate reflection in the high frequency, but tilting at \SI{9}{\degree} only affect frequency above \SI{10}{\kilo\hertz}. Rotating the windscreen ether to the left or right gives a depth within \Hz{1000} to \Hz{4000}. While moving the foam wedge backwards the frequency response of the designed windscreen have only neglible differences. Removing the wedge gives high reflection from the designed windscreen.
+
+
+
+
+

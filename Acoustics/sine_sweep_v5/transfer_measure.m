@@ -88,16 +88,16 @@ calibration.octave=off;
 save('calibration.mat','calibration','-append');  
 
 %%
-filename='impulses.mat';
+filename='impulses_n.mat';
 reset_date = date;
 save(filename,'reset_date');
 %% Make impulse response
 clear;
 
-filename='impulses.mat';
-number = 9;
-angle = 0;
-storename=strcat('data',int2str(number),'ang_down',int2str(angle));
+filename='impulses_2.mat';
+number = 10;
+angle = 90;
+storename=strcat('data',int2str(number),'tile_n5_angle',int2str(angle));
 
 
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
@@ -116,9 +116,9 @@ temp = weather(:,5);
 humidity = weather(:,6);
 
 
-load('highPass20.mat');
-        [b,a]=sos2tf(SOS,G);
-        ir=filter(b,a,ir);
+%load('highPass20.mat');
+%        [b,a]=sos2tf(SOS,G);
+%        ir=filter(b,a,ir);
         
 
         
@@ -172,7 +172,7 @@ title('Humidity')
 grid on
 axis([0 5 0 100])       
 
-%%
+
 data.ir_downwards = ir(:,1);
 data.ir_center = ir(:,2);
 data.ir_upwards = ir(:,3);
@@ -186,19 +186,57 @@ data.humidity = humidity;
 data.weathertime = weathertime;
 
 assignin('base',storename,data);
-%save(filename,storename,'-append');
+save(filename,storename,'-append');
  
- ir_result=ir(:,2);   
+ ir_result=ir(:,1);   
 
 [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
 f_axis = w;
-result=20*log10(abs(tf/(20*10^-6)));
+result=20*log10(abs(tf/(20*10^-6)))+10;
  figure(2)
 semilogx(w,result+10)
 hold on
 title('Audio')
 grid on
-axis([50 20000 20 100])
+axis([50 20000 20 110])
+
+
+ ir_result=ir(:,2);   
+
+[tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
+f_axis = w;
+result=20*log10(abs(tf/(20*10^-6)))+10;
+ figure(2)
+semilogx(w,result+10)
+hold on
+title('Audio')
+grid on
+axis([50 20000 20 110])
+
+
+ ir_result=ir(:,3);   
+
+[tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
+f_axis = w;
+result=20*log10(abs(tf/(20*10^-6)))+10;
+ figure(2)
+semilogx(w,result+10)
+hold on
+title('Audio')
+grid on
+axis([50 20000 20 110])
+
+%%
+
+load('impulses_2.mat')
+
+ir_result=data1calibrate0.ir_center;   
+
+[tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
+f_axis = w;
+result=20*log10(abs(tf/(20*10^-6)))+10;
+ figure(2)
+semilogx(w,result+10)
 
 %% single number spl
 
@@ -572,19 +610,19 @@ text(100,40,txt)
 
 %%
 clear 
-[fs,calibration,frequencyRange,gain,inputChannel,offset,sweepTime,a,b,cmd] = initial_data('transfer');
+[fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
 
 down1 = 1;
 down2 = 2;
 down3 = 20;
 down4 = 50;
 
-load('mic_ref_without_ball.mat','ir_result');
-ref = ir_result;
-load('mic_ref_with_ball_large_rock_single','ir_result');
-mes = ir_result;
+load('impulse_of_windscreen');
 
-clear ir_result;
+ref = data1calibrate0.ir_center;
+
+mes = data1windscreen_without_foam_angle30.ir_center;
+
 
 L = length(ref);
 
@@ -605,17 +643,17 @@ tf_mes = P1;
 
 
 %f_axis = w;%(fs*(0:(L/2))/L)';
+
 f_axis = [downsample(w(1:100),down1); downsample(w(100+1:1000),down2); downsample(w(1000+1:10000),down3); downsample(w(10000+1:end),down4)];
 
-
-
-db_ref=20*log10(abs(tf_ref/(20*10^-6)));
-db_mes=20*log10(abs(tf_mes/(20*10^-6)));
-
-
+db_ref=20*log10(abs(tf_ref/(20*10^-6)))+10;
+db_mes=20*log10(abs(tf_mes/(20*10^-6)))+10;
 
 db_ref = [downsample(db_ref(1:100),down1); downsample(db_ref(100+1:1000),down2); downsample(db_ref(1000+1:10000),down3); downsample(db_ref(10000+1:end),down4)];
 db_mes = [downsample(db_mes(1:100),down1); downsample(db_mes(100+1:1000),down2); downsample(db_mes(1000+1:10000),down3); downsample(db_mes(10000+1:end),down4)];
+
+db_ref = movmean(db_ref,10);
+db_mes = movmean(db_mes,10);
 
 %result = db_mes;%-db_ref;
 
@@ -628,7 +666,7 @@ grid minor
 axis([40 20000 50 90])
 xlabel('Frequency [Hz]')
 ylabel('SPL [dB]')
-legend('Without windscreen','Windscreen, conf 4')
+legend('With only original modified windscreen',' Designed windscreen')
 
 %% Add test points 
 clear

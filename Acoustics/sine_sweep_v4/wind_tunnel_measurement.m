@@ -1,5 +1,22 @@
+
+
+%%
+filename='wind_noise_kudo.mat';
+reset_date = date;
+save(filename,'reset_date');
+
+%%
 close;
 clear;
+for i=1:1:2
+
+
+filename='wind_noise_kudo.mat';
+number = i;
+angle = 25;
+storename=strcat('data',int2str(number),'calibrate_upwards',int2str(angle));
+
+
 
 if ~isempty(instrfind)
     fclose(instrfind);
@@ -24,31 +41,31 @@ tic
     end
 
 % measure
-fprintf('nu nu nu nu nu')
+%fprintf('nu nu nu nu nu')
             L = 4096;
             fileReader = dsp.AudioFileReader('sweep.wav','SamplesPerFrame',L);
             fs = fileReader.SampleRate;
 
             
-            aPR = audioPlayerRecorder('SampleRate',fs,...               % Sampling Freq.
-                          'RecorderChannelMapping',[1 2],...  % Input channel(s)
+            aPR = audioPlayerRecorder('SampleRate',44100,...               % Sampling Freq.
+                          'RecorderChannelMapping',[12],...  % Input channel(s)
                           'PlayerChannelMapping',[1 2],... % Output channel(s)
                           'SupportVariableSize',true,...    % Enable variable buffer size 
                           'BufferSize',L);                  % Set buffer size
     
                       
-                      out = [];                         
-                      data = [];
+                      data_wet = [];                         
+                      sound = [];
                       
                      
                       while ~isDone(fileReader)
                           audioToPlay = fileReader();
                           
                           [audioRecorded,nUnderruns,nOverruns] = aPR(audioToPlay);
-                          out = [out; audioRecorded];
+                          sound = [sound; audioRecorded];
                           
-                          dat=strsplit(fscanf(s),'\t'); 
-                          data = [data; dat];
+                          wet=strsplit(fscanf(s),'\t'); 
+                          data_wet = [data_wet; wet];
                           
                           if nUnderruns > 0
                               fprintf('Audio player queue was underrun by %d samples.\n',nUnderruns);                                
@@ -68,23 +85,25 @@ fclose(s)
 delete(s)
 clear s
 
-fprintf('stop stop stop stop')
+
+
+
+%fprintf('stop stop stop stop')
                       
-interp = floor(length(out)/length(data));
-weather = kron(str2double(data), ones(interp,1));
+weather = str2double(data_wet);
 
 
-while(1)
-    if length(weather)<length(out)
-        weather = [weather; weather(end,:)];
-    end
-    if length(weather)==length(out)
-        break
-    end
-    if length(weather)>length(out)
-        weather = weather(:,1:end-1);
-    end
-end
+%while(1)
+%    if length(weather)<length(out)
+%        weather = [weather; weather(end,:)];
+%    end
+%    if length(weather)==length(out)
+%        break
+%    end
+%    if length(weather)>length(out)
+%        weather = weather(:,1:end-1);
+%    end
+%end
 
 wind_speed1 = weather(:,1);
 wind_direction1 = weather(:,2)/1024*359;
@@ -93,8 +112,75 @@ wind_direction2 = weather(:,4)/1024*359;
 temp = weather(:,5);
 humidity = weather(:,6);
 
-                      
+press = (sound./0.1886);
 
+data.wind_noise = press;
+data.wind_speed1 = wind_speed1;
+data.wind_speed2 = wind_speed2;
+data.wind_direction1 = wind_direction1;
+data.wind_direction2 = wind_direction2;
+data.temp = temp;
+data.humidity = humidity;
+
+assignin('base',storename,data);
+save(filename,storename,'-append');
+
+end
+%% 
+clear 
+
+down1 = 1;
+down2 = 4;
+down3 = 25;
+down4 = 100;
+
+load('wind_noise.mat')
+Fs = 44100;
+L = length(data1calibrate0.wind_noise);
+
+% data2up_without_windscreen0, m/s = 8.51
+% data1down_without_windscreen0, m/s = 8.50
+
+
+ws = mean(data1down_without_windscreen0.wind_speed1);
+
+X = data1down_without_windscreen0.wind_noise;
+
+            L = numel(X);
+            W = hann(L); 
+
+
+Y = fft(X);
+P2 = abs(Y/L);
+P1 = P2(1:L/2+1);
+P1(2:end-1) = 2*P1(2:end-1);
+
+
+
+
+w = (Fs*(0:(L/2))/L)';
+f_axis = [downsample(w(1:716),down1); downsample(w(716+1:7152),down2); downsample(w(7152+1:71518),down3); downsample(w(71518+1:end),down4)];
+
+
+tf_mes = P1;
+db_mes = 20*log10(abs(tf_mes/(20*10^-6)))+10;
+db_mes = [downsample(db_mes(1:716),down1); downsample(db_mes(716+1:7152),down2); downsample(db_mes(7152+1:71518),down3); downsample(db_mes(71518+1:end),down4)];
+db_mes = [db_mes(1:37); movmean(db_mes(37+1:end),3)];
+
+
+
+
+figure(2)
+semilogx(f_axis,db_mes);
+hold on
+grid on
+grid minor
+axis([2 20000 0 110])
+xlabel('Frequency [Hz]')
+ylabel('SPL [dB]')
+legend('original windscreen, windspeed 8.50, ')
+
+%%
 
 wind_speed_m1 = movmean(wind_speed1,interp*2);
 wind_direction_m1 = movmean(wind_direction1,interp*2);

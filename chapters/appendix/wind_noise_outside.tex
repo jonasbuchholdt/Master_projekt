@@ -11,12 +11,12 @@ To measure the wind attenuation of the windscreen configuration the following ma
 \equipment{Microphone}{GRAS 26CC}{78189}{75583}
 \equipment{Preamp}{GRAS 40 AZ}{100268}{75551}
 \equipment{Windscreen}{GRAS AM0069}{-}{-}
-\equipment{large foam wedge}{-}{-}{-}
+\equipment{Designed windscreen}{-}{-}{-}
 \stopequipment
 \startequipment
 \stopequipment
 
-\xfig{appendix/frequency_response_in_windscreen.pdf_t}{The figure shows the measurement setup for the wind noise measurement in the microphone position and outside the windscreen. The two microphone seems to lay onto each other but it shall show that one is inside the windscreen and one is outside the windscreen}{fig:ap:win_noi_out_set}{1}
+\xfig{appendix/wind_noise.pdf_t}{The figure shows the measurement setup for the wind noise measurement.}{fig:ap:win_noi_out_set}{1}
 
 \fig{IMG_0138}{The picture shows the measurement set up}{fig:ap:win_noi_out_pic_set}{0.5}
 
@@ -24,15 +24,14 @@ To measure the wind attenuation of the windscreen configuration the following ma
 
 
 \begin{enumerate}
-\item The materials are set up as in \autoref{fig:ap:win_noi_out_set} where the two microphone connected to the audio interface.
+\item The materials are set up as in \autoref{fig:ap:win_noi_out_set} where the microphone is connected to the audio interface.
 \item The microphone is calibrated.
 \item A \SI{7}{\second} time signal is measured.
-\item The frequency content is calculated by \texttt{fft} on all six measured time signal.
-\item The average of the frequency response for each microphone is calculated
-\item The difference between the microphone is calculated to find the attenuation of the windscreen configuration
-\item The procedure is done for all windscreen configuration and one where no additionally wind stopper is added around the microphone. This last configuration is defined as reference configuration.
-\item A no wind measurement is measured the same way just without the fan activated and only with GRAS AM0069 windscreen in the end.
-\item The wind speed is measured.
+\item The frequency content is calculated by \texttt{fft} after the time signal is windowed by a Hanning window.
+\item The procedure is done with and without the windscreen
+\item The procedure is done where the windscreen is rotated \SI{50}{\degree} and \SI{-50}{\degree}
+\item The result is plotted in \matlab
+\item The measurement is done over for every position until similar wind speed is measured with about \SI{8.5}{\meter\per\second}
 \end{enumerate}
 
 \section*{Measurement area}
@@ -44,35 +43,31 @@ To be able to measure in a windy area, the football stadium at Fredrick Alfred N
 
 The following graphs shows the result of the measurement. 
 
+
+
+The graph in \autoref{fig:ap:windnoise_without_screen} shows a measurement where the modified original windscreen is on the ground and in the hight of \SI{1.7}{\meter}. 
 \plot{plot/windnoise_without_screen}{The graph shows the frequency content of the measurement without the windscreen}{fig:ap:windnoise_without_screen}
+As seen in \autoref{fig:ap:windnoise_without_screen}, the wind noise is more than \dB{10} lower while the modified original windscreen is moved from the hight of \SI{1.7}{\meter} to the ground. 
 
 
 
-
+The graph in \autoref{fig:ap:windnoise_with_screen} shows a measurement where the designed windscreen is on the ground and in the hight of \SI{1.7}{\meter}. The windscreen is \SI{90}{\degree} to the wind in both measurement, which mean that the wind is orthogonal to the middle of the white PVC plate. 
 \plot{plot/windnoise_with_screen}{The graph shows the frequency content of the measurement without the windscreen}{fig:ap:windnoise_with_screen}
+As in \autoref{fig:ap:windnoise_without_screen} The wind noise is lowered more that  \dB{10} in \autoref{fig:ap:windnoise_with_screen}. Furthermore, the wind noise is lowered approximatly \dB{5} to \dB{10} from \Hz{100} and below while the designed windscreen is used. The highest attenuation is while the the windscreen is lifted above the ground.
 
-Based on the observed ground reflection shown in \autoref{} and the high differences founded in the above measurement, only the measurement on the ground is shown in the rest of the measurement. The measurement in ear hight is chosen to be irrelevant since the measurement for the final test is done with microphone on the ground. The measurement shown next is also done in the hight of the ear and can be founded in the attached file.
-
+Based on the observed ground reflection shown in \autoref{sec:des:ground_reflection} and the high noise differences founded in the above measurement, only the measurement on the ground is shown in the rest of the measurement. The measurement in ear hight is chosen to be irrelevant since the measurement for the final test is done with microphone on the ground. The measurement in the hight of the ear can be founded in the file. The following measurement \autoref{fig:ap:windnoise_with_screen_on_ground} shows the measurement with and without the designed windscreen. 
 
 
 \plot{plot/windnoise_with_screen_on_ground}{The graph shows the frequency content of the measurement without the windscreen}{fig:ap:windnoise_with_screen_on_ground}
+As it is seen in \autoref{fig:ap:windnoise_with_screen_on_ground} and explained above, it is clearly seen that the designed windscreen attenuate the wind noise. The next measurement \autoref{fig:ap:windnoise_with_screen_rotation} shows the differences in wind noise while the windscreen is ether rotated \SI{50}{\degree} to the left and to the right.  
 
 \plot{plot/windnoise_with_screen_rotation}{The graph shows the frequency content of the measurement without the windscreen}{fig:ap:windnoise_with_screen_rotation}
-
-
-%\fig{IMG_1150}{The picture shows the microphone covered with windscreen and the Small foam wedge windscreen configuration. This configuration is defined as configuration one}{fig:ap:pre_att_setup}{0.5}
-
-%\plot{plot/time_with_ball_small_kile}{The graph shows one of the time measurement with configuration one}{fig:ap:tim_wit_bal_sma_kil}
-%The \autoref{fig:ap:att_wit_bal_sma_kil} and \autoref{fig:ap:tim_wit_bal_sma_kil} shows the measurement with configuration one in frequency and time domain respectively. It can be seen that the general windscreen attenuation is not lowered compared to the reference windscreen measurement.
-
-
-
-%\fig{IMG_1156}{The picture shows the microphone covered with windscreen and the large foam wedge windscreen. This configuration is defined as configuration two.}{fig:ap:pre_att_setup_two}{0.5}
-%\plot{plot/with_ball_with_large}{The graph shows the frequency content of the measurement with configuration two}{fig:ap:att_wit_bal_lar_kil}
-%\plot{plot/time_with_ball_large_kile}{The graph shows one of the time measurement with configuration two}{fig:ap:tim_wit_bal_lar_kil}
-%The \autoref{fig:ap:att_wit_bal_lar_kil} and \autoref{fig:ap:tim_wit_bal_lar_kil} shows the measurement with configuration two in frequency and time domain respectively. The measurement shows that the windscreen attenuation does have an effect compare to the reference windscreen measurement. The attenuation is nearly greater for all frequency especially in the low and high frequency range.
-
-
+As seen in \autoref{fig:ap:windnoise_with_screen_rotation} the wind noise depend on the angle of the wind to the designed windscreen. While the designed windscreen is rotated \SI{50}{\degree} to the left, the windscreen does not have any wind noise attenuation compare to the measurement with only the modified windscreen. While the designed windscreen is rotated \SI{50}{\degree} to the right, the wind noise follows the wind noise while the designed windscreen is non rotated unless around \Hz{2} where the noise is \dB{10} higher.   
 
 
 \section*{Summary}
+It is founded that changing the position from the ear hight to the ground is have by it self a wind noise attenuation of more that \dB{10} and further the designed windscreen attenuate at less \dB{5} more while the designed windscreen is orthogonal to the wind, so non rotated and rotated such that the wind blows to the back of the designed windscreen. While the designed windscreen opening is rotated to the wind, the designed windscreen have no wind noise attenuation.
+
+
+
+

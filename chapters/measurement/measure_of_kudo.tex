@@ -1,7 +1,34 @@
 \section{The measurement}
-The aim of this section is to show the measuring result from the final measurement, then try to find a relation between the wind direction, the wind speed and the angle of the line source array. The first section \autoref{mes:kudo:cross_mes} covers the measurement done in crosswind. The second section \autoref{mes:kudo:par_mes} covers the measurement done in parallel wind. The third section \autoref{mes:kudo:relaton} analyses the relation between the wind direction, the wind speed and the angle of the line source array.
+The aim of this section is to show the measuring result from the final measurement, then try to find a relation between the wind direction, the wind speed and the angle of the line source array. The first \autoref{mes:kudo:wind_noise} deals with the wind noise in the measurement. The second  \autoref{mes:kudo:cross_mes} covers the measurement done in crosswind. The third  \autoref{mes:kudo:par_mes} covers the measurement done in parallel wind. The third section \autoref{mes:kudo:relaton} analyses the relation between the wind direction, the wind speed and the angle of the line source array.
+
+
+\section{Wind noise doing measurement}\label{mes:kudo:wind_noise}
+Doing the measurement, wind noise is present at the microphone. To ensure that the signal to wind noise level is high, a wind noise measurement is preformed as the first step. The following \autoref{} shows the wind noise at all three microphone position with a wind speed of ... . 
+
+
+The measurement ... shows that the wind noise is pink and therefore most present in the low frequency. To exclude the low frequency wind noise from the measurement, all impulse responses is filtered by a second order high pass filter at \Hz{40}. The reson to filter the impulse response at \Hz{40} is that the line source array by it self cannot go lower in frequency. The cut off is due to a internal filter in the \gls{dsp} settings of the speaker controller which cannot be turned off. Moreover, due to the way thast the impulse response is calculated, wind noise is present along the impulse response. The impulse response is calculated according to ..., where the output signal is convoluted with the measured signal. Then if the noise signal component is present at another time that the signal, the wind noise in the impulse response is pereent as delayed signal. The following \autoref{fig:meas:imp_res} shows one impulse response measured doing the measurement.
+
+\plot{plot/ir_0_deg_13_up}{The graph shows one impulse response measurement of the upwards microphone where the line source array is non rotated}{fig:meas:imp_res}
+
+
+As seen in \autoref{fig:meas:imp_res}, the noise is present along the impulse response time line. This wind noise is not intersting for the analysis and is therefore windowed by a custom made window.   
+
+\plot{plot/ir_0_deg_13_up_window}{The graph shows one impulse response measurement of the upwards microphone where the line source array is non rotated}{fig:meas:imp_res_win}
+
+
+
 
 \section{Crosswind measurement}\label{mes:kudo:cross_mes}
+This section is presenting the final measurement which is done according to the crosswind measurement design description in \autoref{ch:test_of_proposal_sol} including the update described in \autoref{ch:test_of_meas_des}. The measurement description is founded in \autoref{}. The measurement setup is nearly identical to the measurement in \autoref{ch:test_of_meas_des} unless that the wind direction was turned \SI{180}{\degree}, the anemometer at the microphone position is placed \SI{5}{\meter} to the right of the center microphone instead of \SI{5}{\meter} to the back of the center microphone and the anemometer at the line source array is moved to the right side. The measurement setup is illustrated in \autoref{fig:ds:position_final}.
+
+
+\xfig{measurement/final_measurement_kudo.pdf_t}{The figure shows the microphone position versus the position of the line source, while the array is \SI{0}{\degree} horizontal turned}{fig:ds:position_final}{1}
+
+Doing the measurement wind noise 
+
+
+
+
 
 \section{parallel wind measurement}\label{mes:kudo:par_mes}
 

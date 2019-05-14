@@ -319,7 +319,7 @@ load('impulses_2.mat');
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
 load('40Hz_2order_filter.mat');
 [b,a]=sos2tf(SOS,G);
-%%
+
 
 down1 = 1;
 down2 = 1;
@@ -327,7 +327,7 @@ down3 = 20;
 down4 = 50;
 
 angle = 0;
-ir_number = 16;
+ir_number = 11;
 
 
 ir_no = ir_number;
@@ -337,7 +337,7 @@ ir_no_st = ir_number;
 clear ir_downwards
 clear ir_upwards
 start=1;
-ir_num = 20;
+ir_num = 22;
 
 for i=start:1:ir_num
 number = i;
@@ -354,9 +354,9 @@ humidity(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.humi
 end
 
 
-ir_downwards_no = ir_downwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20);
-ir_center_no = ir_center_pre(1:20000,ir_no_st:ir_no)*10^(10/20);
-ir_upwards_no = ir_upwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)*1.03; 
+ir_downwards_no = (ir_downwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20))*10^(5/20);
+ir_center_no = (ir_center_pre(1:20000,ir_no_st:ir_no)*10^(10/20))*10^(5/20);
+ir_upwards_no = (ir_upwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)*1.03)*10^(5/20); 
 
 
 % window
@@ -426,6 +426,14 @@ for i=1:Nfc
         l_eq_downwards(i) = 10*log10(((1/(sweepTime))*sum((fullOctaveFilter(ir_downwards).^2)))/(20*10^-6).^2);
 end
 
+b=1;
+for i=3:Nfc
+result(b) = l_eq_upwards(i);
+result(b+1) = l_eq_center(i);
+result(b+2) = l_eq_downwards(i);
+b=b+3;
+end
+result = round(result);
 %%
 % ir = ir_downwards(1:end/2,:);
 % [m,ir_num] = size(ir);

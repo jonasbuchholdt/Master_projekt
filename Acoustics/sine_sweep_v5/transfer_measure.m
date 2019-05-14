@@ -319,7 +319,7 @@ load('impulses_2.mat');
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
 load('40Hz_2order_filter.mat');
 [b,a]=sos2tf(SOS,G);
-
+%%
 
 down1 = 1;
 down2 = 1;
@@ -327,7 +327,7 @@ down3 = 20;
 down4 = 50;
 
 angle = 0;
-ir_number = 13;
+ir_number = 16;
 
 
 ir_no = ir_number;
@@ -354,9 +354,9 @@ humidity(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.humi
 end
 
 
-ir_downwards_no = ir_downwards_pre(:,ir_no_st:ir_no)*10^(10/20);
-ir_center_no = ir_center_pre(:,ir_no_st:ir_no)*10^(10/20);
-ir_upwards_no = ir_upwards_pre(:,ir_no_st:ir_no)*10^(10/20); 
+ir_downwards_no = ir_downwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20);
+ir_center_no = ir_center_pre(1:20000,ir_no_st:ir_no)*10^(10/20);
+ir_upwards_no = ir_upwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)*1.03; 
 
 
 % window
@@ -376,17 +376,22 @@ window = (window_low .* window_high)';
 %plot(window./300)
 
 ir_downwards_fi=filter(b,a,ir_downwards_no);
-ir_downwards = ir_downwards_fi.*window;
+ir_downwards_win = ir_downwards_fi.*window;
 ir_center_fi=filter(b,a,ir_center_no);
-ir_center = ir_center_fi.*window;
+ir_center_win = ir_center_fi.*window;
 ir_upwards_fi=filter(b,a,ir_upwards_no);
-ir_upwards = ir_upwards_fi.*window;
+ir_upwards_win = ir_upwards_fi.*window;
+
+load('150Hz_2order_filter.mat');
+[b,a]=sos2tf(SOS,G);
+
+ir_downwards=filter(b,a,ir_downwards_win);
+ir_center=filter(b,a,ir_center_win);
+ir_upwards=filter(b,a,ir_upwards_win);
 
 
-
-
-windspeed = mean(mean([wind_speed1 wind_speed2]));
-windsdirection = mean(mean([wind_direction1 wind_direction2]))-180;
+windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
+windsdirection = mean([wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir_no)])-180-20
 
 
 
@@ -394,6 +399,34 @@ irtime = eval(strcat('data',int2str(number),'angle',int2str(angle),'.irtime'));
 weathertime = eval(strcat('data',int2str(number),'angle',int2str(angle),'.weathertime'));
 
 
+
+
+BW = '1 octave';
+N = 6;           % Filter Order
+F0 = 1000;       % Center Frequency (Hz)
+Fs = 44100;      % Sampling Frequency (Hz)
+oneOctaveFilter = octaveFilter('FilterOrder', N, ...
+    'CenterFrequency', F0, 'Bandwidth', BW, 'SampleRate', Fs)
+
+F0 = getANSICenterFrequencies(oneOctaveFilter);
+F0(F0<150) = [];
+F0(F0>20e3) = [];
+F0(7)=1.584893192461113e+04;
+Nfc = length(F0);
+for i=1:Nfc
+    fullOctaveFilterBank{i} = octaveFilter('FilterOrder', N, ...
+        'CenterFrequency', F0(i), 'Bandwidth', BW, 'SampleRate', Fs); %#ok
+end
+
+
+for i=1:Nfc
+        fullOctaveFilter = fullOctaveFilterBank{i};
+        l_eq_center(i) = 10*log10(((1/(sweepTime))*sum((fullOctaveFilter(ir_center).^2)))/(20*10^-6).^2);
+        l_eq_upwards(i) = 10*log10(((1/(sweepTime))*sum((fullOctaveFilter(ir_upwards).^2)))/(20*10^-6).^2);
+        l_eq_downwards(i) = 10*log10(((1/(sweepTime))*sum((fullOctaveFilter(ir_downwards).^2)))/(20*10^-6).^2);
+end
+
+%%
 % ir = ir_downwards(1:end/2,:);
 % [m,ir_num] = size(ir);
 % 
@@ -541,9 +574,9 @@ upwards_refraction = [downsample(upwards_refraction(1:100),down1); downsample(up
 downwards_refraction = [downsample(downwards_refraction(1:100),down1); downsample(downwards_refraction(100+1:1000),down2); downsample(downwards_refraction(1000+1:9978),down3); downsample(downwards_refraction(9978+1:end),down4)];
 center_refraction = [downsample(center_refraction(1:100),down1); downsample(center_refraction(100+1:1000),down2); downsample(center_refraction(1000+1:9978),down3); downsample(center_refraction(9978+1:end),down4)];
 
-upwards_refraction = movmean(upwards_refraction,1);
-downwards_refraction = movmean(downwards_refraction,1);
-center_refraction = movmean(center_refraction,1);
+upwards_refraction = movmean(upwards_refraction,10);
+downwards_refraction = movmean(downwards_refraction,10);
+center_refraction = movmean(center_refraction,10);
 
 
 
@@ -599,13 +632,15 @@ axis([20 20000 0 100])
 
 figure(1)
 %semilogx(f_axis,center_refraction)
+
 semilogx(f_axis,upwards_refraction)
 hold on
 semilogx(f_axis,downwards_refraction)
 grid on
 grid minor
-axis([2 20000 20 100])
+axis([100 20000 20 100])
 ylabel('Level [dB]')
+xlabel('Frequency [Hz]')
 legend({'upwards','downwards'},'Location','northeast')
 
 %%

@@ -16,6 +16,21 @@ As seen in \autoref{fig:meas:imp_res}, the noise is present along the impulse re
 \plot{plot/ir_0_deg_13_up_window}{The graph shows one impulse response measurement of the upwards microphone where the line source array is non rotated}{fig:meas:imp_res_win}
 
 
+The window function in \autoref{fig:meas:imp_res_win} is a amplitude wise scaled version, such that both the impulse response and the window is visuable. The window which is used in the calculation is non-scaled which mean that the highest passing area have unity gain of 1 and not $3.3 \cdot 10^{-3}$. It is seen that the window passes the impulse response without change, while the noise is filtered.
+
+
+
+\section{Refraction}
+while comparing the upwards refraction direction to the downwards direction, it is intersting to analyse at which frequency the refraction starts at the measured distance of \SI{50}{\meter} and a wind speed between \SI{5}{\meter\per\second} and \SI{12}{\meter\per\second}. The refraction knowledge is used to generate a high pass filter such that it is only the part where refrection occore which is compared doing the data analysis. The frequency below the refraction is not interesting while comparing if turning the speaker makes more even \gls{spl} in the upwards direction compare to the down wards direction. While excluding this part in the one number \gls{spl} calculation the refraction part is more wisuavble. To analyse where the refraction occur, the frequency content is calculated for 3 measurement with high wind speed and compared. At the point where the upwards refraction, downwards refraction and center microphone gets different is defined as the starting point of refraction at \SI{50}{\meter} with the corresponding wind speed in this analysis. The following 3 \autoref{}, \autoref{} and \autoref{} shows the frequency response of all three microphone at three different measurement. All measurement is with \SI{0}{\degree} rotation of the speaker and is choses since that have the most clear refraction separation and lowest refraction start point compare to the other measurement.
+
+
+\plot{plot/refraction_0_deg_16}{The graph shows }{fig:meas:refraction_0_deg_16}
+\plot{plot/refraction_0_deg_17}{The graph shows }{fig:meas:refraction_0_deg_17}
+
+
+As seen in ... the refraction starts at \Hz{150}, therefore all beneeth \Hz{150} have not interest for the futher analysis and is filtered with a second order high pass filter at \Hz{150}. 
+
+
 
 
 \section{Crosswind measurement}\label{mes:kudo:cross_mes}
@@ -24,9 +39,30 @@ This section is presenting the final measurement which is done according to the 
 
 \xfig{measurement/final_measurement_kudo.pdf_t}{The figure shows the microphone position versus the position of the line source, while the array is \SI{0}{\degree} horizontal turned}{fig:ds:position_final}{1}
 
-Doing the measurement wind noise 
+The line source array in the test setup shown in \autoref{fig:ds:position_final} is measured in four different angle where every angle above \SI{0}{\degree} is a rotation towards the upwards microphone. The resolution is with step of \SI{10}{\degree} with start as \SI{0}{\degree}, which is the angle shown in \autoref{fig:ds:position_final} and upto \SI{30}{\degree}. The measurement is done at lees 10 time for every angle and based on the amount of data, one graph for every angle will be shown where the rest of the result is shown in $L_{eq,5}$ octave separation above \Hz{150}. The graph only includes the upwards measurement and the downwards measurement, the center microphone measurement is given in the $L_{eq,5}$ and in \autoref{} to keep the plot visual manageable. The chosen graphs is measurement whit high and identically with an average of approximatly \SI{8}{\meter\per\second}
 
 
+\plot{plot/result_cross_0_deg_16}{The graph shows }{fig:meas:result_cross_0_deg_16}
+\plot{plot/result_cross_10_deg_15}{The graph shows }{fig:meas:result_cross_10_deg_15}
+\plot{plot/result_cross_20_deg_16}{The graph shows }{fig:meas:result_cross_20_deg_16}
+\plot{plot/result_cross_30_deg_9}{The graph shows }{fig:meas:result_cross_30_deg_9}
+
+In the analysis the measurement is split intro groups depending on the wind speed with a step of \SI{1}{\meter\per\second}. Futhermore all measurement in the analysis is within $\pm\SI{25}{\degree}$ from crosswind to the speaker. Crosswind to the speaker is defined as \SI{90}{\degree} and therefore \SI{65}{\degree} to \SI{115}{\degree} is the acceptable divience, all measurement diviate from this range is excluded. Moreover measurement with wind speed beneath \SI{5}{\meter\per\second} is also excluded. From thoes limitation, the following \autoref{ta:meas:approved_measurement} shows the amound of measurement for each wind speed step. 
+
+\begin{table}[]
+\centering
+\caption{The table shows the number of measurement which is between \SI{65}{\degree} to \SI{115}{\degree} in the given \si{\meter\per\second} interval}
+\begin{tabular}{l|l|l|l|l|l}
+Speaker angle & \SI{0}{\degree}  & \SI{10}{\degree} & \SI{20}{\degree} & \SI{30}{\degree} & Total \\ \hline
+$[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $         & 1  & 2  & 4  & 4  & 11    \\
+$[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[$           & 2  & 6  & 5  & 5  & 18    \\
+$[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $          & 5  & 3  & 4  & 4  & 16    \\
+$[\SI{8}{\meter\per\second},\, \SI{9}{\meter\per\second}[ $          & 6  & 1  & 2  & 1  & 10    \\
+$[\SI{9}{\meter\per\second},\, \SI{10}{\meter\per\second}[  $        & 1  & 2  & 4  & 0  & 7     \\ \hline
+Total         & 15 & 14 & 19 & 14 &      
+\end{tabular}
+\label{ta:meas:approved_measurement}
+\end{table}
 
 
 

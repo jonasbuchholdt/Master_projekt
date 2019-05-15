@@ -15,7 +15,12 @@ In equation \autoref{eq:ana:near_field} it can be calculated that less than \Hz{
 
 \fig{near_far_field}{The figure shows horizontal cut of a \gls{spl} radiation pattern of a line source array \citep{bauman2001wavefront}.}{fig:ana:near_far_field}{0.8}
 
-As seen in \autoref{fig:ana:near_far_field}, the wave propagating as a plane cylindrical wave in the near-field, where the coverage area for every double of distance is twice as big. Since the coverage area is twice as big, the \gls{spl} is the half for the doubled distance. When the wave excites distance $d_B$, the wave propagates intro far-field where the coverage area is four times higher while travelling the double of distance and therefore the \gls{spl} is four times less. In far-field, the wave propagates as a spherical sound source  
+As seen in \autoref{fig:ana:near_far_field}, the wave propagating as a plane cylindrical wave in the near-field, where the coverage area for every double of distance is twice as big. Since the coverage area is twice as big, the \gls{spl} is the half for the doubled distance. When the wave excites distance $d_B$, the wave propagates intro far-field where the coverage area is four times higher while travelling the double of distance and therefore the \gls{spl} is four times less. In far-field, the wave propagates as a spherical sound source. The following \autoref{fig:ana:KUDO_nearfield_limit} gives two examples with different hight.
+
+\plot{plot/KUDO_nearfield_limit}{The figure shows two hight example calculated from \autoref{eq:ana:near_field}.}{fig:ana:KUDO_nearfield_limit}
+
+As seen in \autoref{fig:ana:KUDO_nearfield_limit}, while the hight is the double, the far-field is moved four times as far back.
+
 
 \section{Homogeneous atmospheric conditions}\label{sec:ana:hom_ats_con}
 This section aims to analyse the sound wave propagation in homogeneous atmospheric conditions. It is well known that the sound wave propagation is highly depending on the atmospheric conditions. The propagation depends on the atmospheric pressure, wind, temperature and humanity, where the two latter moreover is frequency dependent. The attenuation difference in frequency for temperature and humanity can be above \dB{80} \citep{corteel2017large}. The following sections introduce a brief discussion of homogeneous atmospheric conditions effect on sound propagation.
@@ -33,7 +38,7 @@ As shown in \autoref{fig:ana:temp_eg} the attenuation in the high frequency is s
  
 \paragraph{Speed of sound} The second consequence is the speed of sound. At temperature range from \SI{0}{\celsius} to \SI{40}{\celsius} the speed of sound with respect to humanity change is sparse and mostly only depend on temperature change. At \SI{0}{\percent} humidity, the speed of sound increases with \SI{0.6}{\meter\per\second} for every increasing degree \si{\celsius}. At humanity higher that \SI{0}{\percent} the speed of sound increase with respect to humanity, depends on temperature. At \SI{0}{\celsius} the speed of sound increases with approximately \SI{0.8}{\meter\per\second} when the humidity raises from \SI{0}{\percent} to \SI{100}{\percent}. At \SI{30}{\celsius} the speed of sound increases with approximately \SI{2.7}{\meter\per\second} when the humidity raises from \SI{0}{\percent} to \SI{100}{\percent} \citep{humanity_effect_on_speed} \citep{bohn1987environmental}.  The wave propagation speed start at \SI{331.5}{\meter\per\second} at \SI{0}{\celsius} and \SI{0}{\percent} humanity. The following \autoref{fig:ana:hu_speed} shows the speed of sound with respect to humanity and temperature. 
 
-\plot{code/speed_hum_temp}{The figure shows the increase of sound speed with respect to humanity and temperature \citep{bohn1987environmental}}{fig:ana:hu_speed}
+\plot{plot/speed_hum_temp}{The figure shows the increase of sound speed with respect to humanity and temperature \citep{bohn1987environmental}}{fig:ana:hu_speed}
 
 As seen in \autoref{fig:ana:hu_speed}, the effect of humidity is negligible compared to the effect of temperature changes, but as the temperature increases the humidity gets significant. At a temperature of \SI{40}{\celsius} the speed of sound is changed \SI{4}{\meter\per\second} from \SI{0}{\percent} humidity to \SI{100}{\percent}
 

@@ -130,25 +130,26 @@ end
 clear 
 
 down1 = 1;
-down2 = 5;
-down3 = 40;
-down4 = 500;
+down2 = 7;
+down3 = 50;
+down4 = 700;
 
-load('wind_noise.mat')
+load('wind_noise_kudo.mat')
+
+
 Fs = 44100;
 L = length(data1calibrate0.wind_noise);
 
-without_up= data2up_without_windscreen0.wind_noise; %, m/s = 8.51
-without_down= data1down_without_windscreen0.wind_noise; %, m/s = 8.50
+% data1calibrate0 6.34 m/s
+% data2calibrate_upwards25 7.25 m/s
+% data2calibrate_down25 7.38 m/s
 
-with_up= data6up_with_foam0.wind_noise; %, m/s = 8.43
-with_down= data1down_with_windscreen0.wind_noise; %, m/s = 8.68
 
-with_down_p50 = data7down_with_foam_p50.wind_noise; %8.52
-with_down_n50 = data6down_with_foam_n30.wind_noise; %8.75 
-%ws = mean(data5down_without_windscreen0.wind_speed1);
+ws = mean([data1calibrate0.wind_speed1; data2calibrate_upwards25.wind_speed2])
 
-X = with_down_n50;
+
+
+X = data2calibrate_down25.wind_noise;
 
             L = numel(X);
             W = hann(L); 
@@ -179,11 +180,12 @@ semilogx(f_axis,db_mes);
 hold on
 grid on
 grid minor
-axis([2 20000 0 100])
+axis([2 20000 -40 90])
 xlabel('Frequency [Hz]')
 ylabel('SPL [dB]')
 %%
-legend('Designed windscreen, 90 deg, windspeed 8.68','Designed windscreen, 40 deg, windspeed 8.52','Designed windscreen, 140 deg, windspeed 8.75')
+legend('Center, windspeed 6.34','Upwards, windspeed 7.25','Downwards, windspeed 7.38')
+
 %%
 
 wx = ([1:length(data1calibrate0.wind_direction1)]./(44100/4096))';

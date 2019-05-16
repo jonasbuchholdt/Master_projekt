@@ -2,9 +2,8 @@
 clear 
 load('impulses_2.mat');
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
-%%
-load('40Hz_2order_filter.mat');
-[b,a]=sos2tf(SOS,G);
+
+
 
 
 down1 = 1;
@@ -13,7 +12,7 @@ down3 = 20;
 down4 = 50;
 
 angle = 90;
-ir_number = 10;
+ir_number = 1;
 l_eq_no   =  1;
 
 ir_num = 10;
@@ -87,11 +86,10 @@ window_low  = cdf('Normal',x,mu_low,sigma);
 window_high  = wdummy - cdf('Normal',x,mu_high,sigma);
 window_back = (window_low .* window_high)';
 
-%plot(ir_upwards_no)
-%hold on
-%plot(ir_downwards_no)
-%plot(window./300)
 
+% filter at 40 Hz and window
+load('40Hz_2order_filter.mat');
+[b,a]=sos2tf(SOS,G);
 ir_downwards_fi=filter(b,a,ir_downwards_no);
 ir_downwards_win = ir_downwards_fi.*window_first;
 ir_center_fi=filter(b,a,ir_center_no);
@@ -99,19 +97,90 @@ ir_center_win = ir_center_fi.*window_center;
 ir_upwards_fi=filter(b,a,ir_upwards_no);
 ir_upwards_win = ir_upwards_fi.*window_back;
 
+% filter at 150 Hz
 load('150Hz_2order_filter.mat');
 [b,a]=sos2tf(SOS,G);
+ir_downwards_vis=filter(b,a,ir_downwards_win);
+ir_center_vis=filter(b,a,ir_center_win);
+ir_upwards_vis=filter(b,a,ir_upwards_win);
 
-ir_downwards=filter(b,a,ir_downwards_win);
-ir_center=filter(b,a,ir_center_win);
-ir_upwards=filter(b,a,ir_upwards_win);
 
-
+% weather
 windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
 windsdirection = mean([wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir_no)])-180-20
+temp_mes = mean(temp(:,ir_no_st:ir_no))
+humidity_mes = mean(humidity(:,ir_no_st:ir_no));
 
 
+% viscosity filter downwards ----
+input = ir_downwards_vis;
+humidity_vis = humidity_mes;
+temperature = temp_mes;
+Fs = 44100;
+L = length(input);
+input_f = fft(input);
+pa = 101.325;
+pr = 101.325;
+T_0 = 293.15;
+T_01 = 273.16;
+T = 273.15 + temperature;
+h=humidity_vis*10^(-6.8346*(T_01/T)^(1.261)+4.6151);
+f = (Fs*(0:(L/2))/L)';
+fro = (pa/pr)*(24+4.04*10^4*h*((0.02+h)/(0.391+h)));
+frn = (pa/pr)*(T/T_0)^(-1/2)*(9+280*h*exp(-4.170*((T/T_0)^(-1/3)-1)));
+a = 8.686.*f.^2.*((1.84*10.^(-11).*(pa/pr).^(-1).*(T/T_0).^(1/2))+(T/T_0).^(-5/2).*(0.01275.*(exp(-2239.1/T)).*(fro+(f.^2/fro)).^(-1)+0.1068.*(exp(-3352/T)).*(frn+(f.^2/frn)).^(-1)));
+an = -a*10;
+absorbtion = [10.^(an(2:end)/20); flip(10.^(an(2:end)/20))];
+freq = (input_f.*absorbtion);
+ir_downwards = real(ifft(freq));
+% ---------
 
+% viscosity filter center ----
+input = ir_center_vis;
+humidity_vis = humidity_mes;
+temperature = temp_mes;
+Fs = 44100;
+L = length(input);
+input_f = fft(input);
+pa = 101.325;
+pr = 101.325;
+T_0 = 293.15;
+T_01 = 273.16;
+T = 273.15 + temperature;
+h=humidity_vis*10^(-6.8346*(T_01/T)^(1.261)+4.6151);
+f = (Fs*(0:(L/2))/L)';
+fro = (pa/pr)*(24+4.04*10^4*h*((0.02+h)/(0.391+h)));
+frn = (pa/pr)*(T/T_0)^(-1/2)*(9+280*h*exp(-4.170*((T/T_0)^(-1/3)-1)));
+a = 8.686.*f.^2.*((1.84*10.^(-11).*(pa/pr).^(-1).*(T/T_0).^(1/2))+(T/T_0).^(-5/2).*(0.01275.*(exp(-2239.1/T)).*(fro+(f.^2/fro)).^(-1)+0.1068.*(exp(-3352/T)).*(frn+(f.^2/frn)).^(-1)));
+an = -a*10;
+absorbtion = [10.^(an(2:end)/20); flip(10.^(an(2:end)/20))];
+freq = (input_f);
+ir_center = real(ifft(freq));
+% ---------
+
+
+% viscosity filter upwards ----
+input = ir_upwards_vis;
+humidity_vis = humidity_mes;
+temperature = temp_mes;
+Fs = 44100;
+L = length(input);
+input_f = fft(input);
+pa = 101.325;
+pr = 101.325;
+T_0 = 293.15;
+T_01 = 273.16;
+T = 273.15 + temperature;
+h=humidity_vis*10^(-6.8346*(T_01/T)^(1.261)+4.6151);
+f = (Fs*(0:(L/2))/L)';
+fro = (pa/pr)*(24+4.04*10^4*h*((0.02+h)/(0.391+h)));
+frn = (pa/pr)*(T/T_0)^(-1/2)*(9+280*h*exp(-4.170*((T/T_0)^(-1/3)-1)));
+a = 8.686.*f.^2.*((1.84*10.^(-11).*(pa/pr).^(-1).*(T/T_0).^(1/2))+(T/T_0).^(-5/2).*(0.01275.*(exp(-2239.1/T)).*(fro+(f.^2/fro)).^(-1)+0.1068.*(exp(-3352/T)).*(frn+(f.^2/frn)).^(-1)));
+an = -a*10;
+absorbtion = [10.^(an(2:end)/20); flip(10.^(an(2:end)/20))];
+freq = (input_f./absorbtion);
+ir_upwards = real(ifft(freq));
+% ---------
 
 
 

@@ -1,10 +1,11 @@
 %%
 clear 
+warning off
 load('impulses_2.mat');
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
 
 
-
+%%
 
 down1 = 1;
 down2 = 1;
@@ -12,8 +13,10 @@ down3 = 20;
 down4 = 50;
 
 angle = 90;
-ir_number = 1;
-l_eq_no   =  1;
+ir_number = 10;
+l_eq_no   = 5;
+
+% n5 - 3
 
 ir_num = 10;
 
@@ -107,8 +110,8 @@ ir_upwards_vis=filter(b,a,ir_upwards_win);
 
 % weather
 windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
-windsdirection = mean([wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir_no)])-180-20
-temp_mes = mean(temp(:,ir_no_st:ir_no))
+windsdirection = mean([wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir_no)])-180-90
+temp_mes = mean(temp(:,ir_no_st:ir_no));
 humidity_mes = mean(humidity(:,ir_no_st:ir_no));
 
 
@@ -132,7 +135,7 @@ a = 8.686.*f.^2.*((1.84*10.^(-11).*(pa/pr).^(-1).*(T/T_0).^(1/2))+(T/T_0).^(-5/2
 an = -a*10;
 absorbtion = [10.^(an(2:end)/20); flip(10.^(an(2:end)/20))];
 freq = (input_f.*absorbtion);
-ir_downwards = real(ifft(freq));
+ir_downwards_dis = real(ifft(freq));
 % ---------
 
 % viscosity filter center ----
@@ -179,10 +182,71 @@ a = 8.686.*f.^2.*((1.84*10.^(-11).*(pa/pr).^(-1).*(T/T_0).^(1/2))+(T/T_0).^(-5/2
 an = -a*10;
 absorbtion = [10.^(an(2:end)/20); flip(10.^(an(2:end)/20))];
 freq = (input_f./absorbtion);
-ir_upwards = real(ifft(freq));
+ir_upwards_dis = real(ifft(freq));
 % ---------
 
 
+% distance filter -------
+f = (Fs*(0:(L/2))/L)';
+number = 6;
+H_kudo = 0.356;
+H_dis = 0.004;
+H = H_kudo*number + (number-1)*H_dis;
+limit = real((3/2).*f/1000.*H^2.*sqrt(1-(1./(3.*(f/1000).*H))));
+
+for v=1:1:3
+    
+dis = 30+(v*10);
+ref = 1;
+
+for i=1:length(limit)
+    if limit(i) >dis
+       limit_ed(i) =dis;
+    end
+    if limit(i) <dis
+        limit_ed(i)=limit(i);
+    end
+    if limit(i) <ref
+        limit_ed(i)=ref;
+    end
+end
+
+
+for i = 1:length(limit_ed)
+areal = (limit_ed(i)/2);
+area = areal*2^2;
+
+a = [area area*2 area*4 area*8 area*16];
+b = [area area*4 area*4*4 area*4*4*4 area*4*4*4*4];
+
+p = polyfit(a,b,3);
+x1 = linspace(8,64);
+y1 = polyval(p,x1);
+
+result_find = find(x1>dis);
+
+area_diff = y1(result_find(1))/ref;
+mic_db(v,i) = -10*log10(area_diff);
+end
+end
+dif_40_50 = (mic_db(2,:)-mic_db(1,:))';
+dif_50_60 = (mic_db(2,:)-mic_db(3,:))';
+
+% first mic
+input = ir_downwards_dis;
+input_f = fft(input);
+loss = abs([10.^(dif_40_50(2:end)/20); flip(10.^(dif_40_50(2:end)/20))]);
+freq = (input_f.*loss);
+ir_downwards= real(ifft(freq));
+
+% back mic
+input = ir_upwards_dis;
+input_f = fft(input);
+loss = abs([10.^(dif_50_60(2:end)/20); flip(10.^(dif_50_60(2:end)/20))]);
+freq = (input_f.*loss);
+ir_upwards = real(ifft(freq));
+
+% ------------------------------
 
 
 BW = '1 octave';
@@ -190,7 +254,7 @@ N = 6;           % Filter Order
 F0 = 1000;       % Center Frequency (Hz)
 Fs = 44100;      % Sampling Frequency (Hz)
 oneOctaveFilter = octaveFilter('FilterOrder', N, ...
-    'CenterFrequency', F0, 'Bandwidth', BW, 'SampleRate', Fs)
+    'CenterFrequency', F0, 'Bandwidth', BW, 'SampleRate', Fs);
 
 F0 = getANSICenterFrequencies(oneOctaveFilter);
 F0(F0<150) = [];
@@ -218,13 +282,15 @@ result(l_eq_no,b+2) = l_eq_downwards(i);
 b=b+3;
 end
 
-% %%
-% res_men = round(result);
-% res_avg = round(mean(result));
-% for i=1:5   
-% res_dif(i) = res_avg(3+(i-1)*3) - res_avg(1+(i-1)*3);
-% end
-% %%
+ %%
+ res_men = round(result);
+ res_avg = round(mean(result));
+ for i=1:5   
+ res_dif(i) = res_avg(3+(i-1)*3) - res_avg(1+(i-1)*3);
+ end
+ %%
+
+%%
 
 % ir = ir_downwards(1:end/2,:);
 % [m,ir_num] = size(ir);
@@ -432,14 +498,14 @@ axis([20 20000 0 100])
 figure(1)
 semilogx(f_axis,downwards_refraction)
 hold on
-semilogx(f_axis,center_refraction)
+%semilogx(f_axis,center_refraction)
 semilogx(f_axis,upwards_refraction)
 grid on
 grid minor
 axis([100 20000 20 100])
 ylabel('Level [dB]')
 xlabel('Frequency [Hz]')
-legend({'first','center','back'},'Location','northeast')
+legend({'first','back'},'Location','northeast')
 
 %%
 

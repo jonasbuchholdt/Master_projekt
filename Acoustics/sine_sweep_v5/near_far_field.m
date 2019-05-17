@@ -114,18 +114,21 @@ far_surface  = near_surface*((2)^(1.5))
 
 clear
 
-dis = 60;
+
 
 f = [20:1:20000]';
 
-number = 6;
 
+number = 6;
 H_kudo = 0.356;
 H_dis = 0.004;
-
 H = H_kudo*number + (number-1)*H_dis;
-
 limit = real((3/2).*f/1000.*H^2.*sqrt(1-(1./(3.*(f/1000).*H))));
+
+for v=1:1:3
+    
+dis = 30+(v*10);
+ref = 1;
 
 for i=1:length(limit)
     if limit(i) >dis
@@ -134,14 +137,13 @@ for i=1:length(limit)
     if limit(i) <dis
         limit_ed(i)=limit(i);
     end
-    if limit(i) <0.5
-        limit_ed(i)=0.5;
+    if limit(i) <ref
+        limit_ed(i)=ref;
     end
 end
 
 
 for i = 1:length(limit_ed)
-   %limit=8; 
 areal = (limit_ed(i)/2);
 area = areal*2^2;
 
@@ -154,23 +156,45 @@ y1 = polyval(p,x1);
 
 result = find(x1>dis);
 
-area_diff = y1(result(1))/0.5;
-mic_db(i) = -10*log10(area_diff);
+area_diff = y1(result(1))/ref;
+mic_db(v,i) = -10*log10(area_diff);
+end
 end
 
+dif_40_50 = mic_db(2,:)-mic_db(1,:);
+dif_50_60 = mic_db(2,:)-mic_db(3,:);
 
+
+
+%%
+diff_1 = downsample(dif_40_50,50);
+diff_2 = downsample(dif_50_60,50);
+diff_f = downsample(f,50);
+
+semilogx(diff_f,diff_1)
+hold on 
+semilogx(diff_f,diff_2)
+grid on
+axis([20 20000 -3 3])
+xlabel('Frequency [Hz]')
+ylabel('Level [dB]')
+legend('Loss difference between 40 m and 50 m','Loss difference between 50 m and 60 m')
+
+%%
 %plot(a,b)
 %hold on
 %plot(x1,y1)
 %axis([0 70 0 1200])
 
+figure(1)
 semilogx(f,mic_db)
 hold on
-axis([20 20000 -50 -10])
+axis([20 20000 0 25])
+grid on
 
 
-
-
+%%
+abs(10*log10(40/1))
 
 
 

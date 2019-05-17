@@ -1,4 +1,4 @@
-\section{The measurement}
+\section{The measurement}\label{meas:meas_of_kudo}
 The aim of this section is to show the measuring result from the final measurement, then try to find a relation between the wind direction, the wind speed and the angle of the line source array. The first \autoref{mes:kudo:wind_noise} deals with the wind noise in the measurement. The second  \autoref{mes:kudo:cross_mes} covers the measurement done in crosswind. The third  \autoref{mes:kudo:par_mes} covers the measurement done in parallel wind. The third section \autoref{mes:kudo:relaton} analyses the relation between the wind direction, the wind speed and the angle of the line source array.
 
 
@@ -159,7 +159,7 @@ m19  &    47  &  46    &  47    &  45    &  38    &    44  &   54   &   44    & 
 m20  & 51     &  43    &  45    &  49    &  39    &    39  &   54   &   52    &   43   &  52     &  49    &   43   & \multicolumn{1}{l|}{46} & \multicolumn{1}{l|}{40} &  36\\ \hline
 avg & 49     &  47    &  48    &  44    &  41    &   42   &  49    &  47     & 46     &  47     &  43    &   42   & \multicolumn{1}{l|}{39} & \multicolumn{1}{l|}{34}  &33  \\ \hline  
 Dif & \multicolumn{3}{l|}{-1} & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-3} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l}{-6}  \\ 
- \multicolumn{16}{l}{ } \\                             
+ \multicolumn{16}{l}{ } \\                         
 \SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m4    &  51    &  51    & 40     & 48     &  40    &   30   &   47   &   42    &  39    &   46    &   38   &   37   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{34} & 31 \\
 m6    &  41    &   40   &  41    & 43     &   36   &  37    &    49  &   48    &  39    &   52    &   41   &   33   & \multicolumn{1}{l|}{44} & \multicolumn{1}{l|}{34} & 26 \\
@@ -202,13 +202,8 @@ m5    &  46    &  53    &  49    &  39    &  44    & 46     &   46   &  48     &
 m10  &  49    &  50    &  44    &  40    &   40   &   36   &   43   &   44    &   42   &  41     & 42     & 42     & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{32} &34  \\
 m14  &  46    &  48    &  45    &  40    &  42    &   41   &    48  &  46     &   41   &  44     &  46    &  35    & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{41} & 29 \\ \hline
 avg & 48     &  51    &  46    &   42   &  43    &  40    &  48    &   46    &  43    &  45     & 43     &  40    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{36}  & 32  \\ \hline  
-Dif & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l}{-2}    
-\end{tabular}
-\end{table}
-
-\begin{table}[H]
-\centering    
-\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|lll}                         
+Dif & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l}{-2}  \\ 
+ \multicolumn{16}{l}{ } \\                         
 \SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m9    &  45    &  44    &  42    &  47    &  39    &   36   &  51    &   46    &  39    &   53    &   41   &   36   & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{31} & 31 \\
 m11  &  57    &  42    &  40    &   53   &   39   &   33   &  46    &   46    &  40    &    43   &   40   &  34   & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{33} & 30 \\
@@ -325,7 +320,7 @@ L_2 = L_1-\left | 10 \log_{10}(\frac{r_1}{r_2}) \right |
 % 1.9382 db farfield 40 til 50 meter
 
 
-Absorption depending on humidity and temperature, to calculate the loss at \SI{10}{\meter} of distances, the formula in standard \citep{} is used with the measured data for every measurement. The atmospherical pressure is not measured doing the measurement, and therefore the reference \SI{101.325}{\kilo\pascal} is used as pressure. All 30 measurement is done with short time differences and therefore the temperature and humidity only change with fraction. One filter example is given in \autoref{fig:meas:absorption_filter} with \SI{12}{\degree\celsius} and \SI{48}{\percent} humidity. The example temparature and humidity is from one of the measurement.
+Absorption depending on humidity and temperature, to calculate the loss at \SI{10}{\meter} of distances, the formula in standard \citep{} is used with the measured data for every measurement. The atmospherical pressure is not measured doing the measurement, and therefore the reference \SI{101.325}{\kilo\pascal} is used as pressure. All 30 measurement is done with short time differences and therefore the temperature and humidity only change with fraction. One filter example is given in \autoref{fig:meas:absorption_filter} with \SI{12}{\celsius} and \SI{48}{\percent} humidity. The example temparature and humidity is from one of the measurement.
 
  \plot{plot/absorption_filter}{The graph shows }{fig:meas:absorption_filter}
   
@@ -357,7 +352,7 @@ m5    &  50    &   50   &   53   &  47    &   49   &  51    &   47   &   52    &
 m6    &  37    &   45   &   47   &   40   &   37   &  37    &  42    &   45    &   43   &   37    &  41    &   47   & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{31} & 35 \\ \hline
 avg   &  47    &  49    &  50    &  46    &   44   &   45   &  46    &  49     &  47    &  44     &  45    &   50   & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{35}  &  40 \\ \hline 
 Dif & \multicolumn{3}{l|}{3} & \multicolumn{3}{l|}{-1} & \multicolumn{3}{l|}{1} & \multicolumn{3}{l|}{6} & \multicolumn{3}{l}{7} \\ 
-\multicolumn{16}{l}{ } \\  
+ \multicolumn{16}{l}{ } \\   
 \SI{-5}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m3    & 51     & 51     &   52   &   51   &   54   &  48    &  56    &   60    &  47    &   48    &  51    &  46    & \multicolumn{1}{l|}{53} & \multicolumn{1}{l|}{37} & 38 \\
 m4    &  50    &  51    &  50    &  44    &   51   &  47    &  48    &  55     &   48   &   46    &  48    &   51   & \multicolumn{1}{l|}{39} & \multicolumn{1}{l|}{37} & 42 \\
@@ -371,5 +366,3 @@ Dif & \multicolumn{3}{l|}{4} & \multicolumn{3}{l|}{6} & \multicolumn{3}{l|}{4} &
 
 
 
-
-\section{angle vs wind}\label{mes:kudo:relaton}

@@ -317,19 +317,20 @@ legend('upwards','downwards','diff')
 clear 
 load('impulses_2.mat');
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
+c = 0;
 %%
 load('40Hz_2order_filter.mat');
 [b,a]=sos2tf(SOS,G);
 
-
+c = c+1;
 down1 = 1;
 down2 = 1;
 down3 = 20;
 down4 = 50;
 
 angle = 30;
-ir_number = 16;
-l_eq_no   =  1;
+ir_number = 18;
+l_eq_no   = c;
 
 ir_num = 20;
 
@@ -365,7 +366,8 @@ weathertime = eval(strcat('data',int2str(number),'angle',int2str(angle),'.weathe
 
 ir_downwards_no = (ir_downwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)); %*10^(5/20)
 ir_center_no = (ir_center_pre(1:20000,ir_no_st:ir_no)*10^(10/20));
-ir_upwards_no = (ir_upwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)*1.03); 
+ir_upwards_no = (ir_upwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)); 
+
 
 
 % window
@@ -439,10 +441,18 @@ end
 
 %%
 res_men = round(result);
-res_avg = round(mean(result));
+res_avg = mean(result);
+res_avg_rou = round(res_avg);
 for i=1:5   
 res_dif(i) = res_avg(3+(i-1)*3) - res_avg(1+(i-1)*3);
 end
+
+%%
+
+for i=1:5   
+res_dif(:,i) = result(:,3+(i-1)*3) - result(:,1+(i-1)*3);
+end
+res_dif_mean = mean(res_dif);
 %%
 % ir = ir_downwards(1:end/2,:);
 % [m,ir_num] = size(ir);

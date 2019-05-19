@@ -23,17 +23,6 @@ The window function in \autoref{fig:meas:imp_res_win} is a amplitude wise scaled
 
 
 
-\section{Refraction}
-while comparing the upwards refraction direction to the downwards direction, it is intersting to analyse at which frequency the refraction starts at the measured distance of \SI{50}{\meter} and a wind speed between \SI{5}{\meter\per\second} and \SI{12}{\meter\per\second}. The refraction knowledge is used to generate a high pass filter such that it is only the part where refrection occore which is compared doing the data analysis. The frequency below the refraction is not interesting while comparing if turning the speaker makes more even \gls{spl} in the upwards direction compare to the down wards direction. While excluding this part in the one number \gls{spl} calculation the refraction part is more wisuavble. To analyse where the refraction occur, the frequency content is calculated for 3 measurement with high wind speed and compared. At the point where the upwards refraction, downwards refraction and center microphone gets different is defined as the starting point of refraction at \SI{50}{\meter} with the corresponding wind speed in this analysis. The following 3 \autoref{}, \autoref{} and \autoref{} shows the frequency response of all three microphone at three different measurement. All measurement is with \SI{0}{\degree} rotation of the speaker and is choses since that have the most clear refraction separation and lowest refraction start point compare to the other measurement.
-
-
-\plot{plot/refraction_0_deg_16}{The graph shows }{fig:meas:refraction_0_deg_16}
-\plot{plot/refraction_0_deg_17}{The graph shows }{fig:meas:refraction_0_deg_17}
-
-
-As seen in ... the refraction starts at \Hz{150}, therefore all beneeth \Hz{150} have not interest for the futher analysis and is filtered with a second order high pass filter at \Hz{150}. 
-
-
 
 
 \section{Crosswind measurement}\label{mes:kudo:cross_mes}
@@ -41,6 +30,17 @@ This section is presenting the final measurement which is done according to the 
 
 
 \xfig{measurement/final_measurement_kudo.pdf_t}{The figure shows the microphone position versus the position of the line source, while the array is \SI{0}{\degree} horizontal turned}{fig:ds:position_final}{1}
+
+
+
+while comparing the upwards refraction direction to the downwards direction, it is intersting to analyse at which frequency the refraction starts at the measured distance of \SI{50}{\meter} and a wind speed between \SI{5}{\meter\per\second} and \SI{12}{\meter\per\second}. The refraction knowledge is used to generate a high pass filter such that it is only the part where refrection occore which is compared doing the data analysis. The frequency below the refraction is not interesting while comparing if turning the speaker makes more even \gls{spl} in the upwards direction compare to the down wards direction. While excluding this part in the one number \gls{spl} calculation the refraction part is more wisuavble. To analyse where the refraction occur, the frequency content is calculated for 3 measurement with high wind speed and compared. At the point where the upwards refraction, downwards refraction and center microphone gets different is defined as the starting point of refraction at \SI{50}{\meter} with the corresponding wind speed in this analysis. The following 3 \autoref{}, \autoref{} and \autoref{} shows the frequency response of all three microphone at three different measurement. All measurement is with \SI{0}{\degree} rotation of the speaker and is choses since that have the most clear refraction separation and lowest refraction start point compare to the other measurement.
+
+
+\plot{plot/refraction_0_deg_16}{The graph shows }{fig:meas:refraction_0_deg_16}
+
+
+As seen in ... the refraction starts at \Hz{150}, therefore all beneeth \Hz{150} have not interest for the futher analysis.
+
 
 The line source array in the test setup shown in \autoref{fig:ds:position_final} is measured in four different angle where every angle above \SI{0}{\degree} is a rotation towards the upwards microphone. The resolution is with step of \SI{10}{\degree} with start as \SI{0}{\degree}, which is the angle shown in \autoref{fig:ds:position_final} and upto \SI{30}{\degree}. The measurement is done at lees 10 time for every angle and based on the amount of data, one graph for every angle will be shown where the rest of the result is shown in $L_{eq,5}$ octave separation above \Hz{150}. The graph only includes the upwards measurement and the downwards measurement, the center microphone measurement is given in the $L_{eq,5}$ and in \autoref{} to keep the plot visual manageable. The chosen graphs is measurement whit high and identically with an average of approximatly \SI{8}{\meter\per\second}
 
@@ -57,12 +57,12 @@ In the analysis the measurement is split intro groups depending on the wind spee
 \caption{The table shows the number of measurement which is between \SI{65}{\degree} to \SI{115}{\degree} in the given \si{\meter\per\second} interval}
 \begin{tabular}{l|l|l|l|l|l}
 Speaker angle & \SI{0}{\degree}  & \SI{10}{\degree} & \SI{20}{\degree} & \SI{30}{\degree} & Total \\ \hline
-$[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $         & 1  & 2  & 4  & 4  & 11    \\
+$[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $         & 0  & 2  & 4  & 4  & 10    \\
 $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[$           & 2  & 6  & 5  & 5  & 18    \\
 $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $          & 5  & 3  & 4  & 4  & 16    \\
-$[\SI{8}{\meter\per\second},\, \SI{9}{\meter\per\second}[ $          & 7  & 1  & 2  & 1  & 11    \\
+$[\SI{8}{\meter\per\second},\, \SI{9}{\meter\per\second}[ $          & 6  & 1  & 2  & 1  & 10    \\
 $[\SI{9}{\meter\per\second},\, \SI{10}{\meter\per\second}[  $        & 1  & 2  & 4  & 0  & 7     \\ \hline
-Total         & 16 & 14 & 19 & 14 &   63   
+Total         & 14 & 14 & 19 & 14 &   61   
 \end{tabular}
 \label{ta:meas:approved_measurement}
 \end{table}
@@ -96,32 +96,28 @@ It is seen in \autoref{ta:meas:approved_measurement} that 62 measurement is avai
 freq & \multicolumn{3}{l|}{1k} & \multicolumn{3}{l|}{2k} & \multicolumn{3}{l|}{4k} & \multicolumn{3}{l|}{8k} & \multicolumn{3}{l}{16k}                                \\ \hline
 Mic  & U      & C      & D     & U      & C      & D     & U      & C      & D     & U      & C      & D     & \multicolumn{1}{l|}{U}  & \multicolumn{1}{l|}{C}  & D  \\ \hline
  & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}                                \\ 
- \multicolumn{16}{l}{ } \\   
-\SI{0}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m8   & 50     & 53     & 53    & 46     & 51     & 52    & 49     & 52     & 56    & 50     & 51     & 50    & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{46} & 42 \\ \hline 
-Dif & \multicolumn{3}{l|}{3} & \multicolumn{3}{l|}{3} & \multicolumn{3}{l|}{7} & \multicolumn{3}{l|}{0} & \multicolumn{3}{l}{0} \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{10}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m1   & 54     &  53    & 48    &  47    &   51   &  48   &  46    &  51    &   49  &  39    &  46    &  46   & \multicolumn{1}{l|}{29} & \multicolumn{1}{l|}{38} &  40\\ 
-m13   &  47    &  43    & 48    & 41     &  44    &  43   &  48    &  58    & 50    & 44     &  54    &  47   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{42} &  40\\ \hline
+m13   &  47    &  43    & 48    & 41     &  44    &  43   &  48    &  58    & 50    & 43     &  54    &  47   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{42} &  40\\ \hline
 avg & 51     & 48     & 48   &  44    & 47     &  45   &   47   & 54     &  50   &  41    &  50    & 46    & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{40} & 40 \\ \hline 
-Dif & \multicolumn{3}{l|}{-3} & \multicolumn{3}{l|}{1} & \multicolumn{3}{l|}{3} & \multicolumn{3}{l|}{5} & \multicolumn{3}{l}{8}      \\ 
+Dif & \multicolumn{3}{l|}{-2.50} & \multicolumn{3}{l|}{1.41} & \multicolumn{3}{l|}{3.10} & \multicolumn{3}{l|}{5.28} & \multicolumn{3}{l}{7.93}      \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{20}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m4    & 58     & 53     &  49    &   58   &  51    &  49    &   50   &   54    &  52    &  43     &   50   &  51    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{39} & 39 \\
-m8    &  49    &  51   &   46   &   44   &   39   &  40    &   48   &   44    &   48   &    45   &    41  &   46   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{32} & 34 \\
-m15  &  45    & 45     &   47   &  43    &  41    &  42    & 52     &    44   &   41   &   49    &   46   &   38   & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{37} & 32 \\
-m17  &  56    & 53     &  48    &  49    & 48     &  45    &  48    &   45    &    48  &   46    &   42   & 45     & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{37} & 36 \\ \hline
-avg & 52     & 51     &  48    &  49    &  45    &  44    &  49    &   47    & 47     &    46   &   45   &  45    & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{36}  & 35  \\ \hline  
-Dif & \multicolumn{3}{l|}{-4} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-1} & \multicolumn{3}{l}{0} \\ 
+m4    & 57     & 53     &  49    &   57   &  51    &  49    &   50   &   54    &  52    &  43     &   50   &  51    & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{39} & 39 \\
+m8    &  49    &  51   &   46   &   44   &   39   &  40    &   47   &   44    &   48   &    45   &    41  &   46   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{32} & 34 \\
+m15  &  45    & 45     &   47   &  43    &  41    &  42    & 52     &    44   &   41   &   49    &   46   &   38   & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{37} & 32 \\
+m17  &  56    & 53     &  48    &  49    & 48     &  45    &  47    &   45    &    48  &   46    &   42   & 45     & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{37} & 36 \\ \hline
+avg & 52     & 51     &  48    &  48    &  45    &  44    &  49    &   47    & 47     &    45   &   45   &  45    & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{36}  & 35  \\ \hline  
+Dif & \multicolumn{3}{l|}{-4.06} & \multicolumn{3}{l|}{-4.39} & \multicolumn{3}{l|}{-1.89} & \multicolumn{3}{l|}{-0.29} & \multicolumn{3}{l}{0.39} \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m3    & 44     &  46    &  39    &  38    &  34    &  30    &  43    &   40    &   35   &   41    &  35    &   32   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{26} &26  \\
-m14  & 52     &  46    &  39    &  45    &   39   &  36    &  49    &  49     &  42    &   46    &   44   &   38   & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{34} & 31 \\
-m15  &  49    &  48    &  41    &   43   &   36   &   32   &   49   &  41     & 37     &    49   &   36   &   32   & \multicolumn{1}{l|}{41} & \multicolumn{1}{l|}{26} & 25 \\
+m3    & 43     &  46    &  39    &  37    &  34    &  30    &  42    &   40    &   35   &   41    &  35    &   32   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{26} &26  \\
+m14  & 52     &  46    &  39    &  45    &   39   &  36    &  49    &  49     &  42    &   45    &   44   &   38   & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{34} & 31 \\
+m15  &  49    &  48    &  41    &   43   &   36   &   32   &   49   &  41     & 37     &    48   &   36   &   32   & \multicolumn{1}{l|}{40} & \multicolumn{1}{l|}{26} & 25 \\
 m17  & 45     &  44    &  44    &  43    &  37    &    38  &   50   &   46    &  45    &  48     &  39    &   37   & \multicolumn{1}{l|}{39} & \multicolumn{1}{l|}{30} &  31\\ \hline
-avg &  48    & 46     &  41    &  42    &  37    &  34    &  48    &   44    &  40    &   46    &   39   &  35    & \multicolumn{1}{l|}{38} & \multicolumn{1}{l|}{29}  & 28 \\ \hline  
-Dif & \multicolumn{3}{l|}{-7} & \multicolumn{3}{l|}{-8} & \multicolumn{3}{l|}{-8} & \multicolumn{3}{l|}{-11} & \multicolumn{3}{l}{-10}                                
+avg &  47    & 46     &  41    &  42    &  37    &  34    &  48    &   44    &  40    &   46    &   39   &  35    & \multicolumn{1}{l|}{38} & \multicolumn{1}{l|}{29}  & 28 \\ \hline  
+Dif & \multicolumn{3}{l|}{-6.62} & \multicolumn{3}{l|}{-7.95} & \multicolumn{3}{l|}{-7.98} & \multicolumn{3}{l|}{-10.93} & \multicolumn{3}{l}{-9.50}                                
 \end{tabular}
 \end{table}
 
@@ -136,38 +132,38 @@ Mic  & U      & C      & D     & U      & C      & D     & U      & C      & D  
  & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}                                \\ 
  \multicolumn{16}{l}{ } \\   
 \SI{0}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m14  & 46     & 45     & 55    & 35     & 45     & 54    & 47     & 50     & 55    & 41     & 46     & 51    & \multicolumn{1}{l|}{29} & \multicolumn{1}{l|}{44} & 44 \\
-m17  & 42     & 52     & 52    & 34     & 45     & 49    & 42     & 47     & 52    & 38     & 46     & 49    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{37} & 39 \\ \hline
-avg  &   44    &   49   & 54    &  34    &  45    &  52  &   44     &  48   &   54  &  39    & 46    &  50     & \multicolumn{1}{l|}{29}   & \multicolumn{1}{l|}{41}   & 42 \\ \hline  
-Dif & \multicolumn{3}{l|}{10} & \multicolumn{3}{l|}{18} & \multicolumn{3}{l|}{10} & \multicolumn{3}{l|}{11} & \multicolumn{3}{l}{13}  \\ 
+m14  & 46     & 45     & 55    & 35     & 45     & 54    & 46     & 50     & 55    & 41     & 46     & 51    & \multicolumn{1}{l|}{29} & \multicolumn{1}{l|}{44} & 44 \\
+m17  & 42     & 52     & 52    & 33     & 45     & 49    & 42     & 47     & 52    & 38     & 46     & 49    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{37} & 39 \\ \hline
+avg  &   44    &   49   & 54    &  34    &  45    &  52  &   44     &  48   &   54  &  39    & 46    &  50     & \multicolumn{1}{l|}{28}   & \multicolumn{1}{l|}{41}   & 42 \\ \hline  
+Dif & \multicolumn{3}{l|}{9.62} & \multicolumn{3}{l|}{17.67} & \multicolumn{3}{l|}{9.76} & \multicolumn{3}{l|}{10.75} & \multicolumn{3}{l}{13.40}  \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{10}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m5    & 47     & 45     & 44     &  38    & 43     &  37    &  46    & 48      &  47    &    44   &  46    &  44    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{38} & 38 \\ 
+m5    & 47     & 45     & 44     &  38    & 43     &  37    &  45    & 48      &  47    &    44   &  46    &  44    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{38} & 38 \\ 
 m6    & 49     &  53    &  51    &  40    &  57    &  57    & 46     &  60     &   59   &    44   &    59  &   58   & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{47} &46  \\ 
-m8    & 49     &  54    & 53     & 42     &  47    & 53     & 44     & 51      &    54  &    46   &   44   &   48   & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{40} & 43 \\ 
-m9    &  48    & 53     &  50    & 47     &   45   &  42    & 46     &  47     &   46   &     42  &    50  &   44   & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{44} & 36 \\ 
+m8    & 49     &  54    & 53     & 41     &  47    & 53     & 44     & 51      &    54  &    45   &   44   &   48   & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{40} & 43 \\ 
+m9    &  48    & 53     &  50    & 47     &   45   &  42    & 45     &  47     &   46   &     42  &    50  &   44   & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{44} & 36 \\ 
 m11  &  50    & 51     &  48    &  36    &   53   &  41    & 41     &   57    &    49  &     42  &    49  &    47  & \multicolumn{1}{l|}{40} & \multicolumn{1}{l|}{42} & 44 \\ 
-m12  &  56    & 52     &  51    &  52    &  53    & 51     & 49     &   59    &    56  &    45   &    54  &  52    & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{41} & 41 \\ \hline
-avg &  50    & 51     &  49    &   42   &  50    & 47     &  45    &  53     & 52     &   44    &  50    &  49    & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{42}  & 41  \\ \hline  
-Dif & \multicolumn{3}{l|}{-1} & \multicolumn{3}{l|}{5} & \multicolumn{3}{l|}{7} & \multicolumn{3}{l|}{5} & \multicolumn{3}{l}{5}  \\ 
+m12  &  56    & 52     &  51    &  51    &  53    & 51     & 49     &   59    &    56  &    44   &    54  &  52    & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{41} & 41 \\ \hline
+avg &  50    & 51     &  49    &   42   &  50    & 47     &  45    &  53     & 52     &   43    &  50    &  49    & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{42}  & 41  \\ \hline  
+Dif & \multicolumn{3}{l|}{-0.39} & \multicolumn{3}{l|}{4.82} & \multicolumn{3}{l|}{6.77} & \multicolumn{3}{l|}{5.38} & \multicolumn{3}{l}{5.44}  \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{20}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m2    & 50     &  51    &  50    &  46    &  46    &  44    &  50    &   48    &  51    &  45     &  41    &  43    & \multicolumn{1}{l|}{38} & \multicolumn{1}{l|}{34} & 35  \\
+m2    & 59     &  51    &  50    &  46    &  46    &  44    &  49    &   48    &  51    &  45     &  41    &  43    & \multicolumn{1}{l|}{38} & \multicolumn{1}{l|}{34} & 35  \\
 m6    & 49     &  49    &  48    & 42     &  40    &  42    &   41   &   47    &   46   &   40    &  45    &  41    & \multicolumn{1}{l|}{31} & \multicolumn{1}{l|}{35} & 31  \\
-m9    &  46    &  45    & 47     &  40    &   42   &   41   &   47   &   45    &  47    &   45    &  38   &  44    & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{29} & 31 \\
+m9    &  46    &  45    & 47     &  40    &   42   &   41   &   47   &   45    &  47    &   44    &  38   &  44    & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{29} & 31 \\
 m19  &    47  &  46    &  47    &  45    &  38    &    44  &   54   &   44    &   42   &   53    &  40   &   40   & \multicolumn{1}{l|}{40} & \multicolumn{1}{l|}{32} & 34 \\
-m20  & 51     &  43    &  45    &  49    &  39    &    39  &   54   &   52    &   43   &  52     &  49    &   43   & \multicolumn{1}{l|}{46} & \multicolumn{1}{l|}{40} &  36\\ \hline
-avg & 49     &  47    &  48    &  44    &  41    &   42   &  49    &  47     & 46     &  47     &  43    &   42   & \multicolumn{1}{l|}{39} & \multicolumn{1}{l|}{34}  &33  \\ \hline  
-Dif & \multicolumn{3}{l|}{-1} & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-3} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l}{-6}  \\ 
+m20  & 50     &  43    &  45    &  49    &  39    &    39  &   54   &   52    &   43   &  52     &  49    &   43   & \multicolumn{1}{l|}{46} & \multicolumn{1}{l|}{40} &  36\\ \hline
+avg & 48     &  47    &  48    &  44    &  41    &   42   &  49    &  47     & 46     &  47     &  43    &   42   & \multicolumn{1}{l|}{39} & \multicolumn{1}{l|}{34}  &33  \\ \hline  
+Dif & \multicolumn{3}{l|}{-0.84} & \multicolumn{3}{l|}{-2.32} & \multicolumn{3}{l|}{-3.13} & \multicolumn{3}{l|}{-4.67} & \multicolumn{3}{l}{-5.68}  \\ 
  \multicolumn{16}{l}{ } \\                         
 \SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m4    &  51    &  51    & 40     & 48     &  40    &   30   &   47   &   42    &  39    &   46    &   38   &   37   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{34} & 31 \\
-m6    &  41    &   40   &  41    & 43     &   36   &  37    &    49  &   48    &  39    &   52    &   41   &   33   & \multicolumn{1}{l|}{44} & \multicolumn{1}{l|}{34} & 26 \\
+m4    &  51    &  51    & 40     & 48     &  40    &   30   &   47   &   42    &  39    &   46    &   38   &   37   & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{34} & 31 \\
+m6    &  41    &   40   &  41    & 43     &   36   &  37    &    48  &   48    &  39    &   51    &   41   &   33   & \multicolumn{1}{l|}{43} & \multicolumn{1}{l|}{34} & 26 \\
 m8    &  49    &  47    & 47     &  44    &  37    &   39   &   52   &   41    &  45    &   47    &    42  &   39   & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{35} & 32 \\
-m13  &   50   & 46     &   40   & 47     &   38   &   35   &   55   &   43    &  38    &   53    &   40   &   31   & \multicolumn{1}{l|}{43} & \multicolumn{1}{l|}{30} & 25 \\
-m19  &  41    &  47    &  38    &  48    &  35    &   37   &   58   &    39   &  40    &   54    &   36   &    34  & \multicolumn{1}{l|}{43} & \multicolumn{1}{l|}{30} & 30 \\ \hline
+m13  &   49   & 46     &   40   & 47     &   38   &   35   &   54   &   43    &  38    &   52    &   40   &   31   & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{30} & 25 \\
+m19  &  41    &  47    &  38    &  48    &  35    &   37   &   57   &    39   &  40    &   54    &   36   &    34  & \multicolumn{1}{l|}{43} & \multicolumn{1}{l|}{30} & 30 \\ \hline
 avg &  46    &   46   &  41    &  46    &  37    & 36     &  52    &   43    & 40     &   50    & 39     &   35   & \multicolumn{1}{l|}{41} & \multicolumn{1}{l|}{32}  &29  \\ \hline  
-Dif & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l|}{-10} & \multicolumn{3}{l|}{-12} & \multicolumn{3}{l|}{-15} & \multicolumn{3}{l}{-12}                                
+Dif & \multicolumn{3}{l|}{-4.98} & \multicolumn{3}{l|}{-10.22} & \multicolumn{3}{l|}{-11.60} & \multicolumn{3}{l|}{-14.99} & \multicolumn{3}{l}{-12.14}                                
 \end{tabular}
 \end{table}
 
@@ -181,36 +177,36 @@ Mic  & U      & C      & D     & U      & C      & D     & U      & C      & D  
  & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}                                \\ 
  \multicolumn{16}{l}{ } \\   
 \SI{0}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m10  & 46     & 52     & 53    & 37     & 46     & 45    & 45     & 49     & 50    & 40     & 46     & 52    & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{43} & 45 \\
-m15  & 46     & 53     & 51    & 32     & 52     & 44    & 40     & 60     & 49    & 37     & 57     & 50    & \multicolumn{1}{l|}{30} & \multicolumn{1}{l|}{44} & 40 \\
-m18  & 50     & 44     & 52    & 42     & 39     & 45    & 44     & 43     & 50    & 38     & 41     & 48    & \multicolumn{1}{l|}{27} & \multicolumn{1}{l|}{36} & 42 \\
-m20  & 40     & 40     & 51    & 36     & 41     & 48    & 41     & 48     & 51    & 39     & 47     & 49    & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{40} & 42 \\
-m22  & 33     & 38     & 52    & 37     & 46     & 42    & 42     & 49     & 56    & 42     & 49     & 59    & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{38} & 45 \\ \hline
+m10  & 46     & 52     & 53    & 37     & 46     & 45    & 44     & 49     & 50    & 40     & 46     & 52    & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{43} & 45 \\
+m15  & 46     & 53     & 51    & 32     & 52     & 44    & 39     & 60     & 49    & 37     & 57     & 50    & \multicolumn{1}{l|}{30} & \multicolumn{1}{l|}{44} & 40 \\
+m18  & 50     & 44     & 52    & 42     & 39     & 45    & 43     & 43     & 50    & 38     & 41     & 48    & \multicolumn{1}{l|}{27} & \multicolumn{1}{l|}{36} & 42 \\
+m20  & 40     & 40     & 51    & 35     & 41     & 48    & 40     & 48     & 51    & 39     & 47     & 49    & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{40} & 42 \\
+m22  & 33     & 38     & 52    & 37     & 46     & 42    & 42     & 49     & 56    & 41     & 49     & 59    & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{38} & 45 \\ \hline
 avg  &  43     &  46   &  52    &  37    & 45     & 45    &  42    &  50    &  51   &  39    &  48    & 52    & \multicolumn{1}{l|}{31}   & \multicolumn{1}{l|}{40}   &  43 \\ \hline  
-Dif & \multicolumn{3}{l|}{9} & \multicolumn{3}{l|}{8} & \multicolumn{3}{l|}{9} & \multicolumn{3}{l|}{13} & \multicolumn{3}{l}{12}  \\ 
+Dif & \multicolumn{3}{l|}{8.74} & \multicolumn{3}{l|}{8.19} & \multicolumn{3}{l|}{9.24} & \multicolumn{3}{l|}{12.66} & \multicolumn{3}{l}{12.39}  \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{10}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m2    &  40    &  52    &  47    &  36    &  49    &   44   &  39    &   58    &   55   &   38    &  49    &  52    & \multicolumn{1}{l|}{31} & \multicolumn{1}{l|}{44} & 43 \\
-m3    &  47    &  48    &  50    &   41   &  52    &   46   &   47   &  54     &   54   &   46    & 49     &  48    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{39} & 40 \\
-m15  &  51    &  52    &  49    &  41    & 49     &   49   &   42   &   49    &   54   &    41   &   53   &  52    & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{46} &  38\\ \hline
-avg &  46    & 51     & 48     & 39     &   50   & 46     &  43    &  54     &  54    &  42     & 51     & 50     & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{43}  & 40 \\ \hline  
-Dif & \multicolumn{3}{l|}{2} & \multicolumn{3}{l|}{7} & \multicolumn{3}{l|}{11} & \multicolumn{3}{l|}{8} & \multicolumn{3}{l}{7} \\     
+m2    &  39    &  52    &  47    &  35    &  49    &   44   &  39    &   58    &   55   &   38    &  49    &  52    & \multicolumn{1}{l|}{31} & \multicolumn{1}{l|}{44} & 43 \\
+m3    &  47    &  48    &  50    &   40   &  52    &   46   &   47   &  54     &   54   &   45    & 49     &  48    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{39} & 40 \\
+m15  &  51    &  52    &  49    &  40    & 49     &   49   &   42   &   49    &   54   &    41   &   53   &  52    & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{46} &  38\\ \hline
+avg &  46    & 51     & 48     & 39     &   50   & 46     &  43    &  54     &  54    &  41     & 51     & 50     & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{43}  & 40 \\ \hline  
+Dif & \multicolumn{3}{l|}{2.56} & \multicolumn{3}{l|}{7.39} & \multicolumn{3}{l|}{11.68} & \multicolumn{3}{l|}{8.90} & \multicolumn{3}{l}{7.83} \\     
 \multicolumn{16}{l}{ } \\                
 \SI{20}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m3    &  52    &  51    &  46    &  48    &  46    &  38    &   56   &    47   &  41    &  47     &  39    &  40    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{33} &33  \\
-m5    &  46    &  53    &  49    &  39    &  44    & 46     &   46   &  48     &  49    &  46     &  47    &   44   & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{37} &34  \\
-m10  &  49    &  50    &  44    &  40    &   40   &   36   &   43   &   44    &   42   &  41     & 42     & 42     & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{32} &34  \\
-m14  &  46    &  48    &  45    &  40    &  42    &   41   &    48  &  46     &   41   &  44     &  46    &  35    & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{41} & 29 \\ \hline
-avg & 48     &  51    &  46    &   42   &  43    &  40    &  48    &   46    &  43    &  45     & 43     &  40    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{36}  & 32  \\ \hline  
-Dif & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l}{-2}  \\ 
+m3    &  51    &  51    &  46    &  48    &  46    &  38    &   56   &    47   &  41    &  47     &  39    &  40    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{33} &33  \\
+m5    &  46    &  53    &  49    &  38    &  44    & 46     &   46   &  48     &  49    &  46     &  47    &   44   & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{37} &34  \\
+m10  &  48    &  50    &  44    &  40    &   40   &   36   &   43   &   44    &   42   &  41     & 42     & 42     & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{32} &34  \\
+m14  &  46    &  48    &  45    &  40    &  42    &   41   &    48  &  46     &   41   &  44     &  46    &  35    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{41} & 29 \\ \hline
+avg & 48     &  51    &  46    &   41   &  43    &  40    &  48    &   46    &  43    &  44     & 43     &  40    & \multicolumn{1}{l|}{34} & \multicolumn{1}{l|}{36}  & 32  \\ \hline  
+Dif & \multicolumn{3}{l|}{-1.96} & \multicolumn{3}{l|}{-1.16} & \multicolumn{3}{l|}{-4.91} & \multicolumn{3}{l|}{-4.16} & \multicolumn{3}{l}{-1.52}  \\ 
  \multicolumn{16}{l}{ } \\                         
 \SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m9    &  45    &  44    &  42    &  47    &  39    &   36   &  51    &   46    &  39    &   53    &   41   &   36   & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{31} & 31 \\
-m11  &  57    &  42    &  40    &   53   &   39   &   33   &  46    &   46    &  40    &    43   &   40   &  34   & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{33} & 30 \\
-m12  &  47    &   51   &  48    &  47    &   41   &   34   &   51   &  45     &   42   &    52   &   39   &   37   & \multicolumn{1}{l|}{41} & \multicolumn{1}{l|}{30} & 34 \\
-m18  &  45    &   46   &  44    &   51   &  41    &   37   &   58   &   48    &  38    &    65   &  41    &   35   & \multicolumn{1}{l|}{52} & \multicolumn{1}{l|}{35} & 29 \\ \hline
-avg &  48    &  46    &  43    &  50    & 40     &  37    &   52   &  46     &  40    &  53     &   40   &  36    & \multicolumn{1}{l|}{43} & \multicolumn{1}{l|}{32}  & 31 \\ \hline  
-Dif & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l|}{-13} & \multicolumn{3}{l|}{-12} & \multicolumn{3}{l|}{-17} & \multicolumn{3}{l}{-12}                                
+m9    &  44    &  44    &  42    &  47    &  39    &   36   &  51    &   46    &  39    &   53    &   41   &   36   & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{31} & 31 \\
+m11  &  56    &  42    &  40    &   53   &   39   &   33   &  46    &   46    &  40    &    43   &   40   &  34   & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{33} & 30 \\
+m12  &  47    &   51   &  48    &  47    &   41   &   34   &   51   &  45     &   42   &    51   &   39   &   37   & \multicolumn{1}{l|}{41} & \multicolumn{1}{l|}{30} & 34 \\
+m18  &  44    &   46   &  44    &   50   &  41    &   37   &   57   &   48    &  38    &    65   &  41    &   35   & \multicolumn{1}{l|}{52} & \multicolumn{1}{l|}{35} & 29 \\ \hline
+avg &  48    &  46    &  43    &  49    & 40     &  37    &   51   &  46     &  40    &  53     &   40   &  36    & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{32}  & 31 \\ \hline  
+Dif & \multicolumn{3}{l|}{-4.63} & \multicolumn{3}{l|}{-12.21} & \multicolumn{3}{l|}{-11.61} & \multicolumn{3}{l|}{-17.48} & \multicolumn{3}{l}{-11.25}                                
 \end{tabular}
 \end{table}
 
@@ -224,29 +220,28 @@ Mic  & U      & C      & D     & U      & C      & D     & U      & C      & D  
  & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}                                \\ 
  \multicolumn{16}{l}{ } \\   
 \SI{0}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m7   & 46     & 54     & 50    & 40     & 50     & 50    & 48     & 51     & 65    & 39     & 51     & 56    & \multicolumn{1}{l|}{27} & \multicolumn{1}{l|}{46} & 44 \\
-m9   & 43     & 47     & 51    & 39     & 40     & 45    & 46     & 46     & 48    & 40     & 45     & 45    & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{35} & 42 \\
-m11  & 46     & 51     & 53    & 42     & 51     & 47    & 43     & 55     & 52    & 37     & 60     & 47    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{49} & 42 \\
+m9   & 42     & 47     & 51    & 39     & 40     & 45    & 46     & 46     & 48    & 40     & 45     & 45    & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{35} & 42 \\
+m11  & 45     & 51     & 53    & 42     & 51     & 47    & 43     & 55     & 52    & 37     & 60     & 47    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{49} & 42 \\
 m12  & 48     & 57     & 52    & 42     & 55     & 52    & 47     & 52     & 50    & 43     & 51     & 54    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{42} & 49 \\
-m13  & 42     & 49     & 54    & 36     & 44     & 56    & 38     & 47     & 56    & 38     & 46     & 51    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{43} & 43 \\
-m16  & 41     & 56     & 52    & 37     & 52     & 49    & 40     & 55     & 60    & 37     & 45     & 53    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{36} & 46 \\
-m19  & 42     & 50     & 50    & 32     & 51     & 44    & 40     & 55     & 52    & 38     & 51     & 55    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{46} & 45 \\ \hline
-avg  &  44    &  52    & 52    &  38     &  49    &  49   & 43     & 52     & 55    & 39     & 50     & 52    & \multicolumn{1}{l|}{29}   & \multicolumn{1}{l|}{42}   & 44 \\ \hline  
-Dif & \multicolumn{3}{l|}{8} & \multicolumn{3}{l|}{11} & \multicolumn{3}{l|}{12} & \multicolumn{3}{l|}{14} & \multicolumn{3}{l}{15} \\ 
+m13  & 42     & 49     & 54    & 35     & 44     & 56    & 38     & 47     & 56    & 38     & 46     & 51    & \multicolumn{1}{l|}{27} & \multicolumn{1}{l|}{43} & 43 \\
+m16  & 40     & 56     & 52    & 36     & 52     & 49    & 40     & 55     & 60    & 36     & 45     & 53    & \multicolumn{1}{l|}{28} & \multicolumn{1}{l|}{36} & 46 \\
+m19  & 41     & 50     & 50    & 31     & 51     & 44    & 40     & 55     & 52    & 38     & 51     & 55    & \multicolumn{1}{l|}{27} & \multicolumn{1}{l|}{46} & 45 \\ \hline
+avg  &  43    &  52    & 52    &  38     &  49    &  49   & 42     & 52     & 55    & 39     & 50     & 52    & \multicolumn{1}{l|}{29}   & \multicolumn{1}{l|}{42}   & 44 \\ \hline  
+Dif & \multicolumn{3}{l|}{8.93} & \multicolumn{3}{l|}{11.23} & \multicolumn{3}{l|}{10.74} & \multicolumn{3}{l|}{12.53} & \multicolumn{3}{l}{15.42} \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{10}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m10   &  48    &  47    &  44    & 41     &  45    &  42    & 49     &  57     &  46    &  45     &  56    &  45    & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{43} & 42 \\ \hline
-Dif & \multicolumn{3}{l|}{-4} & \multicolumn{3}{l|}{1} & \multicolumn{3}{l|}{-3} & \multicolumn{3}{l|}{0} & \multicolumn{3}{l}{9}  \\ 
+m10   &  48    &  47    &  44    & 41     &  45    &  42    & 49     &  57     &  46    &  45     &  56    &  45    & \multicolumn{1}{l|}{32} & \multicolumn{1}{l|}{43} & 42 \\ \hline
+Dif & \multicolumn{3}{l|}{-3.77} & \multicolumn{3}{l|}{1.11} & \multicolumn{3}{l|}{-2.85} & \multicolumn{3}{l|}{0.15} & \multicolumn{3}{l}{9.30}  \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{20}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m11    & 43     &  46    &  45    &  42    & 40     &  36    &  52    &  47     &  43    &   49    &  47    &   37   & \multicolumn{1}{l|}{40} & \multicolumn{1}{l|}{35} & 30 \\
-m16    & 50     & 52     &  47    &  51    & 50     & 47     &   53   &  49     &  48    &  50     &  43    &  46    & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{37} & 34 \\ \hline
+m16    & 50     & 52     &  47    &  50    & 50     & 47     &   53   &  49     &  48    &  50     &  43    &  46    & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{37} & 34 \\ \hline
 avg &  47    &  49    &  46    &   46   &  45    &  42    &  53    &   48    &  46    &   50    &  45    &  41    & \multicolumn{1}{l|}{38} & \multicolumn{1}{l|}{36}  &32  \\ \hline  
-Dif & \multicolumn{3}{l|}{-1} & \multicolumn{3}{l|}{-4} & \multicolumn{3}{l|}{-7} & \multicolumn{3}{l|}{-9} & \multicolumn{3}{l}{-6} \\ 
+Dif & \multicolumn{3}{l|}{-0.18} & \multicolumn{3}{l|}{-4.58} & \multicolumn{3}{l|}{-6.80} & \multicolumn{3}{l|}{-7.77} & \multicolumn{3}{l}{-5.76} \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m7    & 47     & 49     & 41     &  52    & 41     &  39    & 59     & 48      &  43    &   54    & 45     &   38   & \multicolumn{1}{l|}{40} & \multicolumn{1}{l|}{39} & 28 \\ \hline
-Dif & \multicolumn{3}{l|}{-6} & \multicolumn{3}{l|}{-13} & \multicolumn{3}{l|}{-16} & \multicolumn{3}{l|}{-16} & \multicolumn{3}{l}{-12}                                
+m7    & 46     & 49     & 41     &  52    & 41     &  39    & 58     & 48      &  43    &   54    & 45     &   38   & \multicolumn{1}{l|}{40} & \multicolumn{1}{l|}{39} & 28 \\ \hline
+Dif & \multicolumn{3}{l|}{-5.07} & \multicolumn{3}{l|}{-13.06} & \multicolumn{3}{l|}{-15.90} & \multicolumn{3}{l|}{-15.60} & \multicolumn{3}{l}{-11.15}                                
 \end{tabular}
 \end{table}
 
@@ -261,22 +256,22 @@ Mic  & U      & C      & D     & U      & C      & D     & U      & C      & D  
  & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}                                \\ 
  \multicolumn{16}{l}{ } \\   
 \SI{0}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m21  & 46     & 44     & 43    & 44     & 48     & 39    & 55     & 60     & 50    & 47     & 56     & 53    & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{44} & 46 \\ \hline 
-Dif & \multicolumn{3}{l|}{-3} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l|}{6} & \multicolumn{3}{l}{9}  \\ 
+m21  & 46     & 44     & 43    & 43     & 48     & 39    & 55     & 60     & 50    & 47     & 56     & 53    & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{44} & 46 \\ \hline 
+Dif & \multicolumn{3}{l|}{-2.57} & \multicolumn{3}{l|}{-4.00} & \multicolumn{3}{l|}{-5.10} & \multicolumn{3}{l|}{5.98} & \multicolumn{3}{l}{8.46}  \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{10}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
-m4    & 37     & 47     &  47    &  40    &  44    &   45   &  40    &  45     &  48    &  35     & 43     &  47    & \multicolumn{1}{l|}{30} & \multicolumn{1}{l|}{33} & 42 \\
-m7    & 48     & 47     &  47    &   43   &   46   &  43    &  46    &  49     &  53    &  44     & 43     & 48     & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{34} & 38 \\ \hline
-avg &  43    &  47    & 47     &  41    &  45    & 44     & 43     &   47    &   50   &  39     & 43     &  48    & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{34}  & 40  \\ \hline  
-Dif & \multicolumn{3}{l|}{4} & \multicolumn{3}{l|}{3} & \multicolumn{3}{l|}{7} & \multicolumn{3}{l|}{9} & \multicolumn{3}{l}{7} \\ 
+m4    & 37     & 47     &  47    &  40    &  44    &   45   &  40    &  45     &  48    &  34     & 43     &  47    & \multicolumn{1}{l|}{30} & \multicolumn{1}{l|}{33} & 42 \\
+m7    & 48     & 47     &  47    &   43   &   46   &  43    &  46    &  49     &  53    &  44     & 43     & 48     & \multicolumn{1}{l|}{35} & \multicolumn{1}{l|}{34} & 38 \\ \hline
+avg &  42    &  47    & 47     &  41    &  45    & 44     & 43     &   47    &   50   &  39     & 43     &  48    & \multicolumn{1}{l|}{33} & \multicolumn{1}{l|}{34}  & 40  \\ \hline  
+Dif & \multicolumn{3}{l|}{4.94} & \multicolumn{3}{l|}{3.10} & \multicolumn{3}{l|}{7.69} & \multicolumn{3}{l|}{8.55} & \multicolumn{3}{l}{7.64} \\ 
  \multicolumn{16}{l}{ } \\                             
 \SI{20}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m1    &46      &  50    &  42    &   43   &  44    &  42    &  47    &   44    &  48    &    46   &  43    &  41    & \multicolumn{1}{l|}{37} & \multicolumn{1}{l|}{38} &33  \\
-m7    & 50     &  46    &  49    &   45   &  40    &   43   &   52   &   48    &  44    &    49   & 46     &  42    & \multicolumn{1}{l|}{41} & \multicolumn{1}{l|}{38} &37  \\
-m12  & 48     &  50    &  48    &  46    &  42    &   52   &   53   &   51    &   49   &   48    &  46    & 44     & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{36} & 35 \\
-m13  &  49    &  45    &  49    &  45    &  42    &   48   &   49   &   47    &  51    &   50    &  44    &  45    & \multicolumn{1}{l|}{41} & \multicolumn{1}{l|}{35} & 34 \\ \hline
-avg &  48    & 48     &   47   &  45    & 42     &  46    &  50    &  47     &  48    &  48     &   45   & 43     & \multicolumn{1}{l|}{39} & \multicolumn{1}{l|}{37}  &35  \\ \hline  
-Dif & \multicolumn{3}{l|}{-1} & \multicolumn{3}{l|}{1} & \multicolumn{3}{l|}{-2} & \multicolumn{3}{l|}{-5} & \multicolumn{3}{l}{-4}                                
+m7    & 49     &  46    &  49    &   45   &  40    &   43   &   51   &   48    &  44    &    48   & 46     &  42    & \multicolumn{1}{l|}{40} & \multicolumn{1}{l|}{38} &37  \\
+m12  & 48     &  50    &  48    &  46    &  42    &   52   &   52   &   51    &   49   &   48    &  46    & 44     & \multicolumn{1}{l|}{36} & \multicolumn{1}{l|}{36} & 35 \\
+m13  &  49    &  45    &  49    &  45    &  42    &   48   &   49   &   47    &  51    &   50    &  44    &  45    & \multicolumn{1}{l|}{40} & \multicolumn{1}{l|}{35} & 34 \\ \hline
+avg &  48    & 48     &   47   &  45    & 42     &  46    &  50    &  47     &  48    &  48     &   45   & 43     & \multicolumn{1}{l|}{38} & \multicolumn{1}{l|}{37}  &35  \\ \hline  
+Dif & \multicolumn{3}{l|}{-0.79} & \multicolumn{3}{l|}{1.44} & \multicolumn{3}{l|}{-1.93} & \multicolumn{3}{l|}{-5.15} & \multicolumn{3}{l}{-3.73}                                
 \end{tabular}
 \end{table}
 
@@ -285,6 +280,13 @@ This section is presenting the final measurement which is done according to the 
 
 The measurement setup is ... The measurement setup is illustrated in \autoref{fig:ds:position_final_par}.
 
+% skriv om
+while comparing the upwards refraction direction to the downwards direction, it is intersting to analyse at which frequency the refraction starts at the measured distance of \SI{50}{\meter} and a wind speed between \SI{5}{\meter\per\second} and \SI{12}{\meter\per\second}. The refraction knowledge is used to generate a high pass filter such that it is only the part where refrection occore which is compared doing the data analysis. The frequency below the refraction is not interesting while comparing if turning the speaker makes more even \gls{spl} in the upwards direction compare to the down wards direction. While excluding this part in the one number \gls{spl} calculation the refraction part is more wisuavble. To analyse where the refraction occur, the frequency content is calculated for 3 measurement with high wind speed and compared. At the point where the upwards refraction, downwards refraction and center microphone gets different is defined as the starting point of refraction at \SI{50}{\meter} with the corresponding wind speed in this analysis. The following 3 \autoref{}, \autoref{} and \autoref{} shows the frequency response of all three microphone at three different measurement. All measurement is with \SI{0}{\degree} rotation of the speaker and is choses since that have the most clear refraction separation and lowest refraction start point compare to the other measurement.
+
+
+
+\plot{plot/refraction_0_deg_17}{The graph shows }{fig:meas:refraction_0_deg_17}
+%% ---
 
 The line source array in the test setup shown in \autoref{fig:ds:position_final_par} is measured in three different tilt angle, one tilted \SI{5}{\degree} upwards, one with \SI{0}{\degree} tilting and one with \SI{5}{\degree} downwards tilting. The measurement is done at lees 10 time for every angle and based on the amount of data, one graph for every angle will be shown where the rest of the result is shown in $L_{eq,5}$ octave separation above \Hz{150}. The chosen graphs is measurement whit high and identically with an average of approximatly \SI{8}{\meter\per\second}.
 

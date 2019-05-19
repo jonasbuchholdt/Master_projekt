@@ -4,9 +4,9 @@ warning off
 load('impulses_2.mat');
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
 
-
+c=0;
 %%
-
+c = c+1;
 down1 = 1;
 down2 = 1;
 down3 = 20;
@@ -14,7 +14,7 @@ down4 = 50;
 
 angle = 90;
 ir_number = 10;
-l_eq_no   = 5;
+l_eq_no   = c;
 
 % n5 - 3
 
@@ -52,7 +52,7 @@ weathertime = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),
 
 ir_downwards_no = (ir_downwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)); %*10^(5/20)
 ir_center_no = (ir_center_pre(1:20000,ir_no_st:ir_no)*10^(10/20));
-ir_upwards_no = (ir_upwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)*1.03); 
+ir_upwards_no = (ir_upwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)); 
 
 
 
@@ -103,9 +103,13 @@ ir_upwards_win = ir_upwards_fi.*window_back;
 % filter at 150 Hz
 load('150Hz_2order_filter.mat');
 [b,a]=sos2tf(SOS,G);
-ir_downwards_vis=filter(b,a,ir_downwards_win);
-ir_center_vis=filter(b,a,ir_center_win);
-ir_upwards_vis=filter(b,a,ir_upwards_win);
+%ir_downwards_vis=filter(b,a,ir_downwards_win);
+%ir_center_vis=filter(b,a,ir_center_win);
+%ir_upwards_vis=filter(b,a,ir_upwards_win);
+
+ir_downwards_vis=ir_downwards_win;
+ir_center_vis=ir_center_win;
+ir_upwards_vis=ir_upwards_win;
 
 
 % weather
@@ -257,9 +261,9 @@ oneOctaveFilter = octaveFilter('FilterOrder', N, ...
     'CenterFrequency', F0, 'Bandwidth', BW, 'SampleRate', Fs);
 
 F0 = getANSICenterFrequencies(oneOctaveFilter);
-F0(F0<150) = [];
+F0(F0<60) = [];
 F0(F0>20e3) = [];
-F0(7)=1.584893192461113e+04;
+F0(9)=1.584893192461113e+04;
 Nfc = length(F0);
 for i=1:Nfc
     fullOctaveFilterBank{i} = octaveFilter('FilterOrder', N, ...
@@ -275,7 +279,7 @@ for i=1:Nfc
 end
 
 b=1;
-for i=3:Nfc
+for i=1:Nfc
 result(l_eq_no,b) = l_eq_upwards(i);
 result(l_eq_no,b+1) = l_eq_center(i);
 result(l_eq_no,b+2) = l_eq_downwards(i);
@@ -284,10 +288,13 @@ end
 
  %%
  res_men = round(result);
- res_avg = round(mean(result));
- for i=1:5   
- res_dif(i) = res_avg(3+(i-1)*3) - res_avg(1+(i-1)*3);
+ res_avg = round(mean(result),2);
+ 
+ for i=1:Nfc   
+ res_dif(:,i) = result(:,3+(i-1)*3) - result(:,1+(i-1)*3);
  end
+ 
+ res_dif_rou = round(res_dif,2)
  %%
 
 %%

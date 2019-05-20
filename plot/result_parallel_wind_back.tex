@@ -1,0 +1,115 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+%where you can also make suggestions and rate matlab2tikz.
+
+%
+\begin{tikzpicture}
+
+\begin{axis}[%
+width=120mm, 
+height=75mm, 
+at={(5mm,5mm)}, 
+scale only axis,
+grid=both,
+grid style={line width=.1pt, draw=gray!10},
+major grid style={line width=.2pt,draw=gray!50}, 
+axis x line*=bottom,
+axis y line*=left,
+xminorticks=true,
+yminorticks=true,
+ytick distance=3,
+minor x tick num=0,
+minor y tick num=3,
+xmin=2,
+xmax=9,
+xtick={1,2,3,4,5,6,7,8,9},
+xticklabels={{63},{125},{250},{500},{1k},{2k},{4k},{8k},{16k}},
+xlabel style={font=\color{white!15!black}},
+xlabel={Octave [Hz]},
+ymin=25,
+ymax=65,
+ylabel style={font=\color{white!15!black}},
+ylabel={Level [dB]},
+axis background/.style={fill=white},
+legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+1	54.26\\
+2	58.18\\
+3	54.31\\
+4	51.65\\
+5	48.63\\
+6	43.99\\
+7	46.77\\
+8	45.5\\
+9	35.8\\
+};
+\addlegendentry{7 deg}
+
+\addplot [color=mycolor2]
+  table[row sep=crcr]{%
+1	54.64\\
+2	59.17\\
+3	55.45\\
+4	51.53\\
+5	46.65\\
+6	46.09\\
+7	45.41\\
+8	43.74\\
+9	33\\
+};
+\addlegendentry{3 deg}
+
+
+\addplot[area legend, draw=none, fill=mycolor1, fill opacity=0.2, forget plot]
+table[row sep=crcr] {%
+x	y\\
+1	54.7197385623927\\
+2	58.9633264684638\\
+3	55.8455519221835\\
+4	54.2338760923365\\
+5	50.6065686107863\\
+6	50.8777501556414\\
+7	55.5020967802234\\
+8	53.4637418921315\\
+9	41.5541654223187\\
+9	33.7597596383105\\
+8	45.1984960794594\\
+7	43.0336620617701\\
+6	38.5027535303471\\
+5	46.2863626718796\\
+4	48.4435970039497\\
+3	53.5292027160419\\
+2	57.8511651576849\\
+1	53.9244292020645\\
+}--cycle;
+
+\addplot[area legend, draw=none, fill=mycolor2, fill opacity=0.2, forget plot]
+table[row sep=crcr] {%
+x	y\\
+1	54.8585974499432\\
+2	59.8423240218177\\
+3	56.4322179415843\\
+4	53.958989322531\\
+5	53.2904674697223\\
+6	50.9412263963211\\
+7	47.9757279327214\\
+8	47.551400408152\\
+9	36.465407525379\\
+9	27.7070789934237\\
+8	37.1913961788393\\
+7	41.3751401346559\\
+6	40.2117578709816\\
+5	37.1541073339619\\
+4	47.3250058663229\\
+3	53.7291524193898\\
+2	58.3123990461589\\
+1	54.3674049153595\\
+}--cycle;
+\end{axis}
+
+
+\end{tikzpicture}%

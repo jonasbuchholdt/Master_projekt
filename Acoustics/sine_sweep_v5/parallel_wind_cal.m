@@ -13,7 +13,7 @@ down3 = 20;
 down4 = 50;
 
 angle = 90;
-ir_number = 10;
+ir_number = 2;
 l_eq_no   = c;
 
 % n5 - 3
@@ -183,9 +183,9 @@ f = (Fs*(0:(L/2))/L)';
 fro = (pa/pr)*(24+4.04*10^4*h*((0.02+h)/(0.391+h)));
 frn = (pa/pr)*(T/T_0)^(-1/2)*(9+280*h*exp(-4.170*((T/T_0)^(-1/3)-1)));
 a = 8.686.*f.^2.*((1.84*10.^(-11).*(pa/pr).^(-1).*(T/T_0).^(1/2))+(T/T_0).^(-5/2).*(0.01275.*(exp(-2239.1/T)).*(fro+(f.^2/fro)).^(-1)+0.1068.*(exp(-3352/T)).*(frn+(f.^2/frn)).^(-1)));
-an = -a*10;
+an = a*10;
 absorbtion = [10.^(an(2:end)/20); flip(10.^(an(2:end)/20))];
-freq = (input_f./absorbtion);
+freq = (input_f.*absorbtion);
 ir_upwards_dis = real(ifft(freq));
 % ---------
 
@@ -286,18 +286,18 @@ result(l_eq_no,b+2) = l_eq_downwards(i);
 b=b+3;
 end
 
- %%
- res_men = round(result);
- res_avg = round(mean(result),2);
+ %%-----------
+ %res_men = round(result);
+ %res_avg = round(mean(result),2);
  
- for i=1:Nfc   
- res_dif(:,i) = result(:,3+(i-1)*3) - result(:,1+(i-1)*3);
- end
+ %for i=1:Nfc   
+ %res_dif(:,i) = result(:,3+(i-1)*3) - result(:,1+(i-1)*3);
+ %end
  
- res_dif_rou = round(res_dif,2)
- %%
+ %res_dif_rou = round(res_dif,2)
+%%-------------
 
-%%
+
 
 % ir = ir_downwards(1:end/2,:);
 % [m,ir_num] = size(ir);
@@ -505,14 +505,14 @@ axis([20 20000 0 100])
 figure(1)
 semilogx(f_axis,downwards_refraction)
 hold on
-%semilogx(f_axis,center_refraction)
+semilogx(f_axis,center_refraction)
 semilogx(f_axis,upwards_refraction)
 grid on
 grid minor
 axis([100 20000 20 100])
 ylabel('Level [dB]')
 xlabel('Frequency [Hz]')
-legend({'first','back'},'Location','northeast')
+legend({'Front','Center','Back'},'Location','northeast')
 
 %%
 

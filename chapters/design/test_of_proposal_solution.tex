@@ -80,20 +80,22 @@ The \autoref{fig:td:vertical_coverage} illustrate that the wind makes refraction
 \section{Designing the measurement}\label{sec:des:des_mes}
 This section aims to design a test on the non-modified line source array to test the proposed solution from \autoref{sec:td:pro_sol_pro}. To be able to test the proposed solution, a measurement system has to be designed. To be sure that the wind noise does not affect the measurement the part of the design takes care about finding the preferable microphone windscreen configuration, based on the available STOF in acoustics lab. The second part measure the frequency dependent attenuation of the chosen windscreen compare to the microphone response without a windscreen. The comparison is done to count for the attenuation of the windscreen such that the measured data reflect the \gls{spl} at the point as pleasant as possible. The third part takes care of designing the necessary data logging function. The last part designs the measuring signal playback and record method.
 
-\subsection{Microphone position}
+\subsection{General microphone positioning}\label{ts:gen_mic_pos}
 This section aims to design the position of the measuring microphone. The position of the microphone depends on the wind condition, for the crosswind the microphone be placed in the sound field were for the parallel wind, the microphone shall be placed in the shadow zone. The description starts with the former.
 
 
 The microphone position highly depends on the coverage area of the line source element. Usually, the element which is flown highest cover the as far as possible where the line source element which is closest to the ground cover the frontal audience. Therefore, the distance from the speaker to the microphone has to be found based on the knowledge of coverage distance and the minimum distance before refraction. The distances from the stage to the back audience depends on the size of the concert. For a small concert, the main stage covers the full area where for large concert delay tower helps the coverage. Delay tower is often used for a concert where the distances from the stage to the audience is above \SI{75}{\meter} as Roskilde festival. Roskilde festival situate there delay tower at a distance no longer than \SI{73}{\meter} from the main stage \autoref{ap:ques}. The general founded maximum distances from the main stage to the first delay tower was about \SI{73}{\meter} for a huge concert, \SI{50}{\meter} for a large concert and \SI{30}{\meter} for small concert \autoref{ap:ques}. Base on the knowledge of the maximum distances founded in \autoref{ap:ques} and that Roskilde festival is a special case concerning the size and \SI{50}{\meter} to \SI{60}{\meter} is an often used maximum distance for large concert depending on the hight of the main stage line array. The maximum coverage distances are chosen to be \SI{50}{\meter} for the test since the used line array flying tools is not able to fly the line array as high as the asked companies. The flying height of the top line source array element is about from \SI{12}{\meter} to \SI{16}{\meter} where the flying height of the used test setup is only up to \SI{7}{\meter}.  Furthermore it was shown in \autoref{ta:ana:spl_dif} that refraction occur at a distance of \SI{25}{\meter} with \SI{13}{\meter\per\second}.
 
-Another factor which plays a specific role for the microphone distance from the sound source is the hight of the microphone. There are pros and cons for placing the microphone both at the ground or above the ground. The pros of placing the microphone on the ground are that the ground reflection is eliminated, but the cons are that the shadow zone might be closer to the line source array that above the ground, as it can be seen in \autoref{sec:ana:atm_ref}. Relating it to the concert situation, the ground reflection in the high frequency is assumed to be low where the ground reflection in the low frequency range is assumed to be higher. Moreover, the hight of the audience ear is not at the ground but in a hight of approximately \SI{1.70}{\meter} therefore the most realistic scenario without the audience in the high frequency is at the ear height. Since the critical frequency range is in the high ineligibility frequency range, the low frequency reflection has an only sparse effect on the measuring result. 
+Another factor which plays a specific role for the microphone distance from the sound source is the hight of the microphone. There are pros and cons for placing the microphone both at the ground or above the ground. The pros of placing the microphone on the ground are that the ground reflection is eliminated, but the cons are that the shadow zone might be closer to the line source array that above the ground, as it can be seen in \autoref{sec:ana:atm_ref}. Relating it to the concert situation, the ground reflection in the high frequency is assumed to be low where the ground reflection in the low frequency range is assumed to be higher. Moreover, the hight of the audience ear is not at the ground but in a hight of approximately \SI{1.70}{\meter} therefore the most realistic scenario without the audience is at the ear height with an additional ground reflection attenuation mechamisme.
 
-Since the measuring distance is chosen to be \SI{50}{\meter} the angel of the speaker is chosen to be the lowest possible angle. This choice is taken because the coverage area at that distance is high at the narrow-angle and is a realistic chose from the company and concert area point of view. The following \autoref{fig:td:ang_mea} shows the microphone position with respect to the speaker position.
-
+\subsection{Microphone position at crosswind}
+Since the measuring distance is chosen to be \SI{50}{\meter} the angel of the speaker is chosen to be the lowest possible angle. This choice is taken because the coverage area at that distance is high at the narrow-angle and is a realistic chose from the company and concert area point of view.?? The following \autoref{fig:td:ang_mea} shows the microphone position with respect to the speaker position. 
+%%%
 
 \xfig{design/angle_measurement.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea}{1} 
 
 
+\subsection{Microphone position at parallel wind}
 The microphone position of the vertical refraction measurement depends on the shadow zone position, and it is wanted to measure in the shadow zone to explore if it is possible to move the shadow zone backwards by tilting the line array. Therefore the shadow zone has to be found by measurement before the microphone position can be specified.
 
 \xfig{design/angle_measurement_vertical.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea_ver}{1} 
@@ -116,21 +118,33 @@ The first two windscreen concept is very identical but just with difference size
 
 The next concept build on the concept in \autoref{fig:td:mes_foa_con} just with plan surfaces rockwool plates. The opening is also \SI{180}{\degree} angle in the vertical direction and \SI{90}{\degree} in the horizontal direction. The concept is defined as windscreen configuration three. The following \autoref{fig:td:mes_roc_con} illustrate the concept.
 
-
-\xfig{design/measure_rock_consept.pdf_t}{The figure shows the rockwool concept. This concept is defined as windscreen configuration three.}{fig:td:mes_roc_con}{1} 
-
 The next concept build on minimizing the reflection from the additional windscreen by only placing the microphone close agenst one surface, which cover for the wind noise. The concept is definde as windscreen configuration four. The following \autoref{fig:td:mes_roc_sin_con} illustrate the concept.
 
 
-\xfig{design/measure_rock_single_consept.pdf_t}{The figure shows the single rockwool concept. This concept is defined as windscreen configuration four.}{fig:td:mes_roc_sin_con}{1}    
+
+\begin{figure}[H]
+    \centering
+     \captionsetup{width=1\linewidth}
+    \begin{minipage}{0.46\textwidth}
+        %\centering
+         \captionsetup{width=0.90\linewidth}
+       \input{figures/design/measure_rock_consept.pdf_t}
+        \caption{The figure shows the rockwool concept. This concept is defined as windscreen configuration three.}
+        \label{fig:td:mes_roc_con}
+    \end{minipage}%
+    \begin{minipage}{0.46\textwidth}
+        \centering
+         \captionsetup{width=0.90\linewidth}
+        \input{figures/design/measure_rock_single_consept.pdf_t}
+        \caption{The figure shows the single rockwool concept. This concept is defined as windscreen configuration four.}
+        \label{fig:td:mes_roc_sin_con}
+    \end{minipage}
+\end{figure}
 
 
-A combination of windscreen configuration two and windscreen configuration five is also tested. The combination is defined as windscreen configuration five. The following \autoref{fig:td:mes_roc_foa_con} illustrate the concept.
+ 
 
-\xfig{design/measure_rock_foam_concept.pdf_t}{The figure shows the single rockwool concept. This concept is defined as windscreen configuration five.}{fig:td:mes_roc_foa_con}{1}  
-
-
-Before the optimal windscreen configuration is founded, an optimality creteria is defined and a test is designed. The optimal creteria for the windscreen is as low as possible wind noise at the microphone and low reflection and direct sound attenuation from the windscreen. To find the windscreen configuration which meets the creteria best, three test is made on the windscreen configuration. First the wind speed attenuation of the windscreen configuration is measured to ensure that the windscreen configuration concept does have an effect on the wind speed. The measurement of the windspeed attenuation can be founded in \autoref{}. Secondly the frequency response of the windscreen have to be founded to ensure that the windscreen configuration does not have a large influence on the frequency measurement response of the speaker. To test this criteria, the frequency response of a speaker is measured in the anechoic chamber without any windscreen configuration and without the original windscreen. This measurement is compared with the frequency response of the speaker with the windscreen configuration. The measurement is founded in \autoref{}. Finally the wind noise is measured. To measure the wind noise two low speed and low noise fan is generating \SI{2.5}{\meter\per\second} at the microphone position. The wind noise is measured without any windscreen configuration and the original windscreen and compared with the wind noise in the microphone position in the windscreen configuration. To ensure that the background noise is identically on the wind noise measurement with and without the windscreen configuration two microphone are used and recorded simultanius. Both the time signal and the frequency content is analysed. The measurement is founded in \autoref{}. The result for all configuration is as following.
+Before the optimal windscreen configuration is founded, an optimality creteria is defined and a test is designed. The optimal creteria for the windscreen is as low wind noise as possible at the microphone position and low sound reflection. To find the windscreen configuration which meets the creteria best, three test is made on the windscreen configuration. First the wind speed attenuation of the windscreen configuration is measured to ensure that the windscreen configuration concept does have an effect on the wind speed. The measurement of the windspeed attenuation can be founded in \autoref{}. Secondly the frequency response of the windscreen have to be founded to ensure that the windscreen configuration does not have a large influence on the frequency measurement response of the speaker. To test this criteria, the frequency response of a speaker is measured in the anechoic chamber without any windscreen configuration and without the original windscreen. This measurement is compared with the frequency response of the speaker with the windscreen configuration. The measurement is founded in \autoref{}. Finally the wind noise is measured. To measure the wind noise two low speed and low noise fan is generating \SI{2.5}{\meter\per\second} at the microphone position. The wind noise is measured without any windscreen configuration and the original windscreen and compared with the wind noise in the microphone position in the windscreen configuration. To ensure that the background noise is identically on the wind noise measurement with and without the windscreen configuration two microphone are used and recorded simultanius. Both the time signal and the frequency content is analysed. The measurement is founded in \autoref{}. The result for all configuration is as following.
 
 \paragraph{Configuration one} is the one with the smallest foam wedge and size of the wedge is measured to have the worst wind attenuation. The wind attenuation shows that the wind speed is lowered from \SI{8}{\meter\per\second} to \SI{2}{\meter\per\second}. But the directional turbulence in the wind is more stabile in this configuration compare the configuration three and above. The frequency response of the windscreen configuration is the one that have the lowest effect. At low frequency upto \Hz{100} the windscreen does not effect the measurement. Frequency above the frequency response gets off with about \dB{2} compare with only the original windscreen. The measured wind noise attenuation is equal zero. In the measurement the wind noise is actualy a bit worse compare to only the original windscreen. The attenuation is both approximatly \dB{10} for both with only the original windscreen and the windscreen configuration in the low frequency below \Hz{10}, but at some frequency the attenuation is lower that \dB{5} for the windscreen configuration. for frequency above \Hz{10} the windscreen configuration have no effect.
 
@@ -138,46 +152,40 @@ Before the optimal windscreen configuration is founded, an optimality creteria i
 
 \paragraph{Configuration three} is the one with two rockwool bat formed as an arrow and is measured to have wind attenuation between the small wedge and large wedge. The frequency response of the windscreen configuration is the worst. It alternate between $\pm$\dB{6}. At the low frequency range from \Hz{80} to \Hz{600} the amplification goes from \dB{2} at \Hz{80} to \dB{6.2} at \Hz{250} and then back to  \dB{0} at \Hz{700}. At  \Hz{1000} the attunuation is at \dB{6} and above the frequency response alternate around the frequency response of the original windscreen. The windscreen attenuate the wind noise \dB{10} more than only the original windscreen from \Hz{30} and downwards to the measured limit at \Hz{2}. The frequency range between \Hz{30} and \Hz{600} have the same attenuation as the original windscreen and the frequency above have further \dB{5} to \dB{10} more attenuation than the original windscreen. Based on that the frequency response and the wind wind noise attenuation is worse than configuration two, the configuration is excluded from the rest of the test and is not used.
 
-\paragraph{Configuration four} is the one with only one rockwool bat where the microphone is siturated close to the side of the windscreen and is measured to have one of the best wind attenuation. The wind attenuation shows that the mean wind speed is lowered from \SI{8}{\meter\per\second} to \SI{1}{\meter\per\second}, but the directional and wind speed turbulence is less stabile compare to the configuration the windscreen with foam wedge. The wind speed turbulence circulate from \SI{0}{\meter\per\second} to \SI{2}{\meter\per\second}. The frequency response of the windscreen configuration is does not change more than $\pm$\dB{2} in the low and high frequency range. At frequency from \Hz{600} to \Hz{300} the windscreen have an attenuation of \dB{4}. MISSING NOISE ATTENUATION
+\paragraph{Configuration four} is the one with only one rockwool bat where the microphone is siturated close to the side of the windscreen and is measured to have one of the best wind attenuation. The wind attenuation shows that the mean wind speed is lowered from \SI{8}{\meter\per\second} to \SI{1}{\meter\per\second}, but the directional and wind speed turbulence is less stabile compare to the configuration the windscreen with foam wedge. The wind speed turbulence circulate from \SI{0}{\meter\per\second} to \SI{2}{\meter\per\second}. The frequency response of the windscreen configuration is does not change more than $\pm$\dB{2} in the low and high frequency range. At frequency from \Hz{600} to \Hz{300} the windscreen have an attenuation of \dB{4}. The noise attenuation is not measured in this configuration, since the mechanical stability is founded to be poor in wind speed above \SI{5}{\meter\per\second}.
 
 
-%The windscreen attenuate the wind noise \dB{10} more than only the original windscreen from \Hz{30} and downwards to the measured limit at \Hz{2}. The frequency range between \Hz{30} and \Hz{600} have the same attenuation as the original windscreen and the frequency above have further \dB{5} to \dB{10} more attenuation than the original windscreen. Measure!!
+\subsection{Final windscreen solution}
+Based on the above finding the final windscreen is designed. The design of the final windscreen combines configuration two to and and a updated version of configuration four where the stability problem is solved. This combination is chosen since this two configuration shows the best performance in lowering the wind speed near the microphone and a combination might optimise the wind speed and noise further. Moreover it is chosen that the microphone shall be at the hight of the ear, therefore, an additional ground plan is added to try to stop the ground reflection as much as possible. 
 
+As the first test of the final windscreen solution an preliminary setup is done with the available material in acoustics lab. The preliminary setup is defined as windscreen configuration five. The following \autoref{fig:td:mes_roc_foa_con} illustrate the concept.
 
-\paragraph{Configuration five} is the one with only one rockwool bat and the two large wedge where the microphone is siturated as in configuration two and is measured to have the best wind attenuation. The wind attenuation shows that the mean wind speed is lowered from \SI{8}{\meter\per\second} to \SI{0.8}{\meter\per\second}, but the directional turbulence is less stabile compare to the configuration the windscreen with only foam wedge. The frequency response of the windscreen configuration is as configuration two but with little closer fit to without windscreen in the high frequency. MISSING NOISE ATTENUATION 
+\xfig{design/measure_rock_foam_concept.pdf_t}{The figure shows the single rockwool concept. This concept is defined as windscreen configuration five.}{fig:td:mes_roc_foa_con}{1}  
 
+This configuration is measured to have more wind speed attenuation that this combination apart. The wind speed attenuation shows that the mean wind speed is lowered from \SI{8}{\meter\per\second} to \SI{0.8}{\meter\per\second}, but the directional turbulence is less stable compare to the configuration the windscreen with only foam wedge. The frequency response of the windscreen configuration is as configuration two but with little closer fit to without windscreen in the high frequency.
 
-
-
-%The windscreen attenuate the wind noise \dB{10} more than only the original windscreen from \Hz{30} and downwards to the measured limit at \Hz{2}. The frequency range between \Hz{30} and \Hz{600} have the same attenuation as the original windscreen and the frequency above have further \dB{5} to \dB{10} more attenuation than the original windscreen. Measure!!
-
-
-
-
-
-\subsection{Optimization of the chosen windscreen}
-
-
+To deal with the stability problem of the rockwool bat, the rockwool bat is replaced be PVC foam mounted on a circular wood plate as the following \autoref{fig:td:mes_win_opt_ver} illustrate
 
 \xfig{design/windscreen_optimised.pdf_t}{The figure shows the single rockwool concept}{fig:td:mes_win_opt_ver}{1}  
 
+The change in material is made based on the better stability of PVC foam and that the foam wedge is assumed to cancel the reflection from the PVC foam. While adding the wood plate the original windscreen to the microphone then lift the microphone \SI{4.5}{\centi\meter} from the wood plate which might result in sound reflection from the wood plate. To eliminate the reflection from the wood plate the technique from wind turbine measuring setup is used where the windscreen is cutted. In the wind turbine microphone setup the cut is done such that half of the microphone is cutted down intro the wood plate, in this configuration on ... is avalible, therefore this cut is not sutable. The cut is therefore made \SI{2}{\milli\meter} to \SI{3}{\milli\meter} beneth the microphone such that the microphone is full covered by the original windscreen. The cut is illustrated in the following \autoref{fig:td:original_windscreen}. 
 
-There is made a preliminary test test to measure the effect in a fast measuring setup before a field measurement. The measurement was done in acoustics lab with two fan and a wind speed of \SI{2.5}{\meter\per\second}. The result is founded in \autoref{}
-
-%\plot{plot/with_ball_wind_compare_large}{The graph shows one of the time measurement with configuration three}{fig:sec:pop:wit_bal_wind_com_lag}
-
-
-%\plot{plot/with_ball_wind_compare_rock}{The graph shows one of the time measurement with configuration three}{fig:sec:pop:wit_bal_wind_com_roc}
-
-As seen in the measurement, the original wind screen does have a huge wind noise attenuation but as shown in ... measurement, the wind noise can be further attenuated by the developed wind stopping concept. 
+\xfig{design/Original_windscreen.pdf_t}{The figure shows the modified original windscreen}{fig:td:original_windscreen}{1}  
 
 
 
 
-\subsection{Attenuation of the windscreen} 
-The aim of this section is to analyse the inflyence of the selected windscreen. 
 
-Free field 
+\subsection{windscreen wind noise attenuation}\label{sec:ds:wind_noi_att}
+This section aims to research the wind noise in the windscreen to ensure that the wind noise in real condition does not overload the microphone. The measurement is done both with and without the designed windscreen to decide if the windscreen works in the real senario with high speed and directionallity changing wind. The measurement is furthermore done both in the ear hight and on the ground to research is one position have better signal to noise condition in the final measurement. The first preformed measurement is two measurement, one in the ear hight and one on the ground. Both measurement is preformed with the designed windscreen. The measurement is done in the same vertical position where the stand is removed and therefore the measurement is not done in parallel. The measurement is done 10 times on each position, such that to measurement with nearly the same wind speed can be compared. The windscreen is placed \SI{90}{\degree} agenst the wind, which means that the windscreen is placed in its optimal position where the wind blows directly onto the wide PVC plate. The following \autoref{fig:dt:windnoise_with_screen} shows the result.
+
+\plot{plot/windnoise_with_screen_dt}{The graph shows the frequency content of the measurement with the windscreen in the hight of the ear and on the ground}{fig:dt:windnoise_with_screen}
+
+As it is seen in \autoref{fig:dt:windnoise_with_screen}, the wind noise highly depends on the hight of the windscreen position. By lowering the windscreen from the ear hight done to the ground surface, the wind noise is lowered with approximately \dB{20} in the low frequency, which is the frequency area where the wind noise is highest. Furthermore it is research if the designed windscreen have hgiher wind noise attenuation compare to only the modified original windscreen. The following \autoref{fig:dt:windnoise_compare} shows the result.
+ 
+\plot{plot/windnoise_compare}{The graph shows the frequency content of the measurement with and without the windscreen}{fig:dt:windnoise_compare}
+
+As seen in \autoref{fig:dt:windnoise_compare}, the windscreen have generally a \dB{5} to \dB{10} wind noise attenuation. The measurement description is founded in \autoref{ap:wind_noise_in_design}. The measurement description also shows noise measurement of the windscreen where the windscreen is rotated both to the left and to the right. 
 
 
 
@@ -195,32 +203,27 @@ The aim of this section is to design the turning method for the line source arra
 To be able to use the information of the wind spees temparature and humidity, the data logging of the atmospherical condition have to be syncronius with the measurement. 
 
 
-The speaker is chosen to be adjusted to the narrow main lobe because it is assumed that the distance from the audience to the speaker is so large that the wide angle goes beyond the audience area.
-
-Because of limitation, the speaker is flown in a hight of \SI{6}{\meter}. 
 
 The humidity and temperature have to be measured.
 
+
+\subsection{Hardware}
+\fig{ard_shield.pdf}{The figure shows }{fig:td:ard_shield}{0.3}
+
+\fig{ard_schematic.pdf}{The figure shows }{fig:td:ard_schematic}{0.5}
+
+\subsection{Firmware}
+\xfig{design/fifo_buffer.pdf_t}{The figure shows the \gls{fifo} buffer system for wind speed measurement}{fig:td:fifo:buffer}{1}  
+
+
+\subsection{Software}
+
+
+
+
+
+\section{Measuring area}
 To measure the \gls{spl} coverage of the speaker a flat area with mown grass is chosen to be used. The optimal area area without any building or trees might not be posible, therefore blockage or sound reflaction surface other than the ground is only allowed to be present in the double of distance compare to the distance from the speaker to the microphone. Based on the refraction effect versus distance founded in \autoref{sec:ana:atm_ref}. The distance from the speaker to the microphone array is chosen to be \SI{50}{\meter}. The distance is based on the experience of the author described in \autoref{sec:ana:aut_exp_con} and the founded refraction effect in \autoref{sec:ana:atm_ref}. It was founded that the refraction effect should be minimal at a distance of \SI{50}{\meter} when the speed of wind is \SI{5}{\meter\per\second}. 
 
 
 To keep the wind speed realistic for measurement and for concert, but still having wind pressent, the wind speed doing the measurement is limited in the range for average \SI{5}{\meter\per\second} to \SI{10}{\meter\per\second}. Less average wind speed than \SI{5}{\meter\per\second} is avoided to ensure measureble effect of the wind on sound propagation. The higher limit of the \SI{10}{\meter\per\second} is chosen to ensure that the speaker tower is safe at the hight at \SI{6}{\meter}. The limited size of the setup makes the setup wind (følsom) because it is not puttet up as a cube but only as a surface. 
-
-\fig(Ard_Shield}{The figure shows }{fig:td:Ard_Shield}{0.5}
-
-\fig(Ard_Shield}{The figure shows }{fig:td:Ard_Shield}{0.5}
-
-
-where the refraction at \SI{110}{\meter} already starts at \Hz{400}. 
-
-
-The area is without  The resend to use this  
-
-\plot{plot/angle_test}{The graph shows the first transfer function measurement within the high frequency directional angle. The $L_{Aeq,5}$ \gls{spl} different between the microphones is \dB{6.77} (IR_3) The graph is normed to contain the same $L_{Aeq,5}$ \gls{spl} }{fig:ana:ang_tes}
-
-
-
-\section{Measuring program}
-
-
-

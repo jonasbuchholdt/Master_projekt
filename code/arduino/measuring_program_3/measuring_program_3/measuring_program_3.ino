@@ -23,6 +23,8 @@ volatile unsigned long Rotations2; // cup rotation counter used in interrupt rou
 volatile unsigned long Rotation_old2; // cup rotation counter used in interrupt routine 
 volatile unsigned long ring2; // cup rotation counter used in interrupt routine 
 volatile unsigned long ContactBounceTime2; // Timer to avoid contact bounce in isr 
+volatile unsigned long timet1 = 0;
+volatile unsigned long timet2 = 0;
 float WindSpeed1; // speed miles per hour 
 float WindSpeed2; // speed miles per hour 
 
@@ -57,7 +59,7 @@ pinMode(WindSensorPin2, INPUT);
 // Setup the timer interupt 
 attachInterrupt(digitalPinToInterrupt(WindSensorPin1), isr_rotation1, FALLING); 
 attachInterrupt(digitalPinToInterrupt(WindSensorPin2), isr_rotation2, FALLING); 
-Timer1.initialize(25000);// Timer interrupt every 2.5 seconds 500000
+Timer1.initialize(25000);// Timer interrupt every 2.5 seconds 500000 (25000))
 Timer1.attachInterrupt(isr_timer); 
 } 
 
@@ -122,8 +124,11 @@ void loop() {
   Serial.print("\t");
   Serial.print(temp); 
   Serial.print("\t");
-  Serial.println(hum);
-  delay(100);
+  Serial.print(hum);
+  Serial.print("\t");
+  Serial.println(timet2);
+  delay(88);
+  
 } 
 
 
@@ -131,6 +136,7 @@ void loop() {
 void isr_timer() { 
 TimerCount++; 
   if(TimerCount == 7) { 
+    timet2 =  millis();
     IsSampleRequired = true; 
     TimerCount = 0; 
   } 

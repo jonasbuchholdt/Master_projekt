@@ -80,7 +80,7 @@ The \autoref{fig:td:vertical_coverage} illustrate that the wind makes refraction
 \section{Designing the measurement}\label{sec:des:des_mes}
 This section aims to design a test on the non-modified line source array to test the proposed solution from \autoref{sec:td:pro_sol_pro}. To be able to test the proposed solution, a measurement system has to be designed. To be sure that the wind noise does not affect the measurement the part of the design takes care about finding the preferable microphone windscreen configuration, based on the available STOF in acoustics lab. The second part measure the frequency dependent attenuation of the chosen windscreen compare to the microphone response without a windscreen. The comparison is done to count for the attenuation of the windscreen such that the measured data reflect the \gls{spl} at the point as pleasant as possible. The third part takes care of designing the necessary data logging function. The last part designs the measuring signal playback and record method.
 
-\subsection{General microphone positioning}\label{ts:gen_mic_pos}
+\subsection{Microphone position at crosswind}
 This section aims to design the position of the measuring microphone. The position of the microphone depends on the wind condition, for the crosswind the microphone be placed in the sound field were for the parallel wind, the microphone shall be placed in the shadow zone. The description starts with the former.
 
 
@@ -88,7 +88,7 @@ The microphone position highly depends on the coverage area of the line source e
 
 Another factor which plays a specific role for the microphone distance from the sound source is the hight of the microphone. There are pros and cons for placing the microphone both at the ground or above the ground. The pros of placing the microphone on the ground are that the ground reflection is eliminated, but the cons are that the shadow zone might be closer to the line source array that above the ground, as it can be seen in \autoref{sec:ana:atm_ref}. Relating it to the concert situation, the ground reflection in the high frequency is assumed to be low where the ground reflection in the low frequency range is assumed to be higher. Moreover, the hight of the audience ear is not at the ground but in a hight of approximately \SI{1.70}{\meter} therefore the most realistic scenario without the audience is at the ear height with an additional ground reflection attenuation mechamisme.
 
-\subsection{Microphone position at crosswind}
+
 Since the measuring distance is chosen to be \SI{50}{\meter} the angel of the speaker is chosen to be the lowest possible angle. This choice is taken because the coverage area at that distance is high at the narrow-angle and is a realistic chose from the company and concert area point of view.?? The following \autoref{fig:td:ang_mea} shows the microphone position with respect to the speaker position. 
 %%%
 
@@ -96,13 +96,21 @@ Since the measuring distance is chosen to be \SI{50}{\meter} the angel of the sp
 
 
 \subsection{Microphone position at parallel wind}
-The microphone position of the vertical refraction measurement depends on the shadow zone position, and it is wanted to measure in the shadow zone to explore if it is possible to move the shadow zone backwards by tilting the line array. Therefore the shadow zone has to be found by measurement before the microphone position can be specified.
+The microphone position of the vertical refraction measurement depends on the shadow zone position, and it is wanted to measure in the shadow zone to explore if it is possible to move the shadow zone backwards by tilting the line array. The following \autoref{fig:td:ang_mea_ver} illustrate the two measuring cases, which is needed to be measured to conclude on the idea. 
 
 \xfig{design/angle_measurement_vertical.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea_ver}{1} 
 
-\xfig{design/parallal_n3.pdf_t}{The figure shows the measurement setup}{fig:td:parallal_n3}{1} 
+As seen in \autoref{fig:td:ang_mea_ver} one measurement is where the microphone is within the refracted main lobe of the line source array and one is outside the main lobe of the line source array. To be able to test this senario, two measuring cases is designed, one where the main lobe of the line array is angled such that it propagate directly intro the ground in front of all microphone. This measuring case is shown in \autoref{fig:td:parallal_n7}. 
 
-\xfig{design/parallal_n7.pdf_t}{The figure shows the measurement setup}{fig:td:parallal_n7}{1} 
+\xfig{design/parallal_n7.pdf_t}{The figure shows the measurement setup while the line source array is tilted \SI{7}{\degree} forward}{fig:td:parallal_n7}{1} 
+
+As seen in \autoref{fig:td:parallal_n7} the main lobe of the line source array is assumed to be near-field which is only hold for high frequencies. At a distances of \SI{40}{\meter} this illustration covers frequencies above \Hz{6000}, frequencies below will will be wider as the frequency drop \autoref{sec:ana:geo_spr_los}. But anyway, the highest power of the line source array lays within the center of the main lobe in the frequency of interest due to the directionality charastics of the line source array. In this case the microphone should be without the main lobe while no wind refraction effect the sound, but as the wave is refracted, the microphone is within the main lobe. To make a compainson test case while upwards refraction is present, a test case is designed where the microphone is within the main lobe of the line source array. The following \autoref{fig:td:parallal_n3} illustrate the test case.
+
+\xfig{design/parallal_n3.pdf_t}{The figure shows the measurement setup while the line source array is tilted \SI{3}{\degree} forward}{fig:td:parallal_n3}{1} 
+
+In the test case shown in \autoref{fig:td:parallal_n3} more \gls{spl} is delivered to the microphone compare to the test case in  \autoref{fig:td:parallal_n7}. while no wind is present the case in \autoref{fig:td:parallal_n3} delivers the highest \gls{spl} to the center microphone microphone and the back microphone, since they are within or at the border of the main lobe. While upwards refraction is present, the proposal solution in \autoref{sec:des:pro_para} sedjest that the refraction refract the sound wave such the \gls{spl} distribution is vise versa. The upwards refraction refract the sound wave in \autoref{fig:td:parallal_n7} above the microphone and the refraction of the soundwave in \autoref{fig:td:parallal_n3} refract the soundwave to the microphone. In this test case the microphone is situated on the ground such that the microphone is as deep in the shadow zone as possible. In other words, as shown in \autoref{fig:td:eddies}, while the microphone is positionede in the same distance from the line source array, while the microphone is on the ground compare to lifted above the ground, the shadow zone is most present at the ground. If more \gls{spl} is present in the \autoref{fig:td:parallal_n7} compare to \autoref{fig:td:parallal_n3} the shadow zone distance might be able to be optimised.
+
+
 
 \subsection{Design of windscreen}
 The aim of this section is to be able find a windscreen to the measuring microphone such that the wind noise is low compare to the measuring signal. There is to aspect in this windscreen configuration, firs the the wind noise cannot be filtered electronical between the microphone and the preamp.Therefore the strength of the wind noise shall be as low as the preamp do not overload. Secondly the measurement shall be measurement of the signal and not the wind noise, therefore the signal shall be sufficiant higher that the wind noise such that the measurement is trustable and represent the \gls{spl} procused of the speaker at the measuring point. 
@@ -190,13 +198,37 @@ As seen in \autoref{fig:dt:windnoise_compare}, the windscreen have generally a \
 
 
 
-\section{Angeling of the line source array}
-The aim of this section is to design the turning method for the line source array and ensure that the speaker point in the desired angle.
+\section{Rotation of the line source array}
+The aim of this section is to design the turning method for the line source array and ensure that the speaker point in the desired angle. A mechanical solution is chosen for both rotation of the line source array and measuring the rotational angle of the line source array. The mechanical solution to rotate the line source array is a long piece of truss connected to the back of the flying tools of the line source array. By this mechanical solution, a person is able to move the other end of truss and stabilise the angle by placed the end of the truss on the ground. Moreover to ensure that the rotation is dome with a specified angle, two laser pointer is attached beneth the line source array. One in the vertical rotation angle and one behind. The one on the rotational axis is then the reference to the back laser pointer. The following \autoref{} illustrate the solution.
+
+\xfig{design/rotation_and_angling.pdf_t}{The figure shows the rotational mechanic where the blue dashed line illustrate the vertical rotational axis.}{fig:td:rotation_and_angling}{1}  
+
+In \autoref{fig:td:rotation_and_angling} the reader shall imagine by moving the ground position of the rotational truss towards the reader of away from the reader, the line source array is rotated. The laser pointer holder and plate for measuring the angel is shown in the following two \autoref{fig:td:mes_ang_plate} and \autoref{fig:td:mes_las_hol}.
 
 
-\xfig{design/measuring_angle_plate.pdf_t}{The figure shows the angle plate}{fig:td:mes_ang_plate}{1}  
+\begin{figure}[H]
+    \centering
+     \captionsetup{width=1\linewidth}
+    \begin{minipage}{0.36\textwidth}
+        \centering
+         \captionsetup{width=0.90\linewidth}
+       \input{figures/design/measuring_angle_plate.pdf_t}
+        \caption{The figure shows the angle plate.}
+        \label{fig:td:mes_ang_plate}
+    \end{minipage}%
+    \begin{minipage}{0.56\textwidth}
+        \centering
+         \captionsetup{width=0.90\linewidth}
+        \input{figures/design/laser_holder.pdf_t}
+        \caption{The figure shows the laser holder.}
+        \label{fig:td:mes_las_hol}
+    \end{minipage}
+\end{figure}
 
-\xfig{design/laser_holder.pdf_t}{The figure shows the laser holder}{fig:td:mes_las_hol}{1}  
+
+The reference laser pointer is guided intro hole 1 in \autoref{fig:td:mes_las_hol} which is at the rotational axis while the line source array is tilted \SI{3}{\degree}. The back laser is guided into hole 10 such that the highest distance between the laser is achieved. The measuring angle plate is then placed on the ground with the reference laser pointing at the center and the back laser pointing at the \SI{0}{\degree} angle while the line source points directly forward. 
+
+
 
 
 \section{Data logging system} 
@@ -213,8 +245,20 @@ The humidity and temperature have to be measured.
 \fig{ard_schematic.pdf}{The figure shows }{fig:td:ard_schematic}{0.5}
 
 \subsection{Firmware}
-\xfig{design/fifo_buffer.pdf_t}{The figure shows the \gls{fifo} buffer system for wind speed measurement}{fig:td:fifo:buffer}{1}  
 
+
+
+
+
+
+\xfig{design/fifo_buffer.pdf_t}{The figure shows the \gls{fifo} buffer system for wind speed measurement}{fig:td:fifo:buffer}{1}  
+The program update between 91 ms to 96 ms which mean that the software gets new data for every weather update. The mean update time for the firmware is therefore 92.3 ms based on 80 time measurement sample.  The negative shift of the firmware update doing the 55 weather update is then -38.8 ms which is less that 92.3 ms and therefore, no time shift is present by the lack of synchronization. But since the update sometimes is above 95 ms the warther updates sample to \matlab can be the same twice. This issue is only present in the first 5 samples, after thoes samples the lack in synchronisation does that 96 ms is an update before the software ask for weather data samples. 
+
+The software ask for 55 warther updates sample 
+
+
+
+the software ask for data for every 93 ms
 
 \subsection{Software}
 

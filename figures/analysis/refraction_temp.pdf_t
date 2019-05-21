@@ -10,22 +10,22 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(5433,1356)(-419,-886)
-\put(3061,-421){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}High}%
+\put(3061,-421){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}High}%
 }}}}
-\put(2116,-871){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
+\put(2116,-871){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
 }}}}
-\put(4276,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Shadow}%
+\put(4276,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Shadow}%
 }}}}
-\put(4276,-646){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}zone}%
+\put(4276,-646){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}zone}%
 }}}}
-\put(-404,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Shadow}%
+\put(-404,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Shadow}%
 }}}}
-\put(-404,-646){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}zone}%
+\put(-404,-646){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}zone}%
 }}}}
-\put(1441,119){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source}%
+\put(1441,119){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source}%
 }}}}
-\put(2701,299){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Temperature}%
+\put(2701,299){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Temperature}%
 }}}}
-\put(3106, 74){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Low}%
+\put(3106, 74){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Low}%
 }}}}
 \end{picture}%

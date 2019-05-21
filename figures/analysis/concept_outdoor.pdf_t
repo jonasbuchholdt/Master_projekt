@@ -10,12 +10,12 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(4167,1266)(166,-886)
-\put(3376,-421){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Reciever}%
+\put(3376,-421){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Reciever}%
 }}}}
-\put(2116,-871){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
+\put(2116,-871){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
 }}}}
-\put(181,209){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source array}%
+\put(181,209){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source array}%
 }}}}
-\put(1756,-151){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Sound path}%
+\put(1756,-151){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Sound path}%
 }}}}
 \end{picture}%

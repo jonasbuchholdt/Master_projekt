@@ -83,21 +83,7 @@ tic
                       delete(s)
                       clear s
                       
-%interp = floor(length(out)/length(data));
-%weather = kron(str2double(data), ones(interp,1));
 
-
-%while(1)
-%    if length(weather)<length(out)
-%        weather = [weather; weather(end,:)];
-%    end
-%    if length(weather)==length(out)
-%        break
-%    end
-%    if length(weather)>length(out)
-%        weather = weather(:,1:end-1);
-%    end
-%end
 
 weather = str2double(data);
 weather = weather(23:end,:);

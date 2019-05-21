@@ -35,8 +35,8 @@ int vaneValue2;
 int count1;
 int count2;
 int buffersize = 16;
-int ringbuffer1[17];
-int ringbuffer2[17];
+int ringbuffer1[16];
+int ringbuffer2[16];
 float hum;  //Stores humidity value
 float temp; //Stores temperature value
 
@@ -59,7 +59,7 @@ pinMode(WindSensorPin2, INPUT);
 // Setup the timer interupt 
 attachInterrupt(digitalPinToInterrupt(WindSensorPin1), isr_rotation1, FALLING); 
 attachInterrupt(digitalPinToInterrupt(WindSensorPin2), isr_rotation2, FALLING); 
-Timer1.initialize(25000);// Timer interrupt every 2.5 seconds 500000 (25000))
+Timer1.initialize(26500);// Timer interrupt every 2.5 seconds 500000 (25000))
 Timer1.attachInterrupt(isr_timer); 
 } 
 
@@ -112,8 +112,8 @@ void loop() {
   vaneValue2 = analogRead(analogPin2); 
   temp = DHT.temperature;
   hum = DHT.humidity;
-  WindSpeed1 = ring1*(2.25/2.5)*0.44704;
-  WindSpeed2 = ring2*(2.25/2.5)*0.44704;
+  WindSpeed1 = ring1*(2.25/2.960)*0.44704;
+  WindSpeed2 = ring2*(2.25/2.960)*0.44704;
   Serial.print(WindSpeed1);
   Serial.print("\t");
   Serial.print(vaneValue1); 

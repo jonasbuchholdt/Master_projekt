@@ -10,20 +10,20 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(5707,2481)(-547,-1381)
-\put(4546,-871){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}1.68 m}%
+\put(4546,-871){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}1.68 m}%
 }}}}
-\put(-494,929){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source array}%
+\put(-494,929){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source array}%
 }}}}
-\put(2026,-1366){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
+\put(2026,-1366){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
 }}}}
-\put(-224,-1051){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}5}%
+\put(-224,-1051){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}5}%
 }}}}
-\put(2161,-916){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}50 m}%
+\put(2161,-916){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}50 m}%
 }}}}
-\put(2071,299){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Direct sound path}%
+\put(2071,299){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Direct sound path}%
 }}}}
-\put(721,614){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Reflected sound path}%
+\put(721,614){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Reflected sound path}%
 }}}}
-\put(541,299){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}5.1 m}%
+\put(541,299){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}5.1 m}%
 }}}}
 \end{picture}%

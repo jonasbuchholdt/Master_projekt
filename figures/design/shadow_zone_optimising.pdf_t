@@ -10,22 +10,22 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(4791,2607)(88,-2233)
-\put(1441,-331){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Lower main lobe limit}%
+\put(1441,-331){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Lower main lobe limit}%
 }}}}
-\put(2116,-871){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
+\put(2116,-871){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Ground}%
 }}}}
-\put(181,209){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Sound source}%
+\put(181,209){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Sound source}%
 }}}}
-\put(4141,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Shadow}%
+\put(4141,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Shadow}%
 }}}}
-\put(4141,-646){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}zone}%
+\put(4141,-646){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}zone}%
 }}}}
-\put(4141,-1996){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}zone}%
+\put(4141,-1996){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}zone}%
 }}}}
-\put(4141,-1861){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Shadow}%
+\put(4141,-1861){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Shadow}%
 }}}}
-\put(2386,-1231){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Optimising}%
+\put(2386,-1231){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Optimising}%
 }}}}
-\put(1441,-1816){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Lower main lobe limit}%
+\put(1441,-1816){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Lower main lobe limit}%
 }}}}
 \end{picture}%

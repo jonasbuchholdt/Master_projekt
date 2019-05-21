@@ -10,18 +10,18 @@
   \selectfont}%
 \fi\endgroup%
 \begin{picture}(3641,2970)(-1769,-1561)
-\put(-1304,-196){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}25 m}%
+\put(-1304,-196){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}25 m}%
 }}}}
-\put(-449,1244){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source}%
+\put(-449,1244){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Line source}%
 }}}}
-\put(-584,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Wind direction}%
+\put(-584,-511){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Wind direction}%
 }}}}
-\put(-134,209){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}74}%
+\put(-134,209){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}74}%
 }}}}
-\put(-1754,-1546){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Mic1}%
+\put(-1754,-1546){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Mic1}%
 }}}}
-\put(1396,-1546){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Mic2}%
+\put(1396,-1546){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Mic2}%
 }}}}
-\put(946,-196){\makebox(0,0)[lb]{\smash{{\SetFigFont{12}{14.4}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}25 m}%
+\put(946,-196){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}25 m}%
 }}}}
 \end{picture}%

@@ -244,26 +244,65 @@ The humidity and temperature have to be measured.
 
 \fig{ard_schematic.pdf}{The figure shows }{fig:td:ard_schematic}{0.5}
 
+wind sensor 
+
+temparature humidity 
+
 \subsection{Firmware}
-
-
-
-
-
-
+The firmware is designed to support two wind anemometer, one temperature and one humidity sensor. The temperature and humidity sensor is one unit and communicate digitally to the Arduino. The communication is done through the dht.h Arduino library with no addition. The data is then called from a function of the library and no digital connection is designed by the author. 
+The wind sensor both measure the wind direction and the wind speed. The wind direction is an analogue voltage from \SI{0}{\volt} to \SI{5}{\volt} while the angle goes from \SI{0}{\degree} to \SI{359}{\degree}. The rotational angle from the sensor increases while the directional goes from south to west, therefore it works in the same direction as a compass. The analogue voltage is measured with the build in 10 bit \gls{adc} which gives digital number from 0 to 1024. This measured number is transfered directly to the com bus without angle correction. The conversion to angle is done in \matlab . The wind speed measurement sensor gives a pulse for every rotation. According to the data sheet of the wind anemometer, one rotation of the wind speed sensor over a time period of \SI{1}{\second} correspond \SI{1.0058}{\meter\per\second}. To be able to measure the wind speed in a higher resolution that \SI{1.0058}{\meter\per\second} the pulses is time average over a defined period. To be able to measure over a period a \gls{fifo} buffer is designed for the pulses as shown in the following \autoref{fig:td:fifo:buffer} 
 \xfig{design/fifo_buffer.pdf_t}{The figure shows the \gls{fifo} buffer system for wind speed measurement}{fig:td:fifo:buffer}{1}  
-The program update between 91 ms to 96 ms which mean that the software gets new data for every weather update. The mean update time for the firmware is therefore 92.3 ms based on 80 time measurement sample.  The negative shift of the firmware update doing the 55 weather update is then -38.8 ms which is less that 92.3 ms and therefore, no time shift is present by the lack of synchronization. But since the update sometimes is above 95 ms the warther updates sample to \matlab can be the same twice. This issue is only present in the first 5 samples, after thoes samples the lack in synchronisation does that 96 ms is an update before the software ask for weather data samples. 
 
-The software ask for 55 warther updates sample 
+As seen in \autoref{fig:td:fifo:buffer}, the update time is for every \SI{185}{\milli\second} and the buffer contains 16 pieces of \SI{185}{\milli\second} which gives an average time over \SI{2.96}{\second}. This buffer size gives an wind speed resolution of \SI{339.8}{\milli\second\per\meter}. The update time is slower that the data transfer time interval between the Arduino and \matlab. \matlab ask for data for every \SI{92.9}{\milli\second}. The \SI{92.9}{\milli\second} cams from the differences between the sampling frequency and the buffer size of data between \matlab and the sound card which is 4096 samples. The choise of the approximately half update time is chosen based on the design of the firmware. The firmware is synchronised with \matlab by adding a delay in the main loop and not tricking on a counter. Therefore, the program runtime is fully stabil down to \SI{1}{\milli\second} precision. The firmware update between 91 ms to 96 ms which mean that the \matlab gets new data for every weather update. The mean update time for the firmware is therefore 92.3 ms based on 80 time measurement sample.  The negative shift of the firmware update doing the 55 weather update is then -38.8 ms which is less that 92.3 ms and therefore, no time shift is present by the lack of fully synchronization. But since the update sometimes is above \SI{92.9}{\milli\second} the warther updates sample to \matlab can be the same twice. This issue is only present in the first 5 samples, after thoes samples the lack in synchronisation does that 96 ms is an update before the software ask for weather data samples. 
+
+Based on the above explaination, the following weather data is present in the refraction measurement, where it shall be noted that within the first few sample, an repetition can occur. This repetition is considered as indifferent, since the first \SI{500}{\milli\second} is a starting silince period of the sine sweep and frequency below \SI{40}{\hertz} and, therefore, is removed from the data analysis. 
+
+\begin{itemize}
+\item The wind direction is updated for every weather sample.  
+\item The wind speed is updated for every second weather sample.
+\item The temperature and humidity is updated for every weather sample.
+\item The \matlab software ask in total for 55 weather samples doing one measurement. 
+\end{itemize}
+
+The data transfer is done through the serial bus vis \gls{usb} connection. The following \autoref{tp:com_snapshot} shows a snapshot of the serial bus delivered by the Arduino.
 
 
+\begin{figure}[H]
+\centering
+	  \captionsetup{width=0.57\linewidth}
+	  \footnotesize
+\begin{tabular}{llllll}
+Speed 1 & Direc 1 & Speed 2 & Direc 2 & Temp  & Hum   \\ \hline
+5.44    & 790     & 6.12    & 884     & 21.90 & 68.90 \\
+5.44    & 791     & 6.12    & 882     & 21.90 & 68.90 \\
+4.42    & 790     & 5.78    & 863     & 21.90 & 68.90 \\
+4.42    & 791     & 5.78    & 832     & 21.90 & 68.90 \\
+3.74    & 790     & 5.44    & 820     & 21.90 & 68.90 \\
+3.74    & 790     & 5.44    & 827     & 21.90 & 68.90 \\
+3.40    & 791     & 5.10    & 831     & 21.90 & 68.90 \\
+3.40    & 790     & 5.10    & 832     & 21.90 & 68.90
+\end{tabular}
+\caption{The figure shows a snapshot of the serial bus. The first vertical line, which is the left vertical data line is the wind speed of the first anemometer.  The second vertical line is the wind direction of the first anemometer. The third vertical line is the wind speed of the second anemometer.  The fourth vertical line is the wind direction of the second anemometer. The fifth vertical line is the temperature and the last vertical line is the humidity.}
+\label{tp:com_snapshot}
+\end{figure}%
 
-the software ask for data for every 93 ms
+
+The firmware is founded in \autoref{ap:wet_code}
 
 \subsection{Software}
+This section gives a short overview over the \matlab software used for the test. The overview do not include any code but only the method of measuring the impulse response and get synchronised data from the serial bus. 
 
+The impulse response is measured with sine sweep according to \citep{}. The method is to deconvolute the measured signal by the reference signal which produce the impulse response. In the measuring software, the deconvolution is done in frequency domain, because it speed up the calculation. both the measured signal and the reference signal is windowed by a hanning window. To exclude the influence of the sound card, the reference signal is played through one output channel and measured by one of the microphone input. It is assumed that the charasticistic of every output and input is equal. To be able to make calibrated impulse responses, the measured reference signal is related to the microphone input by the following \autoref{eq:relate}
 
+\begin{equation}\label{eq:relate}
+ref_{signal} = ref_{measured} \cdot    \frac{mic_{sens_{rms}}}{rms(ref_{measured})}
+\end{equation}
 
+After the reference signal is related to the measured signal, deconvelution is calculated by calculating the \gls{fft} for both signal, divide the measured signal by the reference signal and calculate the \gls{ifft}. The result is an impulse response where the amplitude correspond to a calibrated pascal value. By the impulse response both the octave \gls{spl} can be calculated and the frequency response. 
+
+The syncronisation between the measured frequency response signal and the weather information is done along the time measurement. The \matlab software comnucate with the sound card by transfering 4096 audio sample to the sound card and 4096 measured sample back the the \matlab software. After the 4096 sample is resived by the program one weather sample is readed from the serial bus. This procedure is is started over until the full sweep is measured. All weather information and sound information is stored intro an mat file after every measurement such that the analysis can be done offline.
+
+The measuring software is founded in  \autoref{ap:imp_res_meas_soft}
 
 
 \section{Measuring area}

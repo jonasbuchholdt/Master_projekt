@@ -8,6 +8,8 @@
 \definecolor{lightblue}{rgb}{0.0,0.3,0.7}
 \definecolor{orange}{rgb}{0.8,0.3,0.0}
 \definecolor{matlabstring}{rgb}{.627,.126,.941}
+\definecolor{arduinoBlue}{rgb}{0.01, 0.73, 0.75}
+\definecolor{arduinoGreen}{rgb}{0.17, 0.43, 0.01}
 
 
 %Hvordan XML kode skal se ud
@@ -54,10 +56,13 @@ morecomment=[s][\color{javadocblue}]{/**}{*/},
   language=C,
   showstringspaces=false,
   basicstyle=\footnotesize\ttfamily,
-  keywordstyle=\bfseries\color{green!40!black},
+  keywordstyle=\bfseries\color{arduinoBlue},
   commentstyle=\itshape\color{gray},
-  identifierstyle=\color{blue},
-  stringstyle=\color{orange},
+  identifierstyle=\color{black},
+  stringstyle=\color{arduinoBlue},
+  emph=[1]{Serial,begin,attachInterrupt,digitalPinToInterrupt,Timer1,initialize,attachInterrupt,Serial,print,DHT,analogRead,delay,millis},emphstyle=[1]\color{orange}, 
+emph=[2]{\#define,setup,loop,for,if,else},emphstyle=[2]\color{arduinoGreen}, 
+emph=[3]{true,false,INPUT,FALLING},emphstyle=[3]\color{arduinoBlue}, 
 }
 
 %Hvordan ASM kode skal se ud

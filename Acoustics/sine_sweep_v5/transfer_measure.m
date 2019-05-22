@@ -426,9 +426,9 @@ end
 
 for i=1:Nfc
         fullOctaveFilter = fullOctaveFilterBank{i};
-        l_eq_center(i) = 10*log10(((1/(sweepTime))*sum((fullOctaveFilter(ir_center).^2)))/(20*10^-6).^2);
-        l_eq_upwards(i) = 10*log10(((1/(sweepTime))*sum((fullOctaveFilter(ir_upwards).^2)))/(20*10^-6).^2);
-        l_eq_downwards(i) = 10*log10(((1/(sweepTime))*sum((fullOctaveFilter(ir_downwards).^2)))/(20*10^-6).^2);
+        l_eq_center(i) = 10*log10(((1/(1))*sum((fullOctaveFilter(ir_center).^2)))/(20*10^-6).^2);
+        l_eq_upwards(i) = 10*log10(((1/(1))*sum((fullOctaveFilter(ir_upwards).^2)))/(20*10^-6).^2);
+        l_eq_downwards(i) = 10*log10(((1/(1))*sum((fullOctaveFilter(ir_downwards).^2)))/(20*10^-6).^2);
 end
 
 b=1;

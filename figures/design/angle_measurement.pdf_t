@@ -12,7 +12,7 @@
 \begin{picture}(5907,3323)(-2354,481)
 \put(-651,648){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}?}%
 }}}}
-\put(-179,1829){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}50}%
+\put(-179,1829){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}\SI{50}{\degree}}%
 }}}}
 \put(1216,2279){\makebox(0,0)[lb]{\smash{{\SetFigFont{9}{9}{\rmdefault}{\mddefault}{\updefault}{\color[rgb]{0,0,0}Original speaker coverage}%
 }}}}

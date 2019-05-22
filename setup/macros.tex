@@ -310,7 +310,7 @@ hi-fi-forstærker%
 
 
 
-\def\startexplain{\setcounter{firstexplain}{1}{\noindent}{\par\noindent}\renewcommand{\arraystretch}{1}\begin{tabular}{@{}p{.06\columnwidth}p{.04\columnwidth}@{}p{.72\columnwidth}@{\hskip.04\columnwidth}p{.02\columnwidth}@{}}}%
+\def\startexplain{\setcounter{firstexplain}{1}{\noindent}{\par\noindent}\renewcommand{\arraystretch}{1}\begin{tabular}{@{}p{.06\columnwidth}p{.08\columnwidth}@{}p{.68\columnwidth}@{\hskip.04\columnwidth}p{.02\columnwidth}@{}}}%
 
 \def\stopexplain{\end{tabular}\\[10pt]}%
 
@@ -490,7 +490,8 @@ axis background/.style={fill=white},
 \newcommand{\dB}[1]{%
 	\SI{#1}{\decibel} \gls{spl}}%
 
-
+\newcommand{\dBs}[1]{%
+	\SI{#1}{\decibel}}%
 
 \newcommand{\db}[0]{%
 	\si{\decibel}

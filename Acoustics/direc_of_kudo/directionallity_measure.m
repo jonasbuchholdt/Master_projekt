@@ -82,25 +82,33 @@ ET250_3D('udp_stop')
 
 
 %%
-%load('KUDO_direc55_55.mat')
+clear
+down1 = 1;
+down2 = 1;
+down3 = 20;
+down4 = 50;
+load('KUDO_direc_25_25.mat')
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
 
-ir_result=data1000.ir(1:end/2);     
+ir_result=data3600.ir(1:end/2);     
 
 [tf,w] = freqz(ir_result,1,frequencyRange(2),fs);
 f_axis = w;
 result=20*log10(abs(tf/(20*10^-6)));
 
+f_axis = [downsample(f_axis(1:100),down1); downsample(f_axis(100+1:1000),down2); downsample(f_axis(1000+1:9978),down3); downsample(f_axis(9978+1:end),down4)];
+result_d = [downsample(result(1:100),down1); downsample(result(100+1:1000),down2); movmean(downsample(result(1000+1:9978),down3),3); movmean(downsample(result(9978+1:end),down4),7)];
 
+result_d = movmean(result_d,2);
 figure(2)
-semilogx(f_axis,result)
+semilogx(f_axis,result_d)
 hold on
 grid on
 grid minor
 axis([20 20000 40 120])
 xlabel('Frequency [Hz]')
 ylabel('Level [dB]')
-legend('mic1')
+
 
 
 %%

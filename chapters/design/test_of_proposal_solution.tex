@@ -1,58 +1,56 @@
 \section{Test of proposal solution}
-This section aims to design a test setup for testing the proposed solution. The test setup will be based on an L-acoustics KUDO line source array which is described in \autoref{sec:prop:des_of_lin} without any modification. This chapter designs the measuring method and the needed windscreen for wind measurement. To be able to design the measuring, the used line source array is briefly described in \autoref{sec:prop:des_of_lin}, then the measuring setup is designed in \autoref{sec:pro:test_setup} and in the end, the measuring method is designed in \autoref{sec:des:des_mes}.
+This chapter aims to design the measurement for the proposed solution. The measurement is based on an L-acoustics KUDO line source array, which is described as the first part of this chapter. Afterwards, the measuring setup for both crosswind and parallel wind is designed based on the used line source array and concert conditions. The second part of this chapter deals with the wind noise challenge in outdoor measurement. The end of this chapter design the measurement software and the needed sensors. 
 
 
 
 \section{Description of the used line source array}\label{sec:prop:des_of_lin}
 
-This section aims to explain the functionality for the line source array which is used to test the proposed solution. The description starts with a short introduction to the line source element, then the frequency response of the single element, the horizontal directionally control, and the vertical directionally control is explained.
+The description of the used line source array starts with an introduction to the line source element, where the frequency response of the single element is measured as well as the directional characteristics. In the end, the horizontal directionally control, and the vertical directionally control is explained.
 
-The line source elements which is used to test the proposed solution is an L-Acoustics KUDO line source array. This line source array is a legacy long throw variable curvature speaker. The speaker is designed as the second option in the K series which today is renewed and renamed to L-acoustics K2. The speaker can be flown as a vertical line with a maximum of 21 elements. The maximum number of an element is due to the safety limit on the flying tools. 
-One single element have a frequency response from \Hz{50} to \SI{18}{\kilo\hertz} with a maximum deviation of $\pm$ \dB{3} and have a maximum \gls{spl} of \dB{140} at \SI{1}{\meter}. The following \autoref{fig:td:kud_freq_res} shows the average frequency response over \SI{40}{\degree} horizontal angle of a single line source element.
+The line source elements which is used to test the proposed solution is an L-Acoustics KUDO line source array. This line source array is a legacy long throw variable curvature speaker. This speaker is today renewed and renamed to L-acoustics K2. The line source array can be flown as a vertical line with a maximum of 21 elements. The maximum number of an element is due to the safety limit on the flying tools. 
+One single element have a frequency response from \Hz{50} to \SI{18}{\kilo\hertz} with a approximatly deviation of $\pm$ \dB{3} and have a maximum \gls{spl} of \dB{140} at \SI{1}{\meter}. The following \autoref{fig:ap:kudo_freq_resp} shows a frequency response measurement of a single KUDO line source element in \SI{50}{\degree} horizontal angle. 
 
-\fig{kudo_frequency_response.pdf}{The graph shows the average frequency response over \SI{40}{\degree} horizontal angle of a single line source array at \SI{1}{\watt} \citep{KUDO_data}.}{fig:td:kud_freq_res}{1}
+\plot{plot/kudo_freq_resp}{The graph shows the frontal frequency response in \SI{50}{\degree} horizontal angle}{fig:ap:kudo_freq_resp}
 
-
-The horizontal coverage angle can be controlled individually on every line source element. The line source element allows both symmetric horizontal coverage and asymmetric coverage. The angle from the frontal direction to the outer main lobe \dB{-6} is either \SI{25}{\degree} or \SI{55}{\degree}. By this two angle for both sides, four coverage angle of the speaker is possible, \SI{110}{\degree}, \SI{50}{\degree} and \SI{80}{\degree} ether to the left or the right. The following the \autoref{fig:td:kud_cov} shows both the wide and narrow symmetric main lobe option of the L-acoustics KUDO. The asymmetric coverage can be founded in \citep{KUDO_data}
-
-\fig{kudo_coverage.pdf}{The graph shows the symmetric coverage area of the L-Acoustics KUDO line source array \citep{KUDO_data}.}{fig:td:kud_cov}{1}
-
-
-
-The mechanical coverage solution in the L-acoustics KUDO as well as other line source array element is not made for wind problems but for neighbouring disruptions and higher \gls{spl} in the main lobe of the high frequency. All solution used today is only possible to be changed by hand and is not electrically controlled. The method for changing the horizontal directivity in the L-acoustics KUDO line source element is two plexiglass plate fixed to the front grill. The fixing mechanism can be adjusted sidewise by realising two splits on both plexiglass plates. The plate can then be slid along the grill to change the mouth of the speaker output. The following \autoref{fig:td:kud_dir} illustrate the principle.
-
-\fig{kudo_directivity.pdf}{The figure shows how the horizontal directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_manual}.}{fig:td:kud_dir}{0.5}
-
-
-
-The line source array vertically coverage area can also be controlled from \SI{0}{\degree} to \SI{10}{\degree} with \SI{1}{\degree} step size. To be able to control the vertical main lobe of the line source array, the mechanical solution is the angle between the line source element. This means that the vertical coverage control cannot be controlled on the individual line source element as the horizontal coverage. To be able to control the vertical coverage, the speaker is trapeze designed such that the high frequency horn throat stays together while the angle between the elements is adjusted in the back of the element for every line source element. The following \autoref{fig:td:kud_dir_ver} shows how the line source element are angled vertically.
-
-\fig{vertical_coverage_adjust.pdf}{The figure shows how the vertical directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_rig}.}{fig:td:kud_dir_ver}{0.5}
-
-To be able to fix the vertical coverage on the L-acoustics KUDO, the upper left rigging pin shall only be placed into the line source element rig when the angle shown on the metal pease shows the desired vertical coverage between two line source element.  
-
-
-\section{Measuring setup}\label{sec:pro:test_setup}
-This section aims to design the speaker setup such that the proposed solution can be tested without mechanical change of the line source array. The test setup, therefore, do not change the speaker directionality adaptive but mechanical by hands before every measurement. The amount of available line source array for the test is limited to six line source element and four belonging low frequency driver. The following \autoref{fig:td:tes_set} shows the measuring setup which is used for both measurement.
-
-\xfig{design/test_setup.pdf_t}{The figure shows test setup for both beasurement}{fig:td:tes_set}{1}
-
-Based on the founded maximum distances from the front of the stage to the delay tower, the line source array is rotated vertically as shown in \autoref{fig:td:tes_set}, such that the two upper line source element covers the measurement area without wind. The following two section \autoref{sub:des:par_set} and \autoref{sub:des:cros_set} describe the line source settings which differs from each other with respect to the rotational procedure. 
-
-
-\subsection{Crosswind line array settings} \label{sub:des:cros_set}
-To test the crosswind proposal solution, the idea is to measure the \gls{spl} coverage while playing in the frontal direction and then measure the \gls{spl} while the line source array is horizontally rotated in the wind direction. To be able to ensure that the horizontal rotation of the line source array keeps the \gls{spl} in the downwards refraction direction as much as possible, this section starts designing the directional angle settings of the line source array. It is founded in \autoref{sec:ana:atm_ref} that downwards refraction raises the \gls{spl} by downwards reflection but the amplification is much less than the attenuation in upwards refraction and is therefore assumed negligible for directionally chose. Therefore, to decide on the horizontal directionally settings the pressure versus angle has to be found for the used line source array. The \dB{-6} directionally is already known from the datasheet, but this detail level is not high enough to decide on any prediction of the attenuation in the downwards refraction direction. Therefore a directionality measurement is made on the used line source array for all possible horizontal directionality settings. The measurement can be founded in \autoref{ap:dir_of_kudo} and the \autoref{fig:ap:KUDO_25_25_des} shows the resulting directionality of the L-acoustics KUDO with the \SI{25}{\degree} / \SI{25}{\degree} settings 
+This measurement in \autoref{fig:ap:kudo_freq_resp} is done in the anechoic chamber at Aalborg University as well as the following measurement in this section. The measurement is explained in \autoref{ap:dir_of_kudo}. The horizontal coverage angle of the L-Acoustics KUDO can be controlled individually on every line source element. The line source element allows both symmetric horizontal coverage and asymmetric coverage. The angle from the frontal direction to the outer main lobe \dB{-6} is either \SI{25}{\degree} or \SI{55}{\degree}. By this two angle for both sides, four coverage angle of the speaker is possible, \SI{110}{\degree}, \SI{50}{\degree} and \SI{80}{\degree} ether to the left or the right. To obtain a better resolution that only the \dB{-6} the directionality characteristics is measured in all settings. The measurement can be founded in \autoref{ap:dir_of_kudo} . The interesting settings while rotating the line source array is \SI{25}{\degree} / \SI{25}{\degree} and \SI{25}{\degree} / \SI{55}{\degree} which is shown in \autoref{fig:ap:KUDO_25_25_des} and \autoref{fig:ap:KUDO_25_55_des} respectivly.
 
 \plot{plot/KUDO_25_25_isobar_design}{The graph shows a contour plot with \dB{3} step of the directionally of the L-acoustics KUDO with \SI{25}{\degree} / \SI{25}{\degree} settings. The lower black contour line indicate the \db directionality for the maximum rotation of the speaker}{fig:ap:KUDO_25_25_des}
 
-The following \autoref{fig:ap:KUDO_25_55_des} shows the resulting directionality of the L-acoustics KUDO with the \SI{25}{\degree} / \SI{55}{\degree} settings 
-
 \plot{plot/KUDO_25_55_isobar_design}{The graph shows a contour plot with \dB{3} step of the directionally of the L-acoustics KUDO with \SI{25}{\degree} / \SI{55}{\degree} settings. The lower black contour line indicate the \db directionality for the maximum rotation of the speaker}{fig:ap:KUDO_25_55_des}
 
-As seen in \autoref{fig:ap:KUDO_25_25_des}, when the speaker is rotated \SI{25}{\degree} as the maximum allowed rotation in the proposal solution the \gls{spl} in the downwards direction is lowered from approximately \dB{-6} to approximately \dB{-18} which is an attenuation of \dB{12}. This \dB{12} attenuation might attenuate the \gls{spl} in the downwards refration too much. As seen in \autoref{fig:ap:KUDO_25_55_des}, when the speaker is rotated \SI{25}{\degree} the attenuation \gls{spl} in the downwards direction is lowered from approximately \dB{-6} to approximately \dB{-12} which is an attenuation of \dB{6}. To decide on a mechanical solution an example is calculated based on the measurement above and the measurement in \autoref{sec:ana:atm_ref}. The example is based on an rotation of \SI{20}{\degree}, where the rotational power from a rotation of the L-acoustics KUDO is added to the measurement. The following explains and shows the example.
+The mechanical directional characteristics solution in the L-acoustics KUDO as well as other line source array element is not made for wind challenge but for neighbouring disruptions and higher \gls{spl} in the main lobe of the high frequency. All solution used today is only possible to be changed by hand and is not electrically controlled. The method for changing the horizontal directivity in the L-Acoustics KUDO line source element is two plexiglass plate fixed to the front grill. The fixing mechanism can be adjusted sidewise by realising two splits on both plexiglass plates. The plate can then be slid along the grill to change the mouth of the speaker output. The following \autoref{fig:td:kud_dir} illustrate the principle.
+
+\fig{kudo_directivity.pdf}{The figure shows how the horizontal directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_manual}.}{fig:td:kud_dir}{0.6}
+While the plexiglass plates are in \SI{55}{\degree} mode as shown in \autoref{fig:td:kud_dir}, the wider directionallity is obtained by soundwave reflection on the plexiglass plate.
+
+The line source array vertically coverage area can be controlled from \SI{0}{\degree} to \SI{10}{\degree} with \SI{1}{\degree} step size. To be able to control the vertical main lobe of the line source array, the mechanical solution is the angle between the line source element. This means that the vertical coverage control cannot be controlled on the individual line source element as the horizontal coverage. To be able to control the vertical coverage, the speaker is trapeze designed such that the high frequency horn throat stays together while the angle between the elements is adjusted in the back of the element. The following \autoref{fig:td:kud_dir_ver} shows how the line source element are angled vertically.
+
+\fig{vertical_coverage_adjust.pdf}{The figure shows how the vertical directivity is controlled on a L-Acoustics KUDO line source array element \citep{KUDO_rig}.}{fig:td:kud_dir_ver}{0.5}
+
+To be able to fix the vertical coverage on the L-acoustics KUDO, the upper left rigging pin shall only be placed into the line source element rig when the angle shown on the metal pease shows the desired vertical coverage angle between two line source element.  
 
 
-\paragraph{Example} The example shows four cases from the line array, one case where the data from the datasheet is used, one case where the measurement in \autoref{sec:ana:atm_ref} is used. Then two examples where the differences in \gls{spl} is calculated from an rotation of \SI{20}{\degree} for \SI{25}{\degree} / \SI{55}{\degree} settings and a rotation of  \SI{10}{\degree} for \SI{25}{\degree} / \SI{25}{\degree} settings and added to the measurement. The following \autoref{fig:td:mail_lobe_cor} shows the example.
+\section{Designing the measurement}\label{sec:des:des_mes}
+This section aims to design a measurement based on the proposed solution \autoref{sec:td:pro_sol_pro} and the properties of the used line source array founded in the previous section. The first part of this section gives a general overwrite of the measuring setup. Afterwards, the independent measurement structure is designed for the crosswind and the parallel wind, respectively.
+
+
+\subsection{General measuring setup}\label{sec:pro:test_setup}
+The line source measurement setup is designed such that the proposed solution can be tested without mechanical change of the line source array. The test setup, therefore, do not change the speaker directionality along with the measurement. Furthermore, the amount of available line source array for the measurement is limited to six line source element. The following \autoref{fig:td:tes_set} shows the line source speaker setup and start vertical angling for both the crosswind and side wind measurement. 
+
+\xfig{design/test_setup.pdf_t}{The figure shows test setup for both beasurement}{fig:td:tes_set}{1}
+
+
+\subsection{Crosswind line array settings} \label{sub:des:cros_set}
+The idea is to measure the \gls{spl} coverage while playing in the frontal direction, and then measure the \gls{spl} coverage while the line source array is rotated against the wind. The search is then for the least \gls{spl} differences in the coverage area. To be able to ensure that the rotation of the line source array keeps the \gls{spl} in the downwards refraction direction as much as possible, this section designs the directional characteristics settings of the line source array doing the crosswind measurement.
+
+It is founded in \autoref{sec:ana:atm_ref} that downwards refraction raises the \gls{spl} by downwards reflection but the amplification is much less than the attenuation in upwards refraction and is therefore assumed negligible for directionally chose. Therefore, to decide on the horizontal directionally settings is compared in different settings. The comparison uses the founded characteristics directionally of the line source array in \autoref{sec:prop:des_of_lin} and the crosswind measurement in \autoref{sec:ana:atm_ref}
+
+As seen in \autoref{fig:ap:KUDO_25_25_des}, when the speaker is rotated \SI{25}{\degree} up against the wind, which is the rotation where the maximum \gls{spl} is pointed into the outer \dB{-6} coverage angle of the line source array, the downwards direction is lowered from approximately \dB{-6} to approximately \dB{-18}. This rotation occurs an attenuation of \dB{12}, which might be too high. While comparing with \autoref{fig:ap:KUDO_25_55_des} instead, the line source array rotation of \SI{25}{\degree} only attenuation the \gls{spl} in the downwards direction with \dB{6}. 
+
+To decide on a mechanical solution an example is calculated based on the directionality measurement in \autoref{sec:prop:des_of_lin} and the crosswind measurement in \autoref{sec:ana:atm_ref}. The example is based on the optimal rotation for both directionality characteristics, where the difference between the upwards side and the downwards side is smallest. The following paragraph explains and shows the example.
+
+
+\paragraph{Example} The example shows four cases of the L-Acoustics KUDO line source array. One case where the data from the datasheet is used, one case where the measurement in \autoref{sec:ana:atm_ref} is used. Then two examples where the differences in \gls{spl} is calculated from an rotation of \SI{20}{\degree} for \SI{25}{\degree} / \SI{55}{\degree} settings and a rotation of  \SI{10}{\degree} for \SI{25}{\degree} / \SI{25}{\degree} settings and added to the measurement. The following \autoref{fig:td:mail_lobe_cor} shows the example.
 
 
 \xfig{design/main_lobe_correction.pdf_t}{The figure shows the main lobe coverage area without rotation for the to lower and with maximum rotation for the to upper}{fig:td:mail_lobe_cor}{1}
@@ -77,8 +75,7 @@ For parallel wind, the idea is to have horizontal symmetric coverage while chang
 The \autoref{fig:td:vertical_coverage} illustrate that the wind makes refraction of sound upwards and therefore the main lobe is curved upwards.
 
 
-\section{Designing the measurement}\label{sec:des:des_mes}
-This section aims to design a test on the non-modified line source array to test the proposed solution from \autoref{sec:td:pro_sol_pro}. To be able to test the proposed solution, a measurement system has to be designed. To be sure that the wind noise does not affect the measurement the part of the design takes care about finding the preferable microphone windscreen configuration, based on the available STOF in acoustics lab. The second part measure the frequency dependent attenuation of the chosen windscreen compare to the microphone response without a windscreen. The comparison is done to count for the attenuation of the windscreen such that the measured data reflect the \gls{spl} at the point as pleasant as possible. The third part takes care of designing the necessary data logging function. The last part designs the measuring signal playback and record method.
+
 
 \subsection{Microphone position at crosswind}
 This section aims to design the position of the measuring microphone. The position of the microphone depends on the wind condition, for the crosswind the microphone be placed in the sound field were for the parallel wind, the microphone shall be placed in the shadow zone. The description starts with the former.
@@ -98,17 +95,47 @@ Since the measuring distance is chosen to be \SI{50}{\meter} the angel of the sp
 \subsection{Microphone position at parallel wind}
 The microphone position of the vertical refraction measurement depends on the shadow zone position, and it is wanted to measure in the shadow zone to explore if it is possible to move the shadow zone backwards by tilting the line array. The following \autoref{fig:td:ang_mea_ver} illustrate the two measuring cases, which is needed to be measured to conclude on the idea. 
 
-\xfig{design/angle_measurement_vertical.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea_ver}{1} 
+%\xfig{design/angle_measurement_vertical.pdf_t}{The figure shows the measurement setup}{fig:td:ang_mea_ver}{1} 
 
 As seen in \autoref{fig:td:ang_mea_ver} one measurement is where the microphone is within the refracted main lobe of the line source array and one is outside the main lobe of the line source array. To be able to test this senario, two measuring cases is designed, one where the main lobe of the line array is angled such that it propagate directly intro the ground in front of all microphone. This measuring case is shown in \autoref{fig:td:parallal_n7}. 
 
-\xfig{design/parallal_n7.pdf_t}{The figure shows the measurement setup while the line source array is tilted \SI{7}{\degree} forward}{fig:td:parallal_n7}{1} 
+\xfig{design/parallal_n7.pdf_t}{The figure shows the measurement setup while the line source array is tilted \SI{7}{\degree} forward}{fig:td:parallal_n7}{0.9} 
 
 As seen in \autoref{fig:td:parallal_n7} the main lobe of the line source array is assumed to be near-field which is only hold for high frequencies. At a distances of \SI{40}{\meter} this illustration covers frequencies above \Hz{6000}, frequencies below will will be wider as the frequency drop \autoref{sec:ana:geo_spr_los}. But anyway, the highest power of the line source array lays within the center of the main lobe in the frequency of interest due to the directionality charastics of the line source array. In this case the microphone should be without the main lobe while no wind refraction effect the sound, but as the wave is refracted, the microphone is within the main lobe. To make a compainson test case while upwards refraction is present, a test case is designed where the microphone is within the main lobe of the line source array. The following \autoref{fig:td:parallal_n3} illustrate the test case.
 
-\xfig{design/parallal_n3.pdf_t}{The figure shows the measurement setup while the line source array is tilted \SI{3}{\degree} forward}{fig:td:parallal_n3}{1} 
+\xfig{design/parallal_n3.pdf_t}{The figure shows the measurement setup while the line source array is tilted \SI{3}{\degree} forward}{fig:td:parallal_n3}{0.9} 
 
 In the test case shown in \autoref{fig:td:parallal_n3} more \gls{spl} is delivered to the microphone compare to the test case in  \autoref{fig:td:parallal_n7}. while no wind is present the case in \autoref{fig:td:parallal_n3} delivers the highest \gls{spl} to the center microphone microphone and the back microphone, since they are within or at the border of the main lobe. While upwards refraction is present, the proposal solution in \autoref{sec:des:pro_para} sedjest that the refraction refract the sound wave such the \gls{spl} distribution is vise versa. The upwards refraction refract the sound wave in \autoref{fig:td:parallal_n7} above the microphone and the refraction of the soundwave in \autoref{fig:td:parallal_n3} refract the soundwave to the microphone. In this test case the microphone is situated on the ground such that the microphone is as deep in the shadow zone as possible. In other words, as shown in \autoref{fig:td:eddies}, while the microphone is positionede in the same distance from the line source array, while the microphone is on the ground compare to lifted above the ground, the shadow zone is most present at the ground. If more \gls{spl} is present in the \autoref{fig:td:parallal_n7} compare to \autoref{fig:td:parallal_n3} the shadow zone distance might be able to be optimised.
+
+\section{Rotation of the line source array}
+The aim of this section is to design the turning method for the line source array and ensure that the speaker point in the desired angle. A mechanical solution is chosen for both rotation of the line source array and measuring the rotational angle of the line source array. The mechanical solution to rotate the line source array is a long piece of truss connected to the back of the flying tools of the line source array. By this mechanical solution, a person is able to move the other end of truss and stabilise the angle by placed the end of the truss on the ground. Moreover to ensure that the rotation is dome with a specified angle, two laser pointer is attached beneth the line source array. One in the vertical rotation angle and one behind. The one on the rotational axis is then the reference to the back laser pointer. The following \autoref{} illustrate the solution.
+
+\xfig{design/rotation_and_angling.pdf_t}{The figure shows the rotational mechanic where the blue dashed line illustrate the vertical rotational axis.}{fig:td:rotation_and_angling}{1}  
+
+In \autoref{fig:td:rotation_and_angling} the reader shall imagine by moving the ground position of the rotational truss towards the reader of away from the reader, the line source array is rotated. The laser pointer holder and plate for measuring the angel is shown in the following two \autoref{fig:td:mes_ang_plate} and \autoref{fig:td:mes_las_hol}.
+
+
+\begin{figure}[H]
+    \centering
+     \captionsetup{width=1\linewidth}
+    \begin{minipage}{0.36\textwidth}
+        \centering
+         \captionsetup{width=0.90\linewidth}
+       \input{figures/design/measuring_angle_plate.pdf_t}
+        \caption{The figure shows the angle plate.}
+        \label{fig:td:mes_ang_plate}
+    \end{minipage}%
+    \begin{minipage}{0.56\textwidth}
+        \centering
+         \captionsetup{width=0.90\linewidth}
+        \input{figures/design/laser_holder.pdf_t}
+        \caption{The figure shows the laser holder.}
+        \label{fig:td:mes_las_hol}
+    \end{minipage}
+\end{figure}
+
+
+The reference laser pointer is guided intro hole 1 in \autoref{fig:td:mes_las_hol} which is at the rotational axis while the line source array is tilted \SI{3}{\degree}. The back laser is guided into hole 10 such that the highest distance between the laser is achieved. The measuring angle plate is then placed on the ground with the reference laser pointing at the center and the back laser pointing at the \SI{0}{\degree} angle while the line source points directly forward. 
 
 
 
@@ -119,7 +146,7 @@ The idea of an additional wind screen is use the original windscreen to the micr
 
 %There is to wind stopping concept that will be tested, a plan surface of rockwool as shown in \autoref{} and a foam wedge solution as shown in \autoref{}
     
-    
+    %To be sure that the wind noise does not affect the measurement the part of the design takes care about finding the preferable microphone windscreen configuration, based on the available equpment in acoustics lab. The second part measure the frequency dependent attenuation of the chosen windscreen compare to the microphone response without a windscreen. The comparison is done to count for the attenuation of the windscreen such that the measured data reflect the \gls{spl} at the point as pleasant as possible. 
 
 
 \subsection{Final windscreen solution}
@@ -156,51 +183,23 @@ As seen in \autoref{fig:dt:windnoise_compare}, the windscreen have generally a \
 
 
 
-
-\section{Rotation of the line source array}
-The aim of this section is to design the turning method for the line source array and ensure that the speaker point in the desired angle. A mechanical solution is chosen for both rotation of the line source array and measuring the rotational angle of the line source array. The mechanical solution to rotate the line source array is a long piece of truss connected to the back of the flying tools of the line source array. By this mechanical solution, a person is able to move the other end of truss and stabilise the angle by placed the end of the truss on the ground. Moreover to ensure that the rotation is dome with a specified angle, two laser pointer is attached beneth the line source array. One in the vertical rotation angle and one behind. The one on the rotational axis is then the reference to the back laser pointer. The following \autoref{} illustrate the solution.
-
-\xfig{design/rotation_and_angling.pdf_t}{The figure shows the rotational mechanic where the blue dashed line illustrate the vertical rotational axis.}{fig:td:rotation_and_angling}{1}  
-
-In \autoref{fig:td:rotation_and_angling} the reader shall imagine by moving the ground position of the rotational truss towards the reader of away from the reader, the line source array is rotated. The laser pointer holder and plate for measuring the angel is shown in the following two \autoref{fig:td:mes_ang_plate} and \autoref{fig:td:mes_las_hol}.
-
-
-\begin{figure}[H]
-    \centering
-     \captionsetup{width=1\linewidth}
-    \begin{minipage}{0.36\textwidth}
-        \centering
-         \captionsetup{width=0.90\linewidth}
-       \input{figures/design/measuring_angle_plate.pdf_t}
-        \caption{The figure shows the angle plate.}
-        \label{fig:td:mes_ang_plate}
-    \end{minipage}%
-    \begin{minipage}{0.56\textwidth}
-        \centering
-         \captionsetup{width=0.90\linewidth}
-        \input{figures/design/laser_holder.pdf_t}
-        \caption{The figure shows the laser holder.}
-        \label{fig:td:mes_las_hol}
-    \end{minipage}
-\end{figure}
-
-
-The reference laser pointer is guided intro hole 1 in \autoref{fig:td:mes_las_hol} which is at the rotational axis while the line source array is tilted \SI{3}{\degree}. The back laser is guided into hole 10 such that the highest distance between the laser is achieved. The measuring angle plate is then placed on the ground with the reference laser pointing at the center and the back laser pointing at the \SI{0}{\degree} angle while the line source points directly forward. 
-
-
-
-
 \section{Data logging system} 
 This section aims to explain the measuring tools doing the designed measuring. To be able to measure the weather condition hardware have to be chosen and designed. To be able to transfer data from the hardware to the measuring software, a small microprpcessor is programed to read sensor data end transfer the data to the measuring software. This part then first explain the desided and designed hardware. Then is explain the weather measuring firmware for the microprocessor. Then it explain the measuring software. 
 
 \subsection{Software}
 This section gives a short overview over the \matlab software used for the test. The overview do not include any code but only the method of measuring the impulse response and get synchronised data from the serial bus. 
 
-The impulse response is measured with sine sweep according to \citep{}. The method is to deconvolute the measured signal by the reference signal which produce the impulse response. In the measuring software, the deconvolution is done in frequency domain, because it speed up the calculation. both the measured signal and the reference signal is windowed by a hanning window. To exclude the influence of the sound card, the reference signal is played through one output channel and measured by one of the microphone input. It is assumed that the charasticistic of every output and input is equal. To be able to make calibrated impulse responses, the measured reference signal is related to the microphone input by the following \autoref{eq:relate}
+The impulse response is measured with sine sweep according to \citep{mller2001transfer}. The method is to deconvolute the measured signal by the reference signal which produce the impulse response. In the measuring software, the deconvolution is done in frequency domain, because it speed up the calculation. both the measured signal and the reference signal is windowed by a hanning window. To exclude the influence of the sound card, the reference signal is played through one output channel and measured by one of the microphone input. It is assumed that the charasticistic of every output and input is equal. To be able to make calibrated impulse responses, the measured reference signal is related to the microphone input by the following \autoref{eq:relate}
 
 \begin{equation}\label{eq:relate}
-ref_{signal} = ref_{measured} \cdot    \frac{mic_{sens_{rms}}}{rms(ref_{measured})}
+\text{ref}_{s} = \text{ref}_{m} \cdot    \frac{\text{mic}_{sen}}{rms(\text{ref}_{m})}
 \end{equation}
+
+\startexplain
+\explain{\text{ref}_{s}}{is the calibrated reference signal}{1}
+\explain{\text{ref}_{m}}{is the measured reference signal}{1}
+\explain{\text{mic}_{sen}}{is the rms sensitivity of the microphone in digital number at one pascal rms}{1}
+\stopexplain
 
 After the reference signal is related to the measured signal, deconvelution is calculated by calculating the \gls{fft} for both signal, divide the measured signal by the reference signal and calculate the \gls{ifft}. The result is an impulse response where the amplitude correspond to a calibrated pascal value. By the impulse response both the octave \gls{spl} can be calculated and the frequency response. 
 

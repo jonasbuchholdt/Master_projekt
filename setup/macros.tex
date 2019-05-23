@@ -480,12 +480,10 @@ axis background/.style={fill=white},
 % Bruges til at skrive hexidecimal og binære tal.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \newcommand{\hex}[1]{%
-	\texttt{#1$_{16}$}
-}%
+	\texttt{#1$_{16}$}}%
 
 \newcommand{\bin}[1]{%
-	\texttt{#1$_{2}$}
-}%
+	\texttt{#1$_{2}$}}%
 
 \newcommand{\dB}[1]{%
 	\SI{#1}{\decibel} \gls{spl}}%
@@ -494,12 +492,13 @@ axis background/.style={fill=white},
 	\SI{#1}{\decibel}}%
 
 \newcommand{\db}[0]{%
-	\si{\decibel}
-}%
+	\si{\decibel}}%
+
+\newcommand{\hz}[0]{%
+	\si{\hertz}}%
 
 \newcommand{\octave}[1]{%
-	${\scriptsize \sfrac{1}{#1}}$ octave
-}%
+	${\scriptsize \sfrac{1}{#1}}$ octave}%
 
 %\newcommand{\Hz}[1]{%
 %	\SI{#1}{\hertz}

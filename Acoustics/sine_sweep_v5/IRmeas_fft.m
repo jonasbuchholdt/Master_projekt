@@ -67,7 +67,7 @@ tic
                           [audioRecorded,nUnderruns,nOverruns] = aPR(audioToPlay);
                           out = [out; audioRecorded];
                           dat=strsplit(fscanf(s),'\t'); 
-                          data = [data; dat];
+                          data = [data; dat];                          
                           if nUnderruns > 0
                               fprintf('Audio player queue was underrun by %d samples.\n',nUnderruns);                                
                                 res = 1;

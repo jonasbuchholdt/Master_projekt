@@ -5,7 +5,7 @@
 %where you can also make suggestions and rate matlab2tikz.
 
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 width=120mm, 
@@ -19,7 +19,7 @@ major grid style={line width=.2pt,draw=gray!50},
 xminorticks=true,
 yminorticks=true,
 ytick distance=10,
-minor tick num=4,
+minor tick num=1,
 axis x line*=bottom,
 axis y line*=left,
 axis background/.style={fill=white},
@@ -27,11 +27,11 @@ xmin=2,
 xmax=20000,
 xminorticks=true,
 xlabel style={font=\color{white!15!black}},
-xlabel={Frequency [Hz]},
+xlabel={Frequency [\hz]},
 ymin=0,
 ymax=100,
 ylabel style={font=\color{white!15!black}},
-ylabel={Level [dB]},
+ylabel={Level [\db]},
 legend style={legend cell align=left, align=left, draw=white!15!black}
 ]
 \addplot [color=mycolor1, forget plot]
@@ -5803,7 +5803,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 22025.1109730114	-39.3350318930296\\
 22039.0935724432	-36.943986730255\\
 };
-\addlegendentry{Designed windscreen, ear height, windspeed 8.43}
+\addlegendentry{Designed windscreen, ear height, windspeed \SI{8.43}{\meter\per\second}}
 
 \addplot [color=mycolor2, forget plot]
   table[row sep=crcr]{%
@@ -11574,7 +11574,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 22025.1109730114	-36.1084072220194\\
 22039.0935724432	-39.5567224201911\\
 };
-\addlegendentry{Designed windscreen, on ground, windspeed 8.68}
+\addlegendentry{Designed windscreen, on ground, windspeed \SI{8.68}{\meter\per\second}}
 
 \end{axis}
 

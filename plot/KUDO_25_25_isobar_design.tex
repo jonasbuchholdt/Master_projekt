@@ -4,7 +4,7 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 
 
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 width=100mm, 
@@ -25,13 +25,13 @@ xmin=40,
 xmax=20000,
 xminorticks=true,
 xlabel style={font=\color{white!15!black}},
-xlabel={Frequency [Hz]},
+xlabel={Frequency [\hz]},
 ymin=80,
 ymax=280,
 ytick={5,30,55,80,105,130,155,180,205,230,255,280,305,330,355},
 yticklabels={{-175},{-150},{-125},{-100},{-75},{-50},{-25},{0},{25},{50},{75},{100},{125},{150},{175}},
 ylabel style={font=\color{white!15!black}},
-ylabel={Angle [Deg]},
+ylabel={Angle [\si{\degree}]},
 ztick = {0,-3,-6,-9,-12,-15,-18,-21},
 axis background/.style={fill=white},
 legend style={legend cell align=left, align=left, draw=white!15!black},
@@ -39,7 +39,7 @@ colorbar,
 colormap={mymap}{[1pt] rgb(0pt)=(0,0,1); rgb(1pt)=(0,0.5,1); rgb(2pt)=(0,1,1); rgb(3pt)=(0,1,0); rgb(4pt)=(1,1,0); rgb(5pt)=(1,0.5,0); rgb(6pt)=(1,0,0)},
 colormap access=piecewise constant,
 colorbar right,
-colorbar style={ytick={0,-3,-6,-9,-12,-15,-18,-21}, ylabel style={font=\color{white!15!black}}, ylabel={Deviation [dB]}}
+colorbar style={ytick={0,-3,-6,-9,-12,-15,-18,-21}, ylabel style={font=\color{white!15!black}}, ylabel={Deviation [\db]}}
 ]
 %
 

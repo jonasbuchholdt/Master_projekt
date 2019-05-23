@@ -8,7 +8,7 @@
 %\definecolor{mycolor2}{rgb}{0.85000,0.32500,0.09800}%
 %\definecolor{mycolor3}{rgb}{0.92900,0.69400,0.12500}%
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 width=120mm, 
@@ -30,11 +30,11 @@ xmin=50,
 xmax=20000,
 xminorticks=true,
 xlabel style={font=\color{white!15!black}},
-xlabel={Frequency [Hz]},
+xlabel={Frequency [\hz]},
 ymin=20,
 ymax=90,
 ylabel style={font=\color{white!15!black}},
-ylabel={Level [dB]},
+ylabel={Level [\db]},
 legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align=left, draw=white!15!black}
 ]
 \addplot [color=mycolor1]
@@ -3773,7 +3773,7 @@ legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align
 \addlegendentry{center}
 
 \node[right, align=left]
-at (axis cs:250,87) {windspeed: 2.8908, winddirection: 105.0298};
+at (axis cs:250,87) {windspeed: \SI{2.8908}{\meter\per\second}, winddirection: \SI{105.0298}{\degree}};
 \end{axis}
 
 \end{tikzpicture}%

@@ -39,7 +39,7 @@ The line source measurement setup is designed such that the proposed solution ca
 
 \xfig{design/test_setup.pdf_t}{The figure shows test setup for both beasurement}{fig:td:tes_set}{1}
 
-The vertical angle between the line source elements is \SI{0}{\degree} between all element for both the crosswind and parallel wind.
+The vertical angle between the line source elements is \SI{0}{\degree} between all element for both the crosswind and parallel wind.  
 
 \subsection{Crosswind line array settings} \label{sub:des:cros_set}
 The idea is to measure the \gls{spl} coverage while playing in the frontal direction, and then measure the \gls{spl} coverage while the line source array is rotated against the wind. The search is then for the least \gls{spl} differences in the coverage area. To be able to ensure that the rotation of the line source array keeps the \gls{spl} in the downwards refraction direction as much as possible, this section designs the directional characteristics settings of the line source array doing the crosswind measurement.
@@ -94,6 +94,12 @@ As seen in \autoref{fig:td:parallal_n7}, the main lobe of the line source array 
 \xfig{design/parallal_n3.pdf_t}{The figure shows the measurement setup while the line source array is tilted \SI{3}{\degree} forward}{fig:td:parallal_n3}{0.9} 
 
 In the test case shown in \autoref{fig:td:parallal_n3} more \gls{spl} is delivered to the centre and back microphone compare to the test case in  \autoref{fig:td:parallal_n7} while no refraction is present. While upwards refraction is present, the proposed solution in \autoref{sec:des:pro_para} indicate that the refraction refracts the sound wave such as the \gls{spl} distribution is vice versa. The upwards refraction refract the sound wave in \autoref{fig:td:parallal_n7} above the microphone and the refraction of the soundwave in \autoref{fig:td:parallal_n3} refract the soundwave to the microphone. In this test case, the microphone is situated on the ground such that the microphone is as deep in the shadow zone as possible. In other words, as shown in \autoref{fig:td:eddies}, while the microphone is positioned in the same distance from the line source array, while the microphone is on the ground compare to lifted above the ground, the shadow zone is most present at the ground. If more \gls{spl} is present in the \autoref{fig:td:parallal_n7} compare to \autoref{fig:td:parallal_n3} the shadow zone distance might be able to be optimised.
+
+\subsection{Sensors and its position}
+Doing the measurement, the temperature, the humidity and the wind direction and speed is measured. All measurement is done syncronised along with the impulse response measurement. The wind is measured into position since the wind condition is dynamic concerning the area. The wind measurement is done close to the speaker and at the centre microphone both in the crosswind measurement and in the parallel wind measurement. The temperature and humidity are only measured in one position near the line source array since the temperature and humidity are assumed to stable and identical at the measuring area. 
+
+Before the measuring system is built, the wind direction is measured to ensure a perfect angle of the speaker. To decide to set up the angle of the measuring system, the wind is measured visually by the directional fan on the anemometer. After the measuring system is built, the anemometer is positioned such that the output angle is ether \SI{90}{\degree} or \SI{270}{\degree}. A headroom of \SI{90}{\degree} before the anemometer goes to ether \SI{0}{\degree} or \SI{359}{\degree}. The reason to have the headroom is that the cross point between \SI{0}{\degree} and \SI{359}{\degree} is a cross point of the measuring potentiometer where it jumps from maximum value to minimum value. The anemometer is further explained in \autoref{des:sensor_mic}
+
 
 \subsection{Rotation of the line source array}
 This section aims to design the turning method for the line source array and ensure that the speaker point in the desired angle. A mechanical solution is chosen for both rotation of the line source array and measuring the rotational angle of the line source array. The mechanical solution to rotate the line source array with a long piece of truss connected to the back of the flying tools of the line source array. By this method, a person can move the other end of truss and stabilise the angle by placing the end of the truss on the ground. Moreover, to ensure that the rotation is as at the specified angle, two laser pointer is attached beneath the line source array — one in the vertical rotation axis and one behind the vertical rotational axis. The one on the vertical rotational axis is then the reference to the back laser pointer. The laser points onto a plate where a rotational angle is given. The following \autoref{fig:td:rotation_and_angling} illustrate the solution.
@@ -194,8 +200,8 @@ After the reference signal is related to the measured signal, deconvolution is c
 The measuring software is founded in  \autoref{ap:imp_res_meas_soft}
 
 
-\subsection{Sensor and microprocessor}
-The microprocessor for weather measurement is based on an Arduino UNO. The chose of an Arduino is made because code both the temperature and humidity sensor and the used anemometer is available on the internet.  
+\subsection{Sensor and microprocessor}\label{des:sensor_mic}
+The microprocessor for weather measurement is based on an Arduino UNO. The chose of an Arduino is made because code for both the temperature and humidity sensor and the used anemometer is available on the internet.  
 
 The chosen temperature and humidity sensor are an AM2302 because it is available as a component at Aalborg University and it covers relative humidity from \SI{0}{\percent} to \SI{100}{\percent} and a temperature range from \SI{-40}{\celsius} to \SI{80}{\celsius} which is more than enough of the measurement. The data sheet of the sensor is founded in \citep{temp_sens}.
 
@@ -255,16 +261,13 @@ The firmware is founded in \autoref{ap:wet_code}
 
 \subsection{Hardware}
 
+To be able to connect both the two anemometers and the temperature and humidity sensor to the Arduino UNO an Arduino shield is designed. The shield is designed such that is can be plugged directly onto the Arduino. The following \autoref{fig:td:ard_shield} shows the schematic of the shield and the \gls{pcb}
 
 
-
-To be able to connect both two sensors and two anemometer to the Ardouino UNO an Ardouino shield is designed. 
-
-
-\dfig{ard_schematic.pdf}{The figure shows the schematic of the shield}{ard_shield.pdf}{The figure shows the layout of the shield}{Ardouino shield design}{fig:td:ard_shield}{0.62}{0.38}
+\dfig{ard_schematic.pdf}{The figure shows the schematic of the shield}{ard_shield.pdf}{The figure shows the \gls{pcb} layout of the shield}{Ardouino shield design}{fig:td:ard_shield}{0.62}{0.38}
 
 
-The to resistors in \autoref{fig:td:ard_shield} R1 and R2 is pull-up resistors for the wind speed contact. While the contact in the anemometer is non shortet, the voltage at the input pin on the Arduino is \SI{5}{\volt}. while the contact is shorted the voltage is \SI{0}{\volt}. The two RJ11 connectors is for the Anemometer connection. The six test point is soldering connection to the temperature and humidity sensor. 
+The to resistors in \autoref{fig:td:ard_shield} R1 and R2 is pull-up resistors for the wind speed contact with a resistance of \SI{4.7}{\kilo\ohm}. While the contact in the anemometer is not shorted, the voltage at the input pin on the Arduino is \SI{5}{\volt}. While the contact is shorted the voltage is \SI{0}{\volt}. The two RJ11 connectors are for the Anemometer connection. The six test point is soldering connection to the temperature and humidity sensor. 
 
 All hardware can be seen in \autoref{ap:hardware}
 

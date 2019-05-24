@@ -1,5 +1,5 @@
 \section{The measurement}\label{meas:meas_of_kudo}
-The aim of this section is to show the measuring result from the final measurement, then try to find a relation between the wind direction, the wind speed and the angle of the line source array. The first \autoref{mes:kudo:wind_noise} deals with the wind noise in the measurement. The second  \autoref{mes:kudo:cross_mes} covers the measurement done in crosswind. The third  \autoref{mes:kudo:par_mes} covers the measurement done in parallel wind. The third section \autoref{mes:kudo:relaton} analyses the relation between the wind direction, the wind speed and the angle of the line source array.
+In this chapter, the measuring result from the final measurement is shown. In the first part of this chapter, the wind noise measured at the start of the measurement is shown. Secondly, the signal processing of filtering the wind noise from the impulse response is explained. The second part covers the measurement versus the wind direction. Only the measurement where refraction occurs is according to the wind direction is a successful measurement. All other measurement is excluded. The third part covers the measurement done in the crosswind. The fourth part of this chapter covers the measurement done in the parallel wind. 
 
 
 \section{Wind noise doing measurement}\label{mes:kudo:wind_noise}
@@ -22,7 +22,9 @@ As seen in \autoref{fig:meas:imp_res}, the noise is present along the impulse re
 The window function in \autoref{fig:meas:imp_res_win} is a amplitude wise scaled version, such that both the impulse response and the window is visuable. The window which is used in the calculation is non-scaled which mean that the highest passing area have unity gain of 1 and not $3.3 \cdot 10^{-3}$. It is seen that the window passes the impulse response without change, while the noise is filtered.
 
 
+\section{Accepted measurement}
 
+\xfig{measurement/accepted_measurement.pdf_t}{The figure shows the measurement setup and the nearest critical angle before the refraction direction flips.}{fig:ds:position_final}{1}
 
 
 \section{Crosswind measurement}\label{mes:kudo:cross_mes}

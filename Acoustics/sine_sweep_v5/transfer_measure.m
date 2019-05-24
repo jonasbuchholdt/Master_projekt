@@ -316,7 +316,7 @@ legend('upwards','downwards','diff')
 
 %%
 clear 
-load('impulses_2.mat');
+load('impulses.mat');
 [fs,calibration,frequencyRange,gain,inputChannel,sweepTime,a,b,cmd] = initial_data('transfer');
 c = 0;
 %%
@@ -329,11 +329,11 @@ down2 = 1;
 down3 = 20;
 down4 = 50;
 
-angle = 30;
-ir_number = 18;
+angle = 0;
+ir_number = 4;
 l_eq_no   = c;
 
-ir_num = 20;
+ir_num = 9;
 
 ir_no = ir_number;
 ir_no_st = ir_number;
@@ -349,20 +349,20 @@ start=1;
 
 for i=start:1:ir_num
 number = i;
-ir_downwards_pre(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.ir_downwards'));
-ir_center_pre(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.ir_center'));
-ir_upwards_pre(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.ir_upwards'));
+ir_downwards_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_downwards'));
+ir_center_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_center'));
+ir_upwards_pre(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.ir_upwards'));
 
-wind_speed1(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.wind_speed1'));
-wind_speed2(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.wind_speed2'));
-wind_direction1(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.wind_direction1'));
-wind_direction2(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.wind_direction2'));
-temp(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.temp'));
-humidity(:,i) = eval(strcat('data',int2str(number),'angle',int2str(angle),'.humidity'));
+wind_speed1(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_speed1'));
+wind_speed2(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_speed2'));
+wind_direction1(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_direction1'));
+wind_direction2(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.wind_direction2'));
+temp(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.temp'));
+humidity(:,i) = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.humidity'));
 end
 
-irtime = eval(strcat('data',int2str(number),'angle',int2str(angle),'.irtime'));
-weathertime = eval(strcat('data',int2str(number),'angle',int2str(angle),'.weathertime'));
+irtime = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.irtime'));
+weathertime = eval(strcat('data',int2str(number),'ang_down',int2str(angle),'.weathertime'));
 
 
 ir_downwards_no = (ir_downwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)); %*10^(5/20)
@@ -393,9 +393,9 @@ ir_upwards_win = ir_upwards_fi.*window;
 load('150Hz_2order_filter.mat');
 [b,a]=sos2tf(SOS,G);
 
-ir_downwards=filter(b,a,ir_downwards_win);
-ir_center=filter(b,a,ir_center_win);
-ir_upwards=filter(b,a,ir_upwards_win);
+ir_downwards=ir_downwards_win;
+ir_center=ir_center_win;
+ir_upwards=ir_upwards_win;
 
 
 windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
@@ -659,17 +659,17 @@ xlabel('Frequency [Hz]')
 axis([20 20000 0 100])  
 
 figure(1)
-%semilogx(f_axis,center_refraction)
-
-semilogx(f_axis,upwards_refraction)
+semilogx(f_axis,center_refraction)
 hold on
-semilogx(f_axis,downwards_refraction)
+%semilogx(f_axis,upwards_refraction)
+
+%semilogx(f_axis,downwards_refraction)
 grid on
 grid minor
-axis([100 20000 20 100])
+axis([50 20000 20 100])
 ylabel('Level [dB]')
 xlabel('Frequency [Hz]')
-legend({'upwards','downwards'},'Location','northeast')
+legend({'center','upwards','downwards'},'Location','northeast')
 
 %%
 

@@ -5,7 +5,7 @@
 %where you can also make suggestions and rate matlab2tikz.
 
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 width=120mm, 
@@ -27,11 +27,11 @@ xmin=2,
 xmax=20000,
 xminorticks=true,
 xlabel style={font=\color{white!15!black}},
-xlabel={Frequency [Hz]},
+xlabel={Frequency [\hz]},
 ymin=-40,
 ymax=90,
 ylabel style={font=\color{white!15!black}},
-ylabel={Level [dB]},
+ylabel={Level [\db]},
 legend style={legend cell align=left, align=left, draw=white!15!black}
 ]
 \addplot [color=mycolor1]
@@ -3085,7 +3085,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 21941.2153764205	-33.8771402690069\\
 22039.0935724432	-32.6747326041327\\
 };
-\addlegendentry{Center, windspeed 6.34}
+\addlegendentry{Center, windspeed \SI{6.34}{\meter\per\second}}
 
 \addplot [color=mycolor2]
   table[row sep=crcr]{%
@@ -9191,7 +9191,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 21941.2153764205	-33.641381815254\\
 22039.0935724432	-32.7053815544442\\
 };
-\addlegendentry{Downwards, windspeed 7.38}
+\addlegendentry{Downwards, windspeed \SI{7.38}{\meter\per\second}}
 
 \end{axis}
 

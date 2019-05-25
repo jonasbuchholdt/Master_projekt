@@ -3,7 +3,7 @@
 %The latest updates can be retrieved from
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 width=120mm, 
@@ -435,7 +435,7 @@ legend style={at={(0.03,0.57)}, anchor=north west, legend cell align=left, align
 19920	-0.990004808373458\\
 19970	-0.990004808373458\\
 };
-\addlegendentry{Loss difference between 40 m and 50 m}
+\addlegendentry{Loss difference between \SI{40}{\meter} and \SI{50}{\meter}}
 
 \addplot [color=mycolor2]
   table[row sep=crcr]{%
@@ -840,7 +840,7 @@ legend style={at={(0.03,0.57)}, anchor=north west, legend cell align=left, align
 19920	0.724272021084969\\
 19970	0.724272021084969\\
 };
-\addlegendentry{Loss difference between 50 m and 60 m}
+\addlegendentry{Loss difference between \SI{50}{\meter} and \SI{60}{\meter}}
 
 \end{axis}
 \end{tikzpicture}%

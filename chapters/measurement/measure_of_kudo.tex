@@ -1,59 +1,56 @@
 \section{The measurement}\label{meas:meas_of_kudo}
-In this chapter, the measuring result from the final measurement is shown. In the first part of this chapter, the wind noise measured at the start of the measurement is shown. Secondly, the signal processing of filtering the wind noise from the impulse response is explained. The second part covers the measurement versus the wind direction. Only the measurement where refraction occurs is according to the wind direction is a successful measurement. All other measurement is excluded. The third part covers the measurement done in the crosswind. The fourth part of this chapter covers the measurement done in the parallel wind. 
+In this chapter, the measuring result from the final measurement is shown. In the first part of this chapter, the wind noise measured at the start of the measurement is shown. Secondly, the signal processing of filtering the wind noise from the impulse response is explained. The second part covers the measurement versus the wind direction. Only the measurement where refraction occurs according to the designed measurement is a successful measurement. All other measurement is excluded. The third part covers the measurement done in the crosswind. The fourth part of this chapter covers the measurement done in the parallel wind. 
 
 
 \section{Wind noise doing measurement}\label{mes:kudo:wind_noise}
-Doing the measurement, wind noise is present at the microphone. To ensure that the signal to wind noise level is high, a wind noise measurement is preformed as the first step. The following \autoref{fig:meas:result_windnoise_at_position} shows the wind noise at all three microphone position with a wind speed of ... . 
+Wind noise is present in all measurement and has to be addressed before the impulse response is analysed. As the first part of the final measurement, the wind noise is measured and visualised to ensure optimal signal to noise ratio. The wind noise is measured for all three microphones twice at a different time and wind speed above \SI{5}{\meter\per\second}. The wind noise measurement is only done this two time of every microphone on the measuring day. The following \autoref{fig:meas:result_windnoise_at_position} shows the wind noise at all three microphone position, including the wind speed.
 
-\plot{plot/result_windnoise_at_position}{The graph shows the wind noise in all three measurment microphone at the excact position which is used for the crosswind measurement}{fig:meas:result_windnoise_at_position}
-
-
-
-The measurement \autoref{fig:meas:result_windnoise_at_position} shows that the wind noise is pink and therefore most present in the low frequency. To exclude the low frequency wind noise from the measurement, all impulse responses is filtered by a second order high pass filter at \Hz{40}. The reson to filter the impulse response at \Hz{40} is that the line source array by it self cannot go lower in frequency. The cut off is due to a internal filter in the \gls{dsp} settings of the speaker controller which cannot be turned off. Moreover, due to the way thast the impulse response is calculated, wind noise is present along the impulse response. The impulse response is calculated according to ..., where the output signal is convoluted with the measured signal. Then if the noise signal component is present at another time that the signal, the wind noise in the impulse response is pereent as delayed signal. The following \autoref{fig:meas:imp_res} shows one impulse response measured doing the measurement.
-
-\plot{plot/ir_0_deg_13_up}{The graph shows one impulse response measurement of the upwards microphone where the line source array is non rotated}{fig:meas:imp_res}
+\plot{plot/result_windnoise_at_position}{The graph shows the wind noise in all three measurement microphone at the exact position which is used for the crosswind measurement}{fig:meas:result_windnoise_at_position}
 
 
-As seen in \autoref{fig:meas:imp_res}, the noise is present along the impulse response time line. This wind noise is not intersting for the analysis and is therefore windowed by a custom made window.   
+The measurement \autoref{fig:meas:result_windnoise_at_position} shows that the wind noise is pink and therefore most present in the low frequency. This low frequency wind noise is filtered in two steps. First, the impulse responses are filtered by a second order high pass filter at \Hz{40}.  The \Hz{40} is decided based on the lowest reproducible frequency of the line source array. The cut off is due to an internal filter in the \gls{dsp} settings of the line source array controller and the physical construction of the line source element. As the second filter, the impulse responses are windowed to remove wind noise component present along the impulse response time. The wind noise is present as a delayed signal in the impulse response because the wind noise is present under the full sine sweep measuring period. The following \autoref{fig:meas:imp_res} shows one impulse response measured doing the final measurement.
 
-\plot{plot/ir_0_deg_13_up_window}{The graph shows one impulse response measurement of the upwards microphone where the line source array is non rotated}{fig:meas:imp_res_win}
+\plot{plot/ir_0_deg_13_up}{The graph shows one impulse response measurement of the upwards microphone where the line source array is not rotated}{fig:meas:imp_res}
 
 
-The window function in \autoref{fig:meas:imp_res_win} is a amplitude wise scaled version, such that both the impulse response and the window is visuable. The window which is used in the calculation is non-scaled which mean that the highest passing area have unity gain of 1 and not $3.3 \cdot 10^{-3}$. It is seen that the window passes the impulse response without change, while the noise is filtered.
+As seen in \autoref{fig:meas:imp_res}, the noise is present along the impulse response timeline. This wind noise is not interesting for the analysis and is therefore windowed by a custom made window. The following \autoref{fig:meas:imp_res_win} shows the same impulse response as before with the custom made window.
+
+\plot{plot/ir_0_deg_13_up_window}{The graph shows one impulse response measurement of the upwards microphone where the line source array is not rotated and the designed window. The window is scaled down in amplitude in the graph.}{fig:meas:imp_res_win}
+
+
+The window function in \autoref{fig:meas:imp_res_win} is an amplitude wise scaled version. The window is only scaled such that both the impulse response and the window is visible in the same plot. The window for the calculation has a unity gain in the maximum amplitude. In \autoref{fig:meas:imp_res_win}, it is seen that the window passes the impulse response without change, while the delayed wind noise is filtered. Both filtering method is applied for both the crosswind analysis and the parallel wind analysis. 
 
 
 \section{Accepted measurement}
+The measurement for the crosswind is more sensitive to wind direction fluctuation that the parallel wind measurement. In the parallel wind measurement setup, the wind direction shall turn \SI{90}{\degree} from parallel to the frontal sound direction before the upwards refraction change to downwards refraction. Unless that the crossover is at \SI{90}{\degree}, the upwards refraction effect decay along with the change in wind direction in both positive and negative direction from parallel. Therefore, the wind divination for the parallel wind is limited to be within $\pm\SI{25}{\degree}$. In the crosswind measurement, the wind divination is more critical. The criticality of wind direction divination is illustrated in \autoref{fig:ds:position_final}
 
-\xfig{measurement/accepted_measurement.pdf_t}{The figure shows the measurement setup and the nearest critical angle before the refraction direction flips.}{fig:ds:position_final}{1}
+\xfig{measurement/accepted_measurement.pdf_t}{The figure shows the measurement setup and the nearest critical angle before the refraction direction flips.}{fig:ds:position_final}{0.6}
+
+As seen in \autoref{fig:ds:position_final}, the refraction crossover point is at \SI{25}{\degree} in the right rotation for the downwards direction and \SI{25}{\degree} in the left rotation for the upwards rotation. Therefore together they limit the wind direction to within $\pm\SI{25}{\degree}$ before the refraction condition change on one of the microphones. Therefore, for the crosswind measurement, the wind is limited to be below $\pm\SI{25}{\degree}$. 
 
 
 \section{Crosswind measurement}\label{mes:kudo:cross_mes}
-This section is presenting the final measurement which is done according to the crosswind measurement design description in \autoref{ch:test_of_proposal_sol} including the update described in \autoref{ch:test_of_meas_des}. The measurement description is founded in \autoref{}. The measurement setup is nearly identical to the measurement in \autoref{ch:test_of_meas_des} unless that the wind direction was turned \SI{180}{\degree}, the anemometer at the microphone position is placed \SI{5}{\meter} to the right of the center microphone instead of \SI{5}{\meter} to the back of the center microphone and the anemometer at the line source array is moved to the right side. The measurement setup is illustrated in \autoref{fig:ds:position_final}.
+This section is presenting the final measurement which is done according to the crosswind measurement design description in \autoref{ch:test_of_proposal_sol} including the update described in \autoref{ch:test_of_meas_des}. The measurement appendix is founded in \autoref{ch:ap:final_measurement_KUDO}. The measurement setup is nearly identical to the measurement in \autoref{ch:test_of_meas_des} unless that the wind direction was turned \SI{180}{\degree}, the anemometer at the microphone position is placed \SI{5}{\meter} to the right of the centre microphone instead of \SI{5}{\meter} to the back of the centre microphone and the anemometer at the line source array is moved to the right side. The measurement is done from  \SI{0}{\degree} to  \SI{30}{\degree} is step of  \SI{10}{\degree} towards the upwards direction. The measurement setup is illustrated in \autoref{fig:ds:position_final}.
 
 
 \xfig{measurement/final_measurement_kudo.pdf_t}{The figure shows the microphone position versus the position of the line source, while the array is \SI{0}{\degree} horizontal turned}{fig:ds:position_final}{1}
 
 
 
-while comparing the upwards refraction direction to the downwards direction, it is intersting to analyse at which frequency the refraction starts at the measured distance of \SI{50}{\meter} and a wind speed between \SI{5}{\meter\per\second} and \SI{12}{\meter\per\second}. The refraction knowledge is used to generate a high pass filter such that it is only the part where refrection occore which is compared doing the data analysis. The frequency below the refraction is not interesting while comparing if turning the speaker makes more even \gls{spl} in the upwards direction compare to the down wards direction. While excluding this part in the one number \gls{spl} calculation the refraction part is more wisuavble. To analyse where the refraction occur, the frequency content is calculated for 3 measurement with high wind speed and compared. At the point where the upwards refraction, downwards refraction and center microphone gets different is defined as the starting point of refraction at \SI{50}{\meter} with the corresponding wind speed in this analysis. The following 3 \autoref{}, \autoref{} and \autoref{} shows the frequency response of all three microphone at three different measurement. All measurement is with \SI{0}{\degree} rotation of the speaker and is choses since that have the most clear refraction separation and lowest refraction start point compare to the other measurement.
+While analysing the upwards refraction to the downwards, it is interesting to analyse at which frequency the refraction starts at the measured distance of \SI{50}{\meter} and a wind speed between \SI{5}{\meter\per\second} and \SI{10}{\meter\per\second}. The refraction knowledge is used to decide which frequency range that have to be analysed at the measured distance. The frequency range that shows no or less than \dB{2} refraction is excluded from the analysis. Analysing the refraction is done by calculating frequency response for all measurement with wind speed above \SI{5}{\meter\per\second} and compared. The comparison between measurement is done visually by plotting the frequency response for all measurement. One measurement which shows the general refraction phenomena is shown in \autoref{fig:meas:refraction_0_deg_16}
 
 
-\plot{plot/refraction_0_deg_16}{The graph shows }{fig:meas:refraction_0_deg_16}
 
-\SI{8.00}{\meter\per\second}
+\plot{plot/refraction_0_deg_16}{The graph shows one measurement while the line array is not rotated and the wind speed is measured to be \SI{8.00}{\meter\per\second}}{fig:meas:refraction_0_deg_16}
 
-As seen in ... the refraction starts at \Hz{150}, therefore all beneeth \Hz{150} have not interest for the futher analysis.
+As seen in \autoref{fig:meas:refraction_0_deg_16} the refraction starts at \Hz{150} and gets above \dB{2} in the frequency range above \Hz{600}. The measurement is done at least 10 times for every angle and based on the amount of data, one graph for every angle is shown where the rest of the result is shown in $L_{eq}$ octave separation above \Hz{600}. The graph only includes upwards measurement and downwards measurement. The centre microphone measurement is given in the $L_{eq}$  to keep the plot visual manageable. The chosen measurement have approximately \SI{8}{\meter\per\second} each. The following four measurement shows the frequency response with the given line source array rotation.
 
+\plot{plot/result_cross_0_deg_16}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{0}{\degree}}{fig:meas:result_cross_0_deg_16}
+\plot{plot/result_cross_10_deg_15}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{10}{\degree}}{fig:meas:result_cross_10_deg_15}
+\plot{plot/result_cross_20_deg_16}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{20}{\degree}}{fig:meas:result_cross_20_deg_16}
+\plot{plot/result_cross_30_deg_9}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{30}{\degree}}{fig:meas:result_cross_30_deg_9}
 
-The line source array in the test setup shown in \autoref{fig:ds:position_final} is measured in four different angle where every angle above \SI{0}{\degree} is a rotation towards the upwards microphone. The resolution is with step of \SI{10}{\degree} with start as \SI{0}{\degree}, which is the angle shown in \autoref{fig:ds:position_final} and upto \SI{30}{\degree}. The measurement is done at lees 10 time for every angle and based on the amount of data, one graph for every angle will be shown where the rest of the result is shown in $L_{eq,5}$ octave separation above \Hz{150}. The graph only includes the upwards measurement and the downwards measurement, the center microphone measurement is given in the $L_{eq,5}$ and in \autoref{} to keep the plot visual manageable. The chosen graphs is measurement whit high and identically with an average of approximatly \SI{8}{\meter\per\second}
-
-
-\plot{plot/result_cross_0_deg_16}{The graph shows \SI{0}{\degree}}{fig:meas:result_cross_0_deg_16}
-\plot{plot/result_cross_10_deg_15}{The graph shows \SI{10}{\degree}}{fig:meas:result_cross_10_deg_15}
-\plot{plot/result_cross_20_deg_16}{The graph shows \SI{20}{\degree}}{fig:meas:result_cross_20_deg_16}
-\plot{plot/result_cross_30_deg_9}{The graph shows \SI{30}{\degree}}{fig:meas:result_cross_30_deg_9}
-
-In the analysis the measurement is split intro groups depending on the wind speed with a step of \SI{1}{\meter\per\second}. Futhermore all measurement in the analysis is within $\pm\SI{25}{\degree}$ from crosswind to the speaker. Crosswind to the speaker is defined as \SI{90}{\degree} and therefore \SI{65}{\degree} to \SI{115}{\degree} is the acceptable divience, all measurement diviate from this range is excluded. Moreover measurement with wind speed beneath \SI{5}{\meter\per\second} is also excluded. From thoes limitation, the following \autoref{ta:meas:approved_measurement} shows the amound of measurement for each wind speed step. 
+In the analysis, the measurement is split into groups depending on the wind speed with a step of \SI{1}{\meter\per\second}. Furthermore, all measurement in the analysis is beneath $\pm\SI{25}{\degree}$ from crosswind to the speaker. Crosswind to the speaker is defined as \SI{90}{\degree} and therefore, angle between \SI{65}{\degree} to \SI{115}{\degree} is the acceptable. All measurement deviates from this range is excluded. Moreover, measurement with wind speed beneath \SI{5}{\meter\per\second} is also excluded. From those limitations, the following \autoref{ta:meas:approved_measurement} shows the amount of measurement for each wind speed step. 
 
 \begin{table}[H]
 \centering
@@ -70,27 +67,7 @@ Total         & 14 & 14 & 19 & 14 &   61
 \label{ta:meas:approved_measurement}
 \end{table}
 
-It is seen in \autoref{ta:meas:approved_measurement} that 62 measurement is available and the most fall within \SI{6}{\meter\per\second} to \SI{8}{\meter\per\second}.
-
-
-%\begin{table}[H]
-%\centering
-%\caption{The table shows the measurement where the line source array is \SI{0}{\degree}}
-%\begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|lll}
-%freq & \multicolumn{3}{l|}{1k} & \multicolumn{3}{l|}{2k} & \multicolumn{3}{l|}{4k} & \multicolumn{3}{l|}{8k} & \multicolumn{3}{l}{16k}                                \\ \hline
-%Mic  & U      & C      & D     & U      & C      & D     & U      & C      & D     & U      & C      & D     & \multicolumn{1}{l|}{U}  & \multicolumn{1}{l|}{C}  & D  \\ \hline
-
-%m    &      &      &      &      &      &      &      &       &      &       &      &      & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} &  \\
-
-%m    &      &      &      &      &      &      &      &       &      &       &      &      & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{} &  \\ \hline
-
-%avg &      &      &      &      &      &      &      &       &      &       &      &      & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{}  &  \\ \hline  
-
-%Dif & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}                                
-
-%\end{tabular}
-%\end{table}
-
+It is seen in \autoref{ta:meas:approved_measurement} that 61 measurement is available and the most fall within \SI{6}{\meter\per\second} to \SI{8}{\meter\per\second}.
 
 \begin{table}[H]
 \centering
@@ -114,7 +91,7 @@ m17  &  63    & 60     &  55    &  56    & 55     &  52    &  54    &   52    & 
 avg & 59     & 58     &  55    &  55    &  52    &  51    &  56    &   54    & 54     &    52   &   52   &  52    & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{43}  & 42  \\ \hline  
 Dif & \multicolumn{3}{l|}{-4.06} & \multicolumn{3}{l|}{-4.39} & \multicolumn{3}{l|}{-1.89} & \multicolumn{3}{l|}{-0.29} & \multicolumn{3}{l}{0.39} \\ 
  \multicolumn{16}{l}{ } \\                             
-\SI{37}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
+\SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m3    & 50     &  53    &  46    &  44    &  41    &  37    &  49    &   47    &   42   &   48    &  42    &   39   & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{33} &33  \\
 m14  & 59     &  53    &  46    &  52    &   46   &  43    &  56    &  56     &  49    &   52    &   51   &   45   & \multicolumn{1}{l|}{43} & \multicolumn{1}{l|}{41} & 38 \\
 m15  &  56    &  55    &  48    &   50   &   43   &   39   &   56   &  48     & 44     &    55   &   43   &   39   & \multicolumn{1}{l|}{47} & \multicolumn{1}{l|}{33} & 32 \\
@@ -158,7 +135,7 @@ m20  & 57     &  50    &  52    &  56    &  46    &    46  &   61   &   59    & 
 avg & 55     &  54    &  55    &  51    &  48    &   49   &  56    &  54     & 53     &  54     &  50    &   49   & \multicolumn{1}{l|}{46} & \multicolumn{1}{l|}{41}  &40  \\ \hline  
 Dif & \multicolumn{3}{l|}{-0.84} & \multicolumn{3}{l|}{-2.32} & \multicolumn{3}{l|}{-3.13} & \multicolumn{3}{l|}{-4.67} & \multicolumn{3}{l}{-5.68}  \\ 
  \multicolumn{16}{l}{ } \\                         
-\SI{37}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
+\SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m4    &  58    &  58    & 47     & 55     &  47    &   37   &   54   &   49    &  46    &   53    &   45   &   44   & \multicolumn{1}{l|}{41} & \multicolumn{1}{l|}{41} & 38 \\
 m6    &  48    &   47   &  48    & 50     &   43   &  44    &    55  &   55    &  46    &   58    &   48   &   40   & \multicolumn{1}{l|}{50} & \multicolumn{1}{l|}{41} & 33 \\
 m8    &  56    &  54    & 54     &  51    &  44    &   46   &   59   &   48    &  52    &   54    &    49  &   46   & \multicolumn{1}{l|}{49} & \multicolumn{1}{l|}{42} & 39 \\
@@ -203,7 +180,7 @@ m14  &  53    &  55    &  52    &  47    &  49    &   48   &    55  &  53     & 
 avg & 55     &  58    &  53    &   48   &  50    &  47    &  55    &   53    &  50    &  51     & 50     &  47    & \multicolumn{1}{l|}{41} & \multicolumn{1}{l|}{43}  & 39  \\ \hline  
 Dif & \multicolumn{3}{l|}{-1.96} & \multicolumn{3}{l|}{-1.16} & \multicolumn{3}{l|}{-4.91} & \multicolumn{3}{l|}{-4.16} & \multicolumn{3}{l}{-1.52}  \\ 
  \multicolumn{16}{l}{ } \\                         
-\SI{37}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
+\SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m9    &  51    &  51    &  49    &  54    &  46    &   43   &  58    &   53    &  46    &   60    &   48   &   43   & \multicolumn{1}{l|}{49} & \multicolumn{1}{l|}{38} & 38 \\
 m11  &  63    &  49    &  47    &   60   &   46   &   40   &  53    &   53    &  47    &    50   &   47   &  41   & \multicolumn{1}{l|}{42} & \multicolumn{1}{l|}{40} & 37 \\
 m12  &  54    &   58   &  55    &  54    &   48   &   41   &   58   &  52     &   49   &    58   &   46   &   44   & \multicolumn{1}{l|}{48} & \multicolumn{1}{l|}{37} & 41 \\
@@ -242,7 +219,7 @@ m16    & 57     & 59     &  54    &  57    & 57     & 54     &   60   &  56     
 avg &  54    &  56    &  53    &   53   &  52    &  49    &  60    &   55    &  53    &   57    &  52    &  48    & \multicolumn{1}{l|}{45} & \multicolumn{1}{l|}{43}  &39  \\ \hline  
 Dif & \multicolumn{3}{l|}{-0.18} & \multicolumn{3}{l|}{-4.58} & \multicolumn{3}{l|}{-6.80} & \multicolumn{3}{l|}{-7.77} & \multicolumn{3}{l}{-5.76} \\ 
  \multicolumn{16}{l}{ } \\                             
-\SI{37}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
+\SI{30}{\degree}   & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l|}{} & \multicolumn{3}{l}{}   \\  \hline
 m7    & 53     & 56     & 48     &  59    & 48     &  46    & 65     & 55      &  50    &   61    & 52     &   45   & \multicolumn{1}{l|}{47} & \multicolumn{1}{l|}{46} & 35 \\ \hline
 Dif & \multicolumn{3}{l|}{-5.07} & \multicolumn{3}{l|}{-13.06} & \multicolumn{3}{l|}{-15.90} & \multicolumn{3}{l|}{-15.60} & \multicolumn{3}{l}{-11.15}                               
 \end{tabular}
@@ -279,6 +256,7 @@ Dif & \multicolumn{3}{l|}{-0.79} & \multicolumn{3}{l|}{1.44} & \multicolumn{3}{l
 \end{tabular}
 \end{table}
 
+\newpage
 \section{parallel wind measurement}\label{mes:kudo:par_mes}
 This section is presenting the final measurement which is done according to the parallel wind measurement design description in \autoref{ch:test_of_proposal_sol} including the update described in \autoref{ch:test_of_meas_des}. The measurement description is founded in \autoref{}. 
 
@@ -352,25 +330,25 @@ $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[  $        & 3  & 5  & 
 \centering
 \caption{The table shows the measurement in in octave band and within the interval $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $ with the given line source array angle}
 \begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|ll}
-freq & \multicolumn{2}{l|}{132} & \multicolumn{2}{l|}{327} & \multicolumn{2}{l|}{570} & \multicolumn{2}{l|}{1k} & \multicolumn{2}{l|}{2k} & \multicolumn{2}{l|}{4k} & \multicolumn{2}{l|}{8k} & \multicolumn{2}{l}{16k}  \\ \hline
+freq & \multicolumn{2}{l|}{125} & \multicolumn{2}{l|}{250} & \multicolumn{2}{l|}{500} & \multicolumn{2}{l|}{1k} & \multicolumn{2}{l|}{2k} & \multicolumn{2}{l|}{4k} & \multicolumn{2}{l|}{8k} & \multicolumn{2}{l}{16k}  \\ \hline
 deg  &     \SI{3}{\degree}        &    \SI{7}{\degree}          &     \SI{3}{\degree}          &   \SI{7}{\degree}           &       \SI{3}{\degree}        &      \SI{7}{\degree}        &     \SI{3}{\degree}         &     \SI{7}{\degree}         &       \SI{3}{\degree}       &    \SI{7}{\degree}          &      \SI{3}{\degree}        &        \SI{7}{\degree}      &      \SI{3}{\degree}        &       \SI{7}{\degree}       & \multicolumn{1}{l|}{ \SI{3}{\degree} } &  \SI{7}{\degree}  \\ \hline
  & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{}& \multicolumn{2}{l|}{}& \multicolumn{2}{l}{}     \\ 
 \multicolumn{17}{l}{ } \\   
 F & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{}& \multicolumn{2}{l|}{}& \multicolumn{2}{l}{}     \\ \hline
-m 1-3  &     66   &      66  &   64    &  64      &        63     &    63       &  57       &    59        &    53         &    55        &      54       &     54       &      58      &    53        & \multicolumn{1}{l|}{48} &  45\\
-m 5-4   &    67  &       66  &      65  & 63     &       64      &     61      &   60     &     57       &    58         &     54       &      57       &     55       &       58     &       58     & \multicolumn{1}{l|}{51} &  49\\
-m 6-6   &    66  &      66   &     63   &   63    &      60       &     62      &  54       &     62       &     44        &      61      &        60     &       61     &       54     &       61     & \multicolumn{1}{l|}{42} & 51 \\
-m n-6   &    ND  &      66   &   ND  &   64     &   ND        &     64      &    ND     &     64       &      ND      &       68     &      ND      &       73     &        ND   &       68     & \multicolumn{1}{l|}{ND} &  59\\
-m n-10  &   ND  &     66    &   ND    &   64    &     ND      &     64      &    ND     &     61       &       ND     &       60     &      ND      &       63     &        ND   &       63     & \multicolumn{1}{l|}{ND} & 49 \\ \hline
+m1-3  &     66   &      66  &   64    &  64      &        63     &    63       &  57       &    59        &    53         &    55        &      54       &     54       &      58      &    53        & \multicolumn{1}{l|}{48} &  45\\
+m5-4   &    67  &       66  &      65  & 63     &       64      &     61      &   60     &     57       &    58         &     54       &      57       &     55       &       58     &       58     & \multicolumn{1}{l|}{51} &  49\\
+m6-6   &    66  &      66   &     63   &   63    &      60       &     62      &  54       &     62       &     44        &      61      &        60     &       61     &       54     &       61     & \multicolumn{1}{l|}{42} & 51 \\
+m6   &    N  &      66   &   N  &   64     &   N        &     64      &    N    &     64       &      N      &       68     &      N      &       73     &        N   &       68     & \multicolumn{1}{l|}{N} &  59\\
+m10  &   N  &     66    &   N    &   64    &     N      &     64      &    N     &     61       &    N     &       60     &      N     &       63     &        N   &       63     & \multicolumn{1}{l|}{N} & 49 \\ \hline
 avg       &      66 &   66     &      64    &  64     &    62         &     63       &      57      &   60    &     52       &    59        &    54        &      61      &      57      &     61       & \multicolumn{1}{l|}{47} &51 \\ \hline
 Dif & \multicolumn{2}{l|}{-0.6} & \multicolumn{2}{l|}{-0.47} & \multicolumn{2}{l|}{-0.55} & \multicolumn{2}{l|}{3.31} & \multicolumn{2}{l|}{7.57} & \multicolumn{2}{l|}{7.59}& \multicolumn{2}{l|}{4.25}& \multicolumn{2}{l}{3.39} \\
 \multicolumn{17}{l}{ } \\   
 C & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{}& \multicolumn{2}{l|}{}& \multicolumn{2}{l}{}     \\ \hline
-m 1-3   &   66  &      66      &    63  &   63         &   61   &     61       &  57   &      58      &  53   &  61   &  58   &      67      &   53   &      58      & \multicolumn{1}{l|}{45} &44  \\
-m 5-4   &    67  &      65      &   64  &     62       &   60    &     60       &  59  &      58      &  56  &  58   &   59  &        62    &   56  &      55      & \multicolumn{1}{l|}{44} &44  \\
-m 6-6   &    66   &     66       &  62  &     62       &    57   &      61      &  52   &       57     &   44  & 56   &   52   &      63      &   48 &       60     & \multicolumn{1}{l|}{38} & 52 \\
-m n-6   &   ND    &     65       &  ND  &    63        & ND   &      62      &  ND   &      60      & ND & 62   &   ND   &      63      &   ND   &    60        & \multicolumn{1}{l|}{ND} & 46 \\
-m n-10  &  ND   &      65      &   ND  &    63        &  ND  &      61      &   ND  &       57    &  ND  &  53 &  ND    &     57       &   ND   &      56      & \multicolumn{1}{l|}{ND} &  51\\ \hline
+m1-3   &   66  &      66      &    63  &   63         &   61   &     61       &  57   &      58      &  53   &  61   &  58   &      67      &   53   &      58      & \multicolumn{1}{l|}{45} &44  \\
+m5-4   &    67  &      65      &   64  &     62       &   60    &     60       &  59  &      58      &  56  &  58   &   59  &        62    &   56  &      55      & \multicolumn{1}{l|}{44} &44  \\
+m6-6   &    66   &     66       &  62  &     62       &    57   &      61      &  52   &       57     &   44  & 56   &   52   &      63      &   48 &       60     & \multicolumn{1}{l|}{38} & 52 \\
+m6   &   N    &     65       &  N  &    63        & N   &      62      &  N   &      60      & N & 62   &   N   &      63      &   N   &    60        & \multicolumn{1}{l|}{N} & 46 \\
+m10  &  N   &      65      &   N  &    63        &  N  &      61      &   N  &       57    &  N  &  53 &  N   &     57       &   N  &      56      & \multicolumn{1}{l|}{N} &  51\\ \hline
 avg      &   66    &      65      &     63   &     62      &      60&   61      &       56  &     58       &   51   &  58     &  56     &   63         &      52      &    58        & \multicolumn{1}{l|}{42} &47 \\ \hline
 Dif & \multicolumn{2}{l|}{-0.64} & \multicolumn{2}{l|}{-0.43} & \multicolumn{2}{l|}{1.44} & \multicolumn{2}{l|}{2.16} & \multicolumn{2}{l|}{6.65} & \multicolumn{2}{l|}{6.19}& \multicolumn{2}{l|}{5.56}& \multicolumn{2}{l}{5.04} \\
 \multicolumn{17}{l}{ } \\   
@@ -378,8 +356,8 @@ B & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \mul
 m1-3   &    66    &    66   &   63    &   63    &    61   &   61     &   60     &   58       &    58   &    58     &    55   &     63      &      55   &    54   & \multicolumn{1}{l|}{43} &42  \\
 m5-4   &    67    &    65   &   63    &  61     &    60     &  55    &   57     &    57     &  54     &     51     &   54   &     55       &     53    &    53   & \multicolumn{1}{l|}{42} &46  \\
 m6-6   &   65      &   65      &   61   &  61   &   54    &   60     &    44    &    57      &   47   &     57     &     48    &    57     &     44     &   52  & \multicolumn{1}{l|}{35} &41  \\
-m6   &   ND     &      65   &    ND  &     62  &    ND    &   60   &   ND   &    53      &   ND  &      46    &   ND    &      50    &     ND   &     52  & \multicolumn{1}{l|}{ND} & 42 \\
-m10  &   ND   &    65   &    ND   &     63    &    ND    &   60   &   ND   &    53      &   ND   &     51    &     ND  &     62     &     ND   &     60  & \multicolumn{1}{l|}{ND} &49  \\ \hline
+m6   &   N     &      65   &    N  &     62  &    N    &   60   &   N   &    53      &   N  &      46    &   N    &      50    &     N   &     52  & \multicolumn{1}{l|}{N} & 42 \\
+m10  &   N   &    65   &    N   &     63    &    N    &   60   &   N   &    53      &   N   &     51    &     N  &     62     &     N   &     60  & \multicolumn{1}{l|}{N} &49  \\ \hline
 avg  &     66    &     65    &    62     &     62       &     59    &   59         &     54   &   56         &     53     &  52         &     52       &    57        &       51        &   54       & \multicolumn{1}{l|}{40} & 44\\ \hline
 Dif & \multicolumn{2}{l|}{-0.79} & \multicolumn{2}{l|}{-0.57} & \multicolumn{2}{l|}{0.82} & \multicolumn{2}{l|}{1.90} & \multicolumn{2}{l|}{-0.66} & \multicolumn{2}{l|}{4.66}& \multicolumn{2}{l|}{3.73}& \multicolumn{2}{l}{3.76}       
 \end{tabular}

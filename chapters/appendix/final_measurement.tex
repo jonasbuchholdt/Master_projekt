@@ -1,0 +1,84 @@
+\chapter{Final measurement}\label{ch:ap:final_measurement_KUDO}
+A measurement was made to measure the transfer function differences in three point in crosswind. One microphone situated in downwards direction, one microphone situated in upwards direction and one microphone situated in center, which is between the other two microphone. The used speaker have a horizontal dispersion pattern of \SI{80}{\degree}, but it is the \SI{50}{\degree} angle which is used as explained in \autoref{}  
+
+
+\section*{Materials and setup}
+To measure the transfer function in a crosswind situation, the following materials are used:
+
+\startequipment
+\equipment{PC}{Macbook}{W89242W966H}{-}
+\equipment{Audio interface}{RME Fireface UCX}{23811948}{108230}
+\equipment{Microphone}{GRAS 26CC}{78189}{75583}
+\equipment{Preamp}{GRAS 40 AZ}{100268}{75551}
+\equipment{Microphone}{GRAS 26CC}{78186}{75582}
+\equipment{Preamp}{GRAS 40 AZ}{100267}{75550}
+\equipment{Microphone}{GRAS 26CC}{??}{}
+\equipment{Preamp}{GRAS 40 AZ}{}{}
+\equipment{3 Windscreen}{Author design}{-}{-}
+\equipment{Line source element}{L-acoustics KUDO}{}{}
+\equipment{Line source element}{L-acoustics KUDO}{}{}
+\equipment{Line source element}{L-acoustics KUDO}{}{}
+\equipment{Line source element}{L-acoustics KUDO}{}{}
+\equipment{Line source element}{L-acoustics KUDO}{}{}
+\equipment{Amplifier}{Lab PLM10000Q}{}{}
+\equipment{Amplifier}{Lab PLM10000Q}{}{}
+\equipment{Mixer}{Yamaha LS9}{}{}
+\equipment{Wind measurement tools}{Davis}{-}{}
+\equipment{Angling tools}{Author design}{-}{}
+\equipment{flying tools}{-}{-}{-}
+\stopequipment
+
+\xfig{appendix/measurement_one_KUDO.pdf_t}{The figure shows the microphone position versus the position of the line source, while the array is \SI{0}{\degree} horizontal turned}{fig:ap:position_test_des}{1}
+
+
+\dfig{IMG_0107}{The picture shows the speaker setup}{IMG_0122}{The figure shows the wind direction}{The figures shows the measurement set up for \autoref{ch:ap:measurement_one} and  \autoref{ch:ap:measurement_two}}{fig:ap:measuring_one_setup}{0.5}{0.5}
+
+
+
+\section*{Test procedure}
+
+
+\begin{enumerate}
+\item The microphone i calibrated.
+\item The wind direction is measured.
+\item The materials are set up as in \autoref{fig:ap:position_test_des} where the speaker is placed in cross wind direction, such that the frontal wave direction is orthogonal the the wind. The microphone and speaker is connected to the audio interface.
+\item The speaker is placed \SI{2.92}{\meter} above the ground.
+\item The speaker is tilted \SI{5}{\degree} pointing down agents the ground.
+\item The microphone is placed \SI{1.68}{\meter} above the ground, \SI{50}{\meter} from the speaker. One \SI{25}{\degree} to the left of the speaker, one \SI{25}{\degree} to the right of the speaker and one in center between the to other microphone.
+\item The anemometer at the speakers is situated on the speaker tower in the same side as shown on the setup and a hight of \SI{4.64}{\meter}
+\item The anemometer at the microphone position is lifted \SI{1.68}{\meter} above the ground.
+\item The wind direction goes from the upwards microphone to the downwards microphone.
+\item The humidity and temperature is measured at the speaker position.
+\item 10 sine sweep is performed with a length of \SI{5}{\second} each while the wind direction and speed is measured.
+\item The impulse response is calculated and filtered with a 4th order highpass filter at \Hz{20}.
+\item The correlation is calculated for each impulse response to the first impulse response for time alignment \citep{gunness2001loudspeaker} of all microphone channels.
+\item The mean impulse response is calculated for the 10 measurement of all three microphone.
+\item The transfer function is calculated with a 10 sample moving mean filter.
+\item The the transfer function is down sampled to fit the plotting program.
+\item The transfer function is calculated with a 5 sample moving mean filter.
+\item The wind measurement is synchronised to the transfer function in time. 
+\item The measurement is repeated 6 times with different horizontal speaker angle from \SI{0}{\degree} to \SI{30}{\degree} in step of \SI{5}{\degree}
+\end{enumerate}
+
+
+\section*{Measurement area}
+To be able to measure in a windy area, parking lot at Tryvej 13, 9320 Hjallerup is used. The following \autoref{ap:wind:measurement_one_area} shows a picture of the area and the approximate position of the speaker and microphone.
+
+\fig{measurement_1_area}{The picture illustrate the area, where the wind flow is measured}{ap:wind:measurement_one_area}{0.7}
+
+\section*{Results}
+
+All measuring result is not shown here, the rest can be founded in the attached file. One synchronised measurement is shown for the upwards microphone where the speaker is turned \SI{0}{\degree}, \SI{10}{\degree}, \SI{20}{\degree} and \SI{30}{\degree}. The shown measurement result is for one measurement and is not a mean from 10. This shows the time synchronised result. The average result can be founded in \autoref{}.
+
+
+
+
+%\plot{plot/measuring_sync_upwards_0}{the graph shows}{fig:ap:mea_sync_upw_0}
+%\plot{plot/measuring_sync_upwards_10}{the graph shows}{fig:ap:mea_sync_upw_10}
+%\plot{plot/measuring_sync_upwards_20}{the graph shows}{fig:ap:mea_sync_upw_20}
+%\plot{plot/measuring_sync_upwards_30}{the graph shows}{fig:ap:mea_sync_upw_30}
+
+
+
+
+\section*{Summary}

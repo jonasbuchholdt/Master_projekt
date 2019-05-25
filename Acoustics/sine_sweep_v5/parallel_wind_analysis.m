@@ -4,12 +4,12 @@
 
 %% 
  clear   
- mic_no = 1  % 1 = back, 2 = center, 3 = front;
+ mic_no = 3  % 1 = back, 2 = center, 3 = front;
  load('res_n5.mat');
- mic_n5 = reshape(res_avg,[3,9]);
+ mic_n5 = reshape(res_avg,[3,9])+6.99;
 
  load('resultat_n5.mat');
- resultat_n5 = [result(:,mic_no) result(:,mic_no+3) result(:,mic_no+6) result(:,mic_no+9) result(:,mic_no+12) result(:,mic_no+15) result(:,mic_no+18) result(:,mic_no+21) result(:,mic_no+24)];
+ resultat_n5 = [result(:,mic_no) result(:,mic_no+3) result(:,mic_no+6) result(:,mic_no+9) result(:,mic_no+12) result(:,mic_no+15) result(:,mic_no+18) result(:,mic_no+21) result(:,mic_no+24)]+6.99;
  resultat_n5_rou = round(resultat_n5(:,2:end));
  resultat_n5_mean = mean(resultat_n5(:,2:end));
  resultat_n5_mean_rou = round(resultat_n5_mean);
@@ -18,10 +18,10 @@
  
  
  load('res_n1.mat');
- mic_n1 = reshape(res_avg,[3,9]);
+ mic_n1 = reshape(res_avg,[3,9])+6.99;
 
   load('resultat_n1.mat');
- resultat_n1 = [result(:,mic_no) result(:,mic_no+3) result(:,mic_no+6) result(:,mic_no+9) result(:,mic_no+12) result(:,mic_no+15) result(:,mic_no+18) result(:,mic_no+21) result(:,mic_no+24)];
+ resultat_n1 = [result(:,mic_no) result(:,mic_no+3) result(:,mic_no+6) result(:,mic_no+9) result(:,mic_no+12) result(:,mic_no+15) result(:,mic_no+18) result(:,mic_no+21) result(:,mic_no+24)]+6.99;
   resultat_n1_rou = round(resultat_n1(:,2:end));
   resultat_n1_mean = mean(resultat_n1(:,2:end));
   resultat_n1_mean_rou = round(resultat_n1_mean);
@@ -84,12 +84,12 @@ h = fill(x2, inBetween, 'r');
 set(h,'facealpha',.2)
 set(h,'EdgeColor','none')
 
-    set(gca,'Ytick',25:1:68)
+    set(gca,'Ytick',25:1:75)
     set(gca,'xtick',1:1:9)
     ylabel('Level [dB]')
     xlabel('Octave [Hz]')
     xticklabels({'63','125','250','500','1k','2k','4k','8k','16k'})
-axis([1 9 29 67])
+axis([1 9 40 75])
 
 legend('7 deg','3 deg')
 %%

@@ -1,0 +1,220 @@
+% This file was created by matlab2tikz.
+%
+%The latest updates can be retrieved from
+%  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
+
+\begin{tikzpicture}[font=\footnotesize]
+
+\begin{axis}[%
+width=120mm, 
+height=75mm, 
+at={(5mm,5mm)}, 
+scale only axis,
+grid=both,
+grid style={line width=.1pt, draw=gray!10},
+major grid style={line width=.2pt,draw=gray!50}, 
+xminorticks=true,
+yminorticks=true,
+ytick distance=3,
+minor x tick num=1,
+minor y tick num=3,
+xmin=-1,
+xmax=31,
+xtick distance=2,
+xlabel style={font=\color{white!15!black}},
+xlabel={angle [\si{\degree}]},
+ymin=-19,
+ymax=19,
+ylabel style={font=\color{white!15!black}},
+ylabel={Difference [\db]},
+axis x line*=bottom,
+axis y line*=left,
+axis background/.style={fill=white},
+legend style={legend cell align=left, align=left, draw=white!15!black}
+]
+\addplot[only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor1] table[row sep=crcr]{%
+x	y\\
+10	5.28\\
+20	-0.29\\
+30	-10.93\\
+};
+\addlegendentry{data1}
+
+\addplot [color=mycolor1]
+  table[row sep=crcr]{%
+0	14.23\\
+1	13.4195\\
+2	12.609\\
+3	11.7985\\
+4	10.988\\
+5	10.1775\\
+6	9.36699999999999\\
+7	8.55649999999999\\
+8	7.746\\
+9	6.9355\\
+10	6.125\\
+11	5.3145\\
+12	4.504\\
+13	3.6935\\
+14	2.883\\
+15	2.0725\\
+16	1.262\\
+17	0.451499999999998\\
+18	-0.359000000000002\\
+19	-1.1695\\
+20	-1.98\\
+21	-2.7905\\
+22	-3.601\\
+23	-4.4115\\
+24	-5.222\\
+25	-6.0325\\
+26	-6.843\\
+27	-7.6535\\
+28	-8.464\\
+29	-9.2745\\
+30	-10.085\\
+31	-10.8955\\
+};
+\addlegendentry{data1}
+
+\addplot[only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor2] table[row sep=crcr]{%
+x	y\\
+0	10.75\\
+10	5.38\\
+20	-4.67\\
+30	-14.99\\
+};
+\addlegendentry{data2}
+
+\addplot [color=mycolor2]
+  table[row sep=crcr]{%
+0	12.208\\
+1	11.3353\\
+2	10.4626\\
+3	9.58989999999999\\
+4	8.71719999999999\\
+5	7.84449999999999\\
+6	6.97179999999999\\
+7	6.09909999999999\\
+8	5.22639999999999\\
+9	4.35369999999999\\
+10	3.48099999999999\\
+11	2.60829999999999\\
+12	1.73559999999999\\
+13	0.862899999999994\\
+14	-0.00980000000000558\\
+15	-0.882500000000006\\
+16	-1.75520000000001\\
+17	-2.62790000000001\\
+18	-3.50060000000001\\
+19	-4.3733\\
+20	-5.24600000000001\\
+21	-6.11870000000001\\
+22	-6.99140000000001\\
+23	-7.8641\\
+24	-8.73680000000001\\
+25	-9.60950000000001\\
+26	-10.4822\\
+27	-11.3549\\
+28	-12.2276\\
+29	-13.1003\\
+30	-13.973\\
+31	-14.8457\\
+};
+\addlegendentry{data2}
+
+\addplot[only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor3] table[row sep=crcr]{%
+x	y\\
+0	12.66\\
+10	8.9\\
+20	-4.16\\
+30	-17.48\\
+};
+\addlegendentry{data3}
+
+\addplot [color=mycolor3]
+  table[row sep=crcr]{%
+0	15.502\\
+1	14.4672\\
+2	13.4324\\
+3	12.3976\\
+4	11.3628\\
+5	10.328\\
+6	9.29319999999999\\
+7	8.25839999999999\\
+8	7.22359999999999\\
+9	6.18879999999999\\
+10	5.15399999999999\\
+11	4.11919999999999\\
+12	3.08439999999999\\
+13	2.04959999999999\\
+14	1.01479999999999\\
+15	-0.0200000000000049\\
+16	-1.05480000000001\\
+17	-2.08960000000001\\
+18	-3.12440000000001\\
+19	-4.1592\\
+20	-5.194\\
+21	-6.2288\\
+22	-7.2636\\
+23	-8.2984\\
+24	-9.3332\\
+25	-10.368\\
+26	-11.4028\\
+27	-12.4376\\
+28	-13.4724\\
+29	-14.5072\\
+30	-15.542\\
+31	-16.5768\\
+};
+\addlegendentry{data3}
+
+\addplot[only marks, mark=asterisk, mark options={}, mark size=2.00, draw=mycolor4] table[row sep=crcr]{%
+x	y\\
+0	11.59\\
+10	5.75\\
+20	-6.02\\
+30	-15.6\\
+};
+\addlegendentry{data4}
+
+\addplot [color=mycolor4]
+  table[row sep=crcr]{%
+0	12.931\\
+1	11.9976\\
+2	11.0642\\
+3	10.1308\\
+4	9.19739999999999\\
+5	8.26399999999999\\
+6	7.33059999999999\\
+7	6.39719999999999\\
+8	5.46379999999999\\
+9	4.53039999999999\\
+10	3.59699999999999\\
+11	2.66359999999999\\
+12	1.73019999999999\\
+13	0.796799999999992\\
+14	-0.136600000000008\\
+15	-1.07000000000001\\
+16	-2.00340000000001\\
+17	-2.93680000000001\\
+18	-3.87020000000001\\
+19	-4.80360000000001\\
+20	-5.73700000000001\\
+21	-6.67040000000001\\
+22	-7.60380000000001\\
+23	-8.53720000000001\\
+24	-9.47060000000001\\
+25	-10.404\\
+26	-11.3374\\
+27	-12.2708\\
+28	-13.2042\\
+29	-14.1376\\
+30	-15.071\\
+31	-16.0044\\
+};
+\addlegendentry{data4}
+
+\end{axis}
+
+\end{tikzpicture}%

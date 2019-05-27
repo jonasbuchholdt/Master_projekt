@@ -17,16 +17,16 @@ xminorticks=true,
 yminorticks=true,
 ytick distance=3,
 minor x tick num=1,
-minor y tick num=3,
+minor y tick num=2,
 xmin=-1,
 xmax=31,
 xtick distance=2,
 xlabel style={font=\color{white!15!black}},
-xlabel={angle [deg]},
+xlabel={angle [\si{\degree}]},
 ymin=-19,
 ymax=19,
 ylabel style={font=\color{white!15!black}},
-ylabel={Difference [dB]},
+ylabel={Difference [\db]},
 axis x line*=bottom,
 axis y line*=left,
 axis background/.style={fill=white},
@@ -194,7 +194,6 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 
 \addplot [color=mycolor1]
   table[row sep=crcr]{%
--1	9.68866666666667\\
 0	9.10666666666667\\
 1	8.52466666666666\\
 2	7.94266666666667\\
@@ -226,13 +225,11 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 28	-7.18933333333333\\
 29	-7.77133333333333\\
 30	-8.35333333333333\\
-31	-8.93533333333333\\
 };
 \addlegendentry{$[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $}
 
 \addplot [color=mycolor2]
   table[row sep=crcr]{%
--1	12.9221\\
 0	12.154\\
 1	11.3859\\
 2	10.6178\\
@@ -264,13 +261,11 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 28	-9.3528\\
 29	-10.1209\\
 30	-10.889\\
-31	-11.6571\\
 };
 \addlegendentry{$[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $}
 
 \addplot [color=mycolor3]
   table[row sep=crcr]{%
--1	13.00714\\
 0	12.2526\\
 1	11.49806\\
 2	10.74352\\
@@ -302,13 +297,11 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 28	-8.87452\\
 29	-9.62906000000001\\
 30	-10.3836\\
-31	-11.13814\\
 };
 \addlegendentry{$[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $}
 
 \addplot [color=mycolor4]
   table[row sep=crcr]{%
--1	11.79692\\
 0	11.0518\\
 1	10.30668\\
 2	9.56156\\
@@ -340,7 +333,6 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 28	-9.81156\\
 29	-10.55668\\
 30	-11.3018\\
-31	-12.04692\\
 };
 \addlegendentry{$[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $}
 

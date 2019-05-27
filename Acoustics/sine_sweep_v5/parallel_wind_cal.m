@@ -13,7 +13,7 @@ down3 = 20;
 down4 = 50;
 
 angle = 90;
-ir_number = 6;
+ir_number = 10;
 l_eq_no   = c;
 
 % n5 - 3
@@ -34,20 +34,20 @@ start=1;
 
 for i=start:1:ir_num
 number = i;
-ir_downwards_pre(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.ir_downwards'));
-ir_center_pre(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.ir_center'));
-ir_upwards_pre(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.ir_upwards'));
+ir_downwards_pre(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.ir_downwards'));
+ir_center_pre(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.ir_center'));
+ir_upwards_pre(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.ir_upwards'));
 
-wind_speed1(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.wind_speed1'));
-wind_speed2(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.wind_speed2'));
-wind_direction1(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.wind_direction1'));
-wind_direction2(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.wind_direction2'));
-temp(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.temp'));
-humidity(:,i) = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.humidity'));
+wind_speed1(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.wind_speed1'));
+wind_speed2(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.wind_speed2'));
+wind_direction1(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.wind_direction1'));
+wind_direction2(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.wind_direction2'));
+temp(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.temp'));
+humidity(:,i) = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.humidity'));
 end
 
-irtime = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.irtime'));
-weathertime = eval(strcat('data',int2str(number),'tile_n1_angle',int2str(angle),'.weathertime'));
+irtime = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.irtime'));
+weathertime = eval(strcat('data',int2str(number),'tile_n5_angle',int2str(angle),'.weathertime'));
 
 
 ir_downwards_no = (ir_downwards_pre(1:20000,ir_no_st:ir_no)*10^(10/20)); %*10^(5/20)
@@ -113,11 +113,38 @@ ir_upwards_vis=ir_upwards_win;
 
 
 % weather
-windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
-windsdirection = mean([wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir_no)])-180-90
+%windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
+%windsdirection = mean([wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir_no)])-180-90
 temp_mes = mean(temp(:,ir_no_st:ir_no));
 humidity_mes = mean(humidity(:,ir_no_st:ir_no));
 
+
+
+wind_direction1(:,ir_no_st:ir_no)= wind_direction1(:,ir_no_st:ir_no)+10;
+wind_direction2(:,ir_no_st:ir_no)=wind_direction2(:,ir_no_st:ir_no)-10;
+wind_dir_cal = [wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir_no)]-180-90;
+
+%29:32 at 250
+%33:36 at 500
+%37:40 at 1k
+%41:44 at 2k
+%45:48 at 4k
+%49:51 at 8k
+%51:end at 16k
+
+%wind_at(c,:) = [wind_direction1(29:32,ir_no_st:ir_no)' wind_direction2(29:32,ir_no_st:ir_no)']-180-90;
+%wind_sp(c,:) = [wind_speed1(29:32,ir_no_st:ir_no)' wind_speed2(29:32,ir_no_st:ir_no)'];
+
+windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
+windsdirection_mean(c) = mean(wind_dir_cal);
+windsdirection_std(c) = std(wind_dir_cal);
+
+round(windsdirection_mean(c))
+round(windsdirection_std(c))
+
+%round(mean(windsdirection_mean))
+%round(mean(windsdirection_std))
+%%
 
 % viscosity filter downwards ----
 input = ir_downwards_vis;

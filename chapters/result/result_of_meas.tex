@@ -4,28 +4,164 @@ This chapter aims to analyse the data obtained in the final measurement shown in
 
 
 \section{Crosswind data analysis}\label{res:cross_data_ana}
-The crosswind data analysis is only based on the appoved data shown in the five table in \autoref{mes:kudo:cross_mes}. Futhermore the number of data point in the indivudal measuremtn angle in the interwal of $[\SI{8}{\meter\per\second},\, \SI{9}{\meter\per\second}[ $ and $[\SI{9}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ is generally small with only one or no data. Therefore the thoes to interval is combined to one interval $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $. The analysis analyses the difference between the upwards microphone versus the downwards microphone in all four interval. The analysis is done in octave band as the shown data, then from octave band \Hz{1000} to octave \SI{16}{\kilo\hertz}. In the end all data is analysed as a one combination of all octave band to find the optimal angle for every wind speed interval.   
-
-
+The crosswind data analysis is only based on the appoved data shown in the five table in \autoref{mes:kudo:cross_mes}. Futhermore the number of data point in the indivudal measuremtn angle in the interwal of $[\SI{8}{\meter\per\second},\, \SI{9}{\meter\per\second}[ $ and $[\SI{9}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ is generally small with only one or no data in some octave band. Therefore the thoes to interval is combined to one interval $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $. The analysis analyses the difference between the upwards microphone versus the downwards microphone in all four interval. The analysis is done in octave band as the shown data, then from octave band \Hz{1000} to octave \SI{16}{\kilo\hertz}. In the end all data is analysed as a one combination of all octave band to find the optimal angle for every wind speed interval. The following \autoref{fig:res:result_crosswind_1k}  is the \Hz{1000} octave band. 
 
 
  \plot{plot/result_crosswind_1k}{The graph shows \Hz{1000} }{fig:res:result_crosswind_1k}
  
+ The dots in \autoref{fig:res:result_crosswind_1k} correspond to the measured data, where the line is the linear least square fit. The interval from $[\SI{6}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ shows that the optimal angle for the \Hz{1000} octave band is nearly the same. The refraction effect on the  \Hz{1000} octave band does not change much in this interval, only the $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $ at \SI{10}{\degree} is more that \dB{3} from the fitted line. The average wind angle at speaker angle \SI{0}{\degree} in the \Hz{1000} is \SI{95.3}{\degree} with wind speed of \SI{6.1}{\meter\per\second}.The average wind angle at speaker angle \SI{10}{\degree} in the \Hz{1000} is \SI{96.7}{\degree} with wind speed of \SI{6.4}{\meter\per\second}.The average wind angle at speaker angle \SI{20}{\degree} in the \Hz{1000} is \SI{94.0}{\degree} with wind speed of \SI{6.9}{\meter\per\second}.The average wind angle at speaker angle \SI{30}{\degree} in the \Hz{1000} is \SI{95.4}{\degree} with wind speed of \SI{6.3}{\meter\per\second}. The difference in wind angle in  \Hz{1000} octave band is very small and non measurement can be waithed less or more than the other. 
+
+At the interval $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $ no data is measured in \SI{0}{\degree} speaker angle and the average wind angle at speaker angle \SI{10}{\degree} is is high with only 2 data measurement. The average wind angle at speaker angle \SI{10}{\degree} in the \Hz{1000} is \SI{113.4}{\degree} with wind speed of \SI{5.4}{\meter\per\second}. The \SI{113.4}{\degree} angle should give higher upwards refraction on to the upwards refraction microphone and nealy no downwards or upwards refraction or the downwards refraction microphone. This wind measuring point in this case might not be representable to the wind direction between the speaker to the microphone or turbulence in the air disturb the measurement. The average wind angle at speaker angle \SI{10}{\degree} in the \Hz{1000} is \SI{92.9}{\degree} with wind speed of \SI{5.4}{\meter\per\second}. This point is trustable, there is 4 avelible measurement and the wind data is not far from the average.
+ 
+ The following \autoref{} gives the calculated angle based on the least square fit.
+ 
+ \begin{table}[H]
+ \centering
+\begin{tabular}{l|l}
+\multicolumn{2}{l}{\Hz{1000}}      \\ \hline
+interval & angle \\ \hline
+  $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{-1.3}{\degree}    \\
+    $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{17.0}{\degree}     \\
+  $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{17.6}{\degree}    \\
+   $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $      &     \SI{17.3}{\degree}  \\ \hline
+    avg      &     \SI{12.7}{\degree}
+\end{tabular}
+\end{table}
+ 
+
+ 
   \plot{plot/result_crosswind_2k}{The graph shows \Hz{2000} }{fig:res:result_crosswind_2k}
+  
+in the interval $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $, the average wind angle at speaker angle \SI{20}{\degree} in the \Hz{2000} is \SI{87.0}{\degree} with wind speed of \SI{9.1}{\meter\per\second}. The average wind angle at speaker angle \SI{30}{\degree} in the \Hz{2000} is \SI{95.0}{\degree} with wind speed of \SI{8.4}{\meter\per\second}. Nothing indicate that this two points is non trustable measurement unles that the  \SI{30}{\degree} only have one measurement. In the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ one points excite \dB{3} from the fit. The average wind angle at speaker angle \SI{10}{\degree} in the \Hz{2000} is \SI{91.8}{\degree} with wind speed of \SI{7.6}{\meter\per\second}. Nether in this measurement the wind speed or wind direction is the reson that the point excites the fit by \dB{3}
+
+ The following \autoref{} gives the calculated angle based on the least square fit.  
+  
+ \begin{table}[H]
+ \centering
+\begin{tabular}{l|l}
+\multicolumn{2}{l}{\Hz{2000}}      \\ \hline
+interval & angle \\ \hline
+  $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{12.2}{\degree}    \\
+    $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{17.7}{\degree}     \\
+  $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{15.8}{\degree}    \\
+   $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $      &     \SI{14.2}{\degree} \\ \hline
+    avg      &     \SI{15.0}{\degree} 
+\end{tabular}
+\end{table}
+  
   
    \plot{plot/result_crosswind_4k}{The graph shows \Hz{4000} }{fig:res:result_crosswind_4k}
    
+All data points in the graph except of the interval    $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $  have less that $\pm \dB{3}$ diviation from the fit. In the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $. The average wind angle at speaker angle \SI{10}{\degree} in the \Hz{4000} is \SI{90.1}{\degree} with wind speed of \SI{7.8}{\meter\per\second}. Nothing indicate that this points is non trustable measurement due to the wind condition
+   
+ The following \autoref{} gives the calculated angle based on the least square fit.  
+  
+ \begin{table}[H]
+ \centering
+\begin{tabular}{l|l}
+\multicolumn{2}{l}{\Hz{4000}}      \\ \hline
+interval & angle \\ \hline
+  $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{16.0}{\degree}    \\
+    $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{15.6}{\degree}     \\
+  $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{16.4}{\degree}    \\
+   $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $      &     \SI{12.9}{\degree}  \\ \hline
+    avg      &     \SI{15.2}{\degree} 
+\end{tabular}
+\end{table}   
+   
     \plot{plot/result_crosswind_8k}{The graph shows \Hz{8000} }{fig:res:result_crosswind_8k}
+ 
+ All data points in the graph except of the interval    $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $  have less that $\pm \dB{3}$ diviation from the fit. In the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $, the average wind angle at speaker angle \SI{10}{\degree} in the \Hz{4000} is \SI{92.4}{\degree} with wind speed of \SI{7.7}{\meter\per\second}. Nothing indicate that this points is non trustable measurement due to the wind condition
+   
+ The following \autoref{} gives the calculated angle based on the least square fit.  
+  
+ \begin{table}[H]
+ \centering
+\begin{tabular}{l|l}
+\multicolumn{2}{l}{\Hz{8000}}      \\ \hline
+interval & angle \\ \hline
+  $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{17.5}{\degree}    \\
+    $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{14.0}{\degree}     \\
+  $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{15.0}{\degree}    \\
+   $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $      &     \SI{13.8}{\degree}  \\ \hline
+    avg      &     \SI{15.1}{\degree} 
+\end{tabular}
+\end{table}   
+ 
+
  
   \plot{plot/result_crosswind_16k}{The graph shows \SI{16}{\kilo\hertz} }{fig:res:result_crosswind_16k}
 
+ All data points in the graph except of the interval    $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $  have less that $\pm \dB{3}$ diviation from the fit.
+ 
+ The following \autoref{} gives the calculated angle based on the least square fit.  
+  
+ \begin{table}[H]
+ \centering
+\begin{tabular}{l|l}
+\multicolumn{2}{l}{\SI{16}{\kilo\hertz}}      \\ \hline
+interval & angle \\ \hline
+  $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{19.6}{\degree}    \\
+    $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{15.3}{\degree}     \\
+  $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{17.3}{\degree}    \\
+   $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $      &     \SI{17.0}{\degree}  \\ \hline
+    avg      &     \SI{17.3}{\degree} 
+\end{tabular}
+\end{table}    
+ 
+ 
+The mean angle for every interval is then as following \autoref{}
+
+  \begin{table}[H]
+ \centering
+\begin{tabular}{l|l|l}
+\multicolumn{2}{l}{The angle}      \\ \hline
+interval & avg & std \\ \hline
+  $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{12.8}{\degree} &   \SI{8.3}{\degree}   \\
+    $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{15.9}{\degree} &   \SI{1.5}{\degree}    \\
+  $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{16.4}{\degree}  &   \SI{1.1}{\degree}  \\
+   $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $      &     \SI{15.0}{\degree}  &   \SI{2.0}{\degree}  \\ \hline
+    avg      &     \SI{15.0}{\degree} &
+\end{tabular}
+\end{table}  
+ 
 
  \plot{plot/result_crosswind}{The graph shows }{fig:res:result_crosswind}
+ 
+ \begin{table}[H]
+ \centering
+\begin{tabular}{l|l}
+\multicolumn{2}{l}{The optimal angle}      \\ \hline
+interval & angle \\ \hline
+  $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{15.6}{\degree}    \\
+    $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{15.8}{\degree}     \\
+  $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{16.2}{\degree}    \\
+   $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $      &     \SI{14.8}{\degree}  \\ \hline
+    avg      &     \SI{15.6}{\degree} 
+\end{tabular}
+\end{table}     
+ 
+  \plot{plot/result_crosswind_center}{The graph shows }{fig:res:result_crosswind_center}
 
 \section{Parallel wind data analysis}\label{res:par_data_ana}
 
-  \plot{plot/result_parallel_wind_first}{The graph shows the first microphone}{fig:res:result_parallel_wind_first}
+The parallel data analysis is only based on the appoved data shown in \autoref{ta:meas:approved_data_par}. The analysis analyses the \gls{spl} measured in speaker angle \SI{3}{\degree} and  \SI{3}{\degree} for all three microphone position. The analysis is done in octave band as the shown data, then from octave band \Hz{125} to octave \SI{16}{\kilo\hertz}. 
+
+ The following \autoref{fig:res:result_parallel_wind_first}  shows the measurement for the front microphone.
+
+ \plot{plot/result_parallel_wind_first}{The graph shows the first microphone}{fig:res:result_parallel_wind_first}
+  
+The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for both microphone and the \gls{spl} interval as the transparancy shadded area.
+It is seen in the graph that the average \gls{spl} is higher from \Hz{500} to \SI{16}{\kilo\hertz} while the speaker is tilted \SI{7}{\degree}. This \gls{spl} differences can be due to two factors. If upwards refraction is present, the upwards refraction refract the sound the the microphone. It can also be due to that at \SI{7}{\degree} the microphone is within the near-field where at the \SI{3}{\degree} the microphone is outside the near-field. To be able to see if it is the near-field of the refraction the following \autoref{fig:res:result_parallel_wind} shows the measurement for the centre microphone where the microphone is within the border of the near-field while the line source array is tilted \SI{3}{\degree} and outside the near-field while the line source array is tilted \SI{7}{\degree}.
+ 
+  
   
  \plot{plot/result_parallel_wind}{The graph shows the center microphone }{fig:res:result_parallel_wind}
+ The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for both microphone and the \gls{spl} interval as the transparancy shadded area. It is clearly seen that the upwards refraction refract the sound to the center microphone where when the line source array point to the microphone the sound is refracted upove the microphone. In this distance more power is played intro the shadow zone or the shadow zone is moved more backwards. The following \autoref{fig:res:result_parallel_wind_back} shows the measurement with the back microphone.
+ 
+ 
   
    \plot{plot/result_parallel_wind_back}{The graph shows the back microphone}{fig:res:result_parallel_wind_back}
+   
+The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for both microphone and the \gls{spl} interval as the transparancy shadded area. It is seen that the difference is less than the centre microphone but there is still generally more power in the in the high frequency range from \Hz{4000} and upwards.   
+   

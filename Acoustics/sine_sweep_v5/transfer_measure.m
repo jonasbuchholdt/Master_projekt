@@ -414,8 +414,17 @@ ir_downwards=ir_downwards_win;
 ir_center=ir_center_win;
 ir_upwards=ir_upwards_win;
 
+wind_direction1(:,ir_no_st:ir_no)= wind_direction1(:,ir_no_st:ir_no)-27;
+wind_direction2(:,ir_no_st:ir_no)=wind_direction2(:,ir_no_st:ir_no)-20;
+wind_dir_cal = [wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir_no)]-180;
 
-wind_dir_cal = [wind_direction1(:,ir_no_st:ir_no)-27; wind_direction2(:,ir_no_st:ir_no)-20]-180;
+%37:40 at 1k
+%41:44 at 2k
+%45:48 at 4k
+%49:51 at 8k
+%51:end at 16k
+wind_at(c,:) = [wind_direction1(49:51,ir_no_st:ir_no)' wind_direction2(49:51,ir_no_st:ir_no)']-180;
+wind_sp(c,:) = [wind_speed1(49:51,ir_no_st:ir_no)' wind_speed2(49:51,ir_no_st:ir_no)'];
 
 windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
 windsdirection_mean(c) = mean(wind_dir_cal);
@@ -423,10 +432,10 @@ windsdirection_std(c) = std(wind_dir_cal);
 
 round(windsdirection_mean(c))
 round(windsdirection_std(c))
-%%
+
 round(mean(windsdirection_mean))
 round(mean(windsdirection_std))
-%%
+
 
 
 
@@ -462,6 +471,18 @@ result(l_eq_no,b+1) = l_eq_center(i);
 result(l_eq_no,b+2) = l_eq_downwards(i);
 b=b+3;
 end
+
+%%
+
+res_avg = mean(result); %mean
+for i=1:5   
+res_dif_d(i) = res_avg(3+(i-1)*3) - res_avg(2+(i-1)*3);
+end
+
+for i=1:5   
+res_dif_u(i) = res_avg(2+(i-1)*3) - res_avg(1+(i-1)*3);
+end
+res_dif = round(abs(res_dif_u)+abs(res_dif_d),2)
 
 %%
 res_men = round(result);

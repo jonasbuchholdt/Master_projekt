@@ -17,7 +17,7 @@ xminorticks=true,
 yminorticks=true,
 ytick distance=3,
 minor x tick num=1,
-minor y tick num=3,
+minor y tick num=2,
 xmin=-1,
 xmax=31,
 xtick distance=2,
@@ -30,17 +30,65 @@ ylabel={Difference [\db]},
 axis x line*=bottom,
 axis y line*=left,
 axis background/.style={fill=white},
-legend style={legend cell align=left, align=left, draw=white!15!black}
+%legend style={legend cell align=left, align=left, draw=white!15!black},
+    legend entries={$[\SI{5}{\meter\per\second} \text{,} \, \,  \SI{6}{\meter\per\second}[$,$[\SI{6}{\meter\per\second} \text{,} \, \, \SI{7}{\meter\per\second}[$,$[\SI{7}{\meter\per\second} \text{,} \, \, \SI{8}{\meter\per\second}[ $,$[\SI{8}{\meter\per\second} \text{,} \, \, \SI{10}{\meter\per\second}[ $},
+    %legend entries={$[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[$,b,c,d},
+        % define plot styles, for convenience
+        num1/.style={only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor1},
+        num2/.style={no markers,draw=mycolor1},
+        num3/.style={only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor2},
+        num4/.style={no markers,draw=mycolor2},
+        num5/.style={only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor3},
+        num6/.style={no markers,draw=mycolor3},
+        num7/.style={only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor4},
+        num8/.style={no markers,draw=mycolor4},
+        % make new legend style
+        combo legend1/.style={
+          legend image code/.code={
+            \draw [/pgfplots/num1] plot coordinates {(1mm,0cm)};
+            \draw plot coordinates {(2.5mm,-3pt)} node {,};
+            \draw[/pgfplots/num2](3mm,0) -- (7mm,0) plot coordinates {(1mm,0cm)};
+          }
+        },
+        combo legend2/.style={
+          legend image code/.code={
+            \draw [/pgfplots/num3] plot coordinates {(1mm,0cm)};
+            \draw plot coordinates {(2.5mm,-3pt)} node {,};
+            \draw[/pgfplots/num4](3mm,0) -- (7mm,0) plot coordinates {(1mm,0cm)};
+          }
+        },
+        combo legend3/.style={
+          legend image code/.code={
+            \draw [/pgfplots/num5] plot coordinates {(1mm,0cm)};
+            \draw plot coordinates {(2.5mm,-3pt)} node {,};
+            \draw[/pgfplots/num6](3mm,0) -- (7mm,0) plot coordinates {(1mm,0cm)};
+          }
+        },
+        combo legend4/.style={
+          legend image code/.code={
+            \draw [/pgfplots/num7] plot coordinates {(1mm,0cm)};
+            \draw plot coordinates {(2.5mm,-3pt)} node {,};
+            \draw[/pgfplots/num8](3mm,0) -- (7mm,0) plot coordinates {(1mm,0cm)};
+          }
+        }
 ]
-\addplot[only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor1] table[row sep=crcr]{%
+
+    \addlegendimage{combo legend1}
+    \addlegendimage{combo legend2}
+    \addlegendimage{combo legend3}
+    \addlegendimage{combo legend4}
+
+
+
+\addplot[num1] table[row sep=crcr]{%
 x	y\\
 10	5.28\\
 20	-0.29\\
 30	-10.93\\
 };
-\addlegendentry{data1}
 
-\addplot [color=mycolor1]
+
+\addplot [num2]
   table[row sep=crcr]{%
 0	14.23\\
 1	13.4195\\
@@ -73,20 +121,19 @@ x	y\\
 28	-8.464\\
 29	-9.2745\\
 30	-10.085\\
-31	-10.8955\\
 };
-\addlegendentry{data1}
 
-\addplot[only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor2] table[row sep=crcr]{%
+
+\addplot[num3] table[row sep=crcr]{%
 x	y\\
 0	10.75\\
 10	5.38\\
 20	-4.67\\
 30	-14.99\\
 };
-\addlegendentry{data2}
 
-\addplot [color=mycolor2]
+
+\addplot [num4]
   table[row sep=crcr]{%
 0	12.208\\
 1	11.3353\\
@@ -119,20 +166,19 @@ x	y\\
 28	-12.2276\\
 29	-13.1003\\
 30	-13.973\\
-31	-14.8457\\
 };
-\addlegendentry{data2}
 
-\addplot[only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor3] table[row sep=crcr]{%
+
+\addplot[num5] table[row sep=crcr]{%
 x	y\\
 0	12.66\\
 10	8.9\\
 20	-4.16\\
 30	-17.48\\
 };
-\addlegendentry{data3}
 
-\addplot [color=mycolor3]
+
+\addplot [num6]
   table[row sep=crcr]{%
 0	15.502\\
 1	14.4672\\
@@ -165,20 +211,19 @@ x	y\\
 28	-13.4724\\
 29	-14.5072\\
 30	-15.542\\
-31	-16.5768\\
 };
-\addlegendentry{data3}
 
-\addplot[only marks, mark=asterisk, mark options={}, mark size=2.00, draw=mycolor4] table[row sep=crcr]{%
+
+\addplot[num7] table[row sep=crcr]{%
 x	y\\
 0	11.59\\
 10	5.75\\
 20	-6.02\\
 30	-15.6\\
 };
-\addlegendentry{data4}
 
-\addplot [color=mycolor4]
+
+\addplot [num8]
   table[row sep=crcr]{%
 0	12.931\\
 1	11.9976\\
@@ -211,9 +256,8 @@ x	y\\
 28	-13.2042\\
 29	-14.1376\\
 30	-15.071\\
-31	-16.0044\\
 };
-\addlegendentry{data4}
+
 
 \end{axis}
 

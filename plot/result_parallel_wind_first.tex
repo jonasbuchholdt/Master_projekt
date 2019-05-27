@@ -19,7 +19,7 @@ xminorticks=true,
 yminorticks=true,
 ytick distance=3,
 minor x tick num=0,
-minor y tick num=3,
+minor y tick num=2,
 xmin=2,
 xmax=9,
 xtick={1,2,3,4,5,6,7,8,9},
@@ -45,7 +45,7 @@ legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align
 8	62.52\\
 9	52.97\\
 };
-\addlegendentry{7 deg}
+\addlegendentry{\SI{7}{\degree} average}
 
 \addplot [color=mycolor2]
   table[row sep=crcr]{%
@@ -59,10 +59,10 @@ legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align
 8	56.55\\
 9	47.19\\
 };
-\addlegendentry{3 deg}
+\addlegendentry{\SI{3}{\degree} average}
 
 
-\addplot[area legend, draw=none, fill=blue, fill opacity=0.2, forget plot]
+\addplot[area legend, draw=none, draw opacity=0, fill=mycolor1, fill opacity=0.2]
 table[row sep=crcr] {%
 x	y\\
 1	61.0770982132414\\
@@ -85,7 +85,10 @@ x	y\\
 1	60.766660557515\\
 }--cycle;
 
-\addplot[area legend, draw=none, fill=red, fill opacity=0.2, forget plot]
+\addlegendentry{\SI{7}{\degree} interval}
+
+
+\addplot[area legend, draw=none, draw opacity=0, fill=mycolor2, fill opacity=0.2]
 table[row sep=crcr] {%
 x	y\\
 1	61.5966806099354\\
@@ -107,6 +110,9 @@ x	y\\
 2	65.7673134174731\\
 1	60.9605014196118\\
 }--cycle;
+
+\addlegendentry{\SI{3}{\degree} interval}
+
 \end{axis}
 
 

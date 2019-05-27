@@ -19,7 +19,7 @@ xminorticks=true,
 yminorticks=true,
 ytick distance=3,
 minor x tick num=1,
-minor y tick num=3,
+minor y tick num=2,
 xmin=-1,
 xmax=31,
 xtick distance=2,
@@ -33,7 +33,7 @@ axis x line*=bottom,
 axis y line*=left,
 axis background/.style={fill=white},
 %legend style={legend cell align=left, align=left, draw=white!15!black},
-   % legend entries={$[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[$,$[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[$,$[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $,$[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $},
+    legend entries={$[\SI{5}{\meter\per\second} \text{,} \, \,  \SI{6}{\meter\per\second}[$,$[\SI{6}{\meter\per\second} \text{,} \, \, \SI{7}{\meter\per\second}[$,$[\SI{7}{\meter\per\second} \text{,} \, \, \SI{8}{\meter\per\second}[ $,$[\SI{8}{\meter\per\second} \text{,} \, \, \SI{10}{\meter\per\second}[ $},
     %legend entries={$[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[$,b,c,d},
         % define plot styles, for convenience
         num1/.style={only marks, mark=asterisk, mark options={}, mark size=2.00pt, draw=mycolor1},
@@ -79,7 +79,7 @@ axis background/.style={fill=white},
     \addlegendimage{combo legend2}
     \addlegendimage{combo legend3}
     \addlegendimage{combo legend4}
-    \legend{$[\SI{5}{\meter\per\second} \text{,} \, \,  \SI{6}{\meter\per\second}[ $,b,c,d}
+
 
     
 \addplot[num1] table[row sep=crcr]{%
@@ -169,7 +169,6 @@ x	y\\
 28	-4.9\\
 29	-5.3425\\
 30	-5.785\\
-31	-6.2275\\
 };
 
 
@@ -215,7 +214,6 @@ x	y\\
 28	-4.6244\\
 29	-5.0707\\
 30	-5.517\\
-31	-5.9633\\
 };
 
 
@@ -261,7 +259,6 @@ x	y\\
 28	-4.2434\\
 29	-4.6402\\
 30	-5.037\\
-31	-5.4338\\
 };
 
 

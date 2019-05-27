@@ -44,7 +44,7 @@ legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align
 8	58.32\\
 9	47.25\\
 };
-\addlegendentry{7 deg}
+\addlegendentry{\SI{7}{\degree} average}
 
 \addplot [color=mycolor2]
   table[row sep=crcr]{%
@@ -58,10 +58,10 @@ legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align
 8	52.16\\
 9	42.39\\
 };
-\addlegendentry{3 deg}
+\addlegendentry{\SI{3}{\degree} average}
 
 
-\addplot[area legend, draw=none, fill=blue, fill opacity=0.2, forget plot]
+\addplot[area legend, draw=none, draw opacity=0, fill=mycolor1,  fill opacity=0.2]
 table[row sep=crcr] {%
 x	y\\
 1	61.3240818370697\\
@@ -84,7 +84,9 @@ x	y\\
 1	60.7364469417512\\
 }--cycle;
 
-\addplot[area legend, draw=none, fill=red, fill opacity=0.2, forget plot]
+\addlegendentry{\SI{7}{\degree} inverval}
+
+\addplot[area legend, draw=none, draw opacity=0, fill=mycolor2, fill opacity=0.2]
 table[row sep=crcr] {%
 x	y\\
 1	61.6364189570749\\
@@ -106,6 +108,8 @@ x	y\\
 2	65.4992588727173\\
 1	61.1537941294933\\
 }--cycle;
+\addlegendentry{\SI{3}{\degree} interval}
+
 \end{axis}
 
 \end{tikzpicture}%

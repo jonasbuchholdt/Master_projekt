@@ -193,9 +193,21 @@ The impulse response is measured with sine sweep according to \citep{mller2001tr
 \explain{\text{mic}_{sen}}{is the rms sensitivity of the microphone in digital number at one pascal rms}{1}
 \stopexplain
 
-After the reference signal is related to the measured signal, deconvolution is calculated by calculating the \gls{fft} for both signal, divide the measured signal by the reference signal and calculate the \gls{ifft}. The result is an impulse response where the amplitude corresponds to a calibrated pascal value of the played time signal. By the impulse response both the $l_{eq}$ and the frequency response can be calculated. 
+After the reference signal is related to the measured signal, deconvolution is calculated by calculating the \gls{fft} for both signal, divide the measured signal by the reference signal and calculate the \gls{ifft}. The result is an impulse response where the amplitude corresponds to a calibrated pascal value of the played time signal. By the impulse response both the $l_{eq}$ and the frequency response can be calculated. The calibrated frequency response is calculated with the \matlab function \texttt{freqz}. The $l_{eq}$ is calculated with the following \autoref{topd:leq}.
 
 
+\begin{equation}\label{topd:leq}
+L_{eq} = 10 \cdot log10 \left ( \frac{1}{T} \cdot \frac{\int IR^2}{20\mu^2 } \right )
+\end{equation}
+
+\startexplain
+\explain{L_{eq}}{is the calibrated equivalent sound pressure level}{\db}
+\explain{IR}{is the impulse response}{\pascal}
+\explain{20\mu}{is the hearing threshold level reference}{\pascal}
+\explain{T}{is the measured time period. In this case while it is an impulse response, the time period is always set to 1 no matter how long the sine sweep is designed to be}{\second}
+\stopexplain
+
+As an example, if the played signal is from \Hz{20} to \SI{20}{\kilo\hertz} and it is measured that all frequency is \dB{94}, the $L_{eq}$ gives \dB{94}.
 
 The measuring software is founded in  \autoref{ap:imp_res_meas_soft}
 

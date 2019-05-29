@@ -1,4 +1,4 @@
-\section{Result}
+\section{Data analysis}
 This chapter aims to analyse the data obtained in the final measurement shown in \autoref{ch:measurement}. The analysis is done in to parts, on part for crosswind and one part for parallel wind. The analysis starts with the former. 
 
 
@@ -151,7 +151,7 @@ The following analysis of the crosswind is based on an least square fit, while a
  
  
 
- \plot{plot/result_crosswind}{The graph shows the average octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a box plot. It moreover gives the linear least square fit of every wind speed interval as a line.}{fig:res:result_crosswind}
+ \plot{plot/result_crosswind}{The box plot include all average \si{\decibel} differences of all octave band between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes}. The graph shows the linear least square fit of every wind speed interval as a line.}{fig:res:result_crosswind}
  
 The boxes in \autoref{fig:res:result_crosswind} indicate the 25th and 75th percentiles where the Whisker indicate the \SI{99.3}{\percent} or $2.7\sigma$ of the measuring point. The read line indicate the median. It is seen that generally the \SI{50}{\percent} for the measurement is within an interval equal or less than \dB{5} and all least square fit shows similar tendency. The croses the optimal angle between \SI{14.8}{\degree} to \SI{16.2}{\degree}  degree and the differences between the upwards microphone and the downwards microphone is similat in the measured wind speed interval. The absolute lowest deviation is founded at the measured \SI{20}{\degree} angle. The following \autoref{res:tab:cross_mean_all} shows the calculated optimal angle for every wind speed interval based on the least square fit with all octave band measurement points.
  
@@ -174,7 +174,7 @@ The analysis showed and speaker angle between \SI{14.8}{\degree} to  \SI{16.2}{\
 
 The last crosswind analysis is based on the absolute added differences between the center microphone and the upwards and downwards microphone. The following \autoref{fig:res:result_crosswind_center} shows the box plot of the result and a second order least square fit of the data. 
  
-  \plot{plot/result_crosswind_center}{The graph shows }{fig:res:result_crosswind_center}
+  \plot{plot/result_crosswind_center}{The box plot include all absolute average \si{\decibel} differences of all octave band between the center microphone and the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes}. The graph shows the second order least square fit of every wind speed interval as a line.}{fig:res:result_crosswind_center}
 
 The box plot in \autoref{fig:res:result_crosswind_center} is with the same settings as in  \autoref{fig:res:result_crosswind}. The red plus sign indicate outliers, which is points outside \SI{99.3}{\percent} of the measurements. The lowest deviation is also in this case in the \SI{20}{\degree} line source angle. The second order fit shows an optimal angle between \SI{14.4}{\degree} to \SI{16.3}{\degree} line source angle. The blue line in the $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $ interval is not counted here because no data in the \SI{0}{\degree} angle is present. The mean angle in the interval $[\SI{6}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ is in this case \SI{15.6}{\degree}
   
@@ -186,19 +186,19 @@ The parallel data analysis is only based on the appoved data shown in \autoref{t
 
  The following \autoref{fig:res:result_parallel_wind_first}  shows the measurement for the front microphone.
 
- \plot{plot/result_parallel_wind_first}{The graph shows the first microphone}{fig:res:result_parallel_wind_first}
+ \plot{plot/result_parallel_wind_first}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given angle. The data is measured at the first microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind_first}
   
 The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for both microphone and the \gls{spl} interval as the transparancy shadded area.
 It is seen in the graph that the average \gls{spl} is higher from \Hz{500} to \SI{16}{\kilo\hertz} while the speaker is tilted \SI{7}{\degree}. This \gls{spl} differences can be due to two factors. If upwards refraction is present, the upwards refraction refract the sound the the microphone. It can also be due to that at \SI{7}{\degree} the microphone is within the near-field where at the \SI{3}{\degree} the microphone is outside the near-field. To be able to see if it is the near-field of the refraction the following \autoref{fig:res:result_parallel_wind} shows the measurement for the centre microphone where the microphone is within the border of the near-field while the line source array is tilted \SI{3}{\degree} and outside the near-field while the line source array is tilted \SI{7}{\degree}.
  
   
   
- \plot{plot/result_parallel_wind}{The graph shows the center microphone }{fig:res:result_parallel_wind}
+ \plot{plot/result_parallel_wind}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given angle. The data is measured at the center microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind}
  The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for both microphone and the \gls{spl} interval as the transparancy shadded area. It is clearly seen that the upwards refraction refract the sound to the center microphone where when the line source array point to the microphone the sound is refracted upove the microphone. In this distance more power is played intro the shadow zone or the shadow zone is moved more backwards. The following \autoref{fig:res:result_parallel_wind_back} shows the measurement with the back microphone.
  
  
   
-   \plot{plot/result_parallel_wind_back}{The graph shows the back microphone}{fig:res:result_parallel_wind_back}
+   \plot{plot/result_parallel_wind_back}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given angle. The data is measured at the back microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind_back}
    
 The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for both microphone and the \gls{spl} interval as the transparancy shadded area. It is seen that the difference is less than the centre microphone but there is still generally more power in the in the high frequency range from \Hz{4000} and upwards.   
    

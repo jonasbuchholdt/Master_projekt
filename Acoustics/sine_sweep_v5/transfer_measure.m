@@ -330,8 +330,8 @@ down3 = 20;
 down4 = 50;
 
 %---
-angle = 20;
-ir_number = 13;
+angle = 0;
+ir_number = 22;
 %---
 
 
@@ -423,9 +423,10 @@ wind_dir_cal = [wind_direction1(:,ir_no_st:ir_no); wind_direction2(:,ir_no_st:ir
 %45:48 at 4k
 %49:51 at 8k
 %51:end at 16k
-wind_at(c,:) = [wind_direction1(49:51,ir_no_st:ir_no)' wind_direction2(49:51,ir_no_st:ir_no)']-180;
-wind_sp(c,:) = [wind_speed1(49:51,ir_no_st:ir_no)' wind_speed2(49:51,ir_no_st:ir_no)'];
+wind_at(c,:) = [wind_direction1(45:48,ir_no_st:ir_no)' wind_direction2(45:48,ir_no_st:ir_no)']-180
+wind_sp(c,:) = [wind_speed1(45:48,ir_no_st:ir_no)' wind_speed2(45:48,ir_no_st:ir_no)']
 
+%%
 windspeed = mean([wind_speed1(:,ir_no_st:ir_no); wind_speed2(:,ir_no_st:ir_no)])
 windsdirection_mean(c) = mean(wind_dir_cal);
 windsdirection_std(c) = std(wind_dir_cal);

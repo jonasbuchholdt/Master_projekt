@@ -1,5 +1,5 @@
-\chapter{cross wind effect on line source array}\label{ch:ap:measurement_one_KUDO}
-A measurement was made to measure the transfer function differences in three point in crosswind. One microphone situated in downwards direction, one microphone situated in upwards direction and one microphone situated in center, which is between the other two microphone. The used speaker have a horizontal dispersion pattern of \SI{80}{\degree}, but it is the \SI{50}{\degree} angle which is used as explained in \autoref{}  
+\chapter{crosswind effect on line source array}\label{ch:ap:measurement_one_KUDO}
+A measurement is made to measure the transfer function differences in three measurement point in the crosswind. One microphone situated in downwards direction, one microphone situated in upwards direction and one microphone situated in the centre, which is between the other two microphones. The used speaker has a horizontal dispersion pattern of \SI{80}{\degree}.
 
 
 \section*{Materials and setup}
@@ -39,22 +39,22 @@ To measure the transfer function in a crosswind situation, the following materia
 
 
 \begin{enumerate}
-\item The microphone i calibrated.
+\item The microphone is calibrated.
 \item The wind direction is measured.
-\item The materials are set up as in \autoref{fig:ap:position_test_des} where the speaker is placed in cross wind direction, such that the frontal wave direction is orthogonal the the wind. The microphone and speaker is connected to the audio interface.
+\item The materials are set up as in \autoref{fig:ap:position_test_des} where the speaker is placed in crosswind direction, such that the frontal wave direction is orthogonal the wind. The microphone and speaker are connected to the audio interface.
 \item The speaker is placed \SI{2.92}{\meter} above the ground.
 \item The speaker is tilted \SI{5}{\degree} pointing down agents the ground.
-\item The microphone is placed \SI{1.68}{\meter} above the ground, \SI{50}{\meter} from the speaker. One \SI{25}{\degree} to the left of the speaker, one \SI{25}{\degree} to the right of the speaker and one in center between the to other microphone.
+\item The microphone is placed \SI{1.68}{\meter} above the ground, \SI{50}{\meter} from the speaker. One \SI{25}{\degree} to the left of the speaker, one \SI{25}{\degree} to the right of the speaker and one in the centre between the other microphone.
 \item The anemometer at the speakers is situated on the speaker tower in the same side as shown on the setup and a hight of \SI{4.64}{\meter}
 \item The anemometer at the microphone position is lifted \SI{1.68}{\meter} above the ground.
 \item The wind direction goes from the upwards microphone to the downwards microphone.
-\item The humidity and temperature is measured at the speaker position.
+\item The humidity and temperature are measured at the speaker position.
 \item 10 sine sweep is performed with a length of \SI{5}{\second} each while the wind direction and speed is measured.
 \item The impulse response is calculated and filtered with a 4th order highpass filter at \Hz{20}.
 \item The correlation is calculated for each impulse response to the first impulse response for time alignment \citep{gunness2001loudspeaker} of all microphone channels.
-\item The mean impulse response is calculated for the 10 measurement of all three microphone.
+\item The mean impulse response is calculated for the 10 measurements of all three microphone.
 \item The transfer function is calculated with a 10 sample moving mean filter.
-\item The the transfer function is down sampled to fit the plotting program.
+\item The the transfer function is downsampled to fit the plotting program.
 \item The transfer function is calculated with a 5 sample moving mean filter.
 \item The wind measurement is synchronised to the transfer function in time. 
 \item The measurement is repeated 6 times with different horizontal speaker angle from \SI{0}{\degree} to \SI{30}{\degree} in step of \SI{5}{\degree}
@@ -68,34 +68,14 @@ To be able to measure in a windy area, parking lot at Tryvej 13, 9320 Hjallerup 
 
 \section*{Results}
 
-All measuring result is not shown here, the rest can be founded in the attached file. One synchronised measurement is shown for the upwards microphone where the speaker is turned \SI{0}{\degree}, \SI{10}{\degree}, \SI{20}{\degree} and \SI{30}{\degree}. The shown measurement result is for one measurement and is not a mean from 10. This shows the time synchronised result. The average result can be founded in \autoref{}.
+All measuring result is not shown here. The rest can be founded in the attached file. One synchronised measurement is shown for the upwards microphone where the speaker is turned \SI{0}{\degree}. The shown measurement result is for one measurement and is not a mean from 10. This shows the time synchronised result. 
 
 
 
 
 \plot{plot/measuring_sync_upwards_0}{the graph shows}{fig:ap:mea_sync_upw_0}
-\plot{plot/measuring_sync_upwards_10}{the graph shows}{fig:ap:mea_sync_upw_10}
-\plot{plot/measuring_sync_upwards_20}{the graph shows}{fig:ap:mea_sync_upw_20}
-\plot{plot/measuring_sync_upwards_30}{the graph shows}{fig:ap:mea_sync_upw_30}
+%\plot{plot/measuring_sync_upwards_10}{the graph shows}{fig:ap:mea_sync_upw_10}
+%\plot{plot/measuring_sync_upwards_20}{the graph shows}{fig:ap:mea_sync_upw_20}
+%\plot{plot/measuring_sync_upwards_30}{the graph shows}{fig:ap:mea_sync_upw_30}
 
 
-
-%The wind speed was \SI{14}{\meter\per\second} for each measurement and the temperature was \SI{5}{\degree}. The humidity was not measured. 
-
-%The following measurement shows the result for \SI{120}{\degree}
-
-%\plot{plot/measurement_one_one}{The graph shows the first transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{5.49} (IR_6)}{fig:ap:mea_one_one}
-%\plot{plot/measurement_one_two}{The graph shows the second transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{4.40} (IR_7)}{fig:ap:mea_one_two}
-%\plot{plot/measurement_one_three}{The graph shows the third transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{4.23} (IR_8)}{fig:ap:mea_one_thr}
-
-%On \autoref{fig:ap:mea_one_one}, \autoref{fig:ap:mea_one_two} and \autoref{fig:ap:mea_one_thr} it is seen that the general pressure is higher for microphone 1. It is also seen that ground reflection effect is much higher on microphone 1 than microphone 2. This support the theory about upwards refraction of sound wave on microphone 2 and downwards refraction on microphone 1 
-
-%The following measurement shows the result for \SI{74}{\degree}
-
-%\plot{plot/measurement_two_one}{The graph shows the first transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{4.41} (IR_3)}{fig:ap:mea_two_one}
-%\plot{plot/measurement_two_two}{The graph shows the second transfer function measurement. The $L_{eq,5}$ \gls{spl} different between the microphones is \dB{4.81} (IR_5)}{fig:ap:mea_two_two}
-
-%On \autoref{fig:ap:mea_two_one} and \autoref{fig:ap:mea_two_two} it is seen that the general pressure is higher for microphone 1. It is also seen that ground reflection effect is much higher on microphone 1 than microphone 2. This support the theory about upwards refraction of sound wave on microphone 2 and downwards refraction on microphone 1 
-
-
-\section*{Summary}

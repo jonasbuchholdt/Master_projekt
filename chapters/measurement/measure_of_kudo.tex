@@ -285,7 +285,7 @@ Cdif & \multicolumn{3}{l|}{\SI{1.39}{\decibel}} & \multicolumn{3}{l|}{\SI{7.01}{
 \label{meas:result_cross_9_10}
 \end{table}
 
-\newpage
+
 \section{parallel wind measurement}\label{mes:kudo:par_mes}
 This section is presenting the final measurement which is done according to the parallel wind measurement design description in \autoref{ch:test_of_proposal_sol} including the update described in \autoref{ch:test_of_meas_des}. The measurement appendix is founded in \autoref{ch:ap:final_measurement_KUDO}. The line source array setup is identical to the measurement in \autoref{mes:kudo:cross_mes} unless that the line source array is rotated \SI{90}{\degree} up against the wind. Furthermore, the microphone is moved according to the description in \autoref{tops:mic_pos_par}. The foam wedge is rotated \SI{90}{\degree} on the plate such that the PVC foam plate is covering for the wind from the back. The windscreen setup is as following \autoref{fig:td:mes_win_opt_par}   
 
@@ -301,10 +301,12 @@ To be able to compare the result from each microphone, while the microphone is p
 Calculating the distance dependency loss is not as simple for a line source array as for a point source, since the \gls{spl} loss at doubling of distance depends on the wavelength, distance and hight of the line source array \autoref{sec:ana:geo_spr_los}. Furthermore, the loss also depends on the viscosity of the air \autoref{sec:ana:hu_temp}. To be able to remove those factor from the measurement, the frequency versus near-field limit have to be founded. The graph in \autoref{fig:ana:KUDO_nearfield_limit} shows the limiting distance where the near-field change to far-field for the used line source array with 6 line source element. From the graph, the following \autoref{meas:tab_dis_vs_field} shows the near-field, far-field relation versus distances. 
 
 \begin{table}[H]
+\centering
+\caption{The table shows the frequency range versus distances there the \gls{spl} loss is ether in near-field or in far-field and not in between}
 \begin{tabular}{l|ll}
         & far-field      & near-field         \\ \hline
-40 - 50 & 0 hz - 5800 hz & 7200 hz - 20000 hz \\
-60 - 40 & 0 hz - 7200 hz & 8700 hz - 20000 hz
+\SI{40}{\meter} - \SI{50}{\meter} & \Hz{0} - \SI{5.8}{\kilo\hertz} & \Hz{7200} - \SI{20}{\kilo\hertz} \\
+\SI{50}{\meter} - \SI{60}{\meter} & \Hz{0} - \Hz{7200} & \Hz{8700} - \SI{20}{\kilo\hertz}
 \end{tabular}
 \label{meas:tab_dis_vs_field}
 \end{table}
@@ -321,7 +323,7 @@ Absorption depending on humidity and temperature, to calculate the loss at \SI{1
  
 The frequency response in \autoref{fig:meas:absorption_filter} is used to compensate the viscosity in the air. 
 
-To apply the filters, the gls{fft} is calculated for all measurements and the filter  \autoref{fig:meas:loss_filter} and \autoref{fig:meas:absorption_filter} is applied to the signal in both the positive and negative frequency domain. Afterwards, the result is transferred back to time domain via \gls{ifft} for signal analysis.  The measurement is done at least 10 times for every angle and based on the amount of data, one graph for both tilt angle is shown where the rest of the result is given in $L_{eq}$ octave separation above \Hz{150} in a table. In all chosen measurements, the wind speed is approximately \SI{7}{\meter\per\second}. The following two measurement shows the frequency response with the given line source array downwards tilt angle. 
+To apply the filters, the \gls{fft} is calculated for all measurements and the filter  \autoref{fig:meas:loss_filter} and \autoref{fig:meas:absorption_filter} is applied to the signal in both the positive and negative frequency domain in linear scale. Afterwards, the result is transferred back to time domain via \gls{ifft} for signal analysis.  The measurement is done at least 10 times for every angle and based on the amount of data, one graph for both tilt angle is shown where the rest of the result is given in $L_{eq}$ octave separation above \Hz{150} in a table. In all chosen measurements, the wind speed is approximately \SI{7}{\meter\per\second}. The following two measurement shows the frequency response with the given line source array downwards tilt angle. 
    
   \plot{plot/parallel_n1_comp}{The graph shows one frequency response measurement where the line source array is tilted \SI{3}{\degree}}{fig:meas:parallel_n1_comp}
  \plot{plot/parallel_n5_comp}{The graph shows one frequency response measurement where the line source array is tilted \SI{7}{\degree}}{fig:meas:parallel_n5_comp}
@@ -338,7 +340,7 @@ $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[  $        & 3  & 5  & 
 \label{ta:meas:approved_measurement_par}
 \end{table}
 
-The measurement is calculated to into octave band, to be able compare the measured result in frequency band. The measurement is divided into three groups shown in, one for every microphone. For every octave band in every group the $l_{eq}$ is calculated and rounded to nearest integer. The \db is left out in the table to make the data more manastible. Every measurement is given by a m with a following number. The letter m stands for measurement where the number specify the actual played measurement number, for example the firth measurement in a row is named m4. In every group the average of the measurements is calculated for every octrave band and for every microphone. The nearest microphone to the line source array is named F for front, the centre microphone is named C and the back microphone is named B. Futhermore the average difference between the the two tilt angle is calculated and is given as Dif in the table. All calculation is done without rounding, only the number in the table is rounded.
+The measurement is calculated to into octave band, to be able compare the measured result in frequency band. The measurement is divided into three groups shown in, one for every microphone. For every octave band in every group the $l_{eq}$ is calculated and rounded to nearest integer. The \si{\decibel} is left out in the table to make the data more manastible. Every measurement is given by a m with a following number. The letter m stands for measurement where the number specify the actual played measurement number, for example the firth measurement in a row is named m4. In every group the average of the measurements is calculated for every octrave band and for every microphone. The nearest microphone to the line source array is named F for front, the centre microphone is named C and the back microphone is named B. Futhermore the average difference between the the two tilt angle is calculated and is given as Dif in the table. All calculation is done without rounding, only the number in the table is rounded.
 
  The following \autoref{ta:meas:approved_data_par}, shows the measured result in the given wind speed interval.
 

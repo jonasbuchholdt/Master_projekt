@@ -1,6 +1,5 @@
-\chapter{Windscreen attenuation measurement}
-A measurement was made to measure the frequency attenuation of difference windscreen configuration. All configuration include the GRAS AM0069 windscreen with an additionally wind stopper surface all around the microphone except of the frontal direction. The measurement is done in the anechoic chamber. The measurement is done to analyse the effect of the windscreen in the frequency domain to ensure that the chosen windscreen do not add to much reflect to the measurement. The optimal criteria is therefore as low difference as possible. 
-
+\chapter{Windscreen response measurement}\label{ap:wind_screen_freq_res}
+A measurement is made to measure the frequency response of difference windscreen configuration. All configuration includes the GRAS AM0069 windscreen with an additional wind stopper surface all around the microphone except the frontal direction. The measurement is done in the anechoic chamber. The measurement is done to analyse the effect of the windscreen in the frequency domain to ensure that the chosen windscreen does not add reflect on the measurement. The optimal criteria, therefore as profound difference as possible. 
 
 
 
@@ -34,19 +33,18 @@ To measure the frequency response of the windscreen configuration the following 
 \item The materials are set up as in \autoref{fig:ap:refq_meas_setup_ana} where the  microphone is connected to the audio interface.
 \item The microphone is calibrated
 \item The speaker is placed \SI{3}{\meter} from the microphone and pointing in the direction of the microphone.
-\item	The windscreen configuration is placed such that the microphone have approximately the same position as without the windscreen.
+\item    The windscreen configuration is placed such that the microphone has approximately the same position as without the windscreen.
 \item The transfer function is measured 
 \item The procedure is started over until all windscreen is measured.
 \item The transfer function is calculated and plotted versus the transfer function without windscreen \matlab.
-\item The difference between the transfer function wit and without windscreen is calculated and plotted in \matlab.
+\item The difference between the transfer function with and without windscreen is calculated and plotted in \matlab.
 \end{enumerate}
 
 
 \section*{Measurement area}
-To be able to measure the windscreen frequency response, the anechoic chamber in Fredrick Bajers vej 7B4, 9220 Aalborg is used. The following \autoref{ap:wind:scr_fre_res} shows a drawing of the area ans the position of the fan and windscreen.
+To be able to measure the windscreen frequency response, the anechoic chamber in Fredrick Bajers vej 7B4, 9220 Aalborg is used. The following \autoref{ap:wind:scr_fre_res} shows a drawing of the area and the position of the fan and windscreen.
 
 \fig{anec_meas_room}{The picture illustrate the area, where the wind flow is measured}{ap:wind:scr_fre_res}{0.7}
-
 \section*{Results}
 
 The following \autoref{ap:freq:speaker} shows the speaker.
@@ -63,35 +61,31 @@ The measurement shown in \autoref{fig:sec:pop:mic_ref_wit_ball} shows the differ
 
 \fig{IMG_1187}{The picture shows the measurement microphone with the large foam wedge configuration two}{ap:freq:small_win}{0.5}
 The measurement shown in \autoref{fig:ap:freq_resp_with_ball_small} shows frequency response of the speaker without the windscreen and with the windscreen configuration one. The \autoref{ap:freq:small_win} shows the measured set up. 
-\plot{plot/freq_resp_with_ball_small}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration one}{fig:ap:freq_resp_with_ball_small}
+%\plot{plot/freq_resp_with_ball_small}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration one}{fig:ap:freq_resp_with_ball_small}
 \plot{plot/mic_ref_with_ball_small}{The graph shows frequency response of the windscreen, where the frequency characteristic for the speaker is out calculated.}{fig:sec:pop:mic_ref_wit_ball_sma}
 
 
 
 \fig{IMG_1167}{The picture shows the measurement microphone with the large foam wedge configuration two}{ap:freq:large_win}{0.5}
 The measurement shown in \autoref{fig:ap:freq_resp_with_ball_large} shows frequency response of the speaker without the windscreen and with the windscreen configuration two. The \autoref{ap:freq:large_win} shows the measured set up. 
-\plot{plot/freq_resp_with_ball_large}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration two}{fig:ap:freq_resp_with_ball_large}
+%\plot{plot/freq_resp_with_ball_large}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration two}{fig:ap:freq_resp_with_ball_large}
 \plot{plot/mic_ref_with_ball_large}{The graph shows frequency response of the windscreen, where the frequency characteristic for the speaker is out calculated.}{fig:sec:ap:mic_ref_wit_ball_lar}
 
 
 \fig{IMG_1168}{The picture shows the measurement microphone with the rockwool bat configuration three}{ap:freq:rock_win}{0.5}
 The measurement shown in \autoref{fig:ap:freq_resp_with_ball_rock} shows frequency response of the speaker without the windscreen and with the windscreen configuration three. The \autoref{ap:freq:rock_win} shows the measured set up. In this measurement both the speaker and the microphone is lifted \SI{20}{\centi\meter}
-\plot{plot/freq_resp_with_ball_rock}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration three}{fig:ap:freq_resp_with_ball_rock}
+%\plot{plot/freq_resp_with_ball_rock}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration three}{fig:ap:freq_resp_with_ball_rock}
 \plot{plot/mic_ref_with_ball_rock}{The graph shows frequency response of the windscreen, where the frequency characteristic for the speaker is out calculated.}{fig:sec:ap:mic_ref_wit_ball_roc}
 
 
 \fig{IMG_1170}{The picture shows the measurement microphone with the rockwool bat configuration four}{ap:freq:rock_sing_win}{0.5}
 The measurement shown in \autoref{fig:ap:freq_resp_with_ball_rock_single} shows frequency response of the speaker without the windscreen and with the windscreen configuration four. The \autoref{ap:freq:rock_sing_win} shows the measured set up. In this measurement both the speaker and the microphone is lifted \SI{30}{\centi\meter}
-\plot{plot/freq_resp_with_ball_rock_single}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration four}{fig:ap:freq_resp_with_ball_rock_single}
+%\plot{plot/freq_resp_with_ball_rock_single}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration four}{fig:ap:freq_resp_with_ball_rock_single}
 \plot{plot/mic_ref_with_ball_rock_single}{The graph shows frequency response of the windscreen, where the frequency characteristic for the speaker is out calculated.}{fig:ap:pop:mic_ref_wit_ball_roc_sin}
 
 
 \fig{IMG_1172}{The picture shows the measurement microphone with the rockwool bat configuration four}{ap:freq:large_rock_sing_win}{0.5}
 The measurement shown in \autoref{fig:ap:freq_resp_with_ball_large_rock_single} shows frequency response of the speaker without the windscreen and with the windscreen configuration four. The \autoref{ap:freq:large_rock_sing_win} shows the measured set up. 
-\plot{plot/freq_resp_with_ball_large_rock_single}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration five}{fig:ap:freq_resp_with_ball_large_rock_single}
+%\plot{plot/freq_resp_with_ball_large_rock_single}{The graph shows frequency response of the speaker measured without windscreen and with windscreen configuration five}{fig:ap:freq_resp_with_ball_large_rock_single}
 \plot{plot/mic_ref_with_ball_large_rock_single}{The graph shows frequency response of the windscreen, where the frequency characteristic for the speaker is out calculated.}{fig:ap:pop:mic_ref_wit_ball_lar_roc_sin}
 
-
-\section*{Summary}
-
-It is seen in the graph that all windscreen configuration change the frequency response of the microphone, even with only the original windscreen. Without taking the reference configuration intro account, the one with the lowest frequency change in the low frequency response is configuration one and four. The one with the lowest frequency change in the middle frequency is configuration one and two. The one with lowest frequency change in the high frequency is configuration four. The mix between configuration two and four shows a low frequency change in the middle and high frequency.  

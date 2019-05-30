@@ -1,4 +1,4 @@
-\chapter{Windscreen attenuation measurement}
+chapter{Windscreen attenuation measurement}
 A measurement was made to measure the wind attenuation in the microphone position with the difference windscreen configuration.
 
 
@@ -26,11 +26,11 @@ To measure the wind attenuation of the windscreen configuration the following ma
 \item The fan is activated 
 \item The anemometer is activated to record.
 \item The anemometer is placed in the wind for approximately \SI{10}{\second}.
-\item Then the anemometer is moved intro the microphone position for approximately \SI{10}{\second}.
+\item Then the anemometer is moved into the microphone position for approximately \SI{10}{\second}.
 \item Then the anemometer is moved back in the wind for approximately \SI{10}{\second}.
-\item Then the anemometer is moved intro the microphone position for approximately \SI{10}{\second} again. 
-\item The wind speed measurement is plotted in \matlab with a moving mean filter with 2 sample and as \si{\meter\per\second} versus \si{\second}.
-\item Next the wind direction measurement is plotted in \matlab with a moving mean filter with 2 sample and as \si{\degree} versus \si{\second}.
+\item Then the anemometer is moved into the microphone position for approximately \SI{10}{\second} again. 
+\item The wind speed measurement is plotted in \matlab with a moving mean filter with two samples and as \si{\meter\per\second} versus \si{\second}.
+\item Next the wind direction measurement is plotted in \matlab with a moving mean filter with two samples and as \si{\degree} versus \si{\second}.
 \end{enumerate}
 
 
@@ -38,7 +38,7 @@ To measure the wind attenuation of the windscreen configuration the following ma
 
 
 \section*{Measurement area}
-To be able to generate a controlled wind flow, the hall way in Fredrick Bajers vej 7B5, 9220 Aalborg is used. The following \autoref{ap:wind:flow_slow_opt} shows a drawing of the area ans the position of the fan and windscreen.
+To be able to generate a controlled wind flow, the hallway in Fredrick Bajers vej 7B5, 9220 Aalborg is used. The following \autoref{ap:wind:flow_slow_opt} shows a drawing of the area and the position of the fan and windscreen.
 
 \fig{wind_meas_pos}{The picture illustrate the area, where the wind flow is measured}{ap:wind:flow_opt}{0.7}
 
@@ -46,19 +46,13 @@ To be able to generate a controlled wind flow, the hall way in Fredrick Bajers v
 
 \section*{Results}
 
-The following graphs shows the result of the measurement.
+The following graphs show the result of the measurement.
 
 \autoref{ap:wind:small} shows the measurement setup of the foam wedge, where the \autoref{ap:wind:large_opt_pic} shows the result.
 \dfig{IMG_1190}{The picture shows the measurement setup for the optimised windscreen configuration five from back}{IMG_1191}{The picture shows the measurement setup for the optimised windscreen configuration five in front}{ap:wind:large_opt_pic}{The pictures shows the measurement setup for the optimised windscreen configuration five}{0.5}{0.5}
 \plot{plot/wind_large_optimised}{The graph shows the wind speed versus time for the optimised configuration five. The grape have a high speed period and a low speed period. In the high speed period, the anemometer is in the wind approximately \SI{30}{\centi\meter} from the windscreen where in the low speed period, the anemometer is inside the windscreen.}{fig:ap:wind_larg_opt}
 \plot{plot/wind_large_optimised_direction}{The graph shows the synchronous direction of the wind with respect the the wind speed in \autoref{fig:ap:wind_larg_opt}}{fig:ap:wind_large__opt_dir}
 It is seen in \autoref{fig:ap:wind_larg_opt} that the wind speed is lowered from approximately \SI{8}{\meter\per\second} to \SI{0.5}{\meter\per\second}. It is seen in \autoref{fig:ap:wind_large__opt_dir} that the windscreen produces turbulence in the windscreen and the direction of the wind change approximately \SI{-100}{\degree}. The reason that the angle is negative in this measurement is that the anemometer is turned \SI{180}{\degree} in the vertical plan for practical reason.
-
-
-
-
-\section*{Summary}
-It is measured that the optimised windscreen lower the wind turbulence by optimising the aerodynamics with curved surface and small thin edges. 
 
 
 

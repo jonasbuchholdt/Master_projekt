@@ -7,8 +7,8 @@
 
 \begin{axis}[%
 width=120mm, 
-height=45mm, 
-at={(5mm,5mm)}, 
+height=35mm, 
+at={(1mm,1mm)}, 
 scale only axis,
 xmode=log,
 grid=both,
@@ -17,7 +17,7 @@ major grid style={line width=.2pt,draw=gray!50},
 xminorticks=true,
 yminorticks=true,
 ytick distance=10,
-minor tick num=4,
+minor tick num=1,
 axis x line*=bottom,
 axis y line*=left,
 axis background/.style={fill=white},
@@ -965,7 +965,7 @@ legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align
 19920	138.352229751502\\
 19970	138.700857590501\\
 };
-\addlegendentry{6 KUDO ($H = \SI{2.156}{\meter}$)}
+\addlegendentry{6 KUDO ($\text{H} = \SI{2.156}{\meter}$)}
 
 \addplot [color=mycolor2]
   table[row sep=crcr]{%
@@ -1900,7 +1900,7 @@ legend style={at={(0.03,0.97)}, anchor=north west, legend cell align=left, align
 19920	34.324292817658\\
 19970	34.4111286774838\\
 };
-\addlegendentry{3 KUDO ($H = \SI{1.076}{\meter} $)}
+\addlegendentry{3 KUDO ($\text{H} = \SI{1.076}{\meter} $)}
 
 \end{axis}
 

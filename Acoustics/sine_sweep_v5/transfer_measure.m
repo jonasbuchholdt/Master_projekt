@@ -331,7 +331,7 @@ down4 = 50;
 
 %---
 angle = 0;
-ir_number = 22;
+ir_number = 13;
 %---
 
 

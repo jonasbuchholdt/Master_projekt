@@ -1,26 +1,33 @@
 \section{Data analysis}
-This chapter aims to analyse the data obtained in the final measurement shown in \autoref{ch:measurement}. The analysis is done in two parts, on part for crosswind and one part for parallel wind. The analysis starts with the former. 
+This chapter aims to analyse the data obtained in the final measurement shown in \autoref{ch:measurement}. The analysis is done in two parts as following 
+
+\begin{enumerate}
+\item In \autoref{res:cross_data_ana} the crosswind data is analysed.
+\item In \autoref{res:par_data_ana} the parallel wind data is analysed.
+\end{enumerate}
+
+
 
 
 
 \section{Crosswind data analysis}\label{res:cross_data_ana}
-The crosswind data analysis is only based on the approved data shown in the five tables in \autoref{mes:kudo:cross_mes}. Furthermore the number of data point in the individual measurement angle in the interval of $[\SI{8}{\meter\per\second},\, \SI{9}{\meter\per\second}[ $ and $[\SI{9}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ is generally small with only one or no data in some line source angle. Therefore, those two interval is combined to one interval $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ of the data analysis. The analysis analyses the difference between the upwards microphone versus the downwards microphone and the absolute difference between the centre microphone versus the side microphone in all four wind speed intervals. The analysis is done in octave band as the shown data, then from octave band \Hz{1000} to octave \SI{16}{\kilo\hertz}. The analysis between the upwards and downwards microphone calculates the linear least square fit between the calculated octave value. While a point excites \dB{3} from the fit, the weather information at the exact time is analysed. As the secondary analysis, all data is analysed as one combination of all octave band to find the optimal angle for every wind speed interval. The last part analysis the absolute difference between the centre microphone and the upwards and downwards microphone. While the line source array angle is positive, the speaker is rotated towards upwards refraction direction, and while the line source angle is negative, the line source array is rotated towards downwards refraction direction. The following \autoref{fig:res:result_crosswind_1k}  is the \Hz{1000} octave band.  
+The crosswind data analysis is only based on the approved data shown in the five tables in \autoref{mes:kudo:cross_mes}. Furthermore the number of data point in the individual line source array rotation within the interval of $[\SI{8}{\meter\per\second},\, \SI{9}{\meter\per\second}[ $ and $[\SI{9}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ is generally small with only one or no data in some line source array rotational angle. Therefore, those two interval is combined to one interval $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ of the data analysis. The analysis analyses the difference between the upwards microphone versus the downwards microphone and the absolute difference between the centre microphone versus the side microphone in all four wind speed intervals. The analysis is done in octave band as the shown data in \autoref{mes:kudo:cross_mes}. The analysis between the upwards and downwards microphone calculates is done with calculating the linear least square fit between the calculated octave value. While a point excites \dB{3} from the fit, the weather information at the exact time is analysed. As the secondary analysis, all data is analysed as one combination of all octave band to find the optimal rotational angle of the line source array for every wind speed interval. The last part analysis the absolute difference between the centre microphone and the upwards and downwards microphone. While the line source array rotation is calculated to have its optimum in upwards direction, the rotation is given as a positive rotation. The analysis starts analysing the octave band differences. The following \autoref{fig:res:result_crosswind_1k}  shows the \Hz{1000} octave band data.  
 
 
- \plot{plot/result_crosswind_1k}{The graph shows the average \Hz{1000} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points is in the positive part of the graph, the \db is highest in the downwards microphone position. It moreover gives the linear least square fit of every wind speed interval as a line. }{fig:res:result_crosswind_1k}
+ \plot{plot/result_crosswind_1k}{The graph shows the average \Hz{1000} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points are in the positive part of the graph, the \db is highest in the downwards microphone position.  The linear least square fit of every wind speed interval is given as a line. }{fig:res:result_crosswind_1k}
  
- The dots in \autoref{fig:res:result_crosswind_1k} correspond to the measured data, where the line is the linear least square fit. The interval from $[\SI{6}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ shows that the optimal angle for the \Hz{1000} octave band is nearly the same. The refraction effect on the  \Hz{1000} octave band does not change much in this interval. Only the measuring point in the interval $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $ at \SI{10}{\degree} is more that \dB{3} from the fitted line. The average wind angle at speaker angle \SI{10}{\degree} is \SI{96.7}{\degree} with wind speed of \SI{6.4}{\meter\per\second} in the \Hz{1000} octave band frequency limit. All other measuring points in the same interval is also analysed with respect to wind speed and direction and shows no deviation from the limits. 
+ The dots in \autoref{fig:res:result_crosswind_1k} correspond to the measured average data, where the line is the linear least square fit. The interval from $[\SI{6}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ shows that the optimal rotation for the \Hz{1000} octave band is nearly the same. The refraction effect on the  \Hz{1000} octave band does not change much in this interval. Only one measuring point in the interval $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $ at \SI{10}{\degree} is more that \dB{3} from the fitted line. The average wind direction at line source array rotation of \SI{10}{\degree} is \SI{96.7}{\degree} with wind speed of \SI{6.4}{\meter\per\second} in the \Hz{1000} octave band frequency limit. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits. 
 
-At the interval $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $ no data is measured in \SI{0}{\degree} speaker angle and the average wind angle at speaker angle \SI{10}{\degree} is \SI{1}{\degree} from the limit, with only 2 data measurement. The average wind angle at speaker angle \SI{10}{\degree} in the \Hz{1000} is \SI{113.4}{\degree} with wind speed of \SI{5.4}{\meter\per\second}. The \SI{113.4}{\degree} angle should give higher upwards refraction on to the upwards refraction microphone and nearly no downwards refraction on the downwards refraction microphone. This wind measuring point, in this case, might not be representable to the wind direction between the speaker to the microphone or turbulence in the air disturb the measurement. The average wind angle at speaker angle \SI{10}{\degree} in the \Hz{1000} is \SI{92.9}{\degree} with wind speed of \SI{5.4}{\meter\per\second}.  This measurement seams untrustable according to the refraction theory.
+At the interval $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $ no data is measured in \SI{0}{\degree} line source array rotation and the average wind direction at line source array rotation \SI{10}{\degree} is \SI{1}{\degree} from the limit, with only 2 data measurement. The average wind direction at line source array rotation \SI{10}{\degree} in the \Hz{1000} is \SI{113.4}{\degree} with wind speed of \SI{5.4}{\meter\per\second}. The \SI{113.4}{\degree} wind direction should give higher upwards refraction on to the upwards refraction microphone and nearly no downwards refraction on the downwards refraction microphone. The wind measuring point, in this case, might not be representable to the wind direction between the speaker to the microphone or turbulence in the air disturb the measurement. The average wind direction at line source array rotation \SI{10}{\degree} in the \Hz{1000} is \SI{92.9}{\degree} with wind speed of \SI{5.4}{\meter\per\second}.  This measurement seams untrustable according to the refraction theory.
  
- The following \autoref{res:tab:cross_1k} gives the calculated angle based on the least square fit.
+ The following \autoref{res:tab:cross_1k} gives the calculated optimal line source array rotation based on the least square fit.
  
  \begin{table}[H]
  \centering
-   \caption{The table shows the angle where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{1}{\kilo\hertz} octave band in the given wind speed interval}
+   \caption{The table shows the line source array rotation where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{1}{\kilo\hertz} octave band in the given wind speed interval}
 \begin{tabular}{l|l}
 \multicolumn{2}{l}{\Hz{1000}}      \\ \hline
-Interval & Angle \\ \hline
+Wind speed Interval & Line source array rotation \\ \hline
   $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{-1.3}{\degree}    \\
     $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{17.0}{\degree}     \\
   $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{17.6}{\degree}    \\
@@ -35,19 +42,19 @@ The following graph \autoref{fig:res:result_crosswind_2k} shows the result for t
 
 
  
-  \plot{plot/result_crosswind_2k}{The graph shows the average \Hz{2000} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points is in the positive part of the graph, the \db is highest in the downwards microphone position. It moreover gives the linear least square fit of every wind speed interval as a line.}{fig:res:result_crosswind_2k}
+  \plot{plot/result_crosswind_2k}{The graph shows the average \Hz{2000} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points are in the positive part of the graph, the \db is highest in the downwards microphone position. The linear least square fit of every wind speed interval is given as a line. }{fig:res:result_crosswind_2k}
   
 
-One measuring point in the interval $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ at \SI{20}{\degree} is more that \dB{3} from the fitted line. The average wind direction at speaker angle \SI{20}{\degree} is \SI{87.0}{\degree} with wind speed of \SI{9.1}{\meter\per\second} in the \Hz{2000} octave band frequency limit. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits. Nothing indicated that these measuring points are a non-trustable measurement. In the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ one points excite \dB{3} from the fit. The average wind direction at speaker angle \SI{10}{\degree} in the \Hz{2000} is \SI{91.8}{\degree} with wind speed of \SI{7.6}{\meter\per\second}. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits. Nether in this measurement, the measured wind speed or wind direction is the reason that the point excites the fit by \dB{3}.
+One measuring point in the interval $[\SI{8}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ at \SI{20}{\degree} is more that \dB{3} from the fitted line. The average wind direction at line source array rotation of \SI{20}{\degree} is \SI{87.0}{\degree} with wind speed of \SI{9.1}{\meter\per\second} in the \Hz{2000} octave band frequency limit. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits.  In this measurement, neither the measured wind speed or wind direction is the reason that the point excites the fit by more than \dB{3}. In the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ one points excite \dB{3} from the fit. The average wind direction at line source array rotation \SI{10}{\degree} in the \Hz{2000} is \SI{91.8}{\degree} with wind speed of \SI{7.6}{\meter\per\second}. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits. Nether in this measurement, the measured wind speed or wind direction is the reason that the point excites the fit by \dB{3}.
 
- The following \autoref{res:tab:cross_2k} gives the calculated angle based on the least square fit.  
+ The following \autoref{res:tab:cross_2k} gives the calculated line source array rotation based on the least square fit.  
   
  \begin{table}[H]
  \centering
-   \caption{The table shows the angle where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{2}{\kilo\hertz} octave band in the given wind speed interval}
+   \caption{The table shows the line source array rotation where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{2}{\kilo\hertz} octave band in the given wind speed interval}
 \begin{tabular}{l|l}
 \multicolumn{2}{l}{\Hz{2000}}      \\ \hline
-Interval & Angle \\ \hline
+Wind speed Interval & Line source array rotation \\ \hline
   $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{12.2}{\degree}    \\
     $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{17.7}{\degree}     \\
   $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{15.8}{\degree}    \\
@@ -59,18 +66,18 @@ Interval & Angle \\ \hline
   
   The following graph \autoref{fig:res:result_crosswind_4k} shows the result for the \Hz{4000} octave band. 
   
-   \plot{plot/result_crosswind_4k}{The graph shows the average \Hz{4000} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points is in the positive part of the graph, the \db is highest in the downwards microphone position. It moreover gives the linear least square fit of every wind speed interval as a line.}{fig:res:result_crosswind_4k}
+   \plot{plot/result_crosswind_4k}{The graph shows the average \Hz{4000} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points are in the positive part of the graph, the \db is highest in the downwards microphone position. The linear least square fit of every wind speed interval is given as a line. }{fig:res:result_crosswind_4k}
    
-One measuring point in the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ at \SI{20}{\degree} is more that \dB{3} from the fitted line. The average wind angle at speaker angle \SI{10}{\degree} in the \Hz{4000} is \SI{90.1}{\degree} with wind speed of \SI{7.8}{\meter\per\second}. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits. In the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ one points excite \dB{3} from the fit. The average wind direction at speaker angle \SI{0}{\degree} in the \Hz{4000} is \SI{98.3}{\degree} with wind speed of \SI{7.8}{\meter\per\second}. Nether in this measurement, the measured wind speed or wind direction is the reason that the point excites the fit by \dB{3}.
+One measuring point in the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ at \SI{20}{\degree} is more that \dB{3} from the fitted line. The average wind direction at line source array rotation \SI{10}{\degree} in the \Hz{4000} is \SI{90.1}{\degree} with wind speed of \SI{7.8}{\meter\per\second}. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits. In the interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ one points excite \dB{3} from the fit. The average wind direction at line source array rotation \SI{0}{\degree} in the \Hz{4000} is \SI{98.3}{\degree} with wind speed of \SI{7.8}{\meter\per\second}. Nether in this measurement, the measured wind speed or wind direction is the reason that the point excites the fit by \dB{3}.
    
- The following \autoref{res:tab:cross_4k} gives the calculated angle based on the least square fit.  
+ The following \autoref{res:tab:cross_4k} gives the calculated line source array rotation based on the least square fit.  
   
  \begin{table}[H]
  \centering
-   \caption{The table shows the angle where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{4}{\kilo\hertz} octave band in the given wind speed interval}
+   \caption{The table shows the line source array rotation where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{4}{\kilo\hertz} octave band in the given wind speed interval}
 \begin{tabular}{l|l}
 \multicolumn{2}{l}{\Hz{4000}}      \\ \hline
-Interval & Angle \\ \hline
+Wind speed Interval & Line source array rotation \\ \hline
   $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{16.0}{\degree}    \\
     $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{15.6}{\degree}     \\
   $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{16.4}{\degree}    \\
@@ -82,18 +89,18 @@ Interval & Angle \\ \hline
    
 The following graph \autoref{fig:res:result_crosswind_8k} shows the result for the \Hz{8000} octave band.    
    
-    \plot{plot/result_crosswind_8k}{The graph shows the average \Hz{8000} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points is in the positive part of the graph, the \db is highest in the downwards microphone position. It moreover gives the linear least square fit of every wind speed interval as a line.}{fig:res:result_crosswind_8k}
+    \plot{plot/result_crosswind_8k}{The graph shows the average \Hz{8000} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points are in the positive part of the graph, the \db is highest in the downwards microphone position. The linear least square fit of every wind speed interval is given as a line. }{fig:res:result_crosswind_8k}
  
- All data points in the graphs except of one point in the interval    $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $  have less than $\pm \dB{3}$ deviation from the least square fit. The average wind direction for this point with speaker angle \SI{10}{\degree} in the \Hz{8000} is \SI{92.4}{\degree} with wind speed of \SI{7.7}{\meter\per\second}. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits. Nether in this measurement, the measured wind speed or wind direction is the reason that the point excites the fit by \dB{3}.
+ All data points in the graphs except of one point in the interval    $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $  have less than $\pm \dB{3}$ deviation from the least square fit. The average wind direction for this point with line source array rotation \SI{10}{\degree} in the \Hz{8000} is \SI{92.4}{\degree} with wind speed of \SI{7.7}{\meter\per\second}. All other measuring points in the same interval are also analysed with respect to wind speed and direction and show no deviation from the limits. Nether in this measurement, the measured wind speed or wind direction is the reason that the point excites the fit by \dB{3}.
    
- The following \autoref{res:tab:cross_8k} gives the calculated angle based on the least square fit.  
+ The following \autoref{res:tab:cross_8k} gives the calculated line source array rotation based on the least square fit.  
   
  \begin{table}[H]
  \centering
-   \caption{The table shows the angle where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{8}{\kilo\hertz} octave band in the given wind speed interval}
+   \caption{The table shows the line source array rotation where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{8}{\kilo\hertz} octave band in the given wind speed interval}
 \begin{tabular}{l|l}
 \multicolumn{2}{l}{\Hz{8000}}      \\ \hline
-Interval & Angle \\ \hline
+Wind speed Interval & Line source array rotation \\ \hline
   $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{17.5}{\degree}    \\
     $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{14.0}{\degree}     \\
   $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{15.0}{\degree}    \\
@@ -106,18 +113,18 @@ Interval & Angle \\ \hline
 
  The following graph \autoref{fig:res:result_crosswind_16k} shows the result for the \SI{16}{\kilo\hertz} octave band. 
  
-  \plot{plot/result_crosswind_16k}{The graph shows the average \SI{16}{\kilo\hertz} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points is in the positive part of the graph, the \db is highest in the downwards microphone position. It moreover gives the linear least square fit of every wind speed interval as a line.}{fig:res:result_crosswind_16k}
+  \plot{plot/result_crosswind_16k}{The graph shows the average \SI{16}{\kilo\hertz} octave band \si{\decibel} differences between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes} in the given wind speed interval as a point. While the points are in the positive part of the graph, the \db is highest in the downwards microphone position. The linear least square fit of every wind speed interval is given as a line. }{fig:res:result_crosswind_16k}
 
- All data points in the graph have less that $\pm \dB{3}$ deviation from the least square fit.
+ All data points in the graph have less than $\pm \dB{3}$ deviation from the least square fit.
  
- The following \autoref{res:tab:cross_16k} gives the calculated angle based on the least square fit.  
+ The following \autoref{res:tab:cross_16k} gives the calculated line source array rotation based on the least square fit.  
   
  \begin{table}[H]
  \centering
-  \caption{The table shows the angle where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{16}{\kilo\hertz} octave band in the given wind speed interval}
+  \caption{The table shows the line source array rotation where the least square fit crosses the \SI{0}{\decibel} differences between the upwards microphone and the downwards microphone in the \SI{16}{\kilo\hertz} octave band in the given wind speed interval}
 \begin{tabular}{l|l}
 \multicolumn{2}{l}{\SI{16}{\kilo\hertz}}      \\ \hline
-Interval & Angle \\ \hline
+Wind speed Interval & Line source array rotation \\ \hline
   $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{19.6}{\degree}    \\
     $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{15.3}{\degree}     \\
   $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{17.3}{\degree}    \\
@@ -128,14 +135,14 @@ Interval & Angle \\ \hline
 \end{table}    
  
  
-The average angle for every interval is then as following \autoref{res:tab:cross_mean}
+The average line source array rotation for every wind speed interval is then as following \autoref{res:tab:cross_mean}
 
   \begin{table}[H]
  \centering
-  \caption{The table shows the average optimal line source array angle between all octave band  in the given wind speed interval}
+  \caption{The table shows the average optimal line source array rotation between all octave band in the given wind speed interval}
 \begin{tabular}{l|l|l|l|l}
-\multicolumn{2}{l}{The angle}      \\ \hline
-Interval & Average  & $\sigma$ & Average (discart  \SI{-1.3}{\degree}) & $\sigma$ (discart  \SI{-1.3}{\degree}) \\ \hline
+\multicolumn{2}{l}{The average rotation}      \\ \hline
+Wind speed Interval & Average  & $\sigma$ & Average (discart  \SI{-1.3}{\degree}) & $\sigma$ (discart  \SI{-1.3}{\degree}) \\ \hline
   $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{12.8}{\degree}  &   \SI{8.3}{\degree}  &   \SI{17.3}{\degree}   &   \SI{0.3}{\degree}\\
     $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{15.9}{\degree}   &   \SI{1.5}{\degree} &   \SI{15.9}{\degree}   &   \SI{1.5}{\degree}\\
   $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{16.4}{\degree}  &   \SI{1.1}{\degree} &    \SI{16.4}{\degree}&    \SI{1.1}{\degree}  \\
@@ -145,9 +152,9 @@ Interval & Average  & $\sigma$ & Average (discart  \SI{-1.3}{\degree}) & $\sigma
 \label{res:tab:cross_mean}
 \end{table}  
  
-The former analysis is based on the least square fit for the individual octave band. One angle in the \Hz{1000} octave band shows irregular result based on all other measurements and the refraction theory. By discarding this measurement, the analysis showed a line source array angle between  \SI{12.2}{\degree} to  \SI{19.6}{\degree}. The average line source array angle between the octave band from each wind speed interval is shown to be between \SI{15.0}{\degree} to \SI{17.3}{\degree}. Nothing indicates that the angle is highly correlated with the wind speed in the  wind speed interval from $[\SI{5}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $. As a static interval based on this calculation, the average line source array angle for all wind speed interval is \SI{16.15}{\degree}.
+The former analysis is based on the least square fit for the individual octave band. One line source array rotation in the \Hz{1000} octave band shows irregular result based on all other measurements and the refraction theory. By discarding this measurement, the analysis showed a line source array rotation between  \SI{12.2}{\degree} to  \SI{19.6}{\degree}. The average line source array rotation between the octave band from each wind speed interval is shown to be between \SI{15.0}{\degree} to \SI{17.3}{\degree}. Nothing indicates that the line source array rotation is highly correlated with the wind speed in the  wind speed interval from $[\SI{5}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $. As a static interval based on this calculation, the average line source array rotation for all wind speed interval is \SI{16.15}{\degree}. It is moreover observed that the general \gls{spl} differences between microphone positions is lowest in the low frequency and highest in the high frequncy. This measurement support that the refraction is frequency dependent.
 
-The following analysis of the crosswind is based on the least square fit of the data, while all data point form the octave band in one wind speed interval is used to generate one least square fit. The wind speed interval is as the former analysis. The following \autoref{fig:res:result_crosswind} shows the least square fit with a box plot in the measured angle. 
+The next analysis of the crosswind is based on the least square fit of the data, while all data point form the octave band in one wind speed interval is used to generate one least square fit. The wind speed interval is as the former analysis. The following \autoref{fig:res:result_crosswind} shows the least square fit with box plots analysis. 
  
  
  
@@ -155,15 +162,15 @@ The following analysis of the crosswind is based on the least square fit of the 
  \plot{plot/result_crosswind}{The box plot include all average \si{\decibel} differences of all octave band between the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes}. The graph shows the linear least square fit of every wind speed interval as a line.}{fig:res:result_crosswind}
  
 
-The boxes in \autoref{fig:res:result_crosswind} indicate the 25th and 75th percentiles where the Whisker indicate the \SI{99.3}{\percent} or $2.7\sigma$ of the measuring point. The red line indicates the median. It is seen that generally, the \SI{50}{\percent} for the measurement is within an interval equal or less than \dB{5} and all least square fit shows a similar tendency. The \SI{0}{\decibel} difference crosses for the optimal angle is between \SI{14.8}{\degree} to \SI{16.2}{\degree} and the differences between the upwards microphone and the downwards microphone is similar in the measured wind speed intervals, unless the $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $ which show slightly less slope. The lowest deviation is founded at the measured \SI{20}{\degree} angle. The following \autoref{res:tab:cross_mean_all} shows the calculated optimal angle for every wind speed interval based on the least square fit with all octave band measurement points.
+The boxes in \autoref{fig:res:result_crosswind} indicate the 25th and 75th percentiles where the Whisker indicate the \SI{99.3}{\percent} or $2.7\sigma$ of the average measuring point. The red line indicates the median. It is seen that generally, the \SI{50}{\percent} for the measurement is within an interval equal or less than \dB{5} and all least square fit shows a similar tendency. The \SI{0}{\decibel} difference crosses for the optimal line source array rotation is between \SI{14.8}{\degree} to \SI{16.2}{\degree} and the differences between the upwards microphone and the downwards microphone is similar in the measured wind speed intervals, unless the $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $ which show slightly less slope. The lowest deviation is founded at the measured \SI{20}{\degree} rotation. The following \autoref{res:tab:cross_mean_all} shows the calculated optimal line source array rotation for every wind speed interval based on the least square fit with all octave band measurement points.
  
  
  \begin{table}[H]
  \centering
- \caption{The table shows the optimal line source array angle calculated as a linear square fit, while all measuring point for every wind speed interval is used}
+ \caption{The table shows the optimal line source array rotation calculated as a linear square fit, while all measuring point for every wind speed interval is used}
 \begin{tabular}{l|l}
-\multicolumn{2}{l}{The optimal angle}      \\ \hline
-Interval & Angle \\ \hline
+\multicolumn{2}{l}{The optimal rotation}      \\ \hline
+Wind speed Interval & Line source array rotation \\ \hline
   $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $       &   \SI{15.6}{\degree}    \\
    $[\SI{6}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $     &   \SI{15.8}{\degree}     \\
   $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $       &    \SI{16.2}{\degree}    \\
@@ -173,40 +180,42 @@ Interval & Angle \\ \hline
 \label{res:tab:cross_mean_all}
 \end{table}     
 
-The analysis showed a speaker angle between \SI{14.8}{\degree} to  \SI{16.2}{\degree}. Nothing indicate that the angle have to be raise while the wind speed raises in the interval from $[\SI{5}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $. As a static interval based on this calculation, the average angle for all wind speed interval is \SI{15.6}{\degree}.
+The analysis showed a line source array rotation between \SI{14.8}{\degree} to  \SI{16.2}{\degree}. Nothing indicate that the rotation have to be raised while the wind speed raises in the interval from $[\SI{5}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $. As a static line source array rotation based on this calculation, the average rotation for all wind speed interval is \SI{15.6}{\degree}.
 
 The last crosswind analysis is based on the absolute added differences between the centre microphone and the upwards and downwards microphone. The following \autoref{fig:res:result_crosswind_center} shows the box plot of the result and a second order least square fit of the data. 
  
-  \plot{plot/result_crosswind_center}{The box plot include all absolute average \si{\decibel} differences of all octave band between the center microphone and the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes}. The graph shows the second order least square fit of every wind speed interval as a line.}{fig:res:result_crosswind_center}
+  \plot{plot/result_crosswind_center}{The box plot include all absolute average \si{\decibel} differences of all octave band between the centre microphone and the upwards and downwards microphone position calculated in \autoref{mes:kudo:cross_mes}. The graph shows the second order least square fit of every wind speed interval as a line.}{fig:res:result_crosswind_center}
 
-The box plot in \autoref{fig:res:result_crosswind_center} is calculated with the same settings as in  \autoref{fig:res:result_crosswind}. The red plus sign indicate outliers, which is points outside \SI{99.3}{\percent} of the measurements. The lowest deviation is also in this case in the \SI{20}{\degree} line source array angle. The second order fit shows an optimal angle between \SI{14.4}{\degree} to \SI{16.3}{\degree} line source angle angle. The blue line in the $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $ interval is not counted here because no data in the \SI{0}{\degree} angle is present. The average angle in the interval $[\SI{6}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ is in this case \SI{15.6}{\degree}
+The box plot in \autoref{fig:res:result_crosswind_center} is calculated with the same settings as in  \autoref{fig:res:result_crosswind}. The red plus sign indicate outliers, which is points outside \SI{99.3}{\percent} of the measurements. The lowest deviation is also in this case in the \SI{20}{\degree} line source array rotation. The second order fit shows an optimal line source array rotation between \SI{14.4}{\degree} to \SI{16.3}{\degree} line source array rotation. The blue line in the $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $ interval is not counted here, because no data in the \SI{0}{\degree} rotation is present. The average line source array rotation in the interval $[\SI{6}{\meter\per\second},\, \SI{10}{\meter\per\second}[ $ is in this case \SI{15.6}{\degree}
   
   
 
 \section{Parallel wind data analysis}\label{res:par_data_ana}
 
-The parallel data analysis is only based on the approved data shown in \autoref{ta:meas:approved_data_par}. The analysis analyses the \gls{spl} measured in line source array downwards tilt angle \SI{3}{\degree} and  \SI{7}{\degree} for all three microphone position. The analysis is done in the octave band as the shown data from octave band \Hz{125} to octave \SI{16}{\kilo\hertz}. 
+The parallel data analysis is only based on the approved data shown in \autoref{ta:meas:approved_data_par}. The analysis analyses the measured \gls{spl} while the line source array is forwards tilted ether \SI{3}{\degree} or  \SI{7}{\degree} for all three microphone position. The analysis is done in the octave band as the shown data in \autoref{ta:meas:approved_data_par}
 
  The following \autoref{fig:res:result_parallel_wind_first}  shows the measurement for the front microphone.
 
- \plot{plot/result_parallel_wind_first}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given angle. The data is measured at the first microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind_first}
+ \plot{plot/result_parallel_wind_first}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given forward tilt angle. The data is measured at the first microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind_first}
   
 The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for both microphone and the \gls{spl} interval as the transparancy shadded area.
-It is seen in the graph that the average \gls{spl} is higher from \Hz{500} to \SI{16}{\kilo\hertz} while the speaker is tilted \SI{7}{\degree}. This \gls{spl} differences can be due to two factors. If upwards refraction is present, the upwards refraction refract the sound to the microphone. It can also be due to that the while the line source array is tilted \SI{7}{\degree} the microphone is within the near-field where at the tilt angle of \SI{3}{\degree} the microphone is outside the near-field. To be able to see if it is the near-field of the refraction the following \autoref{fig:res:result_parallel_wind} shows the measurement for the centre microphone where the microphone is within the border of the near-field while the line source array is tilted \SI{3}{\degree} and outside the near-field, while the line source array is tilted \SI{7}{\degree}.
+It is seen in the graph that the average \gls{spl} is higher from \Hz{500} to \SI{16}{\kilo\hertz} while the speaker is tilted \SI{7}{\degree}. This \gls{spl} differences can be due to two factors. If upwards refraction is present, the upwards refraction refract the sound to the microphone. It can also be due to that, while the line source array is tilted \SI{7}{\degree} the microphone is within the near-field where at the forward tilt angle of \SI{3}{\degree} the microphone is outside the near-field. To be able to analyse if it is the near-field of the refraction the following \autoref{fig:res:result_parallel_wind} shows the measurement for the centre microphone where the microphone is within the border of the near-field while the line source array is tilted \SI{3}{\degree} and outside the near-field, while the line source array is tilted \SI{7}{\degree}.
  
   
   
- \plot{plot/result_parallel_wind}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given angle. The data is measured at the center microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind}
+ \plot{plot/result_parallel_wind}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given forward tilt angle. The data is measured at the center microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind}
  
  
- The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line  and the \gls{spl} interval as the transparency shaded area for the centre microphone. It is clearly seen that the upwards refraction refract the sound to the centre microphone while when the line source array point to the microphone the sound is refracted above the microphone. In this distance, more power is played into the shadow zone, or the shadow zone is moved backwards. The following \autoref{fig:res:result_parallel_wind_back} shows the measurement with the back microphone.
+ The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line  and the \gls{spl} interval as the transparency shaded area for the centre microphone. It is seen that the upwards refraction refract the sound to the centre microphone while when the line source array point to the microphone the sound is refracted above the microphone. In this distance, more power is played into the shadow zone, or the shadow zone is moved backwards. 
+
+The following \autoref{fig:res:result_parallel_wind_back} shows the measurement with the back microphone.
  
  
   
-   \plot{plot/result_parallel_wind_back}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given angle. The data is measured at the back microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind_back}
+   \plot{plot/result_parallel_wind_back}{The line in the graph shows the average $L_{eq}$ of every octave band and the shaded area shows the $L_{eq}$ differences between all measurement at the given forward tilt angle. The data is measured at the back microphone position and calculated in \autoref{mes:kudo:par_mes}}{fig:res:result_parallel_wind_back}
    
-The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for and the \gls{spl} interval as the transparency shaded area for the back microphone. It is seen that the difference is less than the centre microphone but there is still generally more power in the high frequency range from \Hz{4000} and upwards.   
+The graph in \autoref{fig:res:result_parallel_wind_first} shows the average \gls{spl} as the line for and the \gls{spl} interval as the transparency shaded area for the back microphone. It is seen that the difference is less than the centre microphone, but there is still generally more power in the high frequency range from \Hz{4000} and upwards at the \SI{7}{\degree} forward tilt angle.   
 
 
-By comparing the \gls{spl} in every microphone position while the viscosity and distance dependency loss are removed, The \gls{spl} decay with distances between the first microphone and the centre microphone from \Hz{8000} octave band and upwards. This indicates that the frequency in the \Hz{8000} and \SI{16}{\kilo\hertz} have entered the shadow zone area. The decay is equally in both octave band interval, which indicates that the shadow zone decay is equally for both line source array tilt angle. From the centre microphone to the back microphone the average \gls{spl} decay for the \SI{7}{\degree} tilt angle is higher than the average \gls{spl} decay for the \SI{3}{\degree}. At this measuring position, the shadow zone \gls{spl} is more equal than the other but still with more \gls{spl} while \SI{7}{\degree} tilt angle. By tilting the line source array more \gls{spl} is obtained in the shadow zone area, but the decay is equally between the front microphone and the back microphone which might indicate that the shadow zone is not moved.
-   
+By comparing the \gls{spl} in every microphone position while the viscosity and distance dependency loss are removed, the \gls{spl} decay between the first microphone and the centre microphone in octave band \Hz{8000} and \SI{16}{\kilo\hertz} indicate that both microphones are within the shadow zone. The decay is equally in both octave band interval, which indicates that the shadow zone decay is equally for both line source array forward tilt angle. By tilting the line source array more \gls{spl} is obtained in the shadow zone area, but the decay is equally between the front microphone and the centre microphone which might indicate that both microphones are in the shadow zone. If the shadow zone is moved or not cannot be concluded, it can only be concluded that the \gls{spl} is raised in the shadow zone. 
+From the centre microphone to the back microphone the average \gls{spl} decay for the \SI{7}{\degree} forward tilt angle is higher than the average \gls{spl} decay for the \SI{3}{\degree}. This observation indicates that the back microphone shadow zone at forward tilt angle \SI{7}{\degree} might be as far into the shadow zone as while the line source array is tilted \SI{3}{\degree}.

@@ -5,7 +5,7 @@
 %where you can also make suggestions and rate matlab2tikz.
 
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 width=120mm, 
@@ -23,12 +23,12 @@ xmode=log,
 xmin=2,
 xmax=20000,
 xlabel style={font=\color{white!15!black}},
-xlabel={Frequency [Hz]},
+xlabel={Frequency [\hz]},
 ymin=-40,
 ymax=90,
 ytick={-40, -50, -40, -30, -20, -10,   0,  10,  20,  30,  40,  50,  60,  70, 80, 90},
 ylabel style={font=\color{white!15!black}},
-ylabel={SPL [dB]},
+ylabel={Level [\db]},
 legend style={legend cell align=left, align=left, draw=white!15!black}
 ]
 \addplot [color=mycolor1]

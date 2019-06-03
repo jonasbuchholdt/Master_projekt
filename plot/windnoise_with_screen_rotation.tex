@@ -4,7 +4,7 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 width=120mm, 
@@ -26,11 +26,11 @@ xmin=2,
 xmax=20000,
 xminorticks=true,
 xlabel style={font=\color{white!15!black}},
-xlabel={Frequency [Hz]},
+xlabel={Frequency [\hz]},
 ymin=0,
 ymax=100,
 ylabel style={font=\color{white!15!black}},
-ylabel={Level [dB]},
+ylabel={Level [\db]},
 legend style={legend cell align=left, align=left, draw=white!15!black}
 ]
 \addplot [color=mycolor1]
@@ -3823,7 +3823,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 21955.1979758523	-33.5929399475133\\
 22025.1109730114	-34.8496329389286\\
 };
-\addlegendentry{Designed windscreen, 90 deg, windspeed 8.68}
+\addlegendentry{Designed windscreen, \SI{90}{\degree}, windspeed \SI{8.68}{\meter\per\second}}
 
 \addplot [color=mycolor2]
   table[row sep=crcr]{%
@@ -7615,7 +7615,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 21955.1979758523	-30.5611783795203\\
 22025.1109730114	-29.0583919378122\\
 };
-\addlegendentry{Designed windscreen, 40 deg, windspeed 8.52}
+\addlegendentry{Designed windscreen, \SI{40}{\degree}, windspeed \SI{8.52}{\meter\per\second}}
 
 \addplot [color=mycolor3]
   table[row sep=crcr]{%
@@ -11407,7 +11407,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 21955.1979758523	-32.5687136905395\\
 22025.1109730114	-30.9530741825744\\
 };
-\addlegendentry{Designed windscreen, 140 deg, windspeed 8.75}
+\addlegendentry{Designed windscreen, \SI{140}{\degree}, windspeed \SI{8.75}{\meter\per\second}}
 
 \end{axis}
 \end{tikzpicture}%

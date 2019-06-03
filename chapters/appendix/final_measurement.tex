@@ -1,9 +1,9 @@
 \chapter{Final measurement}\label{ch:ap:final_measurement_KUDO}
-A measurement was made to measure the transfer function differences in three point in crosswind. One microphone situated in downwards direction, one microphone situated in upwards direction and one microphone situated in center, which is between the other two microphone. The used speaker have a horizontal dispersion pattern of \SI{80}{\degree}, but it is the \SI{50}{\degree} angle which is used as explained in \autoref{}  
+A measurement is made to measure the transfer function differences in three point in crosswind and parallel wind. One microphone situated in downwards direction, one microphone situated in upwards direction and one microphone situated in center, which is between the other two microphone while crosswind. The microphone is situated on a row parallel to the line source array while parallel wind. The used line source array have a horizontal dispersion pattern of \SI{50}{\degree}.
 
 
 \section*{Materials and setup}
-To measure the transfer function in a crosswind situation, the following materials are used:
+To measure the transfer function in a crosswind and parallel situation, the following materials are used:
 
 \startequipment
 \equipment{PC}{Macbook}{W89242W966H}{-}
@@ -28,11 +28,13 @@ To measure the transfer function in a crosswind situation, the following materia
 \equipment{flying tools}{-}{-}{-}
 \stopequipment
 
-\xfig{appendix/measurement_one_KUDO.pdf_t}{The figure shows the microphone position versus the position of the line source, while the array is \SI{0}{\degree} horizontal turned}{fig:ap:position_test_des}{1}
+\xfig{appendix/final_measurement_kudo.pdf_t}{The figure shows the microphone position versus the position of the line source array, while the array is \SI{0}{\degree} horizontal turned for crosswind measurement}{fig:ap:position_test_des_final_c}{1}
 
+\xfig{appendix/parallel_setup.pdf_t}{The figure shows the microphone position versus the position of the line source array for parallel wind measurement}{fig:ap:position_test_des_final_p}{1}
 
-\dfig{IMG_0107}{The picture shows the speaker setup}{IMG_0122}{The figure shows the wind direction}{The figures shows the measurement set up for \autoref{ch:ap:measurement_one} and  \autoref{ch:ap:measurement_two}}{fig:ap:measuring_one_setup}{0.5}{0.5}
+\dfig{IMG_0173}{The picture shows the line source array setup}{20190507_125146}{The figure shows the microphone setup for crosswind}{The figures shows the measurement set up for the final measurement}{fig:ap:measuring_one_setup_final}{0.5}{0.5}
 
+\fig{20190507_160210}{The figure shows the microphone setup for parallel wind}{fig:ap:measuring_one_setup_final_parallel}{0.5}
 
 
 \section*{Test procedure}
@@ -41,7 +43,7 @@ To measure the transfer function in a crosswind situation, the following materia
 \begin{enumerate}
 \item The microphone i calibrated.
 \item The wind direction is measured.
-\item The materials are set up as in \autoref{fig:ap:position_test_des} where the speaker is placed in cross wind direction, such that the frontal wave direction is orthogonal the the wind. The microphone and speaker is connected to the audio interface.
+\item The materials are set up as in \autoref{fig:ap:position_test_des_final_c} where the speaker is placed in crosswind direction, such that the frontal wave direction is orthogonal the the wind. The microphone and speaker is connected to the audio interface.
 \item The speaker is placed \SI{2.92}{\meter} above the ground.
 \item The speaker is tilted \SI{5}{\degree} pointing down agents the ground.
 \item The microphone is placed \SI{1.68}{\meter} above the ground, \SI{50}{\meter} from the speaker. One \SI{25}{\degree} to the left of the speaker, one \SI{25}{\degree} to the right of the speaker and one in center between the to other microphone.
@@ -49,34 +51,36 @@ To measure the transfer function in a crosswind situation, the following materia
 \item The anemometer at the microphone position is lifted \SI{1.68}{\meter} above the ground.
 \item The wind direction goes from the upwards microphone to the downwards microphone.
 \item The humidity and temperature is measured at the speaker position.
-\item 10 sine sweep is performed with a length of \SI{5}{\second} each while the wind direction and speed is measured.
-\item The impulse response is calculated and filtered with a 4th order highpass filter at \Hz{20}.
-\item The correlation is calculated for each impulse response to the first impulse response for time alignment \citep{gunness2001loudspeaker} of all microphone channels.
-\item The mean impulse response is calculated for the 10 measurement of all three microphone.
-\item The transfer function is calculated with a 10 sample moving mean filter.
-\item The the transfer function is down sampled to fit the plotting program.
+\item 20 sine sweep is performed with a length of \SI{5}{\second} each while the wind direction and speed is measured.
 \item The transfer function is calculated with a 5 sample moving mean filter.
 \item The wind measurement is synchronised to the transfer function in time. 
-\item The measurement is repeated 6 times with different horizontal speaker angle from \SI{0}{\degree} to \SI{30}{\degree} in step of \SI{5}{\degree}
+\item The measurement is repeated 4 times with different horizontal speaker angle from \SI{0}{\degree} to \SI{30}{\degree} in step of \SI{10}{\degree}
+\item The materials are set up as in \autoref{fig:ap:position_test_des_final_p} where the speaker is placed in parallel wind direction.
+\item The microphone is placed with a distance of \SI{10}{\meter}.
+\item The array is tilted \SI{3}{\degree} and 10 sine sweep is performed with a length of \SI{5}{\second} each while the wind direction and speed is measured.
+\item The array is tilted \SI{3}{\degree} and 10 sine sweep is performed with a length of \SI{5}{\second} each while the wind direction and speed is measured.
+\item The transfer function is calculated with a 5 sample moving mean filter.
+\item The wind measurement is synchronised to the transfer function in time. 
 \end{enumerate}
 
 
 \section*{Measurement area}
-To be able to measure in a windy area, parking lot at Tryvej 13, 9320 Hjallerup is used. The following \autoref{ap:wind:measurement_one_area} shows a picture of the area and the approximate position of the speaker and microphone.
+To be able to measure in a windy area, parking lot at Tryvej 13, 9320 Hjallerup is used. The following \autoref{ap:wind:measurement_one_area_final} shows a picture of the area and the approximate position of the speaker and microphone.
 
-\fig{measurement_1_area}{The picture illustrate the area, where the wind flow is measured}{ap:wind:measurement_one_area}{0.7}
+\fig{measurement_1_area}{The picture illustrate the area, where the wind flow is measured}{ap:wind:measurement_one_area_final}{0.7}
 
 \section*{Results}
 
-All measuring result is not shown here, the rest can be founded in the attached file. One synchronised measurement is shown for the upwards microphone where the speaker is turned \SI{0}{\degree}, \SI{10}{\degree}, \SI{20}{\degree} and \SI{30}{\degree}. The shown measurement result is for one measurement and is not an average from 10 measurements. This shows the time synchronised result. 
+All measuring result is not shown here, the rest can be founded in the attached file. One synchronised measurement is shown for the upwards microphone where the speaker is turned \SI{0}{\degree}, \SI{10}{\degree}, \SI{20}{\degree} and \SI{30}{\degree}. The shown measurement result is for one measurement. This shows the time synchronised result. 
 
 
 
 
-%\plot{plot/measuring_sync_upwards_0}{the graph shows}{fig:ap:mea_sync_upw_0}
-\plot{plot/measuring_sync_final_0_13}{the graph shows}{fig:ap:mea_sync_upw_10}
-%\plot{plot/measuring_sync_upwards_20}{the graph shows}{fig:ap:mea_sync_upw_20}
-%\plot{plot/measuring_sync_upwards_30}{the graph shows}{fig:ap:mea_sync_upw_30}
+\plot{plot/measuring_sync_final_0_13}{The graph shows the test result. All blue weather curve is measured at the line source array tower, where all red weather curve is measured at the center microphone position}{fig:ap:mea_sync_upw_10}
+
+
+All measurement is founded in the file under 'measurement/final_measurement/'. The measurement is stored in the given mat file and 'show_test_result.m' calculate the result.
+
 
 
 

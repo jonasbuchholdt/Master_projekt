@@ -5,7 +5,7 @@
 %where you can also make suggestions and rate matlab2tikz.
 
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 width=120mm, 
@@ -27,11 +27,11 @@ xmin=2,
 xmax=20000,
 xminorticks=true,
 xlabel style={font=\color{white!15!black}},
-xlabel={Frequency [Hz]},
+xlabel={Frequency [\hz]},
 ymin=0,
 ymax=100,
 ylabel style={font=\color{white!15!black}},
-ylabel={Level [dB]},
+ylabel={Level [\db]},
 legend style={legend cell align=left, align=left, draw=white!15!black}
 ]
 \addplot [color=mycolor1, forget plot]
@@ -5803,7 +5803,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 22025.1109730114	-37.2995912404887\\
 22039.0935724432	-41.1973724062633\\
 };
-\addlegendentry{without designed windscreen, on ground, windspeed 8.50}
+\addlegendentry{without designed windscreen, on ground, windspeed \SI{8.50}{\meter\per\second}}
 
 \addplot [color=mycolor2, forget plot]
   table[row sep=crcr]{%
@@ -11429,7 +11429,7 @@ legend style={legend cell align=left, align=left, draw=white!15!black}
 19997.6340553977	-31.0539422224848\\
 20011.6166548295	-29.2763681705961\\
 };
-\addlegendentry{with designed windscreen, on ground, windspeed 8.68}
+\addlegendentry{with designed windscreen, on ground, windspeed \SI{8.68}{\meter\per\second}}
 
 \end{axis}
 

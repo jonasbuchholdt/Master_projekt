@@ -4,7 +4,7 @@
 %  http://www.mathworks.com/matlabcentral/fileexchange/22022-matlab2tikz-matlab2tikz
 %where you can also make suggestions and rate matlab2tikz.
 %
-\begin{tikzpicture}
+\begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
 \plotsettingslow
@@ -19,7 +19,7 @@ ymax=360,
 ytick={  0,    40,    80,  120, 160,  200,  240,  280,  320,  360},
 minor tick num=3,
 ylabel style={font=\color{white!15!black}},
-ylabel={direction [deg]},
+ylabel={Direction [\si{\degree}]},
 legend style={legend cell align=left, align=left, draw=white!15!black}
 ]
 \addplot [color=mycolor1]

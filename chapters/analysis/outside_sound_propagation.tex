@@ -24,11 +24,11 @@ d_{B} = \frac{3}{2}f \cdot H^{2}\sqrt{1-\frac{1}{(3f \cdot H)}}
 
 In equation \autoref{eq:ana:near_field} it can be calculated that less than \Hz{80} radiate directly intro spherical wave on the exit of the line source array no matter the hight. The following \autoref{fig:ana:near_far_field} shows a horizontal cut of the near-field, far-field from a line source array. 
 
-\fig{near_far_field}{The figure shows a horizontal cut of a sound wave radiation pattern of a line source array \citep{bauman2001wavefront}.}{fig:ana:near_far_field}{0.80}
+\fig{near_far_field}{The figure shows a vertical cut of a sound wave radiation pattern of a line source array \citep{bauman2001wavefront}.}{fig:ana:near_far_field}{0.80}
 
 As seen in \autoref{fig:ana:near_far_field}, the wave propagate as planar wave in the near-field. In the vertical domain, the plane wave propagates as a cylindrical wave in the near-field, where the coverage area for every double of distance is twice as big. Since the coverage area is twice as big, the \gls{spl} is \dB{-3} for the doubled distance. When the wave excites distance $d_B$, the wave propagates intro far-field where the coverage area is four times higher while travelling the double of distance and therefore the \gls{spl} is \dB{-6}. In far-field, the wave propagates as a point source. The following \autoref{fig:ana:KUDO_nearfield_limit} gives two examples of the $d_B$ limit with different line source array hight.
 
-\plot{plot/KUDO_nearfield_limit}{The figure shows two hight example calculated from \autoref{eq:ana:near_field}.}{fig:ana:KUDO_nearfield_limit}
+\plot{plot/KUDO_nearfield_limit}{The figure shows two hight example calculated from \autoref{eq:ana:near_field}. The line indicate the distance where the sound wave goes from near-field to far-field.}{fig:ana:KUDO_nearfield_limit}
 
 As seen in \autoref{fig:ana:KUDO_nearfield_limit}, while the hight is the double, the far-field is moved four times as far back.
 
@@ -47,7 +47,7 @@ The article shows that if humidity increases proportionally to the temperature, 
 
 \paragraph{Speed of sound} The second consequence is the speed of sound. At temperature range from \SI{0}{\celsius} to \SI{40}{\celsius} the speed of sound with respect to humidity change is sparse and mostly only depend on temperature. At \SI{0}{\percent} humidity, the speed of sound increases with \SI{0.6}{\meter\per\second} for every increasing degree \si{\celsius}. At humidity higher that \SI{0}{\percent} the speed of sound increase with humidity, depends on temperature. The wave propagation speed start at \SI{331.5}{\meter\per\second} at \SI{0}{\celsius} and \SI{0}{\percent} humidity. The following \autoref{fig:ana:hu_speed} shows the speed of sound with respect to humidity and temperature. 
 
-\plot{plot/speed_hum_temp}{The figure shows the increase of sound speed with respect to humidity and temperature \citep{bohn1987environmental} \citep{humanity_effect_on_speed} }{fig:ana:hu_speed}
+\plot{plot/speed_hum_temp}{The figure shows the increase of sound speed with respect to humidity and temperature \citep{bohn1987environmental} \citep{humanity_effect_on_speed}. }{fig:ana:hu_speed}
 
 As seen in \autoref{fig:ana:hu_speed}, the effect of humidity is negligible compared to the effect of temperature changes, but as the temperature increases the relative humidity gets significant. At a temperature of \SI{40}{\celsius} the speed of sound is changed \SI{4}{\meter\per\second} from \SI{0}{\percent} humidity to \SI{100}{\percent}. The humidity is relative because it depends on the temperature. The higher the temperature is, more water can be contained intro the air molecule. The relative in relative humidity is assumed in the rest of the thesis and is not written. 
 
@@ -66,7 +66,7 @@ The wind influence is depending on the angle of the wind direction with respect 
 
 
 
-\xfig{analysis/cal_of_crosseffect.pdf_t}{The figure shows a geometrical ray tracing calculation scheme of calculate the resulting wave direction at crosswind \citep{ray_tracing}, \citep{crosswind_simulation}}{fig:ana:cal_wav_dir}{0.5}
+\xfig{analysis/cal_of_crosseffect.pdf_t}{The figure shows a geometrical ray tracing calculation scheme of calculate the resulting wave direction at crosswind \citep{ray_tracing}, \citep{crosswind_simulation}.}{fig:ana:cal_wav_dir}{0.5}
 \startexplain
 \explain{c}{is the speed of sound}{\meter\per\second}
 \explain{n}{is the normal unit vector}{\meter}
@@ -149,26 +149,26 @@ The following description is based on the distance of \SI{110}{\meter} and upwar
 As shown in shell's law \autoref{eq:ana:shell_law}, the frequency dependency is not a factor. The article \citep{review_of_sound} only explorer frequency up to \Hz{3200}, but since the refraction depends on the wavelength, the distance of refraction wave might be smaller for higher frequency. The attenuation with respect to refraction seems to have a saddle attenuation at \dB{20}. A measurement in \citep{review_of_sound} shows the attenuation for the centre frequency of \Hz{1200} with \octave{3} band filtered aircraft noise over mown grass. The measurement is interesting with respect to a concert area and is therefore shown in \autoref{fig:ana:excess} 
 
 
-\fig{excess}{Excess attenuation measured for aircraft noise in the \Hz{1200} \octave{3} band for the ground-to-ground configuration. The vector component of the wind velocity in the direction of propagation for $\blacktriangle$ is \SI{5}{\meter\per\second}, $\square $ is \SI{0}{\meter\per\second}, and $\triangledown$ is \SI{-5}{\meter\per\second}. The temperature profile is neutral. $F_s$ is the shielding factor, B is the shadow boundary \citep{review_of_sound}}{fig:ana:excess}{0.7}
+\fig{excess}{Excess attenuation measured for aircraft noise in the \Hz{1200} \octave{3} band for the ground-to-ground configuration. The vector component of the wind velocity in the direction of propagation for $\blacktriangle$ is \SI{5}{\meter\per\second}, $\square $ is \SI{0}{\meter\per\second}, and $\triangledown$ is \SI{-5}{\meter\per\second}. The temperature profile is neutral. $F_s$ is the shielding factor, B is the shadow boundary \citep{review_of_sound}.}{fig:ana:excess}{0.7}
 
 The following two paragraphs explain the difference between wind refraction and temperature refraction.
 
 \paragraph{Temperature} Temperature decreases with respect to the hight at day time and increases at the night time. The increase or decrease is usually approximated as a logarithmic function. In the day time, the sun heats the ground even on a cloudy day, and the concert area is full of audience. Therefore, the eath and audience radiate warm air, which makes the temperature at a low hight warmer than the temperature at higher hight. These phenomena are named lapse, where the opposite is defined as inversion. As explained in \autoref{sec:ana:hu_temp}, the speed of sound depends on the temperature. Therefore, at day time, the speed of sound in this situation decay with respect to hight. The speed change is modelled as a change of layer for a plane wave. The output angle of the layer change follows the shell's law when the frequency dependency is excluded. Therefore when the temperature profile is logarithmic, the layer change is a function of hight and change the wave direction. The wave direction of the descript weather condition results in an upwards refraction. Since the temperature is a scalar quantity uniformly over a large area and a function of hight, the same temperature profile is applicable all around an omnidirectional sound source. Therefore the upwards refraction is uniform all around the line source array. The following \autoref{fig:ana:temp_ref} illustrate the phenomena where the temperature decay concerning the hight and the line source array is omnidirectional. The omnidirectionality of the line source array is only present in the low frequency and typically below \Hz{200}.
 
-\xfig{analysis/refraction_temp.pdf_t}{Wave refraction of a horizontal omnidirectional line source array in inhomogeneous temperature with lapse profile}{fig:ana:temp_ref}{0.9}
+\xfig{analysis/refraction_temp.pdf_t}{Wave refraction of a horizontal omnidirectional line source array in inhomogeneous temperature with lapse profile.}{fig:ana:temp_ref}{0.9}
 
 When the temperature profile is reversed, the refraction is downwards. 
  
 
 \paragraph{Wind} With respect to the wind speed, a concert area is often a protected area with, for example, barrier, stage and building. This blockage and the ground friction slows down the wind speed near the ground and cause turbulence. Moreover, from nature itself, the wind speed is often logarithmically increased with respect to the hight. When the wave is propagation in the same direction as the wind, the atmospheric refraction refracts the sound wave downwards. When the wave propagates against the wind, the atmospheric refraction refracts the sound wave upwards. The following \autoref{fig:ana:wind_ref}  illustrate the phenomena with a logarithmic increasing wind from left, and where the line source array is omnidirectional.
 
-\xfig{analysis/refraction.pdf_t}{Wave refraction of a horizontal omnidirectional line source array in inhomogeneous logarithmically increasing wind profile where the wind gradient points towards left}{fig:ana:wind_ref}{0.9}
+\xfig{analysis/refraction.pdf_t}{Wave refraction of a horizontal omnidirectional line source array in inhomogeneous logarithmically increasing wind profile where the wind gradient points towards left.}{fig:ana:wind_ref}{0.9}
 
 As shown in \autoref{fig:ana:shadow_zone}, the refraction is upwards when the wind flows in the opposite direction as the wave propagation. Behind the line source array, the refraction is downwards and is therefore different than for temperature refraction. The refraction of wind is the most dominant at a distance of \SI{110}{\meter}. The following \autoref{fig:ana:fre_dep_exc} shows an excess attenuation plot of both inhomogeneous wind and lapse temperature profile. 
 
-\fig{frequency_dep_excess}{Observed attenuation of aircraft noise in a ground-to-ground configuration under a variety of weather conditions. Calculated losses from atmospheric absorption and spherical spreading have been subtracted from the attenuation measured in \octave{3} bands for distances of \SI{110}{\meter} and \SI{615}{\meter}. The numbers on the curves indicate the vector component of the wind velocity in the direction of propagation in \si{\meter\per\second}. All curves are for neutral conditions of temperature except for those marked L, which are for the lapse. \citep{review_of_sound}}{fig:ana:fre_dep_exc}{0.7}
+\fig{frequency_dep_excess}{Observed attenuation of aircraft noise in a ground-to-ground configuration under a variety of weather conditions. Calculated losses from atmospheric absorption and spherical spreading have been subtracted from the attenuation measured in \octave{3} bands for distances of \SI{110}{\meter} and \SI{615}{\meter}. The numbers on the curves indicate the vector component of the wind velocity in the direction of propagation in \si{\meter\per\second}. All curves are for neutral conditions of temperature except for those marked L, which are for the lapse \citep{review_of_sound}.}{fig:ana:fre_dep_exc}{0.7}
 
-It is seen in \autoref{fig:ana:fre_dep_exc} that the refraction effect at a distance of \SI{110}{\meter} starts at \Hz{400}. The reason that sound enters the shadow zone is not fully understood, but one theory is that the shadow boundary wave is diffuse and therefore a significant amount of sound energy enters the shadow zone by turbulent air flow. In a non-turbulent atmosphere condition the \gls{spl} inside the shadow zone is attenuated well more than \dB{30}. Close to the ground, the atmosphere condition is always turbulent because of ground friction. The turbulence wind diffuses the sound wave and changes the direction of propagation. The wave that enters the shadow zone is considered as a creeping wave while turbulent air flow is present. The creeping wave will by them self also be refracted and therefore, parallel to the other refraction waves. \citep{tur_on_sound}
+It is seen in \autoref{fig:ana:fre_dep_exc} that the refraction effect at a distance of \SI{110}{\meter} starts at \Hz{400}. The reason that sound enters the shadow zone is not fully understood, but one theory is that the shadow boundary wave is diffuse and therefore a significant amount of sound energy enters the shadow zone by turbulent air flow. In a non-turbulent atmosphere condition the \gls{spl} inside the shadow zone is attenuated well more than \dB{30}. Close to the ground, the atmosphere condition is always turbulent because of ground friction. The turbulence wind diffuses the sound wave and changes the direction of propagation. The wave that enters the shadow zone is considered as a creeping wave while turbulent air flow is present. The creeping wave will by them self also be refracted and therefore, parallel to the other refraction waves \citep{tur_on_sound}.
 
 
 
@@ -177,33 +177,35 @@ It is seen in \autoref{fig:ana:fre_dep_exc} that the refraction effect at a dist
 
 Since the effect of oblique wind on a line source array is rarely studied, a measurement in a windy condition is performed. The measurement is performed over mown grass in a large open area used for football. The used measurement technique is done according to \citep{gunness2001loudspeaker} where more than one impulse response is measured, and average by alining the impulse response. The wind is considered as healthy for an outdoor concert. The wind speed is measured to  \SI{14}{\meter\per\second} doing the full measurement. The measurement is done with a four element line source array \SI{1.1}{\meter} above the ground. There are used two microphones, where both are situated \SI{25}{\meter} from the line source array in the first measurements and \SI{23}{\meter} from the line source array in the last measurements. While changing the distance, the angle to the line source array is changed.  The frontal direction of the line source array is placed orthogonal to the wind direction, and the microphone is placed on both side of the line source array as shown in \autoref{fig:ana:position}
 
-\xfig{analysis/measurement_one_sec.pdf_t}{The figure shows the microphone position versus the position of the line source array}{fig:ana:position}{1}   
+\xfig{analysis/measurement_one_sec.pdf_t}{The figure shows the microphone position versus the position of the line source array and the wind direction.}{fig:ana:position}{0.8}   
 
 
 The measurement is done with sine swept and according to the description in \autoref{ch:ap:measurement_one}. The measurement is performed with two microphone positions, two measurements where the microphone are within the line source array high frequency directional angle and three measurements outside the line source array high frequency directional angle. The first measurement is shown in \autoref{fig:ana:mea_two_one}. The other four measurement result is founded in \autoref{ch:ap:measurement_one}. They show the same tendency, but the difference between the measurements are more drastically in the measurement where the microphone is situated outside the high frequency directional angle. 
 
 %\plot{plot/measurement_one_one_ana}{The graph shows the average of the first transfer function measurement routine https://asa-scitation-org.zorac.aub.aau.dk/doi/pdf/10.1121/1.381455?class=pdf}{fig:ana:mea_one_one}
 
-\plot{plot/measurement_two_one_ana}{The graph shows the first transfer function measurement within the high frequency directional angle. The $L_{eq}$ \gls{spl} different between the microphones is \dB{4.41} (IR_3)}{fig:ana:mea_two_one}
+\plot{plot/measurement_two_one_ana}{The graph shows the first transfer function measurement within the high frequency directional angle of the line source array. The $L_{eq}$ \gls{spl} different between the microphones is \dBr{4.41}.}{fig:ana:mea_two_one}
+
+% (IR_3)
 
 It is seen in \autoref{fig:ana:mea_two_one} that the general \gls{spl} is higher for microphone 1. Furthermore, both measurements show ground reflection in the frequency response. Besides the ground reflection, the general level is higher in the measurement measured by microphone 1. This difference indicates refraction upwards in the direction of microphone 2.  The resulting $L_{eq}$ \gls{spl} difference for all measurement is shown in \autoref{ta:ana:spl_dif}.
 
 \begin{table}[H]
 \centering
-\caption{The table shows the measured $L_{eq}$ \gls{spl} for all measurement and the difference between the microphone}
+\caption{The table shows the measured $L_{eq}$ \gls{spl} for all measurement and the difference between the microphone position.}
 \begin{tabular}{l|l|l|l}
 Measurement number &  Mic 1 $L_{eq}$ & Mic 2 $L_{eq}$ & Difference\\ \hline
-        \measurement{fig:ap:mea_one_one}{1}        &  \dB{71.82}     &  \dB{66.33} & \dB{5.49} \Tstrut \\
-         \measurement{fig:ap:mea_one_two}{2}      &  \dB{69.09}      &  \dB{64.69} & \dB{4.40} \\
-        \measurement{fig:ap:mea_one_thr}{3}         &  \dB{67.67}     &  \dB{63.44} & \dB{4.23} \\
-         \measurement{fig:ap:mea_two_one}{4}       &  \dB{68.10}      &  \dB{63.69} & \dB{4.41} \\
-         \measurement{fig:ap:mea_two_two}{5}       &  \dB{68.44}      &  \dB{63.62} & \dB{4.81} \\ 
- Average &   \dB{69.02} &   \dB{64.35} &   \dB{4.67} 
+        \measurement{fig:ap:mea_one_one}{1}        &  \dB{71.82}     &  \dB{66.33} & \dBr{5.49} \Tstrut \\
+         \measurement{fig:ap:mea_one_two}{2}      &  \dB{69.09}      &  \dB{64.69} & \dBr{4.40} \\
+        \measurement{fig:ap:mea_one_thr}{3}         &  \dB{67.67}     &  \dB{63.44} & \dBr{4.23} \\
+         \measurement{fig:ap:mea_two_one}{4}       &  \dB{68.10}      &  \dB{63.69} & \dBr{4.41} \\
+         \measurement{fig:ap:mea_two_two}{5}       &  \dB{68.44}      &  \dB{63.62} & \dBr{4.81} \\ 
+ Average &   \dB{69.02} &   \dB{64.35} &   \dBr{4.67} 
 \end{tabular}
 \label{ta:ana:spl_dif}
 \end{table}
 
-As it is shown in \autoref{ta:ana:spl_dif}, the $L_{eq}$ \gls{spl} is higher for microphone 1 in all measurement. Moreover the average $L_{eq}$ \gls{spl} difference is \dB{4.67}, where for A-weighted $L_{Aeq}$ \gls{spl} the average difference is \dB{6.17}. With respect to the intelligibility frequency range, a weighting filter is designed to observe the \gls{spl} differences in the critical intelligibility frequency range. The filter is based on the founded intelligibility frequency range in \citep{arl_us_army}. It is shown in \citep{arl_us_army} that the critical intelligibility frequency range lays between \Hz{1000} and \Hz{4000}. The designed intelligibility weighting filter is an 8\textsuperscript{th} order bandpass filter with lower crossover frequency at \Hz{1000} and higher crossover frequency at \Hz{4000}. The resulting average difference is \dB{7.88} and the maximum difference is \dB{9.95}.
+As it is shown in \autoref{ta:ana:spl_dif}, the $L_{eq}$ \gls{spl} is higher for microphone 1 in all measurement. Moreover the average $L_{eq}$ \gls{spl} difference is \dBr{4.67}, where for A-weighted $L_{Aeq}$ \gls{spl} the average difference is \dBr{6.17}. With respect to the intelligibility frequency range, a weighting filter is designed to observe the \gls{spl} differences in the critical intelligibility frequency range. The filter is based on the founded intelligibility frequency range in \citep{arl_us_army}. It is shown in \citep{arl_us_army} that the critical intelligibility frequency range lays between \Hz{1000} and \Hz{4000}. The designed intelligibility weighting filter is an 8\textsuperscript{th} order bandpass filter with lower crossover frequency at \Hz{1000} and higher crossover frequency at \Hz{4000}. The resulting average difference is \dBr{7.88} and the maximum difference is \dBr{9.95}.
 
 
 

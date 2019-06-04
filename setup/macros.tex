@@ -433,7 +433,7 @@ Description & Model & Serial-no & AAU-no \\ \hline
 
 \newcommand{\plotsettings}[0]{
 width=120mm, 
-height=65mm, 
+height=40mm, 
 at={(5mm,5mm)}, 
 scale only axis,
 grid=both,
@@ -488,11 +488,17 @@ axis background/.style={fill=white},
 \newcommand{\dB}[1]{%
 	\SI{#1}{\decibel} \gls{spl}}%
 
+\newcommand{\dBr}[1]{%
+	\SI{#1}{\decibel}}%
+
 \newcommand{\dBs}[1]{%
 	\SI{#1}{\decibel}}%
 
-\newcommand{\db}[0]{%
+\newcommand{\dbr}[0]{%
 	\si{\decibel}}%
+
+\newcommand{\db}[0]{%
+	\si{\decibel}  \gls{spl}}%
 
 \newcommand{\hz}[0]{%
 	\si{\hertz}}%

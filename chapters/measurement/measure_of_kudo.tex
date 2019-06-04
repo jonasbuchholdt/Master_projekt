@@ -2,7 +2,7 @@
 In this chapter, the measuring result from the final measurement is shown. The measuring setup is seen in \autoref{fig:meas:setup_shown}
 
 
-\fig{IMG_0174}{The picture shows the measuring setup while the parallel wind measuring is under preperation}{fig:meas:setup_shown}{1}
+\fig{IMG_0174}{The picture shows the measuring setup while the parallel wind measuring is under preparation.}{fig:meas:setup_shown}{1}
 
 The analysis is addressed as following  
 
@@ -21,12 +21,12 @@ The analysis is addressed as following
 \section{Wind noise doing measurement}\label{mes:kudo:wind_noise}
 Wind noise is present in all measurement and has to be addressed before the impulse response is analysed. As the first part of the final measurement, the wind noise is measured and visualised to ensure optimal signal to noise ratio. The wind noise is measured for all three microphones twice at a different time and wind speed above \SI{5}{\meter\per\second}. The wind noise measurement is only done this two time of every microphone on the measuring day. The following \autoref{fig:meas:result_windnoise_at_position} shows the wind noise at all three microphone position, including the wind speed.
 
-\plot{plot/result_windnoise_at_position}{The graph shows the wind noise in all three measurement microphone at the exact position which is used for the crosswind measurement}{fig:meas:result_windnoise_at_position}
+\plot{plot/result_windnoise_at_position}{The graph shows the wind noise in all three measurement microphone at the exact position which is used for the crosswind measurement.}{fig:meas:result_windnoise_at_position}
 
 
 The measurement \autoref{fig:meas:result_windnoise_at_position} shows that the wind noise is pink and therefore most present in the low frequency. This low frequency wind noise is filtered in two steps. First, the impulse responses are filtered by a second order high pass filter at \Hz{40}.  The \Hz{40} is decided based on the lowest cut off frequency of the line source array. The cut off is due to an internal filter in the \gls{dsp} settings of the line source array controller and the physical construction of the line source element. As the second filter, the impulse responses are windowed to remove wind noise component present along the impulse response time. The wind noise is present as a delayed signal in the impulse response because the wind noise is present under the full sine sweep measuring period. The following \autoref{fig:meas:imp_res} shows one impulse response measured doing the final measurement.
 
-\plot{plot/ir_0_deg_13_up}{The graph shows one impulse response measurement of the upwards microphone where the line source array is not rotated}{fig:meas:imp_res}
+\plot{plot/ir_0_deg_13_up}{The graph shows one impulse response measurement of the upwards microphone where the line source array is not rotated.}{fig:meas:imp_res}
 
 
 As seen in \autoref{fig:meas:imp_res}, the noise is present along the impulse response timeline. This wind noise is not interesting for the analysis and is therefore windowed by a custom made window. The following \autoref{fig:meas:imp_res_win} shows the same impulse response as before while it is filtered and windowed with the custom made window.
@@ -47,28 +47,28 @@ As seen in \autoref{fig:ds:position_final}, the refraction crossover point is at
 \section{Crosswind measurement}\label{mes:kudo:cross_mes}
 This section is presenting the final measurement which is done according to the crosswind measurement design description in \autoref{ch:test_of_proposal_sol} including the update described in \autoref{ch:test_of_meas_des}. The measurement appendix is founded in \autoref{ch:ap:final_measurement_KUDO}. The measurement setup is nearly identical to the measurement in the measurement test \autoref{ch:test_of_meas_des} unless that the wind direction is turned \SI{180}{\degree}, the anemometer at the microphone position is placed \SI{5}{\meter} to the right of the centre microphone instead of \SI{5}{\meter} to the back of the centre microphone and the anemometer at the line source array is moved to the right side. The measurement is done from  \SI{0}{\degree} to  \SI{30}{\degree} in step of  \SI{10}{\degree} towards the upwards direction. The measurement setup is illustrated in \autoref{fig:ds:position_final}.
 
-\xfig{measurement/final_measurement_kudo.pdf_t}{The figure shows the microphone position versus the position of the line source, while the array is \SI{0}{\degree} horizontal turned}{fig:ds:position_final}{1}
+\xfig{measurement/final_measurement_kudo.pdf_t}{The figure shows the microphone position versus the position of the line source array, while the array is \SI{0}{\degree} rotated.}{fig:ds:position_final}{1}
 
 
 
-While analysing the upwards refraction to the downwards refraction, it is interesting to analyse at which frequency the refraction starts. This analysis is done on the measurement done in the final measurement with wind speed between \SI{5}{\meter\per\second} and \SI{10}{\meter\per\second}. The refraction knowledge is used to decide which frequency range that has to be analysed. The frequency range that shows no or less than \dB{3} refraction is excluded from the analysis. The desition of \dB{3} deviation is based on audible differences and wind turbulence. The refraction is analysed by calculating frequency response for all measurement with wind speed above \SI{5}{\meter\per\second} and compared between the three microphones position. The comparison between measurement is done visually by plotting the frequency response for all measurement. One measurement which shows the general refraction phenomena is shown in \autoref{fig:meas:refraction_0_deg_16}
+While analysing the upwards refraction to the downwards refraction, it is interesting to analyse at which frequency the refraction starts. This analysis is done on the measurement done in the final measurement with wind speed between \SI{5}{\meter\per\second} and \SI{10}{\meter\per\second}. The refraction knowledge is used to decide which frequency range that has to be analysed. The frequency range that shows no or less than \dBr{3} refraction is excluded from the analysis. The desition of \dBr{3} deviation is based on audible differences and wind turbulence. The refraction is analysed by calculating frequency response for all measurement with wind speed above \SI{5}{\meter\per\second} and compared between the three microphones position. The comparison between measurement is done visually by plotting the frequency response for all measurement. One measurement which shows the general refraction phenomena is shown in \autoref{fig:meas:refraction_0_deg_16}
 
 
 
-\plot{plot/refraction_0_deg_16}{The graph shows one measurement while the line array is not rotated and the wind speed is measured to be \SI{8.00}{\meter\per\second}}{fig:meas:refraction_0_deg_16}
+\plot{plot/refraction_0_deg_16}{The graph shows one measurement while the line array is not rotated and the wind speed is measured to be \SI{8}{\meter\per\second}.}{fig:meas:refraction_0_deg_16}
 
 As seen in \autoref{fig:meas:refraction_0_deg_16}, the refraction starts at \Hz{150} and gets above \dB{3} in the frequency range above \Hz{600}. The measurement is done at least 15 times for every line source array rotation and based on the amount of data, one graph for every line source array rotation is shown. The result is analysed in $L_{eq}$ octave band separation above \Hz{600} afterwards. The graph only includes upwards measurement and downwards measurement. The centre microphone measurement is given in the $L_{eq}$  to keep the plot visual manageable. In all chosen measurements, the wind speed is above \SI{8}{\meter\per\second}. The following four measurement shows the frequency response with the given line source array rotation.
 
-\plot{plot/result_cross_0_deg_16}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{0}{\degree}}{fig:meas:result_cross_0_deg_16}
-\plot{plot/result_cross_10_deg_15}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{10}{\degree}}{fig:meas:result_cross_10_deg_15}
-\plot{plot/result_cross_20_deg_16}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{20}{\degree}}{fig:meas:result_cross_20_deg_16}
-\plot{plot/result_cross_30_deg_9}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{30}{\degree}}{fig:meas:result_cross_30_deg_9}
+\plot{plot/result_cross_0_deg_16}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{0}{\degree}.}{fig:meas:result_cross_0_deg_16}
+\plot{plot/result_cross_10_deg_15}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{10}{\degree}.}{fig:meas:result_cross_10_deg_15}
+\plot{plot/result_cross_20_deg_16}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{20}{\degree}.}{fig:meas:result_cross_20_deg_16}
+\plot{plot/result_cross_30_deg_9}{The graph shows the frequency response measured by the upwards microphone and the downwards microphone with line source array rotation of \SI{30}{\degree}.}{fig:meas:result_cross_30_deg_9}
 
 In the analysis, the measurement is split into groups depending on the wind speed with a step of \SI{1}{\meter\per\second}. Furthermore, all measurement in the analysis is between $\pm\SI{20}{\degree}$ from crosswind to the line source array. Crosswind to the line source array is defined as \SI{90}{\degree} and therefore, average wind direction between \SI{70}{\degree} to \SI{110}{\degree} is the acceptable. All measurement deviates from this range is excluded. Moreover, measurement with wind speed beneath \SI{5}{\meter\per\second} is also excluded. From those limitations, the following \autoref{ta:meas:approved_measurement} shows the amount of measurement for each wind speed step. 
 
 \begin{table}[H]
 \centering
-\caption{The table shows the number of measurement which is between \SI{70}{\degree} to \SI{110}{\degree} in the given \si{\meter\per\second} interval}
+\caption{The table shows the number of measurement which is between \SI{70}{\degree} to \SI{110}{\degree} in the given \si{\meter\per\second} interval.}
 \begin{tabular}{l|l|l|l|l|l}
 Line source array rotation & \SI{0}{\degree}  & \SI{10}{\degree} & \SI{20}{\degree} & \SI{30}{\degree} & Total \\ \hline
 $[\SI{5}{\meter\per\second},\, \SI{6}{\meter\per\second}[ $         & 0  & 2  & 4  & 4  & 10    \\
@@ -83,8 +83,7 @@ Total         & 14 & 14 & 19 & 14 &   61
 
 It is seen in \autoref{ta:meas:approved_measurement} that 61 measurement is available and the most is within wind speed of \SI{6}{\meter\per\second} to \SI{8}{\meter\per\second}.
 
-The measurement is calculated into octave band, to be able to compare the measured result in frequency bands. The measurement result is divided into wind speed groups with the same interval as in \autoref{ta:meas:approved_measurement}. For every octave band in every group, the $l_{eq}$ is calculated and rounded to the nearest integer and the \si{\decibel} is left out in the table such that the table fits within one page. Every measurement is given by a 'm' with following of a number. The letter 'm' stands for measurement where the number specifies the actual played measurement number; for example, the fourth measurement in a row is named m4. For every new speaker angle, the number is reset and started with the number 1. In every measurement group, the average of the measurements for each microphone is calculated for every octave band. The upwards microphone information is named U, the centre microphone information is named C, and the downwards microphone information is named D. Furthermore the average difference between the upwards microphone and the downwards microphone is calculated and given as Dif in the table. In the end, the absolute differences between the centre microphone and the upwards microphone are calculated and added to the absolute differences between the centre microphone and the downwards microphone. This value gives the absolute differences between the outer main lobe to the centre. This value is named Cdif and is referred to as the absolute difference between the centre and the side microphone. All calculation is done without rounding, only the shown number in the table is rounded. The following \autoref{meas:result_cross_5_6}, \autoref{meas:result_cross_6_7}, \autoref{meas:result_cross_7_8}, \autoref{meas:result_cross_8_9}, \autoref{meas:result_cross_9_10} shows the measured result in the given wind speed interval.
-
+The measurement is calculated into octave band, to be able to compare the measured result in frequency bands. The measurement result is divided into wind speed groups with the same interval as in \autoref{ta:meas:approved_measurement}. For every octave band in every group, the $l_{eq}$ is calculated and rounded to the nearest integer and the \db is left out in the table such that the table fits within one page. Every measurement is given by a 'm' with following of a number. The letter 'm' stands for measurement where the number specifies the actual played measurement number; for example, the fourth measurement in a row is named m4. For every new speaker angle, the number is reset and started with the number 1. In every measurement group, the average of the measurements for each microphone is calculated for every octave band. The upwards microphone information is named \textbf{U}, the centre microphone information is named \textbf{C}, and the downwards microphone information is named \textbf{D}. Furthermore the average difference between the upwards microphone and the downwards microphone is calculated and given as \textbf{Dif} in the table. In the end, the absolute differences between the centre microphone and the upwards microphone are calculated and added to the absolute differences between the centre microphone and the downwards microphone. This value gives the absolute differences between the outer main lobe to the centre. This value is named \textbf{Cdif} and is referred to as the absolute difference between the centre and the side microphone. All calculation is done without rounding, only the shown number in the table is rounded. The following \autoref{meas:result_cross_7_8} shows the measurement result for wind speed interval $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $. The result for the remaining wind speed interval is founded in \autoref{ch:ap:final_measurement_KUDO}.
 
 
 
@@ -93,7 +92,7 @@ The measurement is calculated into octave band, to be able to compare the measur
 
 \begin{table}[H]
 \centering
-\caption{The table shows the measurement in octave band and within the wind speed interval of $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ with the given line source array rotation}
+\caption{The table shows the measurement in octave band and within the wind speed interval of $[\SI{7}{\meter\per\second},\, \SI{8}{\meter\per\second}[ $ with the given line source array rotation.}
 \setlength\tabcolsep{5pt} % default value: 6pt
 \begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l}
 freq & \multicolumn{3}{l|}{1k} & \multicolumn{3}{l|}{2k} & \multicolumn{3}{l|}{4k} & \multicolumn{3}{l|}{8k} & \multicolumn{3}{l|}{16k}   &  \multicolumn{2}{l}{Wind}                      \\ \hline
@@ -145,10 +144,14 @@ Cdif & \multicolumn{3}{l|}{\textbf{\SI{4.63}{\decibel}}} & \multicolumn{3}{l|}{\
 \section{parallel wind measurement}\label{mes:kudo:par_mes}
 This section is presenting the final measurement which is done according to the parallel wind measurement design description in \autoref{ch:test_of_proposal_sol} including the update described in \autoref{ch:test_of_meas_des}. The measurement appendix is founded in \autoref{ch:ap:final_measurement_KUDO}. The line source array setup is identical to the measurement in \autoref{mes:kudo:cross_mes} unless that the line source array is rotated \SI{90}{\degree} up against the wind. Furthermore, the microphone is moved according to the description in \autoref{tops:mic_pos_par}. The foam wedge is rotated \SI{90}{\degree} on the plate such that the PVC foam plate is covering for the wind from the back. The windscreen setup is as following \autoref{fig:td:mes_win_opt_par}   
 
-\xfig{measurement/optimised_parallel.pdf_t}{The figure shows the setup of the windscreen while parallel wind measurements}{fig:td:mes_win_opt_par}{1}  
+\xfig{measurement/optimised_parallel.pdf_t}{The figure shows the setup of the windscreen while parallel wind measurements.}{fig:td:mes_win_opt_par}{1}  
 
 
-The anemometer at the microphone position is placed \SI{5}{\meter} to the left of the centre microphone and the anemometer at the line source array is placed in the hight of the line source array and in the left side of the line source array. Both the back and front microphone is placed \SI{10}{\meter} from the centre microphone. The measurement is done in \SI{3}{\degree} forwards tilting and in \SI{7}{\degree} forwards tilting. The measurement setup is illustrated in \autoref{fig:ds:parallel_setup} as a top view.
+The anemometer at the microphone position is placed \SI{5}{\meter} to the left of the centre microphone and the anemometer at the line source array is placed in the hight of the line source array and in the left side of the line source array. Both the back and front microphone is placed \SI{10}{\meter} from the centre microphone. The measurement is done in \SI{3}{\degree} forwards tilting and in \SI{7}{\degree} forwards tilting. The forward tilt angle is illustrated in \autoref{fig:ds:forward_tilt_angle}
+
+\xfig{measurement/forward_tilt_angle.pdf_t}{The figure shows an illustration of the forward tilt angle of the line source array.}{fig:ds:forward_tilt_angle}{1}
+
+The measurement setup is illustrated in \autoref{fig:ds:parallel_setup} as a top view.
 
 \xfig{measurement/parallel_setup.pdf_t}{The figure shows the measuring setup for parallel wind measuring as a top view.}{fig:ds:parallel_setup}{1}
 
@@ -158,9 +161,9 @@ Calculating the distance dependency loss is not as simple for a line source arra
 
 \begin{table}[H]
 \centering
-\caption{The table shows the frequency range versus distances there the \gls{spl} loss is ether in near-field or in far-field and not in between}
+\caption{The table shows the frequency range versus distances there the \gls{spl} loss is ether in near-field or in far-field and not in between.}
 \begin{tabular}{l|ll}
-        & far-field      & near-field         \\ \hline
+    Distance    & Far-field frequency range      & Near-field frequency range         \\ \hline
 \SI{40}{\meter} - \SI{50}{\meter} & \Hz{0} - \SI{5.8}{\kilo\hertz} & \Hz{7200} - \SI{20}{\kilo\hertz} \\
 \SI{50}{\meter} - \SI{60}{\meter} & \Hz{0} - \Hz{7200} & \Hz{8700} - \SI{20}{\kilo\hertz}
 \end{tabular}
@@ -169,12 +172,12 @@ Calculating the distance dependency loss is not as simple for a line source arra
 
 It is seen in \autoref{meas:tab_dis_vs_field} that a part of the frequency range is neither in near-field or far-field within the distance between the microphone and cannot be calculated with the normal distances calculation for near-field and far-field. Therefore, to calculate the losses in \gls{spl} the area expansion is calculated for every frequency with distances step from \SI{1}{\meter} to \SI{60}{\meter}. The differences between \SI{40}{\meter} to \SI{50}{\meter} and \SI{50}{\meter} to \SI{60}{\meter} from the calculation in \si{\decibel} is shown in the following \autoref{fig:meas:loss_filter}
 
-\plot{plot/loss_filter}{The graph shows the distance-dependent loss from the centre microphone to the front and back microphone. The loss is negative between  \SI{40}{\meter} to \SI{50}{\meter} because the front microphone is closer to the line source array then the centre microphone}{fig:meas:loss_filter} 
+\plot{plot/loss_filter}{The graph shows the distance-dependent loss from the centre microphone to the front and back microphone. The loss is negative between  \SI{40}{\meter} to \SI{50}{\meter} because the front microphone is closer to the line source array then the centre microphone.}{fig:meas:loss_filter} 
 
 The \autoref{fig:meas:loss_filter} shows the distances dependency filter. The upper filter, illustrated as a red line, is added to the back microphone where the lower filter, illustrated as a blue line, is added to the front microphone. The next filter which is designed is the frequency versus absorption filter. 
 Absorption depending on humidity and temperature, to calculate the loss at \SI{10}{\meter} of distances, the formula in standard \citep{iso_9613-1} is used with the measured data for every measurement. The atmospherical pressure is not measured doing the measurement, and therefore, the reference \SI{101.325}{\kilo\pascal} is used as pressure. All 30 measurement is done with short time differences and therefore, the temperature and humidity only change with a fraction. Unless that the temperature and humidity only change with a fraction, the filter is recalculated for every measurement. For every measurement, 55 sample is available for both temperature and humidity, the average of the 55 samples is calculated and used for the filter calculation. One filter example is given in \autoref{fig:meas:absorption_filter} with \SI{12}{\celsius} and \SI{48}{\percent} humidity. The example temperature and humidity are from one of the measurement.
 
- \plot{plot/absorption_filter}{The graphs shows the viscosity loss in a distance of \SI{10}{\meter}. The blue graph is negative because the front microphone is closer to the line source array than the centre microphone}{fig:meas:absorption_filter}
+ \plot{plot/absorption_filter}{The graphs shows the viscosity loss in a distance of \SI{10}{\meter}. The blue graph is negative because the front microphone is closer to the line source array than the centre microphone.}{fig:meas:absorption_filter}
   
  
 The frequency response in \autoref{fig:meas:absorption_filter} is used to compensate the viscosity in the air. 
@@ -183,14 +186,14 @@ To apply the filters, the \gls{fft} is calculated for all measurements and the f
 
 The measurement is done at least 10 times for every forward tilting and based on the amount of data, one graph for both forward tilt angle is shown. Afterwards, the result is given in $L_{eq}$ octave separation above \Hz{150} in a table for all accepted measurements. In all visually chosen measurements, the wind speed is approximately \SI{7}{\meter\per\second}. The following two measurement shows the frequency response with the given line source array forward tilt angle. 
    
-  \plot{plot/parallel_n1_comp}{The graph shows one frequency response measurement where the line source array is tilted \SI{3}{\degree}}{fig:meas:parallel_n1_comp}
- \plot{plot/parallel_n5_comp}{The graph shows one frequency response measurement where the line source array is tilted \SI{7}{\degree}}{fig:meas:parallel_n5_comp}
+  \plot{plot/parallel_n1_comp}{The graph shows one frequency response measurement where the line source array is tilted \SI{3}{\degree}.}{fig:meas:parallel_n1_comp}
+ \plot{plot/parallel_n5_comp}{The graph shows one frequency response measurement where the line source array is tilted \SI{7}{\degree}.}{fig:meas:parallel_n5_comp}
 
 In the analysis, the measurement is split into groups depending on the microphone position. The reason that the group is microphone wise and not wind speed interval is that the amount of data is small. Furthermore, all measurement in the analysis is between $\pm\SI{25}{\degree}$ from parallel wind to the speaker.  All measurement deviates from this range is excluded. Moreover, measurement with wind speed beneath \SI{5}{\meter\per\second} is also excluded, and measurement above \SI{7}{\meter\per\second} is excluded because only a few measurements are available.  From those limitations, the following \autoref{ta:meas:approved_measurement_par} shows the amount of measurement for each forward tilt angle. 
 
 \begin{table}[H]
 \centering
-\caption{The table shows the number of measurement which is between \SI{-25}{\degree} to \SI{25}{\degree} in the given \si{\meter\per\second} interval}
+\caption{The table shows the number of measurement which is between \SI{-25}{\degree} to \SI{25}{\degree} in the given \si{\meter\per\second} interval.}
 \begin{tabular}{l|l|l|l}
 Line source array forward tilt angle & \SI{3}{\degree}  & \SI{7}{\degree} & Total \\ \hline
 $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[  $        & 3  & 5  & 8     \\      
@@ -198,13 +201,13 @@ $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[  $        & 3  & 5  & 
 \label{ta:meas:approved_measurement_par}
 \end{table}
 
-The measurement is calculated into octave band, to be able to compare the measured result in the frequency band. The measurement is divided into three groups shown in \autoref{ta:meas:approved_data_par}, one for every microphone. For every octave band in every group, the $l_{eq}$ is calculated and rounded to the nearest integer. The \si{\decibel} is left out in the table to make the data more manageable. Every measurement is given by a 'm' with following of a number. The letter 'm' stands for measurement where the number specifies the actual played measurement number. In every group, the average of the measurements is calculated for every octave band, for every microphone. The nearest microphone to the line source array is named F for the front microphone, the centre microphone is named C and the back microphone is named B. Furthermore the average difference between the two forward tilt angle is calculated and is given as Dif in the table. All calculation is done without rounding, only the number in the table is rounded.
+The measurement is calculated into octave band, to be able to compare the measured result in the frequency band. The measurement is divided into three groups shown in \autoref{ta:meas:approved_data_par}, one for every microphone. For every octave band in every group, the $l_{eq}$ is calculated and rounded to the nearest integer. The \si{\decibel} is left out in the table to make the data more manageable. Every measurement is given by a 'm' with following of a number. The letter 'm' stands for measurement where the number specifies the actual played measurement number. In every group, the average of the measurements is calculated for every octave band, for every microphone. The nearest microphone to the line source array is named \textbf{F} for the front microphone, the centre microphone is named \textbf{C} and the back microphone is named \textbf{B}. Furthermore the average difference between the two forward tilt angle is calculated and is given as \textbf{Dif} in the table. All calculation is done without rounding, only the number in the table is rounded.
 
  The following \autoref{ta:meas:approved_data_par}, shows the measured result in the given wind speed interval.
 
 \begin{table}[H]
 \centering
-\caption{The table shows the measurement in octave band and within the wind speed interval of $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $ with the given line source array forward tilt angle}
+\caption{The table shows the measurement in octave band and within the wind speed interval of $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $ with the given line source array forward tilt angle.}
 \setlength\tabcolsep{5pt} % default value: 6pt
 \begin{tabular}{l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l|l}
 freq & \multicolumn{2}{l|}{\Hz{125}} & \multicolumn{2}{l|}{\Hz{250}} & \multicolumn{2}{l|}{\Hz{500}} & \multicolumn{2}{l|}{\Hz{1000}} & \multicolumn{2}{l|}{\Hz{2000}} & \multicolumn{2}{l|}{\Hz{4000}} & \multicolumn{2}{l|}{\Hz{8000}} & \multicolumn{2}{l}{\SI{16}{\kilo\hertz}}  \\ \hline
@@ -218,7 +221,7 @@ m6-6   &    66  &      66   &     63   &   63    &      60       &     62      &
 m7   &    N  &      66   &   N  &   64     &   N        &     64      &    N    &     64       &      N      &       68     &      N      &       73     &        N   &       68     & N &  59\\
 m10  &   N  &     66    &   N    &   64    &     N      &     64      &    N     &     61       &    N     &       60     &      N     &       63     &        N   &       63     & N & 49 \\ \hline
 avg       &      66 &   66     &      64    &  64     &    62         &     63       &      57      &   60    &     52       &    59        &    54        &      61      &      57      &     61       & 47 &51 \\ \hline
-Dif & \multicolumn{2}{l|}{\textbf{-0.6}} & \multicolumn{2}{l|}{\textbf{-0.47}} & \multicolumn{2}{l|}{\textbf{-0.55}} & \multicolumn{2}{l|}{\textbf{3.31}} & \multicolumn{2}{l|}{\textbf{7.57}} & \multicolumn{2}{l|}{7.59}& \multicolumn{2}{l|}{\textbf{4.25}}& \multicolumn{2}{l}{\textbf{3.39}} \\
+Dif & \multicolumn{2}{l|}{\textbf{-0.6}} & \multicolumn{2}{l|}{\textbf{-0.47}} & \multicolumn{2}{l|}{\textbf{-0.55}} & \multicolumn{2}{l|}{\textbf{3.31}} & \multicolumn{2}{l|}{\textbf{7.57}} & \multicolumn{2}{l|}{\textbf{7.59}}& \multicolumn{2}{l|}{\textbf{4.25}}& \multicolumn{2}{l}{\textbf{3.39}} \\
 \multicolumn{17}{l}{ } \\   
 C & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{} & \multicolumn{2}{l|}{}& \multicolumn{2}{l|}{}& \multicolumn{2}{l}{}     \\ \hline
 m1-3   &   66  &      66      &    63  &   63         &   61   &     61       &  57   &      58      &  53   &  61   &  58   &      67      &   53   &      58      & 45 &44  \\
@@ -244,7 +247,7 @@ Dif & \multicolumn{2}{l|}{\textbf{-0.79}} & \multicolumn{2}{l|}{\textbf{-0.57}} 
 
 \begin{table}[H]
 \centering
-\caption{The table shows the average wind direction and deviation within the wind speed interval $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $}
+\caption{The table shows the average wind direction and deviation within the wind speed interval $[\SI{5}{\meter\per\second},\, \SI{7}{\meter\per\second}[ $.}
 \begin{tabular}{lllll|l|l}
 \multicolumn{1}{l|}{\SI{3}{\degree} tilt angle} & \multicolumn{1}{l|}{Direction} & $\sigma$ &  &  \SI{7}{\degree} tilt angle & direction & $\sigma$  \\ \cline{1-3} \cline{5-7} 
 \multicolumn{1}{l|}{m1} & \multicolumn{1}{l|}{\SI{2}{\degree} }& \SI{14}{\degree} &  & m3    & \SI{15}{\degree}        & \SI{15}{\degree}  \\

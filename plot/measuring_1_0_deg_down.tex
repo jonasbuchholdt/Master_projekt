@@ -31,7 +31,7 @@ xlabel={Frequency [\hz]},
 ymin=20,
 ymax=90,
 ylabel style={font=\color{white!15!black}},
-ylabel={Level [\hz]},
+ylabel={Level [\db]},
 legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align=left, draw=white!15!black}
 ]
 \addplot [color=mycolor1]
@@ -1277,7 +1277,7 @@ legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align
 21977.8363636364	-1.14371367886887\\
 22027.95	-0.820683102600948\\
 };
-\addlegendentry{upwards}
+\addlegendentry{Upwards}
 
 \addplot [color=mycolor2]
   table[row sep=crcr]{%
@@ -2522,7 +2522,7 @@ legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align
 21977.8363636364	-8.83651232364945\\
 22027.95	-8.5028725452248\\
 };
-\addlegendentry{downwards}
+\addlegendentry{Downwards}
 
 \addplot [color=mycolor3]
   table[row sep=crcr]{%
@@ -3767,10 +3767,10 @@ legend style={at={(0.03,0.03)}, anchor=south west, legend cell align=left, align
 21977.8363636364	-2.3377714635717\\
 22027.95	-1.78889655480873\\
 };
-\addlegendentry{center}
+\addlegendentry{Centre}
 
 \node[right, align=left]
-at (axis cs:100,50) {windspeed: \SI{0.76832}{\meter\per\second}, winddirection: \SI{210.138}{\degree}};
+at (axis cs:100,50) {Windspeed: \SI{0.76832}{\meter\per\second}, Winddirection: \SI{210.138}{\degree}};
 \end{axis}
 
 \end{tikzpicture}%

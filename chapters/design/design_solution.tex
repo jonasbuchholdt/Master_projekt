@@ -1,7 +1,7 @@
 \section{Test of measuring design}\label{sec:ds:test_of_mes_des}
 This section aims to test the design measurement in a windy day, to outsource problem and error in the measuring design. 
 
-\fig{IMG_0107}{The picture shows the measuring setup while the parallel wind measuring is under preperation}{fig:meas:setup_shown}{1}
+\fig{IMG_0107}{The picture shows the measuring setup while the parallel wind measuring is under preperation.}{fig:meas:setup_shown}{1}
 
 The test is done in full scale with all six line source array element and in the designed hight. The test is intended to both test the crosswind measuring design and the parallel wind measuring design, but the wind condition only allowed for crosswind test. After the crosswind measuring design was tested, the wind speed dropped to beneath \SI{1}{\meter\per\second}.
 In the crosswind measuring design, three problems and one code error are observed. The code error is a data save bug, where only the direction of the wind at the line source array is saved. The wind direction data at the microphone position is overwritten by the wind direction data at the line source array. The code bug is fixed for the final measurement. The analysis is addressed as following  
@@ -19,21 +19,21 @@ The explanations is based on the measurement as seen in \autoref{fig:td:mea_1_0_
 
 To be able to differentiate between the microphone in the explanation, the microphone is named according to the position and the wind direction. In the upwards refraction direction, the microphone is named upwards microphone, in the downwards refraction direction the microphone is named downwards microphone, and the centre microphone is named centre microphone. The following \autoref{fig:ds:position_test} illustrate the microphone position versus the wind direction.
 
-\xfig{design/measurement_one_KUDO.pdf_t}{The figure shows the microphone position versus the position of the line source array, while the line source array is \SI{0}{\degree} rotated}{fig:ds:position_test}{1}
+\xfig{design/measurement_one_KUDO.pdf_t}{The figure shows the microphone position versus the position of the line source array, while the line source array is \SI{0}{\degree} rotated.}{fig:ds:position_test}{1}
 
-In \autoref{fig:ds:position_test}, the position of the anemometer temperature and humidity sensor is given at its position doing the measurement. Ensure that the measurement is a measure of the transfer function and not the wind noise, a signal to noise measurement is performed as the first part. The signal to noise ration is measured in two ways, one where the wind noise is measured and one where transfer function is measured at high \gls{spl} level whereafter the output level of the speaker is lowered by \dB{10}, and the transfer function is measured again. While the frequency response in the hole frequency range is lowered by \dB{10}, the headroom is at least  \dB{10}. The noise floor is pink with \dB{70} as the maximum at \Hz{2} at all microphone position with a wind speed of \SI{5}{\meter\per\second}. All measurement is done with a signal to noise ration of more than \dB{10}. The signal to noise ratio was visually checked by plotting the measuring result in \matlab. The signal to noise ratio measuring is not saved as a file in the test measurement but is in the final measurement.
+In \autoref{fig:ds:position_test}, the position of the anemometer temperature and humidity sensor is given at its position doing the measurement. Ensure that the measurement is a measure of the transfer function and not the wind noise, a signal to noise measurement is performed as the first part. The signal to noise ration is measured in two ways, one where the wind noise is measured and one where transfer function is measured at high \gls{spl} level whereafter the output level of the speaker is lowered by \dBr{10}, and the transfer function is measured again. While the frequency response in the hole frequency range is lowered by \dBr{10}, the headroom is at least  \dBr{10}. The noise floor is pink with \dB{70} as the maximum at \Hz{2} at all microphone position with a wind speed of \SI{5}{\meter\per\second}. All measurement is done with a signal to noise ration of more than \dBr{10}. The signal to noise ratio was visually checked by plotting the measuring result in \matlab. The signal to noise ratio measuring is not saved as a file in the test measurement but is in the final measurement.
 
 
 
 \subsection{Ground reflections}\label{sec:des:ground_reflection}
 One intended outcome of the windscreen is to block for the ground reflection by the circular wood plate, such that the measuring position can be in the hight of the ear, as explained in \autoref{sub:des:cros_set}. This part of the windscreen fails in blockage all ground reflections in the frequency above \Hz{250} as seen in \autoref{fig:td:mea_1_0_deg}. The measured depth is not at the same position as much higher compared to the directionality measurement of the speaker in \autoref{fig:ap:KUDO_25_55_des}. The centre microphone does not have that high peaks and deeps, but the upwards and downwards microphone seems to suffer from a ground reflection in the high frequency, which makes the refraction comparison between the microphone position difficult. One thing that might cause the reflection is the position different from \SI{0}{\degree} vertical of the windscreen with respect to the ground. If the plate is tilted forward, there might be some reflection reaching the microphone. A calculation of the reflection might have helped to justify the ground reflection theory, but since the source is a line source array and not a point source, the ground reflection is not as easy to calculate. There might be thousands of sound path from the line source to the microphone where the sound path length is half the wavelength longer. The following \autoref{fig:td:gro_ref_ilu} illustrate the path calculation difficulties and the forward tilted windscreen. 
 
-\xfig{design/ground_reflection.pdf_t}{The figure shows an illustration of the measured setup and some soundpath}{fig:td:gro_ref_ilu}{1}  
+\xfig{design/ground_reflection.pdf_t}{The figure shows an illustration of the measured setup and some sound path.}{fig:td:gro_ref_ilu}{1}  
 
 
 To be able to make a qualified considering to decide if the peaks and depth are due to ground reflection, the measurement is compared to a measurement where the microphone windscreen is situated on the ground and the frequency characteristics in the measuring direction in \autoref{fig:ap:KUDO_25_55_des}.  It has to be noted that the windscreen has a speaker stand connector mounted underneath, which lift the centre of the designed windscreen such that the windscreen cannot lay flat on the ground but is tilted forward. The windscreen was tilted forward by a maximum of \SI{8}{\degree} or less doing all measurement on the ground in all microphone position. The following \autoref{fig:td:mea_1_0_deg_down} shows a frequency response at all three microphones position of the line source array, where the windscreen is placed on the ground and with a non-rotation line source array.
 
-\plot{plot/measuring_1_0_deg_down}{The graph shows the measuring result along with all three microphones, while the microphone is in the windscreen and the windscreen is on the ground. The graph is an average of three measurements for the upwards and downwards microphone and one measurement for the centre microphone. The average calculation is done in the time domain where all impulse responses are aligned with cross-correlation}{fig:td:mea_1_0_deg_down}
+\plot{plot/measuring_1_0_deg_down}{The graph shows the measuring result along with all three microphones, while the microphone is in the windscreen and the windscreen is on the ground. The graph is an average of three measurements for the upwards and downwards microphone and one measurement for the centre microphone. The average calculation is done in the time domain where all impulse responses are aligned with cross-correlation.}{fig:td:mea_1_0_deg_down}
 
 The frequency depth seen at \Hz{3700} in the downwards direction is due to the directionality characteristics of the line source array and can also be seen in \autoref{fig:ap:KUDO_25_55_des}. The same applies to \Hz{9200} and \SI{10}{\kilo\hertz}
 
@@ -50,7 +50,7 @@ Doing the measurement, a frequency differences between \Hz{2000} and \SI{10}{\ki
 It is seen in \autoref{fig:td:mea_1_0_deg_boost} that the depth at \SI{10}{\kilo\hertz} is gone for the centre microphone without the designed windscreen, but the frequency response at the centre and upwards position is generally higher than the other three measurements. The measurement is done with less than \SI{1}{\meter\per\second} of wind speed. This might indicate that the differences in the windscreen setup might influence the frequency response. 
 Three mechanical differences are observed on the windscreen setup doing the measurement. The first is the vertical angle of the windscreen, which is different along with all designed windscreens doing the measurement because the ground is uneven. The ground unevenness is measured afterwards to a maximum of \SI{8}{\degree}. Secondly, the rotational angle of the designed windscreen is also different, along with all designed windscreen. The rotational angle is defined to be \SI{0}{\degree} to the line source array while the line source array points directly into the centre of the windscreen opening, as shown in \autoref{fig:td:win_poi_dir}.
 
-\xfig{design/windscreen_point_direction.pdf_t}{The figure shows an illustration where the windscreen is at \SI{0}{\degree} rotational angle}{fig:td:win_poi_dir}{1}  
+\xfig{design/windscreen_point_direction.pdf_t}{The figure shows an illustration where the windscreen is at \SI{0}{\degree} rotational angle.}{fig:td:win_poi_dir}{1}  
 
 As illustrated in \autoref{fig:td:win_poi_dir}, no matter the tournament of the speaker, the opening shall point directly to the speaker. In the measurement, the opening for all three windscreen is not pointing directly to the line source array. The rotational angle of the windscreen is adjusted with depends on the wind direction. This means that the windscreen at downwards direction is turned left, where the windscreen at upwards direction is turned right. 
 
@@ -76,7 +76,7 @@ As seen in \autoref{fig:td:mea_1_0_20_deg_up}, while the speaker is turned towar
 
 \begin{table}[H]
 \centering
-\caption{The table shows the measured $L_{eq}$ and $L_{A_{eq}}$ \gls{spl} for the upwards microphone}
+\caption{The table shows the measured $L_{eq}$ and $L_{A_{eq}}$ \gls{spl} for the upwards microphone.}
 \begin{tabular}{l|l|l|l}
 Line source array rotation &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\degree}\\ \hline
        $L_{eq}$       &  \dB{66.64}     &  \dB{67.46} & \dB{68.70} \Tstrut \\
@@ -90,14 +90,14 @@ Line source array rotation &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\de
 The second microphone which is compared is the microphone in the downwards direction. The following \autoref{fig:td:mea_1_0_20_deg_down} shows the frequency response for every tournament.
 
 
-\plot{plot/measuring_1_0_20_downwards}{The graph shows the measuring result for the downwards microphone in three line source array rotation, while the microphone is in the windscreen and the windscreen is in the hight of the ear. The graph is an average of 10 measurements in all three line source array rotational angles. The average calculation is done in the time domain where all impulse responses are aligned with cross-correlation}{fig:td:mea_1_0_20_deg_down}
+\plot{plot/measuring_1_0_20_downwards}{The graph shows the measuring result for the downwards microphone in three line source array rotation, while the microphone is in the windscreen and the windscreen is in the hight of the ear. The graph is an average of 10 measurements in all three line source array rotational angles. The average calculation is done in the time domain where all impulse responses are aligned with cross-correlation.}{fig:td:mea_1_0_20_deg_down}
 
 As seen in \autoref{fig:td:mea_1_0_20_deg_down}, while the speaker is turned, the \gls{spl} is lowered unless the \SI{20}{\degree} above \Hz{2500}. The raise in power comes from the directionality characteristics of the line source array as seen in \autoref{fig:ap:KUDO_25_55_des}. The peaks and depth is ether not at the same frequency which make the visually justment difficult but it is observed i generally that turning the speaker lower the \gls{spl} from \SI{0}{\degree} to \SI{10}{\degree} above \Hz{650}. The following \autoref{ta:ana:spl_weight_downwards} shows the single number \gls{spl} both non weighted and A-weighted.
 
 
 \begin{table}[H]
 \centering
-\caption{The table shows the measured $L_{eq}$ and $L_{A_{eq}}$ \gls{spl} for the downwards microphone}
+\caption{The table shows the measured $L_{eq}$ and $L_{A_{eq}}$ \gls{spl} for the downwards microphone.}
 \begin{tabular}{l|l|l|l}
 Line source array rotation &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\degree}\\ \hline
        $L_{eq}$       &  \dB{66.86}     &  \dB{65.46} & \dB{67.12} \Tstrut \\
@@ -109,7 +109,7 @@ Line source array rotation &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\de
 
 The third microphone, which is compared, is the microphone in the centre direction. The following \autoref{fig:td:mea_1_0_20_deg_center} shows the frequency response for every tournament.
 
-\plot{plot/measuring_1_0_20_center}{The graph shows the measuring result for the centre microphone in three line source array rotation, while the microphone is in the windscreen and the windscreen is in the hight of the ear. The graph is an average of 10 measurements in all three line source array rotational angles. The average calculation is done in the time domain where all impulse responses are aligned with cross-correlation}{fig:td:mea_1_0_20_deg_center}
+\plot{plot/measuring_1_0_20_center}{The graph shows the measuring result for the centre microphone in three line source array rotation, while the microphone is in the windscreen and the windscreen is in the hight of the ear. The graph is an average of 10 measurements in all three line source array rotational angles. The average calculation is done in the time domain where all impulse responses are aligned with cross-correlation.}{fig:td:mea_1_0_20_deg_center}
 
 As seen in \autoref{fig:td:mea_1_0_20_deg_center}, the frequency response does not ether raise or fall markebly while the speaker is turned. The large depth between \Hz{2000} and \Hz{5000} comes from the frequency characteristic of the line source array as seen in \autoref{fig:ap:KUDO_25_55_des}. The following \autoref{ta:ana:spl_weight_center} shows the single number \gls{spl} both non weighted and A-weighted.
 
@@ -117,7 +117,7 @@ As seen in \autoref{fig:td:mea_1_0_20_deg_center}, the frequency response does n
 
 \begin{table}[H]
 \centering
-\caption{The table shows the measured $L_{eq}$ and $L_{A_{eq}}$ \gls{spl} for the center microphone}
+\caption{The table shows the measured $L_{eq}$ and $L_{A_{eq}}$ \gls{spl} for the center microphone.}
 \begin{tabular}{l|l|l|l}
 Line source array rotation &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\degree}\\ \hline
        $L_{eq}$       &  \dB{69.72}     &  \dB{68.79} & \dB{68.77} \Tstrut \\
@@ -135,8 +135,8 @@ Line source array rotation &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\de
 To be able to decide the last few details of the final measurement based on the test and data analysis performed in \autoref{sec:ds:test_of_mes_des}, the frequency response of the designed windscreen is founded in free field condition while rotating and tilting. Secondly, the final windscreen hight is decided. In \autoref{sec:ds:wind_freq_res}, the frequency response of the windscreen is founded where the windscreen is rotated and tilted. 
 
 \subsection{windscreen frequency response}\label{sec:ds:wind_freq_res}
-This section aims to research the frequency response of the designed windscreen. It is observed in \autoref{sec:des:freq_boost} that the measurement with the designed windscreen in the centre and downwards direction has a higher frequency response between \Hz{1000} and \SI{10}{\kilo\hertz} compare to two measurements without the designed windscreen at the centre. Therefore it has to be founded if the windscreen by itself have differences in frequency response while the windscreen is rotated or tilted. The windscreen is measured in the anechoic chamber both with tilting and with rotation to research the effect of differences of the windscreen. The measurement is founded in \autoref{app:wind_inf_res}. It is observed in the measurement that the windscreen does not have a frequency differences more than $\pm$\dB{2} while the windscreen is not rotated and not tilted. Furthermore, small forward tilting up to \SI{9}{\degree} only have an attenuation effect above \SI{10}{\kilo\hertz} due to plate reflection. A rotation of \SI{30}{\degree} ether to the left of to the right does attenuate in the frequency range of \Hz{1000} to \Hz{4000}. The frequency response of the windscreen is also measured while removing the foam wedge, but this configuration produces high reflection in the frequency response. Generality the designed windscreen only change the frequency response up to \dB{2} while the designed windscreen points within $\pm$ \SI{10}{\degree} to the line source array and with tilting beneath \SI{3}{\degree}. The following measurement \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0_dt} shows the different while the microphone only is required with the original modified windscreen and with the designed windscreen
-\plot{plot/windscreen_with_foam_tilt_0_rot_0_dt}{The graph shows frequency response of the speaker measured without windscreen and with the designed windscreen with no rotation and no tilting}{fig:ap:freq_resp_with_foa_til_0_rot_0_dt}
+This section aims to research the frequency response of the designed windscreen. It is observed in \autoref{sec:des:freq_boost} that the measurement with the designed windscreen in the centre and downwards direction has a higher frequency response between \Hz{1000} and \SI{10}{\kilo\hertz} compare to two measurements without the designed windscreen at the centre. Therefore it has to be founded if the windscreen by itself have differences in frequency response while the windscreen is rotated or tilted. The windscreen is measured in the anechoic chamber both with tilting and with rotation to research the effect of differences of the windscreen. The measurement is founded in \autoref{app:wind_inf_res}. It is observed in the measurement that the windscreen does not have a frequency differences more than $\pm$\dBr{2} while the windscreen is not rotated and not tilted. Furthermore, small forward tilting up to \SI{9}{\degree} only have an attenuation effect above \SI{10}{\kilo\hertz} due to plate reflection. A rotation of \SI{30}{\degree} ether to the left of to the right does attenuate in the frequency range of \Hz{1000} to \Hz{4000}. The frequency response of the windscreen is also measured while removing the foam wedge, but this configuration produces high reflection in the frequency response. Generality the designed windscreen only change the frequency response up to \dB{2} while the designed windscreen points within $\pm$ \SI{10}{\degree} to the line source array and with tilting beneath \SI{3}{\degree}. The following measurement \autoref{fig:ap:freq_resp_with_foa_til_0_rot_0_dt} shows the different while the microphone only is required with the original modified windscreen and with the designed windscreen
+\plot{plot/windscreen_with_foam_tilt_0_rot_0_dt}{The graph shows the frequency response of the speaker measured without windscreen and with the designed windscreen. With no rotation and no tilting.}{fig:ap:freq_resp_with_foa_til_0_rot_0_dt}
 
 
 
@@ -153,11 +153,11 @@ In the final measurement, the designed windscreen is used as it is designed. It 
 \end{requirement}
 
 \begin{requirement}\label{req:windscreen}
-    \requirement{The windscreen shall lay flat on the ground without tilting higher than \SI{3}{\degree} and point \SI{0}{\degree} to the line source array}
+    \requirement{The windscreen shall lay flat on the ground without tilting higher than \SI{3}{\degree} and point \SI{0}{\degree} to the line source array.}
     \argument{This requirement is made according to the founded frequency response change in \autoref{sec:ds:wind_freq_res} while the windscreen is tilted and rotated.}
 \end{requirement}
 
 \begin{requirement}\label{req:speaker_directionality}
-    \requirement{The speaker shall have symmetric directionality characteristics with a beamwidth of \SI{50}{\degree}}
-    \argument{This requirement is made according to the frequency response in the measuring result \autoref{sec:des:measuring_result}, where the differences in directionality characteristics make it difficult to compare the upwards microphone and downwards microphone since the line source array has a \gls{spl} boost in the \SI{45}{\degree} }
+    \requirement{The speaker shall have symmetric directionality characteristics with a beamwidth of \SI{50}{\degree}.}
+    \argument{This requirement is made according to the frequency response in the measuring result \autoref{sec:des:measuring_result}, where the differences in directionality characteristics make it difficult to compare the upwards microphone and downwards microphone since the line source array has a \gls{spl} boost in the \SI{45}{\degree}. }
 \end{requirement}

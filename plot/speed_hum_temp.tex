@@ -7,7 +7,17 @@
 \begin{tikzpicture}[font=\footnotesize]
 
 \begin{axis}[%
-\plotsettings
+width=120mm, 
+height=50mm, 
+at={(5mm,5mm)}, 
+scale only axis,
+grid=both,
+grid style={line width=.1pt, draw=gray!10},
+major grid style={line width=.2pt,draw=gray!50}, 
+minor tick num=4,
+axis x line*=bottom,
+axis y line*=left,
+axis background/.style={fill=white},
 xmin=0,
 xmax=40,
 xlabel style={font=\color{white!15!black}},

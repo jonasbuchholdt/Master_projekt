@@ -1,7 +1,7 @@
 \section{Test of measuring design}\label{sec:ds:test_of_mes_des}
 This section aims to test the design measurement in a windy day, to outsource problem and error in the measuring design. The following \autoref{fig:meas:setup_shown_test} shows a picture of the measurement setup.
 
-\fig{IMG_0107}{The picture shows the measuring setup while the parallel wind measuring is under preparation.}{fig:meas:setup_shown_test}{1}
+\fig{IMG_0107_lil}{The picture shows the measuring setup while the parallel wind measuring is under preparation.}{fig:meas:setup_shown_test}{1}
 
 The test is done in full scale with all six line source array element and in the designed hight. The test is intended to both test the crosswind measuring design and the parallel wind measuring design, but the wind condition only allowed for crosswind test. After the crosswind measuring design is tested, the wind speed dropped to beneath \SI{1}{\meter\per\second}.
 In the crosswind measuring design, three problems and one code error are observed. The code error is a data save bug, where only the direction of the wind at the line source array is saved. The wind direction data at the microphone position is overwritten by the wind direction data at the line source array. The code bug is fixed for the final measurement. The analysis is addressed as follows.  
@@ -21,7 +21,7 @@ To be able to differentiate between the microphone in the explanation, the micro
 
 \xfig{design/measurement_one_KUDO.pdf_t}{The figure shows the microphone position versus the position of the line source array, while the line source array is \SI{0}{\degree} rotated.}{fig:ds:position_test}{1}
 
-In \autoref{fig:ds:position_test}, the position of the anemometer temperature and humidity sensor is given at its position doing the measurement. Ensuring that the measurement is a measure of the impulse response of the line source array and not the wind noise, a signal to noise measurement is performed as the first part. The signal to noise ration is measured in two ways, one where the wind noise is measured and one where the impulse response is measured at high \gls{spl} level whereafter the output level of the line source array is lowered by \dBr{10}, and the transfer function is measured again. While the frequency response in the hole frequency range is lowered by \dBr{10}, the headroom is at least  \dBr{10}. The noise floor is pink with \dB{70} as the maximum at \Hz{2} at all microphone position with a wind speed of \SI{5}{\meter\per\second}. All measurement is done with a signal to noise ration of more than \dBr{10}. The signal to noise ratio was visually checked by plotting the measuring result in \matlab. The signal to noise ratio measuring is not saved as a file in the test measurement but is in the final measurement.
+In \autoref{fig:ds:position_test}, the position of the anemometer temperature and humidity sensor is given at its position doing the measurement. Ensuring that the measurement is a measure of the impulse response of the line source array and not the wind noise, a signal to noise measurement is performed as the first part. The signal to noise ration is measured in two ways, one where the wind noise is measured and one where the impulse response is measured at high \gls{spl} level whereafter the output level of the line source array is lowered by \dBr{10}, and the transfer function is measured again. While the frequency response in the hole frequency range is lowered by \dBr{10}, the headroom is at least  \dBr{10}. The noise floor is pink with \dB{70} as the maximum at \Hz{2} at all microphone position with a wind speed of \SI{5}{\meter\per\second}. All measurement is done with a signal to noise ration of more than \dBr{10}. The signal to noise ratio is visually checked by plotting the measuring result in \matlab. The signal to noise ratio measuring is not saved as a file in the test measurement but is in the final measurement.
 
 
 
@@ -31,7 +31,7 @@ One intended outcome of the windscreen is to block for the ground reflection by 
 \xfig{design/ground_reflection.pdf_t}{The figure shows an illustration of the measured setup and some sound path.}{fig:td:gro_ref_ilu}{1}  
 
 
-To be able to make a qualified considering to decide if the peaks and depth are due to ground reflection, the measurement is compared to a measurement where the microphone windscreen is situated on the ground and the frequency characteristics in the measuring direction in \autoref{fig:ap:KUDO_25_55_des}.  It has to be noted that the windscreen has a speaker stand connector mounted underneath, which lift the centre of the designed windscreen such that the windscreen cannot lay flat on the ground but is tilted forward. The windscreen was tilted forward by a maximum of \SI{8}{\degree} or less doing all measurement on the ground in all microphone position. The following \autoref{fig:td:mea_1_0_deg_down} shows a frequency response at all three microphones position of the line source array, where the windscreen is placed on the ground and with a non-rotation line source array.
+To be able to make a qualified considering to decide if the peaks and depth are due to ground reflection, the measurement is compared to a measurement where the microphone windscreen is situated on the ground and the frequency characteristics in the measuring direction in \autoref{fig:ap:KUDO_25_55_des}.  It has to be noted that the windscreen has a speaker stand connector mounted underneath, which lift the centre of the designed windscreen such that the windscreen cannot lay flat on the ground but is tilted forward. The windscreen is tilted forward by a maximum of \SI{8}{\degree} or less doing all measurement on the ground in all microphone position. The following \autoref{fig:td:mea_1_0_deg_down} shows a frequency response at all three microphones position of the line source array, where the windscreen is placed on the ground and with a non-rotation line source array.
 
 \plot{plot/measuring_1_0_deg_down}{The graph shows the measuring result along with all three microphones, while the microphone is in the windscreen and the windscreen is on the ground. The graph is an average of three measurements for the upwards and downwards microphone and one measurement for the centre microphone. The average calculation is done in the time domain where all impulse responses are aligned with cross-correlation.}{fig:td:mea_1_0_deg_down}
 
@@ -117,7 +117,7 @@ As seen in \autoref{fig:td:mea_1_0_20_deg_center}, the frequency response does n
 
 \begin{table}[H]
 \centering
-\caption{The table shows the measured $L_{eq}$ and $L_{A_{eq}}$ \gls{spl} for the center microphone.}
+\caption{The table shows the measured $L_{eq}$ and $L_{A_{eq}}$ \gls{spl} for the centre microphone.}
 \begin{tabular}{l|l|l|l}
 Line source array rotation &  \SI{0}{\degree}  & \SI{10}{\degree}  & \SI{20}{\degree}\\ \hline
        $L_{eq}$       &  \dB{69.72}     &  \dB{68.79} & \dB{68.77} \Tstrut \\
